@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <typeAlias alias="ImpPsItem"     type="com.smc.webcatalog.model.ImpPsItem" />
+
+    <resultMap id="PsItemResult" class="ImpPsItem">
+
+	    <result property="num" column="ps_num"/>
+		<result property="lang" column="ps_lang"/>
+		<result property="flg" column="ps_flg"/>
+		<result property="kan" column="ps_kan"/>
+		<result property="page" column="ps_page"/>
+		<result property="c1" column="ps_c1"/>
+		<result property="c1id" column="ps_c1id"/>
+		<result property="c2" column="ps_c2"/>
+		<result property="c2id" column="ps_c2id"/>
+		<result property="series" column="ps_series"/>
+		<result property="item" column="ps_item"/>
+		<result property="item_regexp" column="ps_item_regexp"/>
+		<result property="name" column="ps_name"/>
+		<result property="sid" column="ps_sid"/>
+		<result property="se_id" column="se_id"/>
+        <result property="query" column="ps_query"/>
+
+
+	</resultMap>
+
+
+	<insert id="insert_PsItem" parameterClass="ImpPsItem">
+
+		insert into psitem (
+		ps_num,ps_lang,ps_flg,ps_kan,ps_page,ps_c1,ps_c1id,ps_c2,ps_c2id,ps_series,ps_item,ps_item_regexp,ps_name,ps_sid,ps_query)
+		values (
+		#num#,#lang#,#flg#,#kan#,#page#,#c1#,#c1id#,#c2#,#c2id#,#series#,#item#,#item_regexp#,#name#,#sid#,#query#)
+
+	</insert>
+
+	<delete id="deleteAll_PsItem">
+		delete from psitem where ps_lang=#lang#;
+	</delete>
+
+	<select id="search_PsItem" parameterClass="com.smc.webcatalog.model.ImpPsItemSearchCondition" resultMap="PsItemResult">
+
+		select * from psitem join series on (se_sid=ps_sid) where se_active = true and se_sid is not null and se_sid!=''
+
+		and ps_lang = #lang#
+
+		<isEqual property="mode" compareValue="HEAD">
+			<isNotNull property="keywords">
+				<iterate property="keywords" prepend="and"  conjunction="and">
+					( ps_series~*#keywords[]# )
+				</iterate>
+			 </isNotNull>
+		</isEqual>
+
+		<isNotEqual property="mode" compareValue="HEAD">
+
+			<isNotNull property="keywords">
+				<!-- ja シリーズ名入れない2015/07/23 -->
+				<isEqual property="lang" compareValue="ja">
+					<iterate property="keywords" prepend="and"  conjunction="and">
+						( #keywords[]#~*ps_item_regexp or ps_item~*#keywords[]# or ps_name~*#keywords[]# )
+					</iterate>
+				</isEqual>
+
+				<!-- en シリーズ名入れるか選択 -->
+				<isNotEqual property="lang" compareValue="ja">
+					<isEqual property="name_series" compareValue="NAME">
+						<iterate property="keywords" prepend="and"  conjunction="and">
+							( #keywords[]#~*ps_item_regexp or ps_item~*#keywords[]# or ps_name~*#keywords[]# )
+						</iterate>
+					</isEqual>
+
+					<isNotEqual property="name_series" compareValue="NAME">
+						<iterate property="keywords" prepend="and"  conjunction="and">
+							( #keywords[]#~*ps_item_regexp or ps_item~*#keywords[]# or ps_series~*#keywords[]# )
+						</iterate>
+					</isNotEqual>
+
+				</isNotEqual>
+
+			</isNotNull>
+		 </isNotEqual>
+
+		 <isNotEmpty property="c1c2">
+		 and ps_c1||'/'||ps_c2 = #c1c2#
+		 </isNotEmpty>
+
+		 <isNotEmpty property="series">
+		 and ps_series = #series#
+		 </isNotEmpty>
+
+		<isEqual property="mode" compareValue="HEAD">
+		 order by ps_series
+		</isEqual>
+
+		<isNotEqual property="mode" compareValue="HEAD">
+		 order by ps_num
+		</isNotEqual>
+
+	</select>
+
+
+</sqlMap>

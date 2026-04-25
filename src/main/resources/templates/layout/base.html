@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/semantic2.4.1/semantic.min.css}">
+
+  <script th:src="@{/semantic2.4.1/jquery-3.4.1.min.js}"></script>
+  <script th:src="@{/semantic2.4.1/semantic.min.js}"></script>
+
+  <!--jqueru UI-->
+  <link rel="stylesheet" type="text/css" th:href="@{/jquery-ui-1.12.1/jquery-ui.min.css}">
+  <script th:src="@{/jquery-ui-1.12.1/jquery-ui.min.js}"></script>
+  <script th:src="@{/jquery-ui-1.12.1/jquery.tablesort.min.js}"></script>
+
+  <!--json viewer-->
+  <link rel="stylesheet" th:href="@{/jsonviewer/jquery.json-viewer.css}" type="text/css">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+
+<!--my setting-->
+  <script th:src="@{/js/global.js}"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}">
+  <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Web Catalog Admin</title>
+  <meta name="description" content="common-meta">
+</head>
+
+<body>
+  <div class="container-fluid wrapper">
+
+    <!--/* main_nav ================================================= */-->
+    <div layout:fragment="main_nav"></div>
+
+    <div class="contents_wrapper">
+      <!--/* layout中で共通部品を使う場合はlayout:replace */-->
+      <div layout:replace="~{layout/inc_menu::main_menu}"></div>
+
+      <!--/* contents ================================================= */-->
+      <div layout:fragment="contents" class="contents">
+      </div><!-- end contents_wrapper -->
+
+      <footer class="ui center aligned basic segment">
+        <p class="">Copyright &copy; SMC Corporation. All Rights Reserved.</p>
+      </footer>
+
+    </div><!-- end wrapper -->
+
+  </div>
+
+
+  <!--/* 追加のスクリプトはここに */-->
+  <div layout:fragment="before_end_body"></div>
+
+</body>
+
+</html>

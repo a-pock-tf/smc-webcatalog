@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig
+PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+    <settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true"
+		maxRequests="256"
+		maxSessions="30"
+		maxTransactions="20"
+		useStatementNamespaces="false"
+		statementCachingEnabled="true"
+		classInfoCacheEnabled="true"
+	/>
+
+
+    <transactionManager type="JDBC">
+     <!--      <dataSource type="JNDI">
+        <property name="DataSource" value="java:comp/env/jdbc/smccamp"/>
+        </dataSource>-->
+     <dataSource type="SIMPLE">
+            <property name="JDBC.Driver" value="org.postgresql.Driver" />
+            <property name="JDBC.ConnectionURL" value="jdbc:postgresql://192.168.11.121:5432/smccamp" />
+<!--            <property name="JDBC.ConnectionURL" value="jdbc:postgresql://192.168.0.33:5432/smccamp" /> -->
+            <property name="JDBC.Username" value="smccamp" />
+            <property name="JDBC.Password" value="" />
+<!--            <property name="JDBC.Password" value="I5BNRYGe" /> -->
+        </dataSource>
+    </transactionManager>
+
+
+    <sqlMap resource="sql/ItemMap.xml"/>
+    <sqlMap resource="sql/SeriesMap.xml"/>
+	<sqlMap resource="sql/CategoryMap.xml"/>
+	<sqlMap resource="sql/PsItemMap.xml"/>
+<!--      <sqlMap resource="resources/sql/ZipMap.xml"/>
+    <sqlMap resource="resources/sql/FaqMap.xml"/>
+	<sqlMap resource="resources/sql/PGMap.xml"/>
+	<sqlMap resource="resources/sql/ISMap.xml"/>
+	<sqlMap resource="resources/sql/CAD2DMap.xml"/>
+	<sqlMap resource="resources/sql/RohsMap.xml"/>
+	<sqlMap resource="resources/sql/WebCatalogIdxMap.xml"/>
+	<sqlMap resource="resources/sql/ManualMap.xml"/>
+	<sqlMap resource="resources/sql/Manifold.xml"/>
+	<sqlMap resource="resources/sql/Customize.xml"/>
+	<sqlMap resource="resources/sql/Discon.xml"/>
+	<sqlMap resource="resources/sql/NC.xml"/>
+	<sqlMap resource="resources/sql/Cad3dMap.xml"/>
+	<sqlMap resource="resources/sql/AdviceMap.xml"/>
+	<sqlMap resource="resources/sql/AdminUserMap.xml"/>
+	<sqlMap resource="resources/sql/SealMap.xml"/>
+	<sqlMap resource="resources/sql/OmlistMap.xml"/>
+    <sqlMap resource="resources/sql/B10Map.xml"/>
+    <sqlMap resource="resources/sql/MyRedirectMap.xml"/>-->
+
+</sqlMapConfig>
+

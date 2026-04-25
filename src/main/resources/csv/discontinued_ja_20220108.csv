@@ -1,0 +1,451 @@
+カテゴリID	シリーズ名用(生産終了機種)	ｼﾘｰｽﾞ名用１ID	名称	枠内シリーズ１（生産終了機種）	ｼﾘｰｽﾞ１ID	シリーズ2（代替機種）	順	ｼﾘｰｽﾞ１画像名	対象型式	対象型式ID	終了年月日	代替型式	ｼﾘｰｽﾞ2画像名	カタログリンク	終了機種カタログ	生産終了機種取扱説明書	取付互換：	その他：	注意事項：	新旧比較詳細	注意事項リンク先	新ID
+A01	EX600-SEN1,SEN2	EX600-old	シリアル伝送システム SIユニット	EX600-SEN1<br/>EX600-SEN2	EX600-old1	EX600-SEN3<br/>EX600-SEN4	1	EX600-old.jpg	EX600-SEN1<br/>EX600-SEN2	EX600-SEN3-1	2022/3/1	EX600-SEN3<br/>EX600-SEN4	EX600-SEN3.jpg		EX600-old.pdf		あり			EX600-SEN-comp.pdf		EX600
+A01	EX120/121/122/123/140 	EX120-SSL1-old	シリアル伝送システム	EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-old1	-	1		EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-1	2018/5/1	-			EX120-180-old.pdf							
+A01	EX500（GWユニット）	EX500-GW-old	シリアル伝送システム	EX500-GEN1<br/>(特注品含む)	EX500-GW-old1	EX500-GEN2	1		EX500-GEN1<br/>(特注品含む)	EX500-GW-1	2019/3/1	EX500-GEN2	EX500-GEN2.jpg				なし			EX500GEN-comp.pdf		EX500
+A01	EX250-SMJ2	EX250-SMJ2-old	シリアル伝送システム/CC-Link対応 SIユニット	EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-old1	EX600-SMJ□<br/>EX260-SMJ□	1		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-1	2019/7/1	EX600-SMJ□			EX250-old.pdf		なし			ex250-comp.pdf		EX600
+		EX250-SMJ2-old			EX250-SMJ2-old1		2		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-2	2019/7/1	EX260-SMJ□										EX260
+A01	SX3000/5000/7000	SX3000-old	5ポートソレノイドバルブ	SX3000/5000/7000<br/>フラットケーブル<br/>シリアル伝送<br/>単体サブプレート<br/>SX3000/5000/7000<br/>個別配線<br/>単体	SX3000-old1	SY3000/5000/7000<br/>プラグインタイプ<br/>SY3000/5000/7000	1	SX-old.jpg	SX3000/5000/7000<br/>フラットケーブル<br/>シリアル伝送<br/>単体サブプレート	SX3000-1	2020/5/1	SY3000/5000/7000<br/>プラグインタイプ	SY3000.jpg		sx-old.pdf		なし			SX3000-comp.pdf		SY
+		SX3000-old					2		SX3000/5000/7000<br/>個別配線<br/>単体	SX3000-2	2020/5/1	SY3000/5000/7000										SY-5
+A01	VKF300	VKF300-old	3ポートソレノイドバルブ／直動ポペットタイプ	VKF300	VKF300-old1	VK300	1	VKF300-old.jpg	VKF300	VKF300-1	2020/8/1	VK300	VK300.jpg		VKF300-old.pdf		なし			VKF300-comp.pdf		VK
+A01	SY3000/5000	SY3000-2-old	5ポートソレノイドバルブ	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SY3000-2-old1	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	1	SS5Y-2-old.jpg	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SS5Y-4	2019/12/1	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	SS5Y-2.jpg		SY5-old.pdf		なし					SY
+A01	VHK	VHK-old	フィンガバルブ	VHK	VHK-old1	VHK□A	1	VHK-old.jpg	VHK	VHK-1	2021/12/1	VHK□A	VHK-A.jpg		VHK-old.pdf		あり			VHK-comp.pdf		VHK-A
+A01	EX500	EX500GDN-old	シリアル伝送システム	GWユニット<br/>(DeviceNet&reg;対応)<br/>    EX500-GDN1<br/>   56-EX500-GDN1-X8<br/>DeviceNet&reg;通信用ケーブル <br/>(アクセサリケーブル)<br/>    EX500-AC010-DN<br/>    EX500-AC050-DN	EX500GDN-old1	GWユニット<br/>    EX260-SDN□<br/>    EX600-SDN<br/>DeviceNet&reg;通信用ケーブル<br/>   PCA-1557633	1	EX500GDN-old.jpg	GWユニット<br/>(DeviceNet&reg;対応)<br/>    EX500-GDN1<br/>   56-EX500-GDN1-X8<br/>DeviceNet&reg;通信用ケーブル <br/>(アクセサリケーブル)<br/>    EX500-AC010-DN<br/>    EX500-AC050-DN	EX500GDN-1	2021/3/1	GWユニット<br/>    EX260-SDN□<br/>    EX600-SDN<br/>DeviceNet&reg;通信用ケーブル<br/>   PCA-1557633	EX260SDN.jpg		EX500GDN-old.pdf		なし			EX500GDN-comp.pdf		EX260/EX600
+A01	EX120/121/122/123U/123D/140	EX120-SUH1-old	フィールドバスNKE(株)製省配線H システム対応SI ユニット	EX120-SUH1<br/>EX121-SUH1<br/>EX122-SUH1<br/>EX123U-SUH1<br/>EX123D-SUH1<br/>EX140-SUH1	EX120-SUH1-old1	-	1		EX120-SUH1<br/>EX121-SUH1<br/>EX122-SUH1<br/>EX123U-SUH1<br/>EX123D-SUH1<br/>EX140-SUH1	EX120-SUH1-1	2021/2/1	-			EX120-SUH1-old.pdf		なし (他ネットワーク(CC-Link 等)への切換えをご検討お願いいたします。)					
+A01	VQ4000/5000	VQ4000_5000-old	5ポートソレノイドバルブ	VQ4000<br/>VQ5000	VQ4000_5000-old1	VQ4000<br/>VQ5000	1	VQ4000_5000-old.jpg	VQ4000	VQ4000_5000-1	2016/7/1	VQ4000	VQ4000_5000.jpg		VQ4000_5000-old.pdf		あり（仕様に変更があります）			VQ-comp.pdf		VQ4000-5000
+		VQ4000_5000-old			VQ4000_5000-old1		2		VQ5000	VQ4000_5000-2	2016/7/1	VQ5000										VQ4000-5000
+A01	VQC4000	VQC4000-old	5ポートソレノイドバルブ	VQC4000	VQC4000-old1	VQC4000	1	VQC4000-old.jpg	VQC4000	VQC4000-1	2016/7/1	VQC4000	VQC4000.jpg		VQC4000-old.pdf		あり（仕様に変更があります）			VQ-comp.pdf		VQC4000-5000
+A01	VF1000/3000/5000	VF-old	5ポートソレノイドバルブ	VF1000/3000/5000	VF-old1	VF1000/3000/5000	1	VF-old.jpg	VF1000/3000/5000	VF-1	2009/11/1	VF1000/3000/5000	VF.jpg		vf1000-5000.pdf		あり			vf.pdf		VF
+A01	VQ1000/2000	VQ-old	5ポートソレノイドバルブ	VQ1000/2000	VQ-old1	VQ1000/2000	1	VQ-old.jpg	VQ1000/2000	VQ-1	2009/7/1	VQ1000/2000	VQ.jpg		VQ1000-2000.pdf		あり			VQ_VQC1000-2000.pdf		VQ
+A01	VQC1000/2000	VQC-old	5ポートソレノイドバルブ	VQC1000/2000	VQC-old1	VQC1000/2000	1	VQC-old.jpg	VQC1000/2000	VQC-1	2009/7/1	VQC1000/2000	VQC.jpg		VQC1000-2000.pdf		あり			VQ_VQC1000-2000.pdf		VQC
+A01	VQZ	VQZ-old	3/5ポートソレノイドバルブ	VQZ	VQZ-old1	VQZ	1	VQZ-old.jpg	VQZ1000/2000/3000	VQZ-1	2007/6/1	VQZ1000/2000/3000	VQZ.jpg		VQZ100-3000.pdf		あり			vqz_vqz.pdf		VQZ
+		VQZ-old			VQZ-old1		2		VQZ100/200/300	VQZ-2	2007/6/1	VQZ100/200/300										VQZ-3
+A01	SQ1000/2000	SQ-old	5ポートソレノイドバルブ	SQ1000/2000	SQ-old1	SQ1000/2000	1	SQ-old.jpg	SQ1000	SQ-1	2013/7/1	SQ1000	SQ.jpg		sq1000-2000_old.pdf		あり			sq1000-2000-comp.pdf		SQ
+		SQ-old			SQ-old1		2		SQ2000	SQ-2	2013/7/1	SQ2000										SQ
+A01	VP(A)300/500/700	VPA-old	3ポートソレノイドバルブ/3ポートエアオペレートバルブ	VP(A)300/500/700	VPA-old1	VP(A)300/500/700	1	VPA-old.jpg	VP300/500/700	VPA-1	2009/11/1	VP300/500/700	VPA.jpg		VP-VPA300-700.pdf		あり			vpa300-500-700.pdf		VP-3
+		VPA-old			VPA-old1		2		VPA300/500/700	VPA-2	2009/11/1	VPA300/500/700										VPA-A
+A01	VT307	VT307-old	3ポートソレノイドバルブ/直動ポペットタイプ	VT307	VT307-old1	VT307	1	VT307-old.jpg	VT307	VT307-1	2013/6/1	VT307	VT307.jpg		vt307catalog.pdf		あり（ただし、グロメットタイプのリード線サイズが異なります。）			vt307-vt307.pdf		VT307
+A01	VT301	VT301-old	3ポートソレノイドバルブ	VT301	VT301-old1	VT307	1	VT301-old.jpg	VT301	VT301-1	2013/6/1	VT307	VT307.jpg		vt301catalog.pdf		あり（ただし、ねじサイズ、ブラケット取付寸法、グロメットタイプのリード線サイズが異なります。）			vt307-vt301.pdf		VT307
+A01	VZA	VZA-old	3/5ポートエアオペレートバルブ	VZA	VZA-old1	SYJA	1	VZA-old.jpg	VZA300,500	SYJA-1	2008/10/1	SYJA500,700	SYJA.jpg		vza300-500_3000-5000.pdf		あり			vza_syja.pdf		SYJA-A
+		VZA-old			VZA-old1		2		VZA3000,5000	SYJA-2	2008/10/1	SYJA5000,7000										SYJA
+A01	EX240	EX240-old	シリアル伝送システム	EX240	EX240-old1	EX600	1	EX240-old.jpg	EX240	EX600-1	2011/5/1	EX600	EX600.jpg		ex240old.pdf		なし			ex240comp.pdf		EX600
+A01	EX500	EX500-old	フィールドバスシステム　CC-Link対応GWユニット	EX500	EX500-old1	EX260, EX600	1	EX500-old.jpg	EX500-GMJ1	EX260-1	2012/12/1	EX260-SMJ□	EX260.jpg		ex500.pdf		なし			ex500-260.pdf		EX260
+		EX500-old			EX500-old1		2		EX500-GMJ1	EX260-2	2012/12/1	EX600-SMJ□										EX600
+A01	VM	VM-old	メカニカルバルブ	VM100/200	VM-old1	VM100/200	1	VM-old.jpg	VM100,200	VM-1	2013/12/1	VM100,200	VM.jpg		1-p2290-2348-vm.pdf		あり		VM100下配管は寸法変更があります。	VM-comp.pdf		VM-VZM-VFM
+A01	VHS	VHS-old	OSHA規格対応／鍵穴付残圧抜き3ポート弁	VHS	VHS-old1	VHS	1	VHS-old.jpg	VHS20～50	VHS-1	2014/12/1	VHS20～50	VHS.jpg		vhs20-50.pdf		あり (他の部分に寸法変更がありますのでカタログをご確認ください。)			vhs_comp.pdf		VHS
+A01	VHS	VHSW-old	OSHA規格対応／鍵穴付残圧抜き3ポート弁（ダブルアクションタイプ）	VHS	VHSW-old1	VHS	1	VHSW-old.jpg	VHS4510	VNSW-1	2014/12/1	VHS4510	VHSW.jpg		vhs4510-5510.pdf		あり (他の部分に寸法変更がありますのでカタログをご確認ください。)			vhs_comp.pdf		VHS
+		VHSW-old			VHSW-old1		2		VHS4510-06	VNSW-2	2014/12/1	VHS4510										VHS
+		VHSW-old			VHSW-old1		3		VHS5510	VNSW-3	2014/12/1	VHS4510										VHS
+A01	VJ3000	VJ3000-old	5ポートソレノイドバルブ	VJ3000	VJ3000-old1	SYJ/SY/VZ	1	VJ3000-old.jpg	VJ3000　逆加圧仕様	SYJ1-1	2011/8/1	SYJ	SYJ1.jpg		vj-vz.pdf		逆加圧仕様はあり、分割形樹脂マニホールド、2重管システムはなし			vj_comp.pdf		
+		VJ3000-old			VJ3000-old1		2		VJ3000<br/>分割形樹脂マニホールド	SYJ1-2	2011/8/1	SY										SY
+		VJ3000-old			VJ3000-old1		3		VJ3000<br/>2重管システム	SYJ1-3	2011/8/1	VZ										vz.pdf
+A01	VJ/VJA	VJ-old	3・5ポートソレノイドバルブ	VJ/VJA	VJ-old1	SYJ/V100	1	VJ-old.jpg	VJ3000/5000/7000	SYJ2-1	2013/9/1	SYJ3000/5000/7000	SYJ2.jpg		vj3000-vj100.pdf		VJ100は互換なし			vjvja-syjv100.pdf		SYJ
+		VJ-old			VJ-old1		2		VJ100	SYJ2-2	2013/9/1	V100										V100
+		VJ-old			VJ-old1		3		VJ300/500/700	SYJ2-3	2013/9/1	SYJ300/500/700										SYJ-3
+		VJ-old			VJ-old1		4		VJA3000	SYJ2-4	2013/9/1	SYJA3000										SYJA
+		VJ-old			VJ-old1		5		VJA300	SYJ2-5	2013/9/1	SYJA300										SYJA-A
+A01	VF100	VF100-old	3ポートソレノイドバルブ	VF100	VF100-old1	VKF300,VT307,VQZ100	1	VF100-old.jpg	VF100	VF100-1	2014/11/1	VKF300	VKF300.jpg				なし			VF100-comp.pdf		VKF
+		VF100-old			VF100-old1		2		VF100	VF100-2	2014/11/1	VT307										VT307
+		VF100-old			VF100-old1		3		VF100	VF100-3	2014/11/1	VQZ100										VQZ-3
+A01	EVS7	EVS7-old	5ポートソレノイドバルブ	EVS7ダブルDINタイプ	EVS7-old1	EVS7CNOMOタイプ	1	EVS7-old.jpg	EVS7ダブルDINタイプ	EVS7-1	2014/11/1	EVS7CNOMOタイプ	EVS7CNOMO.jpg				なし			EVS7-comp.pdf		
+A01	VFA4000	VFA-old	5ポートエアオペレートバルブ	VFA4000	VFA-old1	VFSA3000	1	VFA-old.jpg	VFA4000	VFSA-1	2014/11/1	VFSA3000	VFSA.jpg				なし			VFA4000-comp.pdf		
+A01	VP7/VPN/VS7	VP7-old	5ポートソレノイドバルブ	VS7-6-*-*-*****-X10<br/>VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)<br/>VS7-8-*-*-*****-X10<br/>VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VP7-old1	VQ7-6-*-*-******<br/>VQ7-6-*-*-***R***<br/>VQ7-8-*-*-******<br/>VQ7-8-*-*-***R***	1		VS7-6-*-*-*****-X10	VQ7-1	2015/9/1	VQ7-6-*-*-******	VQ7.jpg				あり			VP7_VPN_VS7-comp.pdf		VQ-5PI
+		VP7-old			VP7-old1		2		VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)	VQ7-2	2015/9/1	VQ7-6-*-*-***R***										VQ-5PI
+		VP7-old			VP7-old1		3		VS7-8-*-*-*****-X10	VQ7-3	2015/9/1	VQ7-8-*-*-******										VQ-5PI
+		VP7-old			VP7-old1		4		VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VQ7-4	2015/9/1	VQ7-8-*-*-***R***										VQ-5PI
+A01	SY/SX/VQ	SS5Y-old	5ポートソレノイドバルブ オムロン社製伝送ユニットG71-0D16搭載	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30<br/><br/>SS5X5-45S30<br/>VV5Q11-**G-D*-X14	SS5Y-old1	SS5Y3-45G<br/>SS5Y5-45G<br/>SS5X3-45G<br/>SS5X5-45G<br/>-	1	SS5Y-old.jpg	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30	SS5Y-1	2015/6/1	SS5Y3-45G<br/>SS5Y5-45G	SS5Y.jpg				一部置き換え可能品があります。			SY_SX_VQ-comp.pdf		SY-5
+		SS5Y-old			SS5Y-old1		2		SS5X3-45S3<br/>SS5X3-45S30<br/>SS5X5-45S3<br/>SS5X5-45S30	SS5Y-2	2015/6/1	SS5X3-45G<br/>SS5X5-45G										SX
+		SS5Y-old			SS5Y-old1		3		VV5Q11-**G-D*-X14	SS5Y-3	2015/6/1	-										
+A01	EVFS/EVFR	EVFS-old	5ポートソレノイドバルブ	EVFS<br/>EVFR	EVFS-old1	VFS<br/>VFR	1		EVFS	EVFS-1	2016/7/1	VFS	VFS-VFR.jpg				あり			EVFR_EVFS-cmp.pdf		VFS
+		EVFS-old			EVFS-old1		2		EVFR	EVFS-2	2016/7/1	VFR										VFR
+A01	V4000/NVSP4000	V4000-old	5ポートソレノイドバルブ	V4000<br/>NVSP4000	V4000-old1	VFS3000<br/>VQ4000	1		V4000	V4000-1	2016/3/1	VFS3000<br/>VQ4000	VFS-VQ.jpg		S011019-A9010-old.pdf		なし			V4000-comp.pdf		VFS/VQ4000-5000
+		V4000-old			V4000-old1		2		NVSP4000	V4000-2	2016/3/1	VFS3000<br/>VQ4000										VFS/VQ4000-5000
+A01	PCW	PCW-old	PCワイヤリングシステム	PCW	PCW-old1	-	1	PCW-old.jpg	PCW	PCW-1	2016/7/1	-			PCW-old.pdf					PCW-comp.pdf		
+A01	EX120/121/122/123/140	EX120_140-old	シリアル伝送システム	EX120-SUW1(-X5/-X17/-X55/-X56)<br/>EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)<br/>EX122-SUW1、EX123U-SUW1(-X201)<br/>EX123D-SUW1<br/>EX140-SUW1(-X73)	EX120_140-old1	EX120他のネットワーク<br/>(CC-Link等)<br/>EX121他のネットワーク<br/>(CC-Link等)<br/>EX122他のネットワーク<br/>(CC-Link等)<br/>EX123他のネットワーク<br/>(CC-Link等)<br/>EX140他のネットワーク<br/>(CC-Link等)	1		EX120-SUW1(-X5/-X17/-X55/-X56)	EX120_140-1	2016/7/1	EX120他のネットワーク<br/>(CC-Link等)			EX120-old.pdf		あり（仕様の互換はありません）			EX120-comp.pdf		EX
+		EX120_140-old			EX120_140-old1		2		EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)	EX120_140-2	2016/7/1	EX121他のネットワーク<br/>(CC-Link等)										EX
+		EX120_140-old			EX120_140-old1		3		EX122-SUW1、EX123U-SUW1(-X201)	EX120_140-3	2016/7/1	EX122他のネットワーク<br/>(CC-Link等)										EX
+		EX120_140-old			EX120_140-old1		4		EX123D-SUW1	EX120_140-4	2016/7/1	EX123他のネットワーク<br/>(CC-Link等)										EX
+		EX120_140-old			EX120_140-old1		5		EX140-SUW1(-X73)	EX120_140-5	2016/7/1	EX140他のネットワーク<br/>(CC-Link等)										EX
+A01	VQ0000/1000/2000	VQ0000-old	5ポートソレノイドバルブ 直接配管形／フリップタイプ・カセットタイプ	VQ0000<br/>VQ1000 横配管型<br/>VQ1000 上配管型<br/>VQ2000<br/>VQ1*6* 単体ユニット	VQ0000-old1	SJ2000<br/>SJ3000<br/>SQ1000<br/>SY3000<br/>SQ2000<br/>SY3000<br/>S0700	1	VQ0000-old.jpg	VQ0000	VQ0000-1	2017/12/1	SJ2000	SJ-SQ.jpg		vq-choku-old.pdf		なし			VQ0000-comp.pdf		SJ
+		VQ0000-old			VQ0000-old1		2		VQ1000<br/>横配管型	VQ0000-2	2017/12/1	SJ3000<br/>SQ1000										SJ/SQ
+		VQ0000-old			VQ0000-old1		3		VQ1000<br/>上配管型	VQ0000-3	2017/12/1	SY3000										SY-5
+		VQ0000-old			VQ0000-old1		4		VQ2000	VQ0000-4	2017/12/1	SQ2000										SQ
+		VQ0000-old			VQ0000-old1		5		VQ1*6*<br/>単体ユニット	VQ0000-5	2017/12/1	SY3000<br/>S0700										SY-5/S0700-2
+A01	VQ0000/1000	VQ00_10-old	5ポートソレノイドバルブ ベース配管形／プラグリード	VQ0000<br/>VQ1000	VQ00_10-old1	S0700<br/>SJ2000<br/>SY3000	1	VQ00_10-old.jpg	VQ0000	VQ00_10-1	2017/12/1	S0700<br/>SJ2000	S0700.jpg		vq-base-old.pdf		なし			VQ0000-comp.pdf		S0700-2/SJ
+		VQ00_10-old			VQ00_10-old1		2		VQ1000	VQ00_10-2	2017/12/1	SY3000										SY-5
+A02	MNB/MDNB	MNB-old	ロック付シリンダ	MNB/MDNB	MNB-old1	MWB/MDWB	1	MNB-old.jpg	MNB/MDNB	MNB-1	2022/10/1	MWB/MDWB	MWB.jpg		MNB-old.pdf		あり			MNB-comp.pdf		MWB
+A02	CM2Y/CG1Y/CA2Y	SMOOTH-old	スムースシリンダ	CM2Y<br/>CG1Y<br/>CA2Y	SMOOTH-old1	CM2Y-Z<br/>CG1Y-Z<br/>CA2Y-Z	1	SMOOTH-old.jpg	CM2Y	SMOOTH-1	2013/9/1	CM2Y-Z	SMOOTH.jpg		smoothcｰold.pdf		あり					SMOOTH-C
+		SMOOTH-old			SMOOTH-old1		2		CG1Y	SMOOTH-2	2013/9/1	CG1Y-Z										SMOOTH-C
+		SMOOTH-old			SMOOTH-old1		3		CA2Y	SMOOTH-3	2013/9/1	CA2Y-Z										SMOOTH-C
+A02	CQ2Y	SMOOTH-1-old	スムースシリンダ	CQ2Y	SMOOTH-1-old1	CQ2Y-Z	1	SMOOTH-old.jpg	CQ2Y	SMOOTH-1-1	2010/10/1	CQ2Y-Z	SMOOTH.jpg		smoothcｰold.pdf		あり					SMOOTH-C
+A02	CJ2X/CM2X	LOWSPEED-old	低速シリンダ	CJ2X<br/>CM2X	LOWSPEED-old1	CJ2X-Z<br/>CM2X-Z	1	LOWSPEED-old.jpg	CJ2X	LOWSPEED-1	2013/9/1	CJ2X-Z	LOWSPEED.jpg		smoothcｰold.pdf		あり					Low-Speed-Cylinder
+		LOWSPEED-old			LOWSPEED-old1		2		CM2X	LOWSPEED-2	2013/9/1	CM2X-Z										Low-Speed-Cylinder
+A02	CP96/CP96SD	CP96-old	ISO規格準拠 エアシリンダ	CP96/CP96SD	CP96-old1	CP96/CP96SD	1	CP96-old.jpg	CP96/CP96SD	CP96-1	2015/3/1	CP96/CP96SD	CP96.jpg		CP96-old.pdf		あり			C96_comp.pdf		CP96-CP96SD-2
+A02	C96/C96SD	C96-old	ISO規格準拠 エアシリンダ	C96/C96SD	C96-old1	C96/C96SD	1	C96-old.jpg	C96/C96SD	C96-1	2015/3/1	C96/C96SD	C96.jpg		C96-old.pdf		あり			C96_comp.pdf		C96-C96SD-2
+A02	MXH	MXH-old	コンパクトスライド	MXH	MXH-old1	MXH-Z	1	MXH-old.jpg	MXH	MXH-Z-1	2014/12/1	MXH-Z	MXH-Z.jpg		mxh-old.pdf		あり			MXH-comp.pdf		MXH-Z2
+A02	CJ1/CDJ1	CJ1-old	エアシリンダ	CJ1/CDJ1	CJ1-old1	CJ2/CDJ2-Z	1	CJ1-old.jpg	CJ1/CDJ1<br/>φ6,φ10,φ15	CJ1-1	2005/2/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ15	CJ2.jpg		cj1.pdf		あり					CJ2-CDJ2-Z
+		CJ1-old			CJ1-old1		2		クリーンシリーズ <br/>10-/11-CJ1/CDJ1<br/>φ6,φ10,φ15	CJ1-3	2005/2/1	クリーンシリーズ <br/>10-/11-CJ2/CDJ2-Z										CJ2-Z
+A02	CZ1/CDZ1	CZ1-old	エアシリンダ	CZ1/CDZ1	CZ1-old1	CJ2Z/CDZJ2	1	CZ1-old.jpg	CZ1/CDZ1	CJ2Z-1	2005/2/1	CJ2Z/CDJ2Z	CJ2Z.jpg		cz1.pdf		なし			cz1.pdf		CJ2-CDJ2
+A02	CJP/CDJP	CJP-old	ピンシリンダ	CJP/CDJP	CJP-old1	CJP2/CDJP2	1	CJP-old.jpg	CJP/CDJP	CJP2-1	2008/5/1	CJP2/CDJP2	CJP2.jpg		CJP.pdf		基本形はあり			cjp_cjp2.pdf		CJP2-CDJP2-CJP
+A02	CJ2/CDJ2	CJ2-old	エアシリンダ	CJ2/CDJ2	CJ2-old1	CJ2/CDJ2-Z	1	CJ2-old.jpg	CJ2/CDJ2<br/>φ6,φ10,φ16	CJ2-1	2013/9/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ16	CJ2.jpg		CJ2.pdf		あり		・エンドロック形CBJ2は生産終了対象外	cj2-comp.pdf		CJ2-CDJ2-Z
+		CJ2-old			CJ2-old1		2		クリーンシリーズ <br/>10-/11-CJ2/CDJ2<br/>φ6,φ10,φ16 	CJ2-2	2013/9/1	クリーンシリーズ <br/>10-/11-CJ2/CDJ2ｰZ<br/>φ6,φ10,φ16										CJ2-Z
+A02	CM/CDM	CM-old	エアシリンダ	CM/CDM	CM-old1	CM2/CDM2-Z	1	CM-old.jpg	CM/CDM	CM-1	2005/2/1	CM2/CDM2-Z	CM2.jpg		cm.pdf		あり					CM2-CDM2-Z
+		CM-old			CM-old1		2		クリーンシリーズ <br/>10-/11-CM/CDM	CM-2	2005/2/1	クリーンシリーズ <br/>10-/11-CM2/CDM2-Z										CM2-Z
+A02	CM2/CDM2	CM2-old	エアシリンダ	CM2/CDM2	CM2-old1	CM2/CDM2-Z	1	CM2-old.jpg	CM2/CDM2	CM2-1	2013/9/1	CM2/CDM2-Z	CM2.jpg		CM2.pdf		あり		・集約配管形CM2□□P、エンドロック形CBM2は生産終了対象外	cm2-comp.pdf		CM2-CDM2-Z
+		CM2-old			CM2-old1		2		クリーンシリーズ <br/>10-/11-CM2/CDM2	CM2-2	2013/9/1	クリーンシリーズ <br/>10-/11-CM2/CDM2-Z										CM2-Z
+A02	CG/CDG	CG-old	エアシリンダ	CG/CDG	CG-old1	CG1/CDG1-Z	1	CG-old.jpg	CG/CDG	CG-1	2005/2/1	CG1/CDG1-Z	CG1.jpg		cg.pdf		あり					CG1-CDG1-Z
+		CG-old			CG-old1		2		クリーンシリーズ <br/>10-/11-CG/CDG1	CG-2	2005/2/1	クリーンシリーズ <br/>10-/11-CG1/CDG1-Z										CG1-Z-C
+A02	CG1/CDG1	CG1-old	エアシリンダ	CG1/CDG1	CG1-old1	CG1/CDG1-Z	1	CG1-old.jpg	CG1/CDG1	CG1-1	2013/9/1	CG1/CDG1-Z	CG1.jpg		CG1.pdf		あり		・エンドロック形CBG1は生産終了対象外	cg1-comp.pdf		CG1-CDG1-Z
+		CG1-old			CG1-old1		2		クリーンシリーズ <br/>10-/11-CG1/CDG1	CG1-2	2013/9/1	クリーンシリーズ <br/>10-/11-CG1/CDG1-Z										CG1-Z
+A02	MB/MDB	MB-old	エアシリンダ	MB/MDB	MB-old1	MB/MDB-Z	1	MB-old.jpg	MB/MDB<br/>(φ125は除く)	MB-1	2013/9/1	MB/MDB-Z	MB.jpg		MB.pdf		あり		・エンドロック形MBBは生産終了対象外	mb-comp.pdf		MB-MDB-Z
+A02	CA1/CDA1	CA1-old	エアシリンダ	CA1/CDA1	CA1-old1	CA2/CDA2-Z	1	CA1-old.jpg	CA1/CDA1	CA1-1	2005/2/1	CA2/CDA2-Z	CA2.jpg		CA1.pdf		あり					CA2-CDA2-Z
+		CA1-old			CA1-old1		2		クリーンシリーズ <br/>10-/11-CA1/CDA1	CA1-2	2005/2/1	クリーンシリーズ <br/>10-/11-CA2/CDA2										CA2
+A02	CA2/CDA2	CA2-old	エアシリンダ	CA2/CDA2	CA2-old1	CA2/CDA2-Z	1	CA2-old.jpg	CA2/CDA2	CA2-1	2013/9/1	CA2/CDA2-Z	CA2.jpg		CA2.pdf		あり		・ロッド回り止め形CA2K/CA2KW、エンドロック形CBA2、<br/>エアハイドロシリンダCA2□H/CA2W□Hは生産終了対象外	ca2-comp.pdf		CA2-CDA2-Z
+A02	CQ2/CDQ2	CQ2-old	薄形シリンダ	CQ2□/CDQ2□12～100<br/>クリーンシリーズ <br/>10-/11-CQ2/CDQ2	CQ2-old1	CQ2□/CDQ2□12～100<br/>クリーンシリーズ <br/>10-/11-CQ2/CDQ2	1	CQ2-old.jpg	CQ2□/CDQ2□12～100	CQ2-1	2009/10/1	CQ2□/CDQ2□12～100	CQ2.jpg		CQ2.pdf		あり		・φ12, 16, 20, 25のマグネット内蔵なしタイプは生産中止対象外です。<br/>・軸方向配管形CQP2、薄形エンドロックシリンダCBQ2、低速シリンダCQ2Xは生産中止対象外です。<br/>・耐熱オートスイッチ付　-XB14（オーダーメイド）は対象外です。	CQ2.pdf		CQ2-CDQ2-Z
+		CQ2-old			CQ2-old1		2		クリーンシリーズ <br/>10-/11-CQ2/CDQ2	CQ2-3	2009/10/1	クリーンシリーズ <br/>10-/11-CQ2/CDQ2										CQ2-C
+A02	CQ2/CDQ2	CQ2-1-old	薄形シリンダ	CQ2□/CDQ2□125～200	CQ2-1-old1	CQ2□/CDQ2□125～200	1	CQ2-old.jpg	CQ2□/CDQ2□125～200	CQ2-2	2011/4/1	CQ2□/CDQ2□125～200	CQ2.jpg		CQ2.pdf		あり		・φ12, 16, 20, 25のマグネット内蔵なしタイプは生産中止対象外です。<br/>・軸方向配管形CQP2、薄形エンドロックシリンダCBQ2、低速シリンダCQ2Xは生産中止対象外です。	CQ2.pdf		CQ2-CDQ2-Z
+A02	MU/MDU	MU-old	プレートシリンダ	MU/MDU	MU-old1	MU/MDU	1	MU-old.jpg	MU/MDU	MU-1	2010/3/1	MU/MDU	MU.jpg		mu.pdf		あり			mu.pdf		MU-MDU-Z
+A02	MY1B	MY1B-old	メカジョイント式ロッドレスシリンダ／基本形	55-MY1B φ25, φ32, φ40<br/>MY1B	MY1B-old1	55-MY1B-Z φ25, φ32, φ40<br/>MY1B-Z	1	MY1B-old.jpg	55-MY1B φ25, φ32, φ40	MY1B-1	2019/3/1	55-MY1B-Z φ25, φ32, φ40	MY1B.jpg	/international/atex_list.jsp	old_my1b.pdf		あり			my1b.pdf		
+		MY1B-old			MY1B-old1		2		MY1B φ25, φ32, φ40<br/>(φ10, φ16, φ20, φ50～ φ100は対象外)	MY1B-2	2013/4/1	MY1B-Z φ25, φ32, φ40										MY1
+A02	MY1H	MY1H-old	メカジョイント式ロッドレスシリンダ／リニアガイド形	55-MY1H φ25, φ32, φ40<br/>MY1H	MY1H-old1	55-MY1H-Z φ25, φ32, φ40<br/>MY1H-Z	1	MY1H-old.jpg	55-MY1H φ25, φ32, φ40	MY1H-1	2019/3/1	55-MY1H-Z φ25, φ32, φ40	MY1H.jpg	/international/atex_list.jsp	old_my1h.pdf		あり			my1h.pdf		
+		MY1H-old			MY1H-old1		2		MY1H φ25, φ32, φ40<br/>(φ10, φ16, φ20は対象外)	MY1H-2	2013/4/1	MY1H-Z φ25, φ32, φ40										MY1
+A02	CY1B/CY1R	CY1B-old	マグネット式ロッドレスシリンダ	CY1B/CY1R	CY1B-old1	CY3B/CY3R	1	CY1B-old.jpg	基本形　CY1B　	CY1B-1	2006/3/1	基本形　CY3B	CY3B.jpg		CY1B-R.pdf		あり		φ6は互換なし	cy1b.pdf		CY3
+		CY1B-old			CY1B-old1		2		ダイレクトマウント　CY1R	CY1B-2	2006/3/1	ダイレクトマウント　CY3R										CY3
+		CY1B-old			CY1B-old1		3		クリーンシリーズ　<br/>12-CY1B/R	CY1B-3	2006/3/1	クリーンシリーズ　<br/>12-CY3B/R										CY3-C
+A02	CY1S	CY1S-old	マグネット式ロッドレスシリンダ すべり軸受	CY1S	CY1S-old1	CY1S-Z	1	CY1S-old.jpg	CY1S	CY1S-1	2013/9/1	CY1S-Z	CY1S.jpg		CY1S.pdf		あり (ただし、従来品にあった取付穴部の内径ねじはありません。)			cy1s-comp.pdf		CY1S-Z
+A02	MXU	MXU-old	コンパクトスライド	MXU	MXU-old1	MXH-Z	1	MXU-old.jpg	MXU	MXH-1	2010/7/1	MXH-Z	MXH-Z.jpg		mxu.pdf		なし					MXH-Z2
+A02	MGP	MGP-old	ガイド付薄形シリンダ	MGP	MGP-old1	MGP-Z	1	MGP-old.jpg	MGP	MGP-1	2012/4/1	MGP-Z	MGP.jpg		MGP.pdf		あり		対象機種：標準形、高精度形（高精度ボールブッシュタイプ）	MGP-comp.pdf		MGP-Z
+A02	CLA/CDLA	CLA-old	ファインロックシリンダ	CLA/CDLA	CLA-old1	CLA2/CDLA2	1	CLA-old.jpg	CLA/CDLA	CLA-1	2009/9/1	CLA2/CDLA2	CLA2.jpg		CLA.pdf		あり			CNA_CLA.pdf		CLA2-CDLA2
+A02	CNA/CDNA	CNA-old	ロック付シリンダ	CNA/CDNA	CNA-old1	CNA2/CDNA2	1	CNA-old.jpg	CNA/CDNA	CNA-1	2009/9/1	CNA2/CDNA2	CNA2.jpg		CNA.pdf		あり			CNA_CLA.pdf		CNA2-CDNA2
+A02	MK/MK2	MK-old	ロータリクランプシリンダ	MK/MK2	MK-old1	MK	1	MK-old.jpg	MK/MK2	MK-1	2010/10/1	MK	MK.jpg		mkold.pdf		取付ピッチ互換あり (MK2全長寸法は互換なし)			mk.pdf		MK-Z
+A02	CK1/CKG1/CKP1	CK1-old	クランプシリンダ	CK1/CKG1/CKP1	CK1-old1	CK1/CKG1/CKP1-Z	1	CK1-old.jpg	CK1	CK1-1	2013/9/1	CK1-Z	CK1.jpg		CK1.pdf		あり			ck1-comp.pdf		CK_1-Z
+		CK1-old			CK1-old1		2		CKG1	CK1-2	2013/9/1	CKG1-Z										CK_1-Z
+		CK1-old			CK1-old1		3		CKP1	CK1-3	2013/9/1	CKP1-Z										CK_1-Z
+A02	CLK1/CLK1G	CLK1-old	ロック付クランプシリンダ	CLK1/CLK1G	CLK1-old1	CLK2/CLK2G	1	CLK1-old.jpg	CLK1/CLK1G	CLK2-1	2008/1/1	CLK2/CLK2G	CLK2.jpg		CLK1.pdf		あり			clk1_clk2.pdf		CLK2
+A02	RSH	RSH-old	ハイストッパシリンダ	RS1H	RSH-old1	RS2H	1	RSH-old.jpg	RS1H50, 63, 80	RS2H-1	2012/8/1	RS2H50, 63, 80	RS2H.jpg		RSH.pdf		あり			rsh-rs1h-rs2h.pdf		RS2H
+A02	RS1H	RS1H-old	ハイストッパシリンダ	RSH	RS1H-old1	RS2H	1	RSH-old.jpg	RSH50, 63, 80 <br/>(φ20, φ32は除く)	RS2H-2	2005/8/1	RS2H50, 63, 80	RS2H.jpg		RSH.pdf		あり			rsh-rs1h-rs2h.pdf		RS2H
+A02	RSA	RSA-old	ハイストッパシリンダ	RSA	RSA-old1	RS2H-X2700/2701	1		RSA	RSA-1	2015/9/1	RS2H-X2700					あり (ただし、シリンダチューブの全長は短縮しています。)			RSA-comp.pdf		
+		RSA-old			RSA-old1		2		RSA-X721	RSA-2	2015/9/1	RS2H-X2701										
+A02	CEU1	CEU1-old	ものさしくん用3点プリセットカウンタ	CEU1	CEU1-old1	CEU5	1	CEU1-old.jpg	CEU1	CEU5-1	2015/3/1	CEU5	CEU5.jpg				なし		機能、外観寸法等の機能面で異なる部分がありますので、変更の際は、ご確認をお願い致します。			CEU5-CEU1
+A02	CV1	CV1-old	バルブ付シリンダ	CV1	CV1-old1	CVM5	1	CV1-old.jpg	CV1	CVM5-1	2005/4/1	CVM5	CVM5.jpg		cv1.pdf		あり			cv1.pdf		CV_-CDV_
+A02	MB1/MDB1	MB1-old	角形チューブ形エアシリンダ	MB1/MDB1	MB1-old1	MB1/MDB1-Z	1	MB1-old.jpg	MB1/MDB1	MB1-Z-1	2015/4/1	MB1/MDB1-Z	MB1.jpg		MB1-old.pdf		あり			MB1-comp.pdf		MB1
+A02	CKQG/CLKQG	CKQG-old	ピンクランプシリンダ	CKQG<br/>CLKQG	CKQG-old1	CKQG-Z<br/>CLKQG-Z	1	CKQG-old.jpg	CKQG<br/>CLKQG	CKQG-Z-1	2017/6/1	CKQG-Z<br/>CLKQG-Z	CKQG.jpg		CKQG-old.pdf		あり			CKQG-comp.pdf		C(L)KQG-C(L)KQP
+A02	C(L)KU32-X2091/X2092	CKU32-old	ピンクランプシリンダ	CKU32-X2091<br/>CKU32-X2092<br/>CLKU32-X2091<br/>CLKU32-X2092	CKU32-old1	CKU32-X2321<br/>CKU32-X2322<br/>CLKU32-X2321<br/>CLKU32-X2322	1	CKU32-old.jpg	CKU32-X2091	CKU32-1	2017/6/1	CKU32-X2321	CKU32.jpg		CKU32-old.pdf		あり			CKU32-comp.pdf		C(L)KQG32-C(L)KU32
+		CKU32-old			CKU32-old1		2		CKU32-X2092	CKU32-2	2017/6/1	CKU32-X2322										C(L)KQG32-C(L)KU32
+		CKU32-old			CKU32-old1		3		CLKU32-X2091	CKU32-3	2017/6/1	CLKU32-X2321										C(L)KQG32-C(L)KU32
+		CKU32-old			CKU32-old1		4		CLKU32-X2092	CKU32-4	2017/6/1	CLKU32-X2322										C(L)KQG32-C(L)KU32
+A02	RSQ	RSQ-old	ストッパシリンダ	RSQ<br/>(φ16～φ50)	RSQ-old1	RSQ-Z<br/>(φ16～φ50)	1	RSQ-old.jpg	RSQ<br/>(φ16～φ50)	RSQ-1	2018/4/1	RSQ-Z<br/>(φ16～φ50)	RSQ.jpg		RSQ-old.pdf		あり		φ12は生産終了対象外です。	RSQ-comp.pdf		RSQ-RSDQ-RSG-RSDG
+A02	CKU32-X2359	CKU32-X2359-old	ピンプレートシリンダ	CKU32-X2359	CKU32-X2359-old1	CKU32-X2359A	1	CKU32-X2359-old.jpg	CKU32-X2359	CKU32-X2359-1	2018/11/1	CKU32-X2359A	CKU32-X2359A.jpg		CLKU32-X-old.pdf		あり			CKU32-X2359-comp.pdf		C(L)KU32-X2359
+A02	CKZ3T/CKZ3N	CKZ3-old	パワークランプシリンダ	CKZ3T<br/>CKZ3N	CKZ3-old1	CKZ3T-X2734<br/>CKZ3N-X2742A	1	CKZ3-old.jpg	CKZ3T	CKZ3-1	2019/4/1	CKZ3T-X2734	CKZ3.jpg		ckz3-old.pdf		あり( ただし、スイッチキットが変更になります)			CKZ3-comp.pdf		CKZ3T-X2734
+		CKZ3-old			CKZ3-old1		2		CKZ3N	CKZ3-2	2019/4/1	CKZ3N-X2742A										CKZ3N-X
+A02	CEU2/CEU2P	CEU2-old	ものさしくん用コントローラ	CEU2<br/>CEU2P	CEU2-old1	-	1	CEU2-old.jpg	CEU2<br/>CEU2P	CEU2-1	2019/11/1	-			CEU2-old.pdf		なし					
+A02	MLGP	MLGP-old	ロック付薄形ガイドシリンダ	MLGP	MLGP-old1	MLGP-Z	1	MLGP-old.jpg	MLGP	MLGP-1	2020/3/1	MLGP-Z	MLGP-Z.jpg		MLGP-old.pdf		あり			MLGP-comp.pdf		MLGP-Z
+A02	CLKZ1R	CLKZ1R-old	パワークランプシリンダ	CLKZ1R	CLKZ1R-old1	CKZT	1	CLKZ1R-old.jpg	CLKZ1R	CLKZ1R-1	2020/11/1	CKZT	CKZT.jpg		CLKZ1R-old.pdf		なし					CKZT
+A02	CKGV	CKGV-old	クランプシリンダ	CKGV	CKGV-old1	CKZT	1	CKGV-old.jpg	CKGV	CKGV-1	2021/1/1	CKZT	CKZT-2.jpg		CKGV-old.pdf		なし					CKZT
+A02	IN574	IN574-old	シリンダスピードチェッカー	IN574	IN574-old1	-	1	IN574-old.jpg	IN574	IN574-1	2021/3/1	-			IN574-old.pdf		互換製品はありません。					
+A03	CRB2/CDRB2	CRB2-old	ロータリアクチュエータ	CRB2/CDRB2	CRB2-old1	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB2/CDRB2<br/>標準、角度調整付	CRB2-Z-1	2013/4/1	CRB2-Z/CDRB2-Z<br/>標準、角度調整付	CRB2-Z.jpg		crb2_old.pdf		あり			comp_crb2.pdf		CRB2-CDRB2-Z
+A03	CRB1/ CDRB1	CRB1-old	ロータリアクチュエータ	CRB1/CDRB1	CRB1-old1	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB1/CDRB1<br/>標準、角度調整付	CRB2-Z-2	2007/3/1	CRB2-Z/CDRB2-Z<br/>標準、角度調整付	CRB2-Z.jpg		crb2_old.pdf		あり			comp_crb2.pdf		CRB2-CDRB2-Z
+A03	CRBU2/CDRBU2	CRBU2-old	ロータリアクチュエータ/フリーマウントタイプ	CRBU2/CDRBU2	CRBU2-old1	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU2/CDRBU2<br/>標準、角度調整付	CRBU2-Z-1	2013/12/1	CRBU2-Z/CDRBU2-Z<br/>標準、角度調整付	CRBU2-Z.jpg		4-p0079-0112-crbu2-cdrbu2.pdf		あり		配管径、接続ポート位置に変更があります。	comp_crbu2.pdf		CRBU2
+A03	CRBU/CDRBU	CRBU-old	ロータリアクチュエータ/フリーマウントタイプ	CRBU/CDRBU	CRBU-old1	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU/CDRBU<br/>標準、角度調整付	CRBU2-Z-2	2007/3/1	CRBU2-Z/CDRBU2-Z<br/>標準、角度調整付	CRBU2-Z.jpg		4-p0079-0112-crbu2-cdrbu2.pdf		あり		配管径、接続ポート位置に変更があります。	comp_crbu2.pdf		CRBU2
+A03	CRB/CDRB	CRB-old	ロータリアクチュエータ	CRB/CDRB	CRB-old1	CRB1/CDRB1	1	CRB-old.jpg	CRB/CDRB:サイズ50, 80, 100	CRB1-1	2009/10/1	CRB1/CDRB1:サイズ50, 80, 100	CRB1.jpg		S020093-A9307.pdf		あり（フート形は取付互換なし）			crb.pdf		CRB1-CDRB1
+A03	CRA1/CDRA1	CRA1-old	ロータリアクチュエータ	CRA1/CDRA1<br/>CRA1□□U(CDRA1□□U)<br/>角度可変タイプ	CRA1-old1	CRA1-Z/CDRA1-Z	1	CRA1-old.jpg	CRA1(CDRA1)/基本形<br/>サイズ:30,50,63,80,100	CRA1-Z-1	2013/4/1	CRA1-Z(CDRA1-Z)/基本形	CRA1-Z.jpg		cra1_old.pdf		あり			comp_cra1.pdf		CRA1-CDRA1-Z
+		CRA1-old			CRA1-old1		2		CRA1□□U(CDRA1□□U)<br/>角度可変タイプ<br/>サイズ:50,63,80,100	CRA1-Z-2	2013/4/1	CRA1□□U-Z<br/>(CDRA1□□U)<br/>角度可変タイプ										CRA1-CDRA1-Z
+A03	CRQ/CDRQ	CRQ-old	薄形ロータリアクチュエータ	CRQ/CDRQ	CRQ-old1	CRQ2/CDRQ2	1	CRQ-old.jpg	CRQ/CDRQ	CRQ2-1		CRQ2/CDRQ2	CRQ2.jpg		crq.pdf		あり			crq.pdf		CRQ2-CDRQ2
+A03	MHT2	MHT2-old	トグル形エアチェック	MHT2	MHT2-old1	MHT2-Z	1	MHT2-old.jpg	MHT2	MHT2-Z-1	2011/10/1	MHT2-Z	MHT2-Z.jpg		mht2_old.pdf		あり			mht2.pdf		MHT2-Z
+A03	MHQ2/MHQG2	MHQ2-old	エアチャック	MHQ2/MHQG2	MHQ2-old1	MHZ2	1	MHQ2-old.jpg	標準形 <br/>MHQ2-10,16,20,25 <br/>(6,32,40は除く)	MHZ2-1	2007/3/1	MHZ2-10, 16, 20, 25	MHZ2.jpg		mhq.pdf		あり			mhq2.pdf		MHZ_2
+		MHQ2-old			MHQ2-old1		2		高剛性 <br/>MHQG2-10,16,20,25 <br/>(6,32,40は除く)	MHZ2-2	2007/3/1	MHZ2-10, 16, 20, 25										MHZ_2
+A04	XT661-X427, X431, X434	XT661-old	非接触グリッパ ベルヌーイタイプ	XT661-4C-□-X427<br/>XT661-4CS-□-X427<br/>XT661-4C-□-X431<br/>XT661-4C-□-X434	XT661-old1	ZNC40-□<br/>ZNC40S-□<br/>ZNC40S-□<br/>ZNC40-□	1	XT661-old.jpg	XT661-4C-□-X427<br/>XT661-4CS-□-X427<br/>XT661-4C-□-X431<br/>XT661-4C-□-X434	XT661-1	2021/10/1	ZNC40-□<br/>ZNC40S-□<br/>ZNC40S-□<br/>ZNC40-□	ZNC40.jpg		XT661-X427-old.pdf		あり			ZNC-comp.pdf		ZNC
+A04	ZX	ZX-old	真空ユニット(デジタル圧力スイッチZSE3搭載品)	ZX<br/>(デジタル圧力スイッチZSE3搭載品)	ZX-old1	ZQ1□-□-E□-□<br/>ZK2□□□□A□-□-□	1	ZX-old.jpg	ZX<br/>(デジタル圧力スイッチZSE3搭載品)	ZX-1	2019/6/1	ZQ1□-□-E□-□	ZQ-ZK2.jpg		ZX-old.pdf		なし			ZX-comp.pdf		ZQ
+		ZX-old			ZX-old1		2		ZX<br/>(デジタル圧力スイッチZSE3搭載品)	ZX-2	2019/6/1	ZK2□□□□A□-□-□										ZK2
+A04	ZU	ZU-old	直線形真空エジェクタ	ZU05<br/>ZU07	ZU-old1	ZU05□A<br/>ZU07□A	1	ZU-old.jpg	ZU05<br/>ZU07	ZU-1	2018/3/1	ZU05□A<br/>ZU07□A	ZU.jpg		ZU-old.pdf		なし(ポート接続口径は同じ)			ZU-comp.pdf		ZU_A
+A04	ZM	ZM-old	真空エジェクタ/エアオペレートタイプ ポート口径M3	ZM*-P3/ZM*-Q3	ZM-old1	-	1		ZM*-P3/ZM*-Q3	ZM-1	2015/1/1	-							ポート口径M5仕様は継続します。			
+A04	ZQ	ZQ-old	薄形真空エジェクタ/薄形真空ポンプシステム	ZQ	ZQ-old1	ZQ	1	ZQ-old.jpg	ZQ1□□-□□□□□-D31□□-□□-□	ZQ-1	2010/10/1	ZQシリーズ 真空圧力スイッチ ZSE10付	ZQ.jpg		zqold.pdf		あり			comp_zq.pdf		ZQ
+		ZQ-old			ZQ-old1		2		ZQ1□□-□□□□□-D32□□-□□-□	ZQ-2	2010/4/1	ZQシリーズ 真空圧力スイッチ ZSE10付										ZQ
+		ZQ-old			ZQ-old1		3		ZQ1□□-□□□□□-D51□□-□□-□	ZQ-3	2010/10/1	ZQシリーズ 真空圧力スイッチ ZSE10付										ZQ
+		ZQ-old			ZQ-old1		4		ZQ1□□-□□□□□-D52□□-□□-□	ZQ-4	2009/12/1	ZQシリーズ 真空圧力スイッチ ZSE10付										ZQ
+A04	ZR	ZR-old	大型真空ユニット	ZR	ZR-old1	ZR	1	ZR-old.jpg	ZRシリーズ 真空用圧力スイッチ ZSE4付	ZR-1	2009/1/1	ZRシリーズ 真空用圧力スイッチ ZSE30A付	ZR.jpg		zrold.pdf		あり			comp_zr.pdf		ZR
+A04	ZMA	ZMA-old	電子式タイマ付真空エジェクタ	ZMA	ZMA-old1	ZK2□□K5□□-□-□-X123	1	ZMA-old.jpg	ZMA	ZK2-1	2013/4/1	ZK2□□K5□□-□-□-X123					当社にご確認お願い致します。					
+A04	ZL	ZL-old	多段エジェクタ	ZL	ZL-old1	ZL	1	ZL-old.jpg	ZLシリーズ 真空用圧力スイッチ ZSE4付	ZL-1	2009/1/1	ZLシリーズ 真空用圧力スイッチ ZSE30A付	ZL.jpg		zl.pdf		あり			comp_zl.pdf		ZL
+A04	FGZ	FGZ-old	樹脂製小型エアサクションフィルタ	FGZ	FGZ-old1	ZFZ	1		FGZ	ZFZ-1	2010/12/1	ZFZ		/upfiles/pgpdf/sp106e-004j.pdf			あり		交換用エレメントの互換性があります。	comp_fgz.pdf		
+A04	ZR	ZR1-old	大型真空ユニット	ZR1**-C4***-**-*-*(-X***)<br/>ZR100-C4***-**-*-*(-X***)<br/>ZR1-VDC4****-*(-X***)<br/>ZR1-VC4****-*　(-X***)	ZR1-old1	ZR1**-C3**-*-*(-X***)<br/>ZR100-C3*-**-*-*(-X***)<br/>ZR1-VDC3**-*(-X***)<br/>ZR1-VC3**-*(-X***)	1		ZR1**-C4***-**-*-*(-X***)	ZR1-1	2016/8/1	ZR1**-C3**-*-*(-X***)			ZR1-old.pdf		あり			ZR1-comp.pdf		ZR
+		ZR1-old			ZR1-old1		2		ZR100-C4***-**-*-*(-X***)	ZR1-2	2016/8/1	ZR100-C3*-**-*-*(-X***)										ZR
+		ZR1-old			ZR1-old1		3		ZR1-VDC4****-*(-X***)	ZR1-3	2016/8/1	ZR1-VDC3**-*(-X***)										ZR
+		ZR1-old			ZR1-old1		4		ZR1-VC4****-*　(-X***)	ZR1-4	2016/8/1	ZR1-VC3**-*(-X***)										ZR
+A04	ZYY/ZYX	ZY-old	エジェクタバルブユニット	ZYY<br/>ZYX	ZY-old1	ZK2□A	1	ZY-old.jpg	ZYY<br/>ZYX	ZY-1	2017/3/1	ZK2□A	ZK2_A.jpg				なし					ZK2_A
+A04	ZFC05/01/020	ZFC-old	ワンタッチ管継手付エアサクションフィルタ／インラインタイプ	ZFC05<br/>ZFC10<br/>ZFC20	ZFC-old1	ZFC1/ZFC3<br/>ZFC5<br/>ZFC7	1	ZFC-old.jpg	ZFC05	ZFC-1	2017/6/1	ZFC1/ZFC3	ZFC.jpg		zfc-old.pdf		あり			ZFC-comp.pdf		ZFC-1
+		ZFC-old			ZFC-old1		2		ZFC10	ZFC-2	2017/6/1	ZFC5										ZFC-1
+		ZFC-old			ZFC-old1		3		ZFC20	ZFC-3	2017/6/1	ZFC7										ZFC-1
+A04	ZH□D	ZH-old	真空エジェクタ/直接配管形	ZH05D～ZH20D<br/>NZH05D～NZH13D<br/>EZH05D～EZH20D	ZH-old1	ZH05D□A～ZH20D□A<br/>ZH05D□A～ZH13D□A<br/>ZH05D□A～ZH20D□A	1	ZH-old.jpg	ZH05D～ZH20D	ZH-1	2017/7/1	ZH05D□A～ZH20D□A	ZH.jpg		ZH-old.pdf		あり			ZH-comp.pdf		ZH_DSA
+		ZH-old			ZH-old1		2		NZH05D～NZH13D	ZH-2	2017/7/1	ZH05D□A～ZH13D□A										ZH_DSA
+		ZH-old			ZH-old1		3		EZH05D～EZH20D	ZH-3	2017/7/1	ZH05D□A～ZH20D□A										ZH_DSA
+A04	ZL112	ZL112-old	多段エジェクタ	ZL112(ミリ仕様)<br/>NZL112(インチ仕様)	ZL112-old1	ZL112A<br/>ZL112AN	1	ZL112-old.jpg	ZL112(ミリ仕様)	ZL112-1	2019/1/1	ZL112A	ZL112A.jpg		ZL112-old.pdf		あり			ZL112-comp.pdf		ZL112A
+		ZL112-old			ZL112-old1		2		NZL112(インチ仕様)	ZL112-2	2019/1/1	ZL112AN										ZL112A
+A04	ZK2	ZK2-old	真空ユニット	ZK2	ZK2-old1	ZK2□A	1	ZK2-old.jpg	ZK2	ZK2_A-1	2020/10/1	ZK2□A	ZK2_A.jpg		ZK2-old.pdf		あり			ZK2_A-comp.pdf		ZK2_A
+A04	ZL212	ZL212-old	多段エジェクタ	ZL212	ZL212-old1	ZL3	1	ZL212-old.jpg	ZL212	ZL212-1	2021/3/1	ZL3	ZL3.jpg		ZL212-old.pdf		あり			ZL3-comp.pdf		ZL112A
+A05	IDF22E～75E	IDF22E-old	冷凍式エアドライヤ	IDF22E～75E	IDF22E-old1	IDF60～90	1	IDF22E-old.jpg	IDF22E～75E	IDF22E-1	2022/6/1	IDF60～90	IDF90.jpg		IDF_E-old.pdf		なし			IDF-comp.pdf		IDF
+A05	IDFA22E～75E	IDFA22E-old	冷凍式エアドライヤ/EU・アジア・オセアニア向仕様	IDFA22E～75E	IDFA22E-old1	IDFA60～90	1	IDFA22E-old.jpg	IDFA22E～75E	IDFA22E-1	2022/6/1	IDFA60～90	IDFA90.jpg		IDFA_E-old.pdf		あり			IDF-comp.pdf		IDFA
+A05	IDFB22E/IDFB37E	IDFB-old	冷凍式エアドライヤ/北米・中南米向仕様	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-old1	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	1	IDFB22-old.jpg	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-1	2019/8/1	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	IDFB60.jpg		IDFB-old.pdf		なし			IDFB-comp.pdf		IDFB
+A05	AMF	AMF-old	オーダリムーバルフィルタ	AMF800<br/>AMF900<br/>AMF1000<br/>AMF801<br/>AMF901	AMF-old1	AMF850<br/>-<br>-<br/>AMF850<br/>-	1	AMF-old.jpg	AMF800	AMF-1	2015/10/1	AMF850	AMF.jpg				なし					AMF
+		AMF-old			AMF-old1		2		AMF900	AMF-2	2015/10/1	-										
+		AMF-old			AMF-old1		3		AMF1000	AMF-3	2015/10/1	-										
+		AMF-old			AMF-old1		4		AMF801	AMF-4	2015/10/1	AMF850										AMF
+		AMF-old			AMF-old1		5		AMF901	AMF-5	2015/10/1	-										
+A05	IDF□/C/D/IDU□C/D	IDF1D-1-old	冷凍式エアドライヤ	IDF1D～8D,11C<br/>/IDU3D～6D	IDF1D-1-old1	IDF1E～11E<br/>/IDU3E～6E	1	IDF1D-old.jpg	IDF1D～8D,11C/IDU3D～6D	IDF1E-1	2004/7/1	IDF1E～11E/IDU3E～6E	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDF_E-F-D
+A05	IDF□/C/D	IDF1D-2-old	冷凍式エアドライヤ	IDF15C～37C1	IDF1D-2-old1	IDF15E1～37E	1	IDF1D-old.jpg	IDF15C～37C1	IDF1E-2	2005/8/1	IDF15E1～37E	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDF_E-F-D
+A05	IDF□/C/D	IDF1D-3-old	冷凍式エアドライヤ	IDF55C,75C	IDF1D-3-old1	IDF55E,75E	1	IDF1D-old.jpg	IDF55C,75C	IDF1E-3	2007/1/1	IDF55E,75E	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDF_E-F-D
+A05	IDU□C/D	IDF1D-4-old	冷凍式エアドライヤ	IDU8D,11C,15C	IDF1D-4-old1	IDU8E～15E1	1	IDF1D-old.jpg	IDU8D,11C,15C	IDF1E-4	2006/4/1	IDU8E～15E1	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDU_E
+A05	IDU□C/D	IDF1D-5-old	冷凍式エアドライヤ	IDU22C1,37C1	IDF1D-5-old1	IDU22E,37E	1	IDF1D-old.jpg	IDU22C1,37C1	IDF1E-5	2007/8/1	IDU22E,37E	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDU_E
+A05	IDU□C/D	IDF1D-6-old	冷凍式エアドライヤ	IDU55C,75C	IDF1D-6-old1	IDU55E,75E	1	IDF1D-old.jpg	IDU55C,75C	IDF1E-6	2008/9/1	IDU55E,75E	IDF1E.jpg		IDF-D-C.pdf		なし			idf1d.pdf		IDU_E
+A05	IDF120D,150D	IDF120-old	冷凍式エアドライヤ/大型シリーズ	IDF120D,150D	IDF120-old1	IDF125F,150F	1	IDF120-old.jpg	IDF120D	IDF125F-1	2011/9/1	IDF125F	IDF125F.jpg		IDFxD.pdf	IDX-OM-B014.pdf	なし			IDFxD_IDFxF.pdf		IDF_E-F-D
+		IDF120-old			IDF120-old1		2		IDF150D	IDF125F-2	2011/9/1	IDF150F										IDF_E-F-D
+A05	IDG30, 50	IDG30-1-old	メンブレンエアドライヤ	IDG30, 50	IDG30-1-old1	IDG30A, 50A	1	IDG30-old.jpg	IDG30, 50	IDG30A-1-1	2012/1/1	IDG30A, 50A	IDG30A.jpg		IDG_old.pdf		あり			IDGM4V4_comp.pdf		IDG
+A05	IDG60L～100L	IDG30-2-old	メンブレンエアドライヤ	IDG60L, 75L, 100L	IDG30-2-old1	IDG60LA, 75LA, 100LA	1	IDG30-old.jpg	IDG60L, 75L, 100L	IDG30A-2-1	2012/10/1	IDG60LA, 75LA, 100LA	IDG30A.jpg		IDG_old.pdf		あり			IDGM4V4_comp.pdf		IDG
+A05	IDG60S～100S	IDG30-3-old	メンブレンエアドライヤ	IDG60S, 75S, 100S	IDG30-3-old1	IDG60SA, 75SA, 100SA	1	IDG30-old.jpg	IDG60S, 75S, 100S	IDG30A-3-1	2012/10/1	IDG60SA, 75SA, 100SA	IDG30A.jpg		IDG_old.pdf		あり			IDGM4V4_comp.pdf		IDG
+A05	AMG150～550	AMG150-old	ウォータセパレータ	AMG150～550	AMG150-old1	AMG150C～550C	1	AMG150-old.jpg	AMG150	AMG150C-1	2009/8/1	AMG150C	AMG150C.jpg		amg.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AMG
+		AMG150-old			AMG150-old1		2		AMG250	AMG150C-2	2009/8/1	AMG250C										AMG
+		AMG150-old			AMG150-old1		3		AMG350	AMG150C-3	2009/8/1	AMG350C										AMG
+		AMG150-old			AMG150-old1		4		AMG450	AMG150C-4	2009/8/1	AMG450C										AMG
+		AMG150-old			AMG150-old1		5		AMG550	AMG150C-5	2009/8/1	AMG550C										AMG
+A05	AFF2B～22B	AFF-old	メインラインフィルタ	AFF2B～22B	AFF-old1	AFF2C～22C	1	AFF-old.jpg	AFF2B	AFF2C-1	2009/8/1	AFF2C	AFF2C.jpg		aff.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AFF
+		AFF-old			AFF-old1		2		AFF4B	AFF2C-2	2009/8/1	AFF4C										AFF
+		AFF-old			AFF-old1		3		AFF8B	AFF2C-3	2009/8/1	AFF8C										AFF
+		AFF-old			AFF-old1		4		AFF11B	AFF2C-4	2009/8/1	AFF11C										AFF
+		AFF-old			AFF-old1		5		AFF22B	AFF2C-5	2009/8/1	AFF22C										AFF
+A05	AM150～550	AM150-old	ミストセパレータ	AM150～550	AM150-old1	AM150C～550C	1	AM150-old.jpg	AM150	AM150C-1	2009/8/1	AM150C	AM150C.jpg		am.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AM
+		AM150-old			AM150-old1		2		AM250	AM150C-2	2009/8/1	AM250C										AM
+		AM150-old			AM150-old1		3		AM350	AM150C-3	2009/8/1	AM350C										AM
+		AM150-old			AM150-old1		4		AM450	AM150C-4	2009/8/1	AM450C										AM
+		AM150-old			AM150-old1		5		AM550	AM150C-5	2009/8/1	AM550C										AM
+A05	AMD150～550	AMD150-old	マイクロミストセパレータ	AMD150～550	AMD150-old1	AMD150C～550C	1	AMD150-old.jpg	AMD150	AMD150C-1	2009/8/1	AMD150C	AMD150C.jpg		amd.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AMD
+		AMD150-old			AMD150-old1		2		AMD250	AMD150C-2	2009/8/1	AMD250C										AMD
+		AMD150-old			AMD150-old1		3		AMD350	AMD150C-3	2009/8/1	AMD350C										AMD
+		AMD150-old			AMD150-old1		4		AMD450	AMD150C-4	2009/8/1	AMD450C										AMD
+		AMD150-old			AMD150-old1		5		AMD550	AMD150C-5	2009/8/1	AMD550C										AMD
+A05	AMH150～550	AMH150-old	プリフィルタ付マイクロミストセパレータ	AMH150～550	AMH150-old1	AMH150C～550C	1	AMH150-old.jpg	AMH150	AMH150C-1	2009/8/1	AMH150C	AMH150C.jpg		amh.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AMH
+		AMH150-old			AMH150-old1		2		AMH250	AMH150C-2	2009/8/1	AMH250C										AMH
+		AMH150-old			AMH150-old1		3		AMH350	AMH150C-3	2009/8/1	AMH350C										AMH
+		AMH150-old			AMH150-old1		4		AMH450	AMH150C-4	2009/8/1	AMH450C										AMH
+		AMH150-old			AMH150-old1		5		AMH550	AMH150C-5	2009/8/1	AMH550C										AMH
+A05	AME150～550	AME150-old	スーパーミストセパレータ	AME150～550	AME150-old1	AME150C～550C	1	AME150-old.jpg	AME150	AME150C-1	2009/8/1	AME150C	AME150C.jpg		ame.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AME
+		AME150-old			AME150-old1		2		AME250	AME150C-2	2009/8/1	AME250C										AME
+		AME150-old			AME150-old1		3		AME350	AME150C-3	2009/8/1	AME350C										AME
+		AME150-old			AME150-old1		4		AME450	AME150C-4	2009/8/1	AME450C										AME
+		AME150-old			AME150-old1		5		AME550	AME150C-5	2009/8/1	AME550C										AME
+A05	AMF150～550	AMF150-old	オーダリムーバルフィルタ	AMF150～550	AMF150-old1	AMF150C～550C	1	AMF150-old.jpg	AMF150	AMF150C-1	2009/8/1	AMF150C	AMF150C.jpg		amf.pdf		あり (若干異なる寸法あり）			BTM-FN263.pdf		AMF
+		AMF150-old			AMF150-old1		2		AMF250	AMF150C-2	2009/8/1	AMF250C										AMF
+		AMF150-old			AMF150-old1		3		AMF350	AMF150C-3	2009/8/1	AMF350C										AMF
+		AMF150-old			AMF150-old1		4		AMF450	AMF150C-4	2009/8/1	AMF450C										AMF
+		AMF150-old			AMF150-old1		5		AMF550	AMF150C-5	2009/8/1	AMF550C										AMF
+A05	AMD	AMD-old	マイクロミストセパレータ	AMD800<br/>AMD810<br/>AMD801<be/>AMD811	AMD-old1	-<be/>-<be/>-<be/>-	1	AMD-old.jpg	AMD800	AMD-1	2015/11/1	-										
+		AMD-old			AMD-old1		2		AMD810	AMD-2	2015/11/1	-										
+		AMD-old			AMD-old1		3		AMD801	AMD-3	2015/11/1	-										
+		AMD-old			AMD-old1		4		AMD811	AMD-4	2015/11/1	-										
+A06	KJ/KQ2	KJ-old	ワンタッチ管継手	KJ/KQ2	KJ-old1	KQ2	1	KJ-old.jpg	ワンタッチミニ　KJ	KQ2-1	2012/5/1	KQ2	KQ2.jpg		kqkj_old.pdf		当社にご確認お願い致します。			kjkq.pdf	http://test.smcworld.com/doc/2008/discon/otherdocs/newkq2.pdf	KQ2
+		KJ-old			KJ-old1		2		クリーンシリーズ<br/>10-KJ	KQ2-2	2012/5/1	10-KQ2										KQ-C
+		KJ-old			KJ-old1		3		ワンタッチ管継手　KQ2	KQ2-3	2012/5/1	KQ2										KQ2
+		KJ-old			KJ-old1		4		クリーンシリーズ<br/>10-KQ	KQ2-4	2012/5/1	10-KQ2										KQ-C
+		KJ-old			KJ-old1		5		Uni-ワンタッチ管継手　KQ2	KQ2-5	2012/5/1	KQ2										
+A06	KQB	KQB-old	黄銅ワンタッチ管継手（金属ワンタッチ管継手）	KQB	KQB-old1	KQB2	1	KQB-old.jpg	KQB	KQB2-1	2010/6/1	KQB2	KQB2.jpg		kqbold.pdf					kqb.pdf		KQB2
+A06	KQG	KQG-old	SUS316ワンタッチ管継手	KQG	KQG-old1	KQG2	1	KQG-old.jpg	KQG	KQG2-1	2010/6/1	KQG2	KQG2.jpg		kqgold.pdf					kqg.pdf		KQG2
+A06	KFG	KFG-old	SUS316インサート管継手	KFG	KFG-old1	KFG2	1	KFG-old.jpg	KFG	KFG2-1	2010/6/1	KFG2	KFG2.jpg		kfgold.pdf					kfg.pdf		KFG2
+A07	AS	AS-old	ワンタッチ管継手付 スピードコントローラ／インラインタイプ	AS	AS-old1	AS	1	AS-old.jpg	AS	AS-1	2011/9/1	AS	AS.jpg		as.pdf		なし			asx001f.pdf		AS-I
+A08	AC	AC-old	モジュラタイプ　F.R.L.コンビネーション	AC10～60	AC-old1	AC10-Ａ, AC20～60-B	1	AC-old.jpg	AC10～60	AC10-1	2014/12/1	AC10-Ａ<br/>AC20～60-B	AC10-A.jpg		ac-old.pdf		あり 			ac_comp.pdf		AC-2
+A08	AC	AC-1-old	モジュラタイプ　F.R.L.コンビネーション	AC100～600<br/>AC1000～6000	AC-1-old1	AC10-Ａ, AC20～60-B<br/>AAC10-Ａ, AC20～60-B	1	AC-old.jpg	AC100～600	AC10-1-1	2005/9/1	AC10-Ａ<br/>AC20～60-B	AC10-A.jpg		ac-old.pdf		なし			ac_comp.pdf		AC-2
+		AC-1-old			AC-1-old1		2		AC1000～6000	AC10-1-2	2005/9/1	AAC10-Ａ<br/>AC20～60-B										AC-2
+A08	AF	AF-old	エアフィルタ	AF10～60	AF-old1	AF10～60-A	1	AF-old.jpg	AF10～60	AF-1	2014/12/1	AF10～60-A	AF-A.jpg		af-old.pdf		あり 			ac_comp.pdf		AF-A
+A08	AF	AF-1-old	エアフィルタ	AF100～600<br/>AF1000～6000<br/>クリーンシリーズ　10-AF	AF-1-old1	AF10～60-A<br/>クリーンシリーズ　10-AF	1	AF-old.jpg	AF100～600	AF-1-1	2005/9/1	AF10～60-A	AF-A.jpg		af-old.pdf		あり （AF100～600はなし）			ac_comp.pdf		AF-A
+		AF-1-old			AF-1-old1		2		AF1000～6000	AF-1-2	2005/9/1	AF10～60-A										AF-A
+		AF-1-old			AF-1-old1		3		クリーンシリーズ　10-AF	AF-1-3	2005/9/1	クリーンシリーズ　10-AF										AF-2-C
+A08	AFM/AFD	AFM_D-old	ミストセパレータ、マイクロミストセパレータ	AFM20,30,40,40-06<br/>AFD20,30,40,40-06	AFM_D-old1	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A	1	AFM_D-old.jpg	AFM20,30,40,40-06	AFM_D-1	2014/12/1	AFM20,30,40,40-06-A	AFM_D.jpg		afm_d-old.pdf		あり			ac_comp.pdf		AFM-A
+		AFM_D-old			AFM_D-old1		2		AFD20,30,40,40-06	AFM_D-2	2014/12/1	AFD20,30,40,40-06-A										AFD-A
+A08	AFM/AFD	AFM_D-1-old	ミストセパレータ、マイクロミストセパレータ	AFM2000,3000,4000,4000-06<br/>AFD2000,3000,4000,4000-06<br/>クリーンシリーズ　10-AFM<br/>クリーンシリーズ　10-AFD	AFM_D-1-old1	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A<br/>クリーンシリーズ　10-AFM<br/>クリーンシリーズ　10-AFD	1	AFM_D-old.jpg	AFM2000,3000,4000,4000-06	AFM_D-1-1	2005/9/1	AFM20,30,40,40-06-A	AFM_D.jpg		afm_d-old.pdf		あり			ac_comp.pdf		AFM-A
+		AFM_D-1-old			AFM_D-1-old1		2		AFD2000,3000,4000,4000-06	AFM_D-1-2	2005/9/1	AFD20,30,40,40-06-A										AFD-A
+		AFM_D-1-old			AFM_D-1-old1		3		クリーンシリーズ　10-AFM	AFM_D-1-3	2005/9/1	クリーンシリーズ<br/>10-AFM										AFM-2-C
+		AFM_D-1-old			AFM_D-1-old1		4		クリーンシリーズ　10-AFD	AFM_D-1-4	2005/9/1	クリーンシリーズ<br/>10-AFD										AFD-2-C
+A08	AR	AR-1-old	レギュレータ	AR10～60	AR-1-old1	AR10～40-A<br/>AR20～60-B	1	AR-old.jpg	AR10～60	AR-1-1	2014/12/1	AR10～40-A<br/>AR20～60-B	AR10-A.jpg		ar-old.pdf		あり （一部なし）			ac_comp.pdf		AR-A/AR-2
+A08	AR	AR-old	レギュレータ	AR20K～60K<br/>AR110～600<br/>AR1000～6000<br/>クリーンシリーズ　10-AR	AR-old1	AR20～40-A<br/>AR20K～60K-B<br/>AR20～40-A<br/>AR20～60-B<br/>AR10～40-A<br/>AR20～60-B<br/>クリーンシリーズ　10-AR	1	AR-old.jpg	AR20K～60K	AR-1	2005/9/1	AR20～40-A<br/>AR20K～60K-B	AR10-A.jpg		ar-old.pdf		あり （一部なし）、なし （AR100～600）			ac_comp.pdf		AR-A/AR-2
+		AR-old			AR-old1		2		AR110～600	AR-2	2005/9/1	AR20～40-A<br/>AR20～60-B										AR-A/AR-2
+		AR-old			AR-old1		3		AR1000～6000	AR-3	2005/9/1	AR10～40-A<br/>AR20～60-B										AR-A/AR-2
+		AR-old			AR-old1		4		クリーンシリーズ　10-AR	AR-4	2005/9/1	クリーンシリーズ<br/>10-AR										AR-2-C
+A08	AL	AL-1-old	ルブリケータ	AL10～60	AL-1-old1	AL10～60-A	1	AL-old.jpg	AL10～60	AL-1-1	2013/5/1	AL10～60-A	AL.jpg		al-old.pdf		あり 		1000cm<sup>3</sup>タンクは生産中止対象外	ac_comp.pdf		AL-A
+A08	AL	AL-old	ルブリケータ	AL100～600<br/>AL1000～6000	AL-old1	AL10～60<br/>AL10～60-A	1	AL-old.jpg	AL100～600	AL-1	2005/9/1	AL10～60	AL.jpg		al-old.pdf		あり (AL100～600はなし)		1000cm<sup>3</sup>タンクは生産中止対象外	ac_comp.pdf		AL-A
+		AL-old			AL-old1		2		AL1000～6000	AL-2	2005/9/1	AL10～60-A										AL-A
+A08	AW	AW-1-old	フィルタレギュレータ	AW10～60<br/>AW20K～60K	AW-1-old1	AW10～40-A<br/>AW20～60-B<br/>AW20～40-A<br/>AW20K～60K-B	1	AW-old.jpg	AW10～60	AW-1-1	2014/12/1	AW10～40-A<br/>AW20～60-B	AW10-A.jpg		aw-old.pdf		あり （一部なし）			ac_comp.pdf		AW-A/AW-2
+		AW-1-old			AW-1-old1		2		AW20K～60K	AW-1-2	2014/12/1	AW20～40-A<br/>AW20K～60K-B										AW-A/AW-2
+A08	AW	AW-old	フィルタレギュレータ	AW100～400<br/>AW1000～4000<br/>クリーンシリーズ　10-AW	AW-old1	AW20～40-B<br/>AW20,40-B<br/>AW10～40-A<br/>AW20～40-B<br/>クリーンシリーズ　10-AW	1	AW-old.jpg	AW100～400	AW-1	2005/9/1	AW20～40-B<br/>AW20,40-B	AW10-A.jpg		aw-old.pdf		あり （一部なし）、なし （AW100～600）			ac_comp.pdf		AW-A/AW-2
+		AW-old			AW-old1		2		AW1000～4000	AW-2	2005/9/1	AW10～40-A<br/>AW20～40-B										AW-A/AW-2
+		AW-old			AW-old1		3		クリーンシリーズ　10-AW	AW-3	2005/9/1	クリーンシリーズ　10-AW										AW-2-C
+A08	AWM	AWM-old	ミストセパレータレギュレータ	AWM2000～4000<br/>クリーンシリーズ  10-AWM	AWM-old1	AWM20～40<br/>クリーンシリーズ  10-AWM	1	AWM-old.jpg	AWM2000～4000	AWM-1	2005/9/1	AWM20～40	AWM.jpg		aw100-600_1000-4000.pdf		あり			awm-awd.pdf		AWM
+		AWM-old			AWM-old1		2		クリーンシリーズ <br/>10-AWM	AWM-2	2005/9/1	クリーンシリーズ <br/>10-AWM										AWM-2-C
+A08	AWD	AWD-old	マイクロミストセパレータレギュレータ	AWD2000～4000<br/>クリーンシリーズ  10-AWD	AWD-old1	AWD20～40<br/>クリーンシリーズ  10-AWD	1	AWD-old.jpg	AWD2000～4000	AWD-1	2005/9/1	AWD20～40	AWD.jpg		aw100-600_1000-4000.pdf		あり			awm-awd.pdf		AWD
+		AWD-old			AWD-old1		2		クリーンシリーズ <br/>10-AWD	AWD-2	2005/9/1	クリーンシリーズ <br/>10-AWD										AWD-2-C
+A08	AU	AU-old	ルブユニット	AU100～300	AU-old1	AC20, 30-A	1	AU-old.jpg	AU100～300	AC20-1	2008/9/1	AC20, 30-A	AC10.jpg		AU.pdf		なし					AC-A
+A08	ARP3000	ARP-old	直動精密レギュレータ	ARP3000	ARP-old1	ARP30	1	ARP-old.jpg	ARP3000	ARP30-1	2009/12/1	ARP30	ARP30.jpg		ARP3000.pdf		あり			ARP3000_ARP30.pdf		ARP
+A08	IRV1000/2000/3000	IRV-old	真空レギュレータ	IRV1000/2000/3000	IRV-old1	IRV10/20	1	IRV-old.jpg	IRV1000/2000/3000	IRV10-1	2010/3/1	IRV10/20	IRV10.jpg		IRV.pdf		あり			irv1000-10.pdf		IRV
+A08	T203-1	T203-old	真空レギュレータ	T203-1	T203-old1	IRV10/20	1	T203-old.jpg	T203-1	IRV20-1	2007/1/1	IRV10/20	IRV20.jpg		t203-1.pdf		なし			T203-irv10.pdf		IRV
+A08	VBA	VBA-1-old	増圧弁	VBA1110	VBA-1-old1	VBA10A	1	VBA-old.jpg	VBA1110	VBA-1	2010/1/1	VBA10A	VBA.jpg		vba.pdf		あり			vba_vba.pdf		VBA
+A08	VBA	VBA-2-old	増圧弁	VBA1111-02N	VBA-2-old1	VBA11A	1	VBA-old.jpg	VBA1111-02N	VBA-2	2010/11/1	VBA11A	VBA.jpg		vba.pdf		あり			vba_vba.pdf		VBA
+A08	VBA	VBA-3-old	増圧弁	VBA1111-02	VBA-3-old1	VBA11A	1	VBA-old.jpg	VBA1111-02	VBA-3	2011/2/1	VBA11A	VBA.jpg		vba.pdf		あり			vba_vba.pdf		VBA
+A08	VBA	VBA-4-old	増圧弁	VBA2100, 4100	VBA-4-old1	VBA20A, 40A	1	VBA-old.jpg	VBA2100, 4100	VBA-4	2008/6/1	VBA20A, 40A	VBA.jpg		vba.pdf		あり			vba_vba.pdf		VBA
+A08	VBAT	VBAT-1-old	エアタンク	VBAT05A(-V)/<br/>VBAT10A	VBAT-1-old1	VBAT05A1(-V)/<br/>VBAT10A1	1	VBAT-old.jpg	VBAT05A(-V)/<br/>VBAT10A	VBAT-1	2009/12/1	VBAT05A1(-V)/<br/>VBAT10A1	VBAT.jpg		vbat_old.pdf		なし			vbat_comp.pdf		VBAT
+A08	VBAT	VBAT-old	エアタンク	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)<br/>VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-old1	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)<br/>VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)	1	VBAT-old.jpg	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)	VBAT-2	2010/1/1	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)	VBAT.jpg		vbat_old.pdf		なし			vbat_comp.pdf		VBAT
+		VBAT-old			VBAT-old1		2		VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-3	2010/1/1	VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)										VBAT
+A08	VY511,VYU5	VY5-old	バランスコントローラ	VY511-020<br/>VYU5□-D	VY5-old1	-	1	VY5-old.jpg	VY511-020	VY5-1	2016/12/1	-										
+		VY5-old			VY5-old1		2		VYU5□-D	VY5-2	2016/12/1	-										
+A08	VEA1	VEA1-old	電空比例弁専用パワーアンプ　	VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-old1	VEA250<br/>VEA251<br/>VEA252	1		VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-1	2017/12/1	VEA250<br/>VEA251<br/>VEA252	VEA.jpg				なし					VEA
+A08	ACG/ARG(K)/AWG(K)	ACG-old	圧力計内蔵レギュレータ 	ACG<br/>ARG(K)<br/>AWG(K)	ACG-old1	ACG-B<br/>ARG(K)-B<br/>AWG(K)-B	1	ACG-old.jpg	ACG<br/>ARG(K)<br/>AWG(K)	ACG-1	2021/5/1	ACG-B<br/>ARG(K)-B<br/>AWG(K)-B	ACG-B.jpg		ACG-old.pdf		あり			ACG-comp.pdf		ACG-B/ARG-B/ARG_K-B/AWG-B/AWG_K-B
+A09	AN	AN-old	サイレンサ	AN	AN-old1	AN	1	AN-old.jpg	AN200～400	AN-1	2012/1/1	AN05～40	AN.jpg		AN_old.pdf		あり			AN_comp.pdf		AN
+		AN-old			AN-old1		2		AN103～403	AN-2	2012/1/1	AN05～40										AN
+		AN-old			AN-old1		3		AN103～300-KM	AN-3	2012/1/1	AN10～30-C										AN
+A10	PFMC7	PFMC7-old	3色表示デジタルフロースイッチ	PFMC7	PFMC7-old1	PF2MC7	1	PFMC7-old.jpg	PFMC7	PFMC7-1	2021/10/1	PF2MC7	PF2MC7.jpg		PFMC7-old.pdf		あり			PFMC7-comp.pdf		PF2MC7
+A10	D-F9G・F9H	D-F9G-old	ノーマルクローズ無接点オートスイッチ	D-F9G<br/>D-F9H	D-F9G-old1	D-M9NE□<br/>D-M9PE□	1	D-F9G-old.jpg	D-F9G<br/>D-F9H	D-F9G-1	2021/7/1	D-M9NE□<br/>D-M9PE□	D-M9NE.jpg		D-F9G-old.pdf		あり			D-F9-comp.pdf		D-AS1
+A10	PFMB	PFMB-old	2色表示式デジタルフロースイッチ	PFMB7201	PFMB-old1	PF2M721	1	PFMB-old.jpg	PFMB7201	PFMB-1	2021/9/1	PF2M721	PF2M7.jpg		PFMB-old.pdf		なし					PF2M7
+A10	PSE200	PSE200-old	多チャンネルデジタル圧力センサコントローラ	PSE200	PSE200-old1	PSE200A	1	PSE200-old.jpg	PSE200	PSE200-1	2021/3/1	PSE200A	PSE200A.jpg		PSE200-old.pdf		あり			PSE200-comp.pdf		PSE200A
+A10	ZSE3/ISE3	ZSE3-old	LCD表示形デジタル圧力スイッチ	ZSE3/ISE3	ZSE3-old1	ZSE/ISE10<br/>ZSE/ISE20A	1	ZSE3-old.jpg	ZSE3/ISE3	ZSE3-1	2019/6/1	ZSE/ISE10	ZSE10_20A.jpg		ZSE3-old.pdf		なし			ISE3-comp.pdf		ZSE10(F)-ISE10
+		ZSE3-old			ZSE3-old1		2		ZSE3/ISE3	ZSE3-2	2019/6/1	ZSE/ISE20A										ZSE20(F)-ISE20
+A10	ISE70	ISE70-old	2色表示式デジタル圧力スイッチ	ISE70-□-□	ISE70-old1	ISE70-□-L2	1	ISE70-old.jpg	ISE70-□-□	ISE70-1	2018/2/1	ISE70-□-L2	ISE70.jpg		ISE70-old.pdf		なし			ISE70-comp.pdf		ISE70-71-L2
+A10	ZSP1	ZSP1-old	吸着確認スイッチ	ZSP1<br/>ZX1*-*-PS/PB-*	ZSP1-old1	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A<br/>ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3	1	ZSP1-old.jpg	ZSP1	ZSP1-1	2016/3/1	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A	ZSE-ZQ.jpg		ZSP1-old.pdf		なし			ZSP1-comp.pdf		PFMV/ZSE10(F)-ISE10/ZSE30A(F)-ISE30A
+		ZSP1-old			ZSP1-old1		2		ZX1*-*-PS/PB-*	ZSP1-2	2016/3/1	ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3										ZQ/PFMV
+A10	D-J51	D-J51-old	無接点オートスイッチ	D-J51	D-J51-old1	D-A54	1	D-J51-old.jpg	D-J51	D-J51-1	2015/3/1	D-A54	D-A54.jpg		D-J51-old.pdf		あり			D-J51_comp.pdf		D-AS1
+A10	ZSE4/ISE4	ZSE4-old	デジタル圧力スイッチ	ZSE4/ISE4	ZSE4-old1	ZSE30A (F)/ISE30A	1	ZSE4-old.jpg	ZSE4真空用/<br/>ISE4正圧用	ZSE30AF-1	2005/3/1	ZSE30A (F) 真空用/<br/>ISE30A 正圧用	ZSE30AF.jpg		zse4.pdf		なし			zse4.pdf		ZSE30A(F)-ISE30A
+		ZSE4-old			ZSE4-old1		2		クリーンシリーズ <br/>10-ZSE4/ISE4	ZSE30AF-2	2005/3/1	クリーンシリーズ <br/>10-ZSE30A (F)/<br/>ISE30A										10-ZSE30A-C
+A10	ZSE30/ISE30	ZSE30-old	2色表示式高精度デジタル圧力スイッチ	ZSE30/ISE30	ZSE30-old1	ZSE30A/ISE30A	1	ZSE30-old.jpg	ZSE30/<br/>ISE30	ZSE30A-1	2010/12/1	ZSE30A/<br/>ISE30A	ZSE30A.jpg		zseise30_old.pdf	PS_-OMF0002.pdf	なし			zseise30_comp.pdf		ZSE30A(F)-ISE30A
+		ZSE30-old			ZSE30-old1		2		クリーンシリーズ <br/>10-ZSE30/<br/>10-ISE30	ZSE30A-2	2010/12/1	クリーンシリーズ <br/>10-ZSE30A /<br/>10-ISE30A										10-ZSE30A-C
+A10	ZSE40/ISE40	ZSE40-old	高精度デジタル圧力スイッチ	ZSE40/ISE40	ZSE40-old1	ZSE40A/ISE40A	1	ZSE40-old.jpg	ZSE40/ISE40	ZSE40A-1	2011/3/1	ZSE40A/ISE40A	ZSE40A.jpg		ise40.pdf	PS-OMC0008.PDF	あり			ise40_40a.pdf		ZSE40A(F)-ISE40A
+		ZSE40-old			ZSE40-old1		2		クリーンシリーズ <br/>10-ZSE40/<br/>10-ISE40	ZSE40A-2	2011/3/1	クリーンシリーズ <br/>10-ZSE40A /<br/>10-ISE40A										10-ZSE40A-C
+A10	ZSE/ISE50 (F)・60 (F)	ISE50-old	汎用流体用高精度デジタル圧力スイッチ	ZSE/ISE50 (F)・60 (F)<br/>クリーンシリーズ <br/>10-ZSE/<br/>10-ISE50 (F)・60 (F)	ISE50-old1	ZSE20C(F)/ISE20C(H)	1	ISE50-old.jpg	ZSE/ISE50 (F)・60 (F)<br/>クリーンシリーズ <br/>10-ZSE/<br/>10-ISE50 (F)・60 (F)	ZSE80 F-1	2012/6/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg		zseise50_old.pdf	PS-OMF0011.PDF	なし			zseise50_comp.pdf		ZSE20(F)-ISE20
+A10	ISE/ZSE5B・6B	ISE5B-old	デジタル圧力スイッチ	ISE/ZSE5B・6B<br/>ISE5B/ZSE6B	ISE5B-old1	ZSE20C(F)/ISE20C(H)	1	ISE5B-old.jpg	ISE/ZSE5B・6B<br/>ISE5B/ZSE6B	ISE80-1	2006/12/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg		ISE5-ZSE5B-6B.pdf		なし					ZSE20(F)-ISE20
+A10	ISA	ISA-old	着座確認用/エアキャッチセンサ	ISA	ISA-old1	ISA2	1	ISA-old.jpg	ISA	ISA2-1	2013/3/1	ISA2	ISA2.jpg		isa-old.pdf	PSxx-OMA0068.pdf	なし			isa-isa2comp.pdf		ISA2
+A10	PSE100	PSE100-old	圧力センサコントローラ	PSE100	PSE100-old1	PSE300	1	PSE100-old.jpg	PSE100	PSE300-1	2008/7/1	PSE300	PSE300.jpg		PSE100.pdf		なし			pse100_pse300.pdf		PSE300
+A10	PSE520, 521	PSE520-old	汎用流体圧力センサ	PSE520, 521	PSE520-old1	PSE560, 561	1	PSE520-old.jpg	PSE520	PSE560-1	2005/9/1	PSE560	PSE560.jpg		PSE520.pdf		あり			pse520.pdf		PSE56_
+		PSE520-old			PSE520-old1		2		PSE521	PSE560-2	2005/9/1	PSE561										PSE56_
+		PSE520-old			PSE520-old1		3		10-PSE520	PSE560-3	2005/9/1	クリーンシリーズ <br/>10-PSE560										PSE560-C
+		PSE520-old			PSE520-old1		4		10-PSE521	PSE560-4	2005/9/1	クリーンシリーズ <br/>10-PSE561										PSE560-C
+A10	IS1000	IS1000-old	圧力スイッチ	IS1000	IS1000-old1	IS10	1	IS1000-old.jpg	IS1000	IS10-1	2011/4/1	IS10	IS10.jpg		is1000.pdf		あり			is1000-is10.pdf		IS10
+A10	PFA/PFW	PFA-old	空気／水用デジタルフロースイッチ	PFA/PFW	PFA-old1	PF2A/PF2W	1	PFA-old.jpg	空気用 PFA7 <br/>表示一体型	PF2A-1	2003/10/1	PF2A7 <br/>表示一体型	PF2A.jpg		PFA-PFW.pdf		あり			pfa.pdf		PF2A
+		PFA-old			PFA-old1		2		空気用 PFA3 <br/>分離型表示部	PF2A-2	2003/10/1	PF2A3 <br/>分離型表示部										PF2A
+		PFA-old			PFA-old1		3		空気用 PFA5 <br/>分離型センサ部	PF2A-3	2003/10/1	PF2A5 <br/>分離型センサ部										PF2A
+		PFA-old			PFA-old1		4		水用 PFW7 <br/>表示一体型	PF2A-4	2003/10/1	PF2W7 <br/>表示一体型										PF2W
+		PFA-old			PFA-old1		5		水用 PFW3 <br/>分離型表示部	PF2A-5	2003/10/1	PF2W3 <br/>分離型表示部										PF2W
+		PFA-old			PFA-old1		6		水用 PFW5 <br/>分離型センサ部	PF2A-6	2003/10/1	PF2W5 <br/>分離型センサ部										PF2W
+A10	PFD	PFD-old	純水・薬液用デジタルフロースイッチ	PFD	PFD-old1	PF2D	1	PFD-old.jpg	PFD3 分離型表示部	PF2D-1	2003/10/1	PF2D3 分離型表示部	PF2D.jpg		PFD.pdf		あり			pfd3.pdf		PF2D
+		PFD-old			PFD-old1		2		PFD5 分離型センサ部	PF2D-2	2003/10/1	PF2D5 分離型センサ部										PF2D
+A10	D-F9□ (V)	D-F9N-old	無接点オートスイッチ	D-F9□ (V)	D-F9N-old1	D-M9□ (V)	1	D-F9N-old.jpg	D-F9N(V)	D-M9N-1	2004/4/1	D-M9N(V)	D-M9N.jpg		D-F9V.pdf		あり		動作範囲が短くなっています。	d-f9.pdf		D-AS1
+		D-F9N-old			D-F9N-old1		2		D-F9P(V)	D-M9N-2	2004/4/1	D-M9P(V)										D-AS1
+		D-F9N-old			D-F9N-old1		3		D-F9B(V)	D-M9N-3	2004/4/1	D-M9B(V)										D-AS1
+A10	D-F9□W(V)	D-F9BW-old	無接点オートスイッチ	D-F9□W(V)	D-F9BW-old1	D-M9□W(V)	1	D-F9BW-old.jpg	D-F9BW(V)	D-M9BW-1	2008/3/1	D-M9BW(V)	D-M9BW.jpg		D-F9W.pdf		あり		動作範囲が変わる場合があります。	d-f9_d-m9.pdf		D-AS1
+		D-F9BW-old			D-F9BW-old1		2		D-F9NW(V)	D-M9BW-2	2008/3/1	D-M9NW(V)										D-AS1
+		D-F9BW-old			D-F9BW-old1		3		D-F9PW(V)	D-M9BW-3	2008/3/1	D-M9PW(V)										D-AS1
+A10	D-F9BA□	D-F9BA-old	無接点オートスイッチ	D-F9BA□	D-F9BA-old1	D-M9BA□	1	D-F9BA-old.jpg	D-F9BA□	D-M9BA-1	2008/4/1	D-M9BA□	D-M9BA.jpg		D-F9BA.pdf		あり		動作範囲が変わる場合があります。	d-f9ba_d-m9ba.pdf		D-AS1
+A10	D-P3DW	D-P3DW-old	耐強磁界2色表示式無接点オートスイッチ	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DW-old1	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	1	D-P3DW-old.jpg	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DWA-1	2017/5/1	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	D-P3DW.jpg		D-P3DW-old.pdf		あり			D-P3DW-comp.pdf		D-AS1
+A10	ISL	ISL-old	潤滑油用圧力スイッチ	ISL301	ISL-old1	ISG130-X310/X311	1		ISL301	ISL-1	2017/6/1	ISG130-X310/X311					なし			ISL-comp.pdf		
+A10	PF2A7□H	PF2A-old	空気用デジタルフロースイッチ/大流量タイプ	PF2A7□H	PF2A-old1	PF3A7□H	1	PF2A-old.jpg	PF2A7□H	PF2A-1	2018/1/1	PF3A7□H	PF3A.jpg		PF2A-old.pdf		なし			PF2A-comp.pdf		PF3A7_H
+A10	ISE75	ISE75-old	2色表示式デジタル圧力スイッチ	ISE75	ISE75-old1	ISE77G	1	ISE75-old.jpg	ISE75	ISE75-1	2018/7/1	ISE77G	ISE77G.jpg		ISE75-old.pdf		なし			ISE75-comp.pdf		ISE70-71-L2
+A10	ISA2	ISA2-old	着座確認用非接触センサ／エアキャッチセンサ	ISA2<br/>IISA2	ISA2-old1	ISA3	1	ISA2-old.jpg	ISA2<br/>IISA2	ISA3-1	2019/3/1	ISA3	ISA3.jpg		ISA2-old.pdf		なし			ISA2-comp.pdf		ISA3
+A10	D-M5□	D-M5B-old	無接点オートスイッチ	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-M5B-old1	D-E73A<br/>D-E76A	1	D-M5B-old.jpg	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-E73A-1	2020/3/1	D-E73A<br/>D-E76A	D-E73A.jpg		D-M5B-old.pdf				・有接点オートスイッチへの置き換えにより、一部機能が対応できなくなります。<br/>・D-M5P/M5BW/M5NW/M5PW/M5NT/M5PTの代替製品はありません。			D-AS1
+A10	D-G5NB□	D-G5NB-old	広域検出タイプ無接点オートスイッチ	D-G5NB□	D-G5NB-old1	-	1	D-G5NB-old.jpg	D-G5NB□		2020/3/1	-			D-G5NB-old.pdf		なし					
+A10	ZSE30A(F)/ISE30A	ZSE30A-old	2色表示式高精度デジタル圧力スイッチ	ZSE30A(F)/ISE30A	ZSE30A-old1	ZSE20(F)/ISE20<br/>ZSE20A(F)/ISE20A	1	ZSE30A-old.jpg	ZSE30A(F)/ISE30A		2020/12/1	ZSE20(F)/ISE20<br/>ZSE20A(F)/ISE20A	ZSE20F.jpg		ZSE30A-old.pdf		なし			ZSE30A-comp.pdf		ZSE20(F)-ISE20
+A10	ZSE40A(F)/ISE40A	ZSE40A-old	2色表示式高精度デジタル圧力スイッチ	ZSE40A(F)/ISE40A	ZSE40A-old1	ZSE20B(F)/ISE20B	1	ZSE40A-old.jpg	ZSE40A(F)/ISE40A		2020/12/1	ZSE20B(F)/ISE20B	ZSE20B.jpg		ZSE40A-old.pdf		なし			ZSE40A-comp.pdf		ZSE20(F)-ISE20
+A10	ZSE80(F)/ISE80(H)	ZSE80-old	2色表示式デジタル圧力スイッチ	ZSE80(F)/ISE80(H)	ZSE80-old1	ZSE20C(F)/ISE20C(H)	1	ZSE80-old.jpg	ZSE80(F)/ISE80(H)		2020/12/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg		ZSE80-old.pdf		なし			ZSE80-comp.pdf		ZSE20(F)-ISE20
+A11	IZS30	IZS30-old	イオナイザ	IZS30	IZS30-old1	IZS40/41/42	1	IZS30-old.jpg	IZS30	IZS40-1	2012/11/1	IZS40/41/42	IZS40.jpg		izs30-old.pdf		なし			IZS30-40comp.pdf		IZS40-41-42
+A11	IZN10	IZN10-old	イオナイザ/ノズルタイプ	IZN10	IZN10-old1	IZN10E	1	IZN10-old.jpg	IZN10	IZN10-1	2018/5/1	IZN10E	IZN10E.jpg		IZN10-old.pdf		あり			IZN10-comp.pdf		IZN10E
+A12	VDW30	VDW30-old	水・空気用小形直動2ポートソレノイドバルブ	VDW31	VDW30-old1	VX21	1	VDW30-old.jpg	VDW31	VX21-1	2015/7/1	VX21	VX21-7.jpg		VDW31-old.pdf		なし			vdw31-comp.pdf		VX2
+A12	VPS	VPS-old	2ポート電磁弁	VPS2175<br/>VPS2185<br/>VPS2195	VPS-old1	VXP2270<br/>VXP2380<br/>VXP2390	1		VPS2175	VXP-1	2015/4/1	VXP2270	VXP.jpg				なし			VPS-comp		VXP
+		VPS-old			VPS-old1		2		VPS2185	VXP-2	2015/4/1	VXP2380										VXP
+		VPS-old			VPS-old1		3		VPS2195	VXP-3	2015/4/1	VXP2390										VXP
+A12	VX21/22/23	VX21-1-old	直動形2ポートソレノイドバルブ	VX21/22/23（2代目）<br/>VX21/22/23（初代）	VX21-1-old1	VX21/22/23	1	VX21-old.jpg	VX21/22/23（2代目）	VX21-1-1	2012/3/1	VX21/22/23	VX21-1.jpg		VX-old.pdf		あり（VX21はなし：互換タイプは特注対応）			VX-comp.ZIP		VX2
+		VX21-1-old			VX21-1-old1		2		VX21/22/23（初代）	VX21-1-2	2005/4/1	VX21/22/23										VX2
+A12	VCA20/30/40	VCA20-old	空気用直動形2ポートソレノイドバルブ	VCA20/30/40	VCA20-old1	VX21/22/23	1	VCA20-old.jpg	VCA20/30/40	VX21-2-1	2012/3/1	VX21/22/23	VX21-2.jpg		vca_old.pdf		なし			vca_comp.pdf		VX2
+A12	VCW20/30/40	VCW20-old	水用直動形2ポートソレノイドバルブ	VCW20/30/40	VCW20-old1	VX21/22/23	1	VCW20-old.jpg	VCW20/30/40	VX21-3-1	2012/3/1	VX21/22/23	VX21-3.jpg		vcw_old.pdf		なし			vcw_comp.pdf		VX2
+A12	VCB20/30/40	VCB20-old	温水用直動形2ポートソレノイドバルブ	VCB20/30/40	VCB20-old1	VX21/22/23	1	VCB20-old.jpg	VCB20/30/40	VX21-4-1	2012/10/1	VX21/22/23	VX21-4.jpg		VCB.pdf		なし			VX2-VCS-VCB.pdf		VX2
+A12	VCL20/30/40	VCL20-old	油用直動形2ポートソレノイドバルブ	VCL20/30/40	VCL20-old1	VX21/22/23	1	VCL20-old.jpg	VCL20/30/40	VX21-5-1	2012/10/1	VX21/22/23	VX21-5.jpg		VCL.pdf		なし			VCL.pdf		VX2
+A12	VCS20/30/40	VCS20-old	蒸気用直動形2ポートソレノイドバルブ	VCS20/30/40	VCS20-old1	VX21/22/23	1	VCS20-old.jpg	VCS20/30/40	VX21-6-1	2012/10/1	VX21/22/23	VX21-6.jpg		VCS.pdf		なし			VX2-VCS-VCB.pdf		VX2
+A12	VXF/VXFA	VXF-old	集塵機用2ポートソレノイドバルブ/エアオペレートバルブ	VXF/VXFA	VXF-old1	VXF/VXFA	1	VXF-old.jpg	VXF/VXFA	VXF-1	2012/2/1	VXF/VXFA	VXF.jpg		vxf_old.pdf		外観形状の変更に伴いポート位置が変更になります。			vxf_comp.pdf		VXF2-VXFA2
+A12	VXA	VXA-old	直動形エアオペレート2ポートバルブ	VXA	VXA-old1	VXA	1	VXA-old.jpg	VXA21/22	VXA-1	2010/4/1	VXA21/22	VXA.jpg		VXA.pdf		あり			vxa.pdf		VXA
+A12	VDW10/20	VDW10-old	小型直動2ポートソレノイドバルブ	VDW10/20	VDW10-old1	VDW10/20	1	VDW10-old.jpg	VDW10/20	VDW10-1	2012/12/1	VDW10/20	VDW10.jpg		vdwold.pdf		あり(樹脂ボディはなし)	対象機種：N.C.仕様、単体仕様		vdw.pdf		VDW
+A12	VNC	VNC-old	クーラントバルブ	VNC	VNC-old１	SGC	1	VNC-old.jpg	VNC2155-15A□T□	VNC-1	2014/6/1	SGC221A-0515Y-□T□	SGC.jpg				なし			VNC_comp.pdf		SGC
+		VNC-old			VNC-old１		2		VNC2155-20A□T□	VNC-2	2014/6/1	SGC321A-0520Y-□T□										SGC
+		VNC-old			VNC-old１		3		VNC2165-25A□T□	VNC-3	2014/6/1	SGC421A-0525Y-□T□										SGC
+A12	VXD	VXD-old	パイロット形2ポートソレノイドバルブ	VXD21/22/23（2代目）<br/>VXD21/22/23（初代）	VXD-old1	VXD23/24/25/26/27/28/29	1	VXD-old.jpg	VXD21/22/23（2代目）	VXD-1	2015/3/1	VXD23/24/25/26/27/28/29	VXD.jpg		VXD-old.pdf		なし			VXD_comp.pdf		VXD
+		VXD-old			VXD-old1		2		VXD21/22/23（初代）	VXD-2	2006/9/1	VXD23/24/25/26/27/28/29										VXD
+A12	VXZ	VXZ-old	差圧ゼロ作動形・パイロット形2ポートソレノイドバルブ	VXZ22/23（2代目）<br/>VXZ22/23（初代）	VXZ-old1	VXZ23/24/25/26<br/>VXZ23/24/25/26	1	VXZ-old.jpg	VXZ22/23（2代目）	VXZ-2	2015/3/1	VXZ23/24/25/26	VXZ.jpg		VXZ-old.pdf		なし			VXZ_comp.pdf		VXZ
+		VXZ-old			VXZ-old1		2		VXZ22/23（初代）	VXZ-3	2008/10/1	VXZ23/24/25/26										VXZ
+A12	VXS	VXS-old	差圧ゼロ作動形・パイロット形2ポートソレノイドバルブ	VXS22/23	VXS-old1	VXS23/24/25/26	1	VXS-old.jpg	VXS22/23	VXS-3	2015/3/1	VXS23/24/25/26	VXS.jpg		VXS_ja_old.pdf		なし			VXS_comp.pdf		VXS-2
+A13	PB1000	PB1000-old	プロセスポンプ	PB1011<br/>PB1013	PB1000-old1	PB1011A<br/>PB1013A	1	PB1000-old.jpg	PB1011	PB1000A-1	2010/12/1	PB1011A	PB1000A.jpg		pb1000.pdf		あり （オーダーメイド仕様）			pb1000_1000a.pdf		PB
+		PB1000-old			PB1000-old1		2		PB1013	PB1000A-2	2010/12/1	PB1013A										PB
+A13	PB1000	PB1000-1-old	プロセスポンプ	PB1013-X17	PB1000-1-old1	PB1313A	1	PB1000-old.jpg	PB1013-X17	PB1000A-3	2012/2/1	PB1313A	PB1000A.jpg		pb1000.pdf		あり （オーダーメイド仕様）			pb1000_1000a.pdf		PB
+A13	PA2000	PA2000-old	プロセスポンプ	PA2000	PA2000-old1	PA3000/PAF3410-X68	1	PA2000-old.jpg	PA2000/PA2200	PA2000-1	2013/7/1	PA3100/PA3200	PA3100.jpg		S100012-B9304.pdf		なし			pa2000_3000.pdf		PA-PAP-PAX
+		PA2000-old			PA2000-old1		2		PA2310	PA2000-2	2013/7/1	PAF3410-X68										PAF
+A14	HRZ	HRZ1-old	サーモチラー	HRZ	HRZ1-old1	HRZ-F	1	HRZ1-old.jpg	HRZ	HRZ1-1	2022/12/1	HRZ-F	HRZ-F.jpg		HRZ1-old.pdf		あり			HRZ1-comp.pdf		HRZ-F
+A14	HEA	HEA-old	ペルチェ式エアサーモ	HEA	HEA-old1	IDH4	1	HEA-old.jpg	HEA	HEA-1	2021/12/1	IDH4	IDH.jpg		HEA-old.pdf		なし			HEA-comp.pdf		IDH_
+A14	HRG	HRG-old	サーモクーラ	HRG001/002<br/>HRGC001/002	HRG-old1	HRS012/018/024<br/>HRS012/018/024	1	HRG-old.jpg	HRG001/002	HRS-1	2011/3/1	HRS012/018/024	HRS.jpg		HRG_old.pdf	HRG_HRGC-1.pdf	なし			HRG_comp.pdf		HRS
+		HRG-old			HRG-old1		2		HRGC001/002	HRS-2	2011/3/1	HRS012/018/024										HRS
+A14	HRG	HRG-1-old	サーモクーラ	HRG005<br/>HRGC005	HRG-1-old1	HRS050	1	HRG-old.jpg	HRG005	HRS-3	2011/4/1	HRS050	HRS.jpg		HRG_old.pdf	HRG_HRGC-1.pdf	なし			HRG_comp.pdf		HRS
+		HRG-1-old			HRG-1-old1		2		HRGC005	HRS-4	2011/4/1	HRS050										HRS
+A14	HRG	HRG-2-old	サーモクーラ	HRG010/015	HRG-2old1	HRS100/150	1	HRG-old.jpg	HRG010/015	HRS-5	2014/11/1	HRS100/150	HRS.jpg		HRG_old.pdf	HRG_HRGC-1.pdf	なし			HRG_comp.pdf		HRS100-150
+A14	HEC105/205W	HEC-old	サーモコン	HEC105<br/>HEC205<br/>INR-244-323	HEC-old１	HEC001<br/>HEC003	1		HEC105	HEC-1	2008/9/1	HEC001	HEC.jpg				あり			HEC-comp.pdf		HEC
+		HEC-old			HEC-old１		2		HEC205	HEC-2	2008/9/1	HEC003										HEC
+		HEC-old			HEC-old１		3		INR-244-323	HEC-3	2008/9/1	HEC003										HEC
+A14	HRZ	HRZ-old	サーモチラー/高機能タイプ	HRZ004-L-□<br/>HRZ004-L1-□<br/>HRZ008-L-□<br/>HRZ008-L1-□	HRZ-old1	HRZ008-WS-F<br/>HRZ008-W1S-F<br/>HRZ008-L-F<br/>HRZ008-L-F	1	HRZ-old.jpg	HRZ004-L-□<br/>HRZ004-L1-□<br/>HRZ008-L-□<br/>HRZ008-L1-□	HRZ-1	2020/10/1	HRZ008-WS-F<br/>HRZ008-W1S-F<br/>HRZ008-L-F<br/>HRZ008-L-F	HRZ.jpg		HRZ-old.pdf		あり			HRZ-comp.pdf		HRZ-F
+A15	FGB	FGB-old	工業用フィルタ	FGB	FGB-old1	FGA	1	FGB-old.jpg	FGB	FGB-1	2014/7/1	FGA	FGA.jpg		FGB-old.pdf		なし (ただし、エレメントはFGAと共通です。)			FGB-comp.pdf		FGA
+A15	FGF	FGF-old	バッグフィルタ	FGF□1A-20-E□A <br/>(エレメントサイズL440)	FGF-old1	FGF□1A-20-E□B<br/>(エレメントサイズL440)	1	FGF-old.jpg	FGF□1A-20-E□A <br/>(エレメントサイズL440)	FGF-1	2009/12/1	FGF□1A-20-E□B <br/>(エレメントサイズL440)	FGF.jpg		fgf_old.pdf		なし			fgf_comp.pdf		FGF
+A15	FGF	FGF-1-old	バッグフィルタ	FGF□1B-20-E□A <br/>(エレメントサイズL770)	FGF-1-old1	FGF□1B-20-E□B<br/>(エレメントサイズL770)	1	FGF-old.jpg	FGF□1B-20-E□A <br/>(エレメントサイズL770)	FGF1B-1	2010/2/1	FGF□1B-20-E□B <br/>(エレメントサイズL770)	FGF.jpg		fgf_old.pdf		なし			fgf_comp.pdf		FGF
+A15	FGJ	FGJ-old	洗浄液用フィルタ	FGJ	FGJ-old1	FGD/FQ1	1	FGJ-old.jpg	FGJSA-06-□□□X0	FGD-1	2012/12/1	FGDFA-06	FGD.jpg		FGK-FGJ.pdf		なし					FGD
+		FGJ-old			FGJ-old1		2		FGJSA-06-□□□X0	FGD-2	2012/12/1	FQ1011N-06										FQ1
+		FGJ-old			FGJ-old1		3		FGJSB-06-□□□X0	FGD-3	2012/12/1	FGDFB-06										FGD
+		FGJ-old			FGJ-old1		4		FGJSB-06-□□□X0	FGD-4	2012/12/1	FQ1012N-06										FQ1
+		FGJ-old			FGJ-old1		5		FGJLA-06-□□□X0	FGD-5	2012/12/1	FGDFA-06										FGD
+		FGJ-old			FGJ-old1		6		FGJLA-06-□□□X0	FGD-6	2012/12/1	FQ1011V-06										FQ1
+		FGJ-old			FGJ-old1		7		FGJLB-06-□□□X0	FGD-7	2012/12/1	FGDFB-06										FGD
+		FGJ-old			FGJ-old1		8		FGJLB-06-□□□X0	FGD-8	2012/12/1	FQ1012V-06										FQ1
+A15	FGK	FGK-old	洗浄液用フィルタ	FGK	FGK-old1	FGE	1	FGK-old.jpg	FGKSA-□□-□□□X0	FGE-1	2012/12/1	FGESA-□□-□□□A	FGE.jpg		FGK-FGJ.pdf		なし					FGE
+		FGK-old			FGK-old1		2		FGKSB-□□-□□□X0	FGE-2	2012/12/1	FGESB-□□-□□□A										FGE
+		FGK-old			FGK-old1		3		FGKSC-□□-□□□X0	FGE-3	2012/12/1	FGESC-□□-□□□A										FGE
+		FGK-old			FGK-old1		4		FGKLA-□□-□□□X0	FGE-4	2012/12/1	FGELA-□□-□□□A										FGE
+		FGK-old			FGK-old1		5		FGKLB-□□-□□□X0	FGE-5	2012/12/1	FGELB-□□-□□□A										FGE
+		FGK-old			FGK-old1		6		FGKLC-□□-□□□X0	FGE-6	2012/12/1	FGELC-□□-□□□A										FGE
+A15	FZ･FGZA	FZ-old	水用プラスチックフィルタ	FZ･FGZA	FZ-old1	-	1		FZ･FGZA	FZ-1	2012/6/1	-										
+A15	EHE	EHE-old	ファイバエレメント	EHE	EHE-old1	-	1		EHE	EHE-1	2014/11/1	-								EHE-comp.pdf		
+A16	LECSB/C/S(-S)	LECS-old	ACサーボモータドライバ	・パルス入力タイプ(-S) /LECSB-S<br/>・CC-Link直接入力タイプ(-S)/ LECSC-S<br/>・SSCNETⅢタイプ(-S)/ LECSS-S<br/>・ACサーボモータS6/S7/S8搭載電動アクチュエータ<br/>(LEY/LEF/LEJ)	LECS-old1	・パルス入力タイプ(-T) /LECSB-T<br/>・CC-Link直接入力タイプ(-T)/ LECSC-T<br/>・SSCNETⅢタイプ(-T)/ LECSS-T<br/>・ACサーボモータT6/T7/T8搭載電動アクチュエータ<br/>(LEY/LEF/LEJ)	1	LECS-old.jpg	・パルス入力タイプ(-S) /LECSB-S<br/>・CC-Link直接入力タイプ(-S)/ LECSC-S<br/>・SSCNETⅢタイプ(-S)/ LECSS-S<br/>・ACサーボモータS6/S7/S8搭載<br/>電動アクチュエータ(LEY/LEF/LEJ)	LECS-3	2022/2/1	・パルス入力タイプ(-T) /LECSB-T<br/>・CC-Link直接入力タイプ(-T)/ LECSC-T<br/>・SSCNETⅢタイプ(-T)/ LECSS-T<br/>・ACサーボモータT6/T7/T8搭載電動アクチュエータ<br/>(LEY/LEF/LEJ)	LECS-3.jpg		LECS-old.pdf		なし			LECS-comp.pdf		LECS
+A16	LECP6	LECP6-old	電動アクチュエータ用コントローラステップデータ入力タイプ	LECP6	LECP6-old1	JXC51/61	1	LECP6-old.jpg	LECP6	LECP6-1	2021/1/1	JXC51/61	JXC51.jpg		LEC_JXC_-old.pdf		あり			LECP-comp.pdf		JXC51-61
+A16	LECPMJ	LECPMJ-old	電動アクチュエータ用コントローラCC-Link直接入力タイプ	LECPMJ	LECPMJ-old1	JXCM1	1	LECPMJ-old.jpg	LECPMJ	LECPMJ-1	2021/1/1	JXCM1	JXCM1.jpg		LEC_JXC_-old.pdf		あり			LECP-comp.pdf		JXC91
+A16	LATC4	LATC4-old	カードモータ<sub>&reg;</sub>コントローラ	LATC4	LATC4-old1	LATCA	1	LATC4-old.jpg	LATC4	LATCA-1	2015/8/1	LATCA	LATCA.jpg		LATC4-old.pdf		あり			LATC4-comp.pdf		LATC4
+A16	LG1H	LG1H-old	単軸電動アクチュエータ	LG1TH	LG1H-old1	LEF	1	LG1H-old.jpg	LG1TH	LEF-1-1	2010/6/1	LEF	LEF-1.jpg		lg1.pdf		なし			lg1_lef.pdf		LEF
+A16	LG1H	LG1H-1-old	単軸電動アクチュエータ	LG1□S	LG1H-1-old1	LEF	1	LG1H-old.jpg	LG1□S	LEF-1-2	2010/9/1	LEF	LEF-1.jpg		lg1.pdf		なし			lg1_lef.pdf		LEF
+A16	LJ1	LJ1-old	単軸電動アクチュエータ	LJ1	LJ1-old1	LEF	1	LJ1-old.jpg	LJ1H□S	LEF-2-1	2010/9/1	LEF (一部LJ1)	LEF-2.jpg		lj1.pdf		なし			lj_lef.pdf		LEF
+		LJ1-old			LJ1-old1		2		LJ1S	LEF-2-2	2010/9/1	LEF (一部LJ1)										LEF
+A16	LC8	LC8-old	ポジショニングドライバ	LC8	LC8-old1	LECS	1	LC8-old.jpg	LC8	LECS-1-1	2010/3/1	LECS	LECS-1.jpg		lc8.pdf		なし					LECS
+A16	LC1/LC7R	LC1-old	標準ACサーボモータ専用コントローラ	LC1/LC7R	LC1-old1	LECS	1	LC1-old.jpg	LC1-□ (ACサーボモータ専用コントローラ)	LECS-2-1	2012/9/1	LECS	LECS-2.jpg		lc1.pdf		なし		LECSシリーズはLC1シリーズと機能面が異なりますので変更の際は仕様のご確認をお願い致します。<br/>アクチュエータの変更も必要になりますのでご注意ください。			LECS
+		LC1-old			LC1-old1		2		LC1-1-1-T (ティーチングボックス)	LECS-2-2	2012/9/1	LECS										LECS
+		LC1-old			LC1-old1		3		LC7R-□ (回生吸収ユニット)	LECS-2-3	2012/9/1	LECS										LECS
+		LC1-old			LC1-old1		4		LC1-1-1-W (コントローラ設定ソフト)	LECS-2-4	2012/9/1	LECS										LECS
+		LC1-old			LC1-old1		5		LC1-1-1 (2) (R)  (接続コントローラ、ケーブル)	LECS-2-5	2012/9/1	LECS										LECS
+A16	LJ1	LJ1-2old	単軸電動アクチュエータ	LJ1	LJ1-2old1	LEF/LEJ	1	LJ1-2old.jpg	LJ1	LEF-3-1	2014/5/1	LEF	LEF-3.jpg		LJ1-old.pdf		なし		仕様、取付寸法、外観寸法等の機能面で異なる部分がありますので<br/>変更の際は、ご確認をお願い致します。			LEF
+		LJ1-2old			LJ1-2old1		2		LJ1	LEF-3-2	2014/5/1	LEJ										LEJ
+A16	LG1	LG1-old	薄形単軸電動アクチュエータ	LG1	LG1-old1	LEF/LEJ	1	LG1-old.jpg	LG1	LEF-4-1	2014/5/1	LEF	LEF-3.jpg		LG1-old.pdf		なし		仕様、取付寸法、外観寸法等の機能面で異なる部分がありますので<br/>変更の際は、ご確認をお願い致します。			LEF
+		LG1-old			LG1-old1		2		LG1	LEF-4-2	2014/5/1	LEJ										LEJ
+A16	LTF	LTF-old	ガイド一体型電動アクチュエータ	LTF	LTF-old1	LEF/LEJ	1	LTF-old.jpg	LTF	LEF-5-1	2014/5/1	LEF	LEF-3.jpg		LTF-old.pdf		なし		仕様、取付寸法、外観寸法等の機能面で異なる部分がありますので<br/>変更の際は、ご確認をお願い致します。			LEF
+		LTF-old			LTF-old1		2		LTF	LEF-5-2	2014/5/1	LEJ										LEJ
+A16	LXF,LXP,LXS	LX-old	ショートストローク電動アクチュエータ	LXF<br/>LXP<br/>LXS	LX-old1	LES, LESH<br/>LEYG<br/>LES, LESH	1	LX-old.jpg	LXF	LEYG-1	2014/5/1	LES, LESH	LEGY-1.jpg		LX-old.pdf		なし		仕様、取付寸法、外観寸法等の機能面で異なる部分がありますので<br/>変更の際は、ご確認をお願い致します。			LES
+		LX-old			LX-old1		2		LXP	LEYG-2	2014/5/1	LEYG										LEYG
+		LX-old			LX-old1		3		LXS	LEYG-3	2014/5/1	LES, LESH										LES
+A16	LC6	LC6-old	ステッピングモータドライバ／ポジショニングドライバ	LC6D<br/>LC6C	LC6-old1	LEC	1	LE6-old.jpg	LC6D	LEC-1	2014/5/1	LEC	LEC-1.jpg	/products/ja/electric/s.do?ca_id=622	LC6-old.pdf		なし		仕様、取付寸法、外観寸法等の機能面で異なる部分がありますので<br/>変更の際は、ご確認をお願い致します。			
+		LC6-old			LC6-old1		2		LC6C	LEC-2	2014/5/1	LEC		/products/ja/electric/s.do?ca_id=622								
+A16	E-MY2	E-MY2-old	e-ロッドレス	E-MY2	E-MY2-old1	LEM	1	E-MY2-old.jpg	E-MY2B	LEM-1-1	2014/3/1	LEMB	LEM-1.jpg		E-MY2-old.pdf		あり		外形寸法に変更があります。	E-MY2-comp.pdf		LEM
+		E-MY2-old			E-MY2-old1		2		E-MY2C	LEM-1-2	2014/3/1	LEMC										LEM
+		E-MY2-old			E-MY2-old1		3		E-MY2H	LEM-1-3	2014/3/1	LEMH										LEM
+		E-MY2-old			E-MY2-old1		4		E-MY2HT	LEM-1-4	2014/3/1	LEMHT										LEM
+A17	IP100, 110	IP100-old	バルブポジショナ	IP100, 110	IP100-old1	IP5000	1	IP100-old.jpg	IP100-, IP110-, 2103-, INI216シリーズ全種	IP5000-1	2006/3/1	IP5000	IP5000.jpg		ip100.pdf		なし			ip100_ip5000.pdf		IP5000-5100
+A17	IP6000	IP6000-old	電－空ポジショナ	IP6000	IP6000-old1	IP8000	1	IP6000-old.jpg	IP6000	IP8000-1	2013/7/1	IP8000	IP8000.jpg		ip6000.pdf		あり			IP6000_ip8000.pdf		IP8_00%2fIP8_01
+		IP6000-old			IP6000-old1		2		IP6100	IP8000-2	2013/7/1	IP8100										IP8_00%2fIP8_01
+A18	LQ2	LQ2-old	フッ素樹脂製管継手	LQ2	LQ2-old1	LQ1	1	LQ2-old.jpg	LQ2	LQ1-1	2022/3/1	LQ1	LQ1.jpg		LQ2-old.pdf		なし			LQ2-comp.pdf		LQ1-F
+A18	パイロットポートM5仕様　LVA20/LVC20	LV20-old	薬液用エアオペレートバルブ	LVC20-S<br/>LVA20	LV20-old1	LVC20-S-Z<br/>LVA20-Z	1	LV20-old.jpg	LVC20-S	LV20-1	2015/3/1	LVC20-S-Z	LV20-Z.jpg				あり (パイロットポートねじサイズがM5×0.8からRC、NPT、PF1/8へ変更になります。）			LV-comp.pdf		LVC
+		LV20-old			LV20-old1		2		LVA20	LV20-2	2015/3/1	LVA20-Z										LVA
+A18	LQ-G	LQ-G-old	フッ素樹脂製管継手 施工治具	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-old1	LQ-GR	1	LQ-G-old.jpg	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-1	2015/5/1	LQ-GR	LQ-G.jpg	/catalog/BEST-Guide/pdf/lq-m-a.pdf	LQ-G-old.pdf					LQ-G-comp.pdf		
+A19	XSA	XSA-old	高真空ストレート電磁弁	XSA	XSA-old1	XSA	1	XSA-old.jpg	XSA	XSA-1	2015/3/1	XSA	XSA.jpg		XSA_ja_old.pdf		あり (外形寸法に変更があります。）			XSA_comp.pdf		XSA-2
+A19	XL□	XLA-old	アルミ製高真空L型バルブ	XLA<br/>XLAV<br/>XLC<br/>XLF<br/>XLFV<br/>XLG	XLA-old1	XLA-2<br/>XLAV-2<br/>XLC-2<br/>XLF-2<br/>XLFV-2<br/>XLG-2	1	XLA-old.jpg	XLA	XLA-1	2017/9/1	XLA-2	XLA-2.jpg		XLA-old.pdf		あり (ただし製品全長に変更があります。）			XLA-comp.pdf		XLA
+		XLA-old			XLA-old1		2		XLAV	XLA-2	2017/9/1	XLAV-2										XLA
+		XLA-old			XLA-old1		3		XLC	XLA-3	2017/9/1	XLC-2										XLA
+		XLA-old			XLA-old1		4		XLF	XLA-4	2017/9/1	XLF-2										XLA
+		XLA-old			XLA-old1		5		XLFV	XLA-5	2017/9/1	XLFV-2										XLA
+		XLA-old			XLA-old1		6		XLG	XLA-6	2017/9/1	XLG-2										XLA
+A20	HOW	HOW-old	遊動管板式オイルクーラ	HOW	HOW-old1	HOWF	1	HOW-old.jpg	HOW	HOW-1	2022/7/1	HOWF	HOWF.jpg		HOW-old.pdf		あり			HOW-comp.pdf		HOWF

@@ -1,0 +1,42 @@
+2019-1212引き渡しの補足
+
+
+■thymeleafディレクトリ
+
+・Thymeleaf HTMLファイル
+/src/maing/resources/templates/以下のHTMLが実態
+
+・staticファイル
+/src/maing/resources/static/以下に格納
+この静的ディレクトリはドキュメントルートからのパス("/")で直接アクセスできる
+
+
+■thymeleafを編集する際に以下参考に。
+
+■VSCodeなど外部エディタを使う場合
+・Eclipseは自動ビルドにより、/src/main/resourcesが更新された場合、/bin/main/templates,/bin/main/staticにコピーしてくれる
+・外部エディタを使う場合はこれが検出されるように、Eclipseを開きながら、Thymeleafリソースの編集をする、更新が検知されるようにEclipseを以下に設定
+ウインドウ->設定->一般->ワークスペース
+■ネイティブフックまたはポーリングを利用してリフレッシュ
+■アクセス時にリフレッシュ
+
+■LiveReload
+・ThymeleafやSpringの変更時にブラウザが自動リロードされる(Springは実行状態に)
+FireFox版を使用
+(Chrome版は不具合あり)
+https://addons.mozilla.org/ja/firefox/addon/livereload-web-extension/
+
+■レイアウト構造
+/src/maing/resources/templates/layout/がテンプレートファイル(どこでもよい)
+base.html -> 起点テンプレート
+base_login -> ログイン後のテンプレート(base.htmlを継承)
+
+■その他
+uiフレームワーク
+https://semantic-ui.com/
+※この習得も時間がかかるので無視したほうがよいかも
+
+
+
+
+

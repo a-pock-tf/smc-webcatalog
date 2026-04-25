@@ -1,0 +1,451 @@
+カテゴリID	シリーズ名用(生産終了機種)	ｼﾘｰｽﾞ名用１ID	名称	枠内シリーズ１（生産終了機種）	ｼﾘｰｽﾞ１ID(zh)	シリーズ2（代替機種）		ｼﾘｰｽﾞ１画像名	対象型式	終了型式ID(zh)	終了年月日Time ofdiscontinuation	代替型式	ｼﾘｰｽﾞ2画像名	enカタログリンク	終了機種カタログ : 停产型号的样本	生産終了機種取扱説明書	取付互換：安装互换性	その他：其他	注意事項：注意事项	新旧比較詳細:产品细节对比PDF	リンク先	新ID(ZH)
+A01	EX600-SEN1,SEN2	EX600-old-e	Serial Transmission System SI Units	EX600-SEN1<br/>EX600-SEN2	EX600-old1-e	EX600-SEN3<br/>EX600-SEN4	1	EX600-old.jpg	EX600-SEN1<br/>EX600-SEN2	EX600-SEN3-1-e	2022/3/1	EX600-SEN3<br/>EX600-SEN4	EX600-SEN3.jpg		EX600-old-e.pdf		Yes					EX600-E
+A01	EX120/121/122/123/140 	EX120-SSL1-old-e	Serial Transmission System	EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-old1-e	-	1		EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-1-e	2018/5/1	-			EX120-180-old-e.pdf
+A01	EX500（GW unit）	EX500-GW-old-e	Serial Transmission System	EX500-GEN1<br/>(Includinng made-to-order products)	EX500-GW-old1-e	EX500-GEN2	1		EX500-GEN1<br/>(Includinng made-to-order products)	EX500-GW-1-e	2019/3/1	EX500-GEN2	EX500-GEN2.jpg				None					EX500-E
+A01	EX250-SMJ2	EX250-SMJ2-old-e	Serial Transmission System / SI Units compatible with CC-Link	EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-old1-e	EX600-SMJ□<br/>EX260-SMJ□	1		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-1-e	2019/7/1	EX600-SMJ□			EX250-old-e.pdf		None					EX600-E
+		EX250-SMJ2-old-e			EX250-SMJ2-old1-e		2		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-2-e	2019/7/1	EX260-SMJ□										EX260-EN
+A01	SX3000/5000/7000	SX3000-old-e	5-Port Solenoid Valve 	SX3000/5000/7000<br/>Flat cable<br/>Serial Transmission<br/>Sub-plate Single Unit<br/>SX3000/5000/7000<br/>Individual wiring<br/> Single Unit	SX3000-old1-e	SY3000/5000/7000<br/>Plug-in Type<br/>SY3000/5000/7000	1	SX-old.jpg	SX3000/5000/7000<br/>Flat cable<br/>Serial Transmission<br/>Sub-plate Single Unit	SX3000-1-e	2020/5/1	SY3000/5000/7000<br/>Plug-in Type	SY3000.jpg				None					SY-E
+		SX3000-old-e					2		SX3000/5000/7000<br/>Individual wiring<br/> Single Unit	SX3000-2-e	2020/5/1	SY3000/5000/7000										SY-5-E
+A01	VKF300	VKF300-old-e	3 Port Solenoid Valve/Direct Operated Poppet Type	VKF300	VKF300-old1-e	VK300	1	VKF300-old.jpg	VKF300	VKF300-1-e	2020/8/1	VK300	VK300.jpg		VKF300-old-e.pdf		None					VK-E
+A01	SY3000/5000	SY3000-2-old-e	5-Port Solenoid Valve 	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SY3000-2-old1-e	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	1	SS5Y-2-old.jpg	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SS5Y-4-e	2019/12/1	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	SS5Y-2.jpg		SY5-old-e.pdf		None					SY-E
+A01	VHK	VHK-old-e	Finger Valve	VHK	VHK-old1-e	VHK□A	1	VHK-old.jpg	VHK	VHK-1-e	2021/12/1	VHK□A	VHK-A.jpg		VHK-old-e.pdf		Yes					VHK-A-E
+A01	EX500	EX500GDN-old-e	Serial Transmission System	GW unit <br/>(DeviceNet&reg; Compatible)<br/>    EX500-GDN1<br/>   56-EX500-GDN1-X8<br/>DeviceNet&reg; Communication Cable <br/>(Accessories Cable)<br/>    EX500-AC010-DN<br/>    EX500-AC050-DN	EX500GDN-old1-e	GW unit<br/>    EX260-SDN□<br/>    EX600-SDN<br/>DeviceNet&reg; Communication Cable<br/>   PCA-1557633	1	EX500GDN-old.jpg	GW unit <br/>(DeviceNet&reg; Compatible)<br/>    EX500-GDN1<br/>   56-EX500-GDN1-X8<br/>DeviceNet&reg; Communication Cable <br/>(Accessories Cable)<br/>    EX500-AC010-DN<br/>    EX500-AC050-DN	EX500GDN-1-e	2021/3/1	GW unit<br/>    EX260-SDN□<br/>    EX600-SDN<br/>DeviceNet&reg; Communication Cable<br/>   PCA-1557633	EX260SDN.jpg		EX500GDN-old-e.pdf		None					EX260-EN/EX600-E
+A01	EX120/121/122/123U/123D/140	EX120-SUH1-old-e	SI Unit For The NKE Corp. Fieldbus H System	EX120-SUH1<br/>EX121-SUH1<br/>EX122-SUH1<br/>EX123U-SUH1<br/>EX123D-SUH1<br/>EX140-SUH1	EX120-SUH1-old1-e	-	1		EX120-SUH1<br/>EX121-SUH1<br/>EX122-SUH1<br/>EX123U-SUH1<br/>EX123D-SUH1<br/>EX140-SUH1	EX120-SUH1-1-e	2021/2/1	-			EX120-SUH1-old-e.pdf		None. Please consider switching to a different network(CC-Link etc.).
+A01	VQ4000/5000	VQ4000_5000-old-e	5 Port Solenoid Valve	VQ4000	VQ4000_5000-old1-e	VQ4000	1	VQ4000_5000-old.jpg	VQ4000	VQ4000_5000-1-e	2016/7/1	VQ4000	VQ4000_5000.jpg		VQ4000_5000-old-e.pdf		Yes （Some specifications are changed.）					VQ4000-5000-E
+		VQ4000_5000-old-e	5 Port Solenoid Valve	VQ5000	VQ4000_5000-old2-e	VQ5000	2		VQ5000	VQ4000_5000-2-e	2016/7/1	VQ5000										VQ4000-5000-E
+A01	VQC4000	VQC4000-old-e	5 Port Solenoid Valve	VQC4000	VQC4000-old1-e	VQC4000	1	VQC4000-old.jpg	VQC4000	VQC4000-1-e	2016/7/1	VQC4000	VQC4000.jpg		VQC4000-old-e.pdf		Yes （Some specifications are changed.）					VQC4000-5000-E
+A01	VF1000/3000/5000	VF-old-e	5 Port Solenoid Valve	VF1000/3000/5000	VF-old1-e	VF1000/3000/5000	1	VF-old.jpg	VF1000/3000/5000	VF-1-e	2009/11/1	VF1000/3000/5000	VF.jpg	/directional/pilot45/pilot45found34646.html	VF-old-e.pdf		Yes			vf.pdf		VF-E
+A01	VQ1000/2000	VQ-old-e	5 Port Solenoid Valve	VQ1000/2000	VQ-old1-e	VQ1000/2000	1	VQ-old.jpg	VQ1000/2000	VQ-1-e	2009/7/1	VQ1000/2000	VQ.jpg	/directional/pilot45/pilot45found34649.html	VQ-old-e.pdf		Yes					VQ-E
+A01	VQC1000/2000	VQC-old-e	5 Port Solenoid Valve	VQC1000/2000	VQC-old1-e	VQC1000/2000	1	VQC-old.jpg	VQC1000/2000	VQC-1-e	2009/7/1	VQC1000/2000	VQC.jpg	/directional/pilot45/pilot45found34650.html	VQC-old-e.pdf		Yes					VQC-E
+A01	VQZ	VQZ-old-e	3/5 Port Solenoid Valve	VQZ	VQZ-old1-e	VQZ	1	VQZ-old.jpg	VQZ1000/2000/3000	VQZ-1-e	2007/6/1	VQZ1000/2000/3000	VQZ.jpg	/directional/pilot45/pilot45found34036.html	VQZ-old-e.pdf		Yes			vqz100.pdf		VQZ-E
+		VQZ-old-e			VQZ-old1-e		2		VQZ100/200/300	VQZ-2-e	2007/6/1	VQZ100/200/300		/directional/pilot3/pilot3found34042.html								VQZ-3-E
+A01	SQ1000/2000	SQ-old-e	5 Port Solenoid Valve	SQ1000/2000	SQ-old1-e	SQ1000/2000	１	SQ-old.jpg	SQ1000	SQ-1-e	2013/7/1	SQ1000	SQ.jpg	/directional/pilot45/pilot45found2304.html	SQ-old-e.pdf		Yes					SQ-E
+		SQ-old-e			SQ-old1-e		2		SQ2000	SQ-2-e	2013/7/1	SQ2000		/directional/pilot45/pilot45found2304.html								SQ-E
+A01	VP(A)300/500/700	VPA-old-e	3 Port Solenoid Valve / 3 Port Air Operated Valve	VP(A)300/500/700	VPA-old1-e	VP(A)300/500/700	1	VPA-old.jpg	VP300/500/700	VPA-1-e	2009/11/1	VP300/500/700	VPA.jpg	/directional/pilot3/pilot3found34630.html	VP-VPA-old-e.pdf		Yes			vp.pdf		VP-3-E
+		VPA-old-e			VPA-old1-e		2		VPA300/500/700	VPA-2-e	2009/11/1	VPA300/500/700		/directional/air/airfound34631.html								VPA-A-E
+A01	VT307	VT307-old-e	3 Port Solenoid Valve/Direct Operated Poppet Type   	VT307	VT307-old1-e	VT307	1	VT307-old.jpg	VT307	VT307-1-e	2013/6/1	VT307	VT307.jpg	/directional/direct345/direct345.htm#2310	VT307-old-e.pdf		Yes (Except lead wire size of the grommet type)					VT307-E
+A01	VT301	VT301-old-e	3 Port Solenoid Valve	VT301	VT301-old1-e	VT307	1	VT301-old.jpg	VT301	VT301-1-e	2013/6/1	VT307	VT307.jpg	/directional/direct345/direct345.htm#2310			Yes (Except thread size, bracket mounting dimension and lead wire size of the grommet type)					VT307-E
+A01	VZA	VZA-old-e	3/5 Port Air Operated Valve	VZA	VZA-old1-e	SYJA	1	VZA-old.jpg	VZA300,500	SYJA-1-e	2008/10/1	SYJA500,700	SYJA.jpg	/directional/air/airfound34068.html			Yes			vza.pdf		SYJA-A-E
+		VZA-old-e			VZA-old1-e		2		VZA3000,5000	SYJA-2-e	2008/10/1	SYJA5000,7000		/directional/air/airfound34062.html								SYJA-E
+A01	EX240	EX240-old-e	Serial Transmission System	EX240	EX240-old1-e	EX600	1	EX240-old.jpg	EX240	EX600-1-e	2011/5/1	EX600	EX600.jpg	/directional/serial/serialfound34779.html	EX240-old-e.pdf		None					EX600-E
+A01	EX500	EX500-old-e	Fieldbus System GW Unit for CC-Link	EX500	EX500-old1-e	EX260, EX600	1	EX500-old.jpg	EX500-GMJ1	EX260-1-e	2012/12/1	EX260-SMJx	EX260.jpg	/directional/serial/serialfound34058.html	EX500-old-e.pdf		None					EX260-EN
+		EX500-old-e			EX500-old1-e		2		EX500-GMJ1	EX260-2-e	2012/12/1	EX600-SMJx		/directional/serial/serialfound34779.html								EX600-E
+A01	VM	VM-old-e	Mechanical Valve	VM100/200	VM-old1-e	VM100/200	1	VM-old.jpg	VM100,200	VM-1-e	2013/12/1	VM100,200	VM.jpg		VM-old-e.pdf		Yes		The dimensions of the VM100 bottom ported type were changed.			VM-A-E
+A01	VHS	VHS-old-e	Conforming to OSHA Standard/Pressure Relief 3 Port Valve with Locking Holes	VHS	VHS-old1-e	VHS	1	VHS-old.jpg	VHS20 to 50	VHS-1-e	2014/12/1	VHS20～50	VHS.jpg		VHS20-old-e.pdf		Yes (The dimensions of other parts are changed. Refer to the catalog.)					VHS-E
+A01	VHS	VHSW-old-e	Conforming to OSHA Standard/Pressure Relief 3 Port Valve with Locking Holes (Double Action Type) 	VHS	VHSW-old1-e	VHS	1	VHSW-old.jpg	VHS4510	VNSW-1-e	2014/12/1	VHS4510	VHSW.jpg		VHS4510-old-e.pdf		Yes (The dimensions of other parts are changed. Refer to the catalog.)					VHS-E
+		VHSW-old-e			VHSW-old1-e		2		VHS4510-06	VNSW-2-e	2014/12/1	VHS4510										VHS-E
+		VHSW-old-e			VHSW-old1-e		3		VHS5510	VNSW-3-e	2014/12/1	VHS4510										VHS-E
+A01	VJ3000	VJ3000-old-e	5 Port Solenoid Valve	VJ3000	VJ3000-old1-e	SYJ/SY/VZ	1	VJ3000-old.jpg	VJ3000 Dual Pressure	SYJ1-1-e	2011/8/1	SYJ	SYJ1.jpg				Dual Pressure; Yes<br/>  Stacking Type Resin Manifold, Coaxial tubing system; None
+		VJ3000-old-e			VJ3000-old1-e		2		VJ3000<br/>Stacking Type Resin Manifold	SYJ1-2-e	2011/8/1	SY		/directional/pilot45/pilot45found34799.html								SY-E
+		VJ3000-old-e			VJ3000-old1-e		3		VJ3000 Coaxial tubing system	SYJ1-3-e	2011/8/1	VZ
+A01	VJ/VJA	VJ-old-e	3/5 Port Solenoid Valve	VJ/VJA	VJ-old1-e	SYJ/V100	1	VJ-old.jpg	VJ3000/5000/7000	SYJ2-1-e	2013/9/1	SYJ3000/5000/7000	SYJ2.jpg	/directional/pilot45/pilot45found34027.html			Except for model VJ100					SYJ-E
+		VJ-old-e			VJ-old1-e		2		VJ100	SYJ2-2-e	2013/9/1	V100		/directional/direct345/direct345found34048.html								V100-E
+		VJ-old-e			VJ-old1-e		3		VJ300/500/700	SYJ2-3-e	2013/9/1	SYJ300/500/700		/directional/pilot3/pilot3found34041.html								SYJ-3-E
+		VJ-old-e			VJ-old1-e		4		VJA3000	SYJ2-4-e	2013/9/1	SYJA3000		/directional/air/airfound34062.html								SYJA-E
+		VJ-old-e			VJ-old1-e		5		VJA300	SYJ2-5-e	2013/9/1	SYJA300		/directional/air/airfound34068.html								SYJA-A-E
+A01	VF100	VF100-old-e	3 Port Solenoid Valve	VF100	VF100-old1-e	VKF300,VT307,VQZ100	1	VF100-old.jpg	VF100	VF100-1-e	2014/11/1	VKF300	VKF300.jpg				None					VKF-E
+		VF100-old-e			VF100-old1-e		2		VF100	VF100-2-e	2014/11/1	VT307										VT307-E
+		VF100-old-e			VF100-old1-e		3		VF100	VF100-3-e	2014/11/1	VQZ100										VQZ-3-E
+A01	EVS7	EVS7-old-e	5 Port Solenoid Valve	EVS7 double DIN type	EVS7-old1-e	EVS7CNOMO type	1	EVS7-old.jpg	EVS7 double DIN type	EVS7-1-e	2014/11/1	EVS7CNOMO type	EVS7CNOMO.jpg				None
+A01	VFA4000	VFA-old-e	5 Port Air Operated Valve	VFA4000	VFA-old1-e	VFSA3000	1	VFA-old.jpg	VFA4000	VFSA-1-e	2014/11/1	VFSA3000	VFSA.jpg				None
+A01	VP7/VPN/VS7	VP7-old-e	5 Port Solenoid Valve	VS7-6-*-*-*****-X10<br/>VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)<br/>VS7-8-*-*-*****-X10<br/>VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VP7-old1-e	VQ7-6-*-*-******<br/>VQ7-6-*-*-***R***<br/>VQ7-8-*-*-******<br/>VQ7-8-*-*-***R***	1		VS7-6-*-*-*****-X10	VQ7-1-e	2015/9/1	VQ7-6-*-*-******	VQ7.jpg				Yes					VQ-5PI-E
+		VP7-old-e			VP7-old1-e		2		VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)	VQ7-2-e	2015/9/1	VQ7-6-*-*-***R***										VQ-5PI-E
+		VP7-old-e			VP7-old1-e		3		VS7-8-*-*-*****-X10	VQ7-3-e	2015/9/1	VQ7-8-*-*-******										VQ-5PI-E
+		VP7-old-e			VP7-old1-e		4		VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VQ7-4-e	2015/9/1	VQ7-8-*-*-***R***										VQ-5PI-E
+A01	SY/SX/VQ	SS5Y-old-e	5 Port Solenoid Valve/OMRON Corp. transmission unit G71-0D16	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30<br/>SS5X5-45S30<br/>VV5Q11-**G-D*-X14	SS5Y-old1-e	SS5Y3-45G<br/>SS5Y5-45G<br/>SS5X3-45G<br/>SS5X5-45G<br/>-	1	SS5Y-old.jpg	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30	SS5Y-1-e	2015/6/1	SS5Y3-45G<br/>SS5Y5-45G	SS5Y.jpg				Some products can be replaced					SY-5-E
+		SS5Y-old-e			SS5Y-old1-e		2		SS5X3-45S3<br/>SS5X3-45S30<br/>SS5X5-45S3<br/>SS5X5-45S30	SS5Y-2-e	2015/6/1	SS5X3-45G<br/>SS5X5-45G
+		SS5Y-old-e			SS5Y-old1-e		3		VV5Q11-**G-D*-X14	SS5Y-3-e	2015/6/1	-
+A01	EVFS/EVFR	EVFS-old-e	5 Port Solenoid Valve	EVFS<br/>EVFR	EVFS-old1-e	VFS<br/>VFR	1		EVFS	EVFS-1-e	2016/7/1	VFS	VFS-VFR.jpg				Yes					VFS-E
+		EVFS-old-e			EVFS-old1-e		2		EVFR	EVFS-2-e	2016/7/1	VFR										VFR-E
+A01	V4000/NVSP4000	V4000-old-e	5 Port Solenoid Valve	V4000<br/>NVSP4000	V4000-old1-e	VFS3000<br/>VQ4000	1		V4000	V4000-1-e	2016/3/1	VFS3000<br/>VQ4000	VFS-VQ.jpg				None					VFS-E/VQ4000-5000-E
+		V4000-old-e			V4000-old1-e		2		NVSP4000	V4000-2-e	2016/3/1	VFS3000<br/>VQ4000										VFS-E/VQ4000-5000-E
+A01	PCW	PCW-old-e	PC Wiring System	PCW	PCW-old1-e	-	1	PCW-old.jpg	PCW	PCW-1	2016/7/1	-			PCW-old-e.pdf
+A01	EX120/121/122/123/140	EX120_140-old-e	Serial Transmission System	EX120-SUW1(-X5/-X17/-X55/-X56)<br/>EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)<br/>EX122-SUW1、EX123U-SUW1(-X201)<br/>EX123D-SUW1<br/>EX140-SUW1(-X73)	EX120_140-old1-e	Other networks of EX120<br/>(CC-Link, etc.)<br/>Other networks of EX121<br/>(CC-Link, etc.)<br/>Other networks of EX122<br/>(CC-Link, etc.)<br/>Other networks of EX123<br/>(CC-Link, etc.)<br/>	1		EX120-SUW1(-X5/-X17/-X55/-X56)	EX120_140-1-e	2016/7/1	Other networks of EX120<br/>(CC-Link, etc.)			EX120-old-e.pdf		Yes （Compatibility of the specification is none）					EX-E
+		EX120_140-old-e			EX120_140-old1-e		2		EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)	EX120_140-2-e	2016/7/1	Other networks of EX121<br/>(CC-Link, etc.)										EX-E
+		EX120_140-old-e			EX120_140-old1-e		3		EX122-SUW1、EX123U-SUW1(-X201)	EX120_140-3-e	2016/7/1	Other networks of EX122<br/>(CC-Link, etc.)										EX-E
+		EX120_140-old-e			EX120_140-old1-e		4		EX123D-SUW1	EX120_140-4-e	2016/7/1	Other networks of EX123<br/>(CC-Link, etc.)										EX-E
+		EX120_140-old-e			EX120_140-old1-e		5		EX140-SUW1(-X73)	EX120_140-5-e	2016/7/1	Other networks of EX140<br/>(CC-Link, etc.)										EX-E
+A01	VQ0000/1000/2000	VQ0000-old-e	5 Port Solenoid Valve Body Ported Type／Flip Type, Cassette Type	VQ0000<br/>VQ1000 Side Ported<br/>VQ1000 Top Ported<br/>VQ2000<br/>VQ1*6* Single Unit	VQ0000-old1-e	SJ2000<br/>SJ3000<br/>SQ1000<br/>SY3000<br/>SQ2000<br/>SY3000<br/>S0700	1	VQ0000-old.jpg	VQ0000	VQ0000-1-e	2017/12/1	SJ2000	SJ-SQ.jpg				None					SJ-E
+		VQ0000-old-e			VQ0000-old1-e		2		VQ1000<br/>Side Ported	VQ0000-2-e	2017/12/1	SJ3000<br/>SQ1000										SJ-E/SQ-E
+		VQ0000-old-e			VQ0000-old1-e		3		VQ1000<br/>Top Ported	VQ0000-3-e	2017/12/1	SY3000										SY-5-E
+		VQ0000-old-e			VQ0000-old1-e		4		VQ2000	VQ0000-4-e	2017/12/1	SQ2000										SQ-E
+		VQ0000-old-e			VQ0000-old1-e		5		VQ1*6*<br/>Single Unit	VQ0000-5-e	2017/12/1	SY3000<br/>S0700										SY-5-E/S0700-P-E
+A01	VQ0000/1000	VQ00_10-old-e	5 Port Solenoid Valve Base Mounted Type／Plug Lead	VQ0000<br/>VQ1000	VQ00_10-old1-e	S0700<br/>SJ2000<br/>SY3000	1	VQ00_10-old.jpg	VQ0000	VQ00_10-1-e	2017/12/1	S0700<br/>SJ2000	S0700.jpg				None					S0700-P-E/SJ-E
+		VQ00_10-old-e			VQ00_10-old1-e		2		VQ1000	VQ00_10-2-e	2017/12/1	SY3000										SY-5-E
+A02	MNB/MDNB	MNB-old-e	Cylinder with Lock	MNB/MDNB	MNB-old1-e	MWB/MDWB	1	MNB-old.jpg	MNB/MDNB	MNB-1-e	2022/10/1	MWB/MDWB	MWB.jpg		MNB-old-e.pdf		Yes					MWB-MDWB-E
+A02	CM2Y/CG1Y/CA2Y	SMOOTH-old-e	Smooth Cylinder	CM2Y<br/>CG1Y<br/>CA2Y	SMOOTH-old1-e	CM2Y-Z<br/>CG1Y-Z<br/>CA2Y-Z	1	SMOOTH-old.jpg	CM2Y	SMOOTH-1-e	2013/9/1	CM2Y-Z	SMOOTH.jpg		smoothcｰold-e.pdf		Yes					SMOOTH-C-E
+		SMOOTH-old-e			SMOOTH-old1-e		2		CG1Y	SMOOTH-2-e	2013/9/1	CG1Y-Z										SMOOTH-C-E
+		SMOOTH-old-e			SMOOTH-old1-e		3		CA2Y	SMOOTH-3-e	2013/9/1	CA2Y-Z										SMOOTH-C-E
+A02	CQ2Y	SMOOTH-1-old-e	Smooth Cylinder	CQ2Y	SMOOTH-1-old1-e	CQ2Y-Z	1	SMOOTH-old.jpg	CQ2Y	SMOOTH-4-e	2010/10/1	CQ2Y-Z	SMOOTH.jpg		smoothcｰold-e.pdf		Yes					SMOOTH-C-E
+A02	CJ2X/CM2X	LOWSPEED-old-e	Low Speed Cylinder	CJ2X<br/>CM2X	LOWSPEED-old1-e	CJ2X-Z<br/>CM2X-Z	1	LOWSPEED-old.jpg	CJ2X	LOWSPEED-1-e	2013/9/1	CJ2X-Z	LOWSPEED.jpg		smoothcｰold-e.pdf		Yes					Low-Speed-Cylinder-E
+		LOWSPEED-old-e			LOWSPEED-old1-e		2		CM2X	LOWSPEED-2-e	2013/9/1	CM2X-Z										Low-Speed-Cylinder-E
+A02	CP96/CP96SD	CP96-old-e	ISO Standard Air Cylinder	CP96/CP96SD	CP96-old1-e	CP96/CP96SD	1	CP96-old.jpg	CP96/CP96SD	CP96-1-e	2015/3/1	CP96/CP96SD	CP96.jpg		CP96-old-e.pdf		Yes					CP96-CP96SD-2-E
+A02	C96/C96SD	C96-old-e	ISO Standard Air Cylinder	C96/C96SD	C96-old1-e	C96/C96SD	1	C96-old.jpg	C96/C96SD	C96-1-e	2015/3/1	C96/C96SD	C96.jpg		C96-old-e.pdf		Yes					C96-C96SD-2-E
+A02	MXH	MXH-old-e	Compact Slide	MXH	MXH-old1-e	MXH-Z	1	MXH-old.jpg	MXH	MXH-Z-1	2014/12/1	MXH-Z	MXH-Z.jpg		mxh-old-e.pdf		Yes					MXH-Z-2-E
+A02	CJ1/CDJ1	CJ1-old-e	Air Cylinder	CJ1/CDJ1	CJ1-old1-e	CJ2/CDJ2-Z	1	CJ1-old.jpg	CJ1/CDJ1<br/>φ6,φ10,φ15	CJ1-1-e	2005/2/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ15	CJ2.jpg	/actuator/standard/standardfound2306.html	CJ1-CJP-old-e.pdf		Yes					CJ2-CDJ2-Z-E
+		CJ1-old-e			CJ1-old1-e		2		Clean series<br/>10-/11-CJ1/CDJ1　φ6,φ10,φ15	CJ1-3-e	2005/2/1	Clean series<br/>10-/11-CJ2/CDJ2-Z		/clean/actuator/actuatorfound34710.html								CJ2-Z-E
+A02	CZ1/CDZ1	CZ1-old-e	Air Cylinder	CZ1/CDZ1	CZ1-old1-e	CJ2Z/CDZJ2	1	CZ1-old.jpg	CZ1/CDZ1	CJ2Z-1-e	2005/2/1	CJ2Z/CDJ2Z	CJ2Z.jpg	/actuator/standard/standardfound33385.html			None			cj2z.pdf		CJ2-CDJ2-E
+A02	CJP/CDJP	CJP-old-e	Pin Cylinder	CJP/CDJP	CJP-old1-e	CJP2/CDJP2	1	CJP-old.jpg	CJP/CDJP	CJP2-1-e	2008/5/1	CJP2/CDJP2	CJP2.jpg	/actuator/standard/standardfound33384.html	CJ1-CJP-old-e.pdf		Yes (only for basic type)					CJP2-CDJP2-CJP-E
+A02	CJ2/CDJ2	CJ2-old-e	Air Cylinder	CJ2/CDJ2	CJ2-old1-e	CJ2/CDJ2-Z	1	CJ2-old.jpg	CJ2/CDJ2<br/>φ6,φ10,φ16	CJ2-1-e	2013/9/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ16	CJ2.jpg	/actuator/standard/standardfound2306.html	CJ2-old-e.pdf		Yes		Except CBJ2 end lock type  	CJ2-e-cmp.pdf		CJ2-CDJ2-Z-E
+		CJ2-old-e			CJ2-old1-e		2		Clean series<br/>10-/11-CJ2/CDJ2<br/>φ6,φ10,φ16	CJ2-2-e	2013/9/1	Clean series<br/>10-/11-CJ2/CDJ2ｰZ<br/>φ6,φ10,φ16 		/clean/actuator/actuatorfound34710.html								CJ2-Z-E
+A02	CM/CDM	CM-old-e	Air Cylinder	CM/CDM	CM-old1-e	CM2/CDM2-Z	1	CM-old.jpg	CM/CDM	CM2-1-e	2005/2/1	CM2/CDM2-Z	CM2.jpg	/actuator/standard/standardfound2301.html			Yes					CM2-CDM2-Z-E
+		CM-old-e			CM-old1-e		2		Clean series<br/>10-/11-CM/CDM	CM-2-e	2005/2/1	Clean series<br/>10-/11-CM2-Z		/clean/actuator/actuatorfound34711.html								CM2-Z-E
+A02	CM2/CDM2	CM2-old-e	Air Cylinder	CM2/CDM2	CM2-old1-e	CM2/CDM2-Z	1	CM2-old.jpg	CM2/CDM2	CM2-1-e	2013/9/1	CM2/CDM2-Z	CM2.jpg	/actuator/standard/standardfound2301.html	CM2-old-e.pdf		Yes		Except CM2□□P centralized piping type, CBM2 end lock type 	CM2-e-comp.pdf		CM2-CDM2-Z-E
+		CM2-old-e			CM2-old1-e		2		Clean series<br/>10-/11-CM2/CDM2	CM2-2-e	2013/9/1	Clean series<br/>10-/11-CM2/CDM2-Z		/clean/actuator/actuatorfound34711.html								CM2-Z-E
+A02	CG/CDG	CG-old-e	Air Cylinder	CG/CDG	CG-old1-e	CG1/CDG1-Z	1	CG-old.jpg	CG/CDG	CG1-1-e	2005/2/1	CG1/CDG1-Z	CG1.jpg	/actuator/standard/standardfound2302.html			Yes					CG1-CDG1-Z-E
+		CG-old-e			CG-old1-e		2		Clean series<br/>10-/11-CG/CDG1	CG1-2-e	2005/2/1	Clean series<br/>10-/11-CG1/CDG1-Z		/clean/actuator/actuatorfound34712.html								CG1-Z-E
+A02	CG1/CDG1	CG1-old-e	Air Cylinder	CG1/CDG1	CG1-old1-e	CG1/CDG1-Z	1	CG1-old.jpg	CG1/CDG1	CG1-1-e	2013/9/1	CG1/CDG1-Z	CG1.jpg	/actuator/standard/standardfound2302.html	CG1-old-e.pdf		Yes		Except CBG1 end lock type	CG1-e-comp.pdf		CG1-CDG1-Z-E
+		CG1-old-e			CG1-old1-e		2		Clean series<br/>10-/11-CG1/CDG1	CG1-2-e	2013/9/1	Clean series<br/>10-/11-CG1/CDG1-Z		/clean/actuator/actuatorfound34712.html								CG1-Z-E
+A02	MB/MDB	MB-old-e	Air Cylinder	MB/MDB	MB-old1-e	MB/MDB-Z	1	MB-old.jpg	MB/MDB<br/> (Except φ125)	MB-1-e	2013/9/1	MB/MDB-Z	MB.jpg	/actuator/standard/standardfound2309.html	MB-old-e.pdf		Yes		Except MBB end lock type	MB-e-comp.pdf		MB-MDB-Z-E
+A02	CA1/CDA1	CA1-old-e	Air Cylinder	CA1/CDA1	CA1-old1-e	CA2/CDA2-Z	1	CA1-old.jpg	CA1/CDA1	CA1-1-e	2005/2/1	CA2/CDA2-Z	CA2.jpg	/actuator/standard/standardfound2303.html			Yes					CA2-CDA2-Z-E
+		CA1-old-e			CA1-old1-e		2		Clean series<br/>10-/11-CA1/CDA1	CA1-2-e	2005/2/1	Clean series<br/>10-/11-CA2/CDA2		/clean/actuator/actuatorfound34713.html								CA2-E
+A02	CA2/CDA2	CA2-old-e	Air Cylinder	CA2/CDA2	CA2-old1-e	CA2/CDA2-Z	1	CA2-old.jpg	CA2/CDA2	CA2-1-e	2013/9/1	CA2/CDA2-Z	CA2.jpg	/actuator/standard/standardfound2303.html	CA2-old-e.pdf		Yes		Except CA2K/CA2KW non-rotating rod type, CBA2 end lock type, CA2□H/CA2W□H air-hydro cylinder			CA2-CDA2-Z-E
+A02	CQ2/CDQ2	CQ2-old-e	Compact Cylinder	CQ2x/CDQ2x12 to 100<br/>Clean series <br/>10-/11-CQ2/CDQ2	CQ2-old1-e	CQ2x/CDQ2x12 to100<br/>Clean series <br/>10-/11-CQ2/CDQ2	1	CQ2-old.jpg	CQ2x/CDQ2x12 to 100	CQ2-1-e	2009/10/1	CQ2x/CDQ2x12 to 100	CQ2.jpg	/actuator/compact/compactfound34668.html	CQ2-old-e.pdf		Yes		Except CQ2 without magnet type for φ12, 16, 20, 25<br/>Except CQP2 axial piping type, CBQ2 end lock type, CQ2X low speed type<br/>Except -XB14 with heat resistant auto switch	cq2.pdf		CQ2-CDQ2-Z-E
+		CQ2-old-e			CQ2-old1-e		2		Clean series<br/>10-/11-CQ2/CDQ2	CQ2-2-e	2009/10/1	Clean series<br/>10-/11-CQ2/CDQ2		/clean/actuator/actuatorfound34717.html								CQ2-C-E
+A02	CQ2/CDQ2	CQ2-1-old-e	Compact Cylinder	CQ2x/CDQ2x125 to 200	CQ2-1-old1-e	CQ2x/CDQ2x125 to 200	1	CQ2-old.jpg	CQ2x/CDQ2x125 to 200	CQ2-3-e	2011/4/1	CQ2x/CDQ2x125 to 200	CQ2.jpg	/actuator/compact/compactfound34668.html	CQ2-old-e.pdf		Yes		Except CQ2 without magnet type for φ12, 16, 20, 25<br/>Except CQP2 axial piping type, CBQ2 end lock type, CQ2X low speed type	cq2.pdf		CQ2-CDQ2-Z-E
+A02	MU/MDU	MU-old-e	Plate Cylinder	MU/MDU	MU-old1-e	MU/MDU	1	MU-old.jpg	MU/MDU	MU-1-e	2010/3/1	MU/MDU	MU.jpg	/actuator/compact/compactfound34651.html	MU-old-e.pdf		Yes			mu.pdf		MU-MDU-Z-E
+A02	MY1B	MY1B-old-e	Mechanically Jointed Rodless Cylinder / Basic 	55-MY1B φ25, φ32, φ40<br/>MY1B	MY1B-old1-e	55-MY1B-Z φ25, φ32, φ40<br/>MY1B-Z	1	MY1B-old.jpg	55-MY1B φ25, φ32, φ40	MY1B-1-e	2019/3/1	55-MY1B-Z φ25, φ32, φ40	MY1B.jpg		MY1-old-e.pdf		Yes
+		MY1B-old-e			MY1B-old1-e		2		MY1B φ25, φ32, φ40<br/>(Except φ10, φ16, φ20, φ50～ φ100)	MY1B-2-e	2013/4/1	MY1B-Z φ25, φ32, φ40										MY1-E
+A02	MY1H	MY1H-old-e	Mechanically Jointed Rodless Cylinder / Linear Guide Type	55-MY1H φ25, φ32, φ40<br/>MY1H	MY1H-old1-e	55-MY1H-Z φ25, φ32, φ40<br/>MY1H-Z	1	MY1H-old.jpg	55-MY1H φ25, φ32, φ40	MY1H-1-e	2019/3/1	55-MY1H-Z φ25, φ32, φ40	MY1H.jpg		MY1-old-e.pdf		Yes
+		MY1H-old-e			MY1H-old1-e		2		MY1H φ25, φ32, φ40<br/>(Except φ10, φ16, φ20)	MY1H-2-e	2013/4/1	MY1H-Z φ25, φ32, φ40										MY1-E
+A02	CY1B/CY1R	CY1B-old-e	Magnetically Coupled Rodless Cylinder	CY1B/CY1R	CY1B-old1-e	CY3B/CY3R	1	CY1B-old.jpg	Basic CY1B　	CY3B-1-e	2006/3/1	Basic CY3B	CY3B.jpg	/actuator/rodless/rodlessfound33636.html	CY1-old-e.pdf		Yes		There is no interchangeability for φ6.	cy3x.pdf		CY3-E
+		CY1B-old-e			CY1B-old1-e		2		Direct Mount CY1R	CY3B-2-e	2006/3/1	Direct Mount CY3R		/actuator/rodless/rodlessfound33636.html								CY3-E
+		CY1B-old-e			CY1B-old1-e		3		Clean series<br/>12-CY1B/R	CY3B-3-e	2006/3/1	Clean series<br/>12-CY3B/R		/clean/actuator/actuatorfound34728.html								CY3-C-E
+A02	CY1S	CY1S-old-e	Magnetically Coupled Rodless Cylinder, Slide Bearing	CY1S	CY1S-old1-e	CY1S-Z	1	CY1S-old.jpg	CY1S	CY1S-1-e	2013/9/1	CY1S-Z	CY1S.jpg	/actuator/rodless/rodlessfound2314.html	CY1-old-e.pdf		Yes 		Unlike the conventional product, an internal thread in the mounting hole is not available.			CY1S-Z-E
+A02	MXU	MXU-old-e	Compact Slide	MXU	MXU-old1-e	MXH-Z	1	MXU-old.jpg	MXU	MXH-1-e	2010/7/1	MXH-Z	MXH-Z.jpg	/actuator/table/tablefound33648.html	MXU-old-e.pdf		None					MXH-Z-2-E
+A02	MGP	MGP-old-e	Compact Guide Cylinder	MGP	MGP-old1-e	MGP-Z	1	MGP-old.jpg	MGP	MGP-1-e	2012/4/1	MGP-Z	MGP.jpg	/actuator/guide/guidefound2231.html	MGP-old-e.pdf		Yes<br/>Standard, High-precision type<br/>(High-precision ball bushing type)					MGP-Z-E
+A02	CLA/CDLA	CLA-old-e	Fine Lock Cylinder	CLA/CDLA	CLA-old1-e	CLA2/CDLA2	1	CLA-old.jpg	CLA/CDLA	CLA2-1-e	2009/9/1	CLA2/CDLA2	CLA2.jpg				Yes			cna_cla_cna2_cla2.pdf
+A02	CNA/CDNA	CNA-old-e	Cylinder with Lock	CNA/CDNA	CNA-old1-e	CNA2/CDNA2	1	CNA-old.jpg	CNA/CDNA	CNA2-1-e	2009/9/1	CNA2/CDNA2	CNA2.jpg	/actuator/lock/lockfound34669.html	CNA-old-e.pdf		Yes			cna_cla_cna2_cla2.pdf		CNA2-CDNA2-E
+A02	MK/MK2	MK-old-e	Rotary Clamp Cylinder	MK/MK2	MK-old1-e	MK	1	MK-old.jpg	MK/MK2	MK-1-e	2010/10/1	MK	MK.jpg	/actuator/clamp/clampfound34805.html	MK-old-e.pdf		Yes (Mounting pitch), None (MK2 overall length)			mk.pdf		MK-Z-E
+A02	CK1/CKG1/CKP1	CK1-old-e	Clamp Cylinder	CK1/CKG1/CKP1	CK1-old1-e	CK1/CKG1/CKP1-Z	1	CK1-old.jpg	CK1	CK1-1-e	2013/9/1	CK1-Z	CK1.jpg	/actuator/clamp/clampfound2305.html	CK1-old-e.pdf		Yes					CK_1-Z-E
+		CK1-old-e			CK1-old1-e		2		CKG1	CK1-2-e	2013/9/1	CKG1-Z		/actuator/clamp/clampfound2305.html								CK_1-Z-E
+		CK1-old-e			CK1-old1-e		3		CKP1	CK1-3-e	2013/9/1	CKP1-Z		/actuator/clamp/clampfound2305.html								CK_1-Z-E
+A02	CLK1/CLK1G	CLK1-old-e	Clamp Cylinder with Lock	CLK1/CLK1G	CLK1-old1-e	CLK2/CLK2G	1	CLK1-old.jpg	CLK1/CLK1G	CLK2-1-e	2008/1/1	CLK2/CLK2G	CLK2.jpg	/actuator/clamp/clampfound33985.html			Yes					CLK2-E
+A02	RSH/RS1H	RSH-old-e	Heavy Duty Stopper Cylinder	RS1H	RSH-old1-e	RS2H	1	RSH-old.jpg	RS1H50, 63, 80	RS2H-1-e	2012/8/1	RS2H50, 63, 80	RS2H.jpg	/actuator/stopper/stopperfound2252.html	RS1-RSH-old-e.pdf		Yes			rs1h.pdf		RS2H-E
+A02	RSH/RS1H	RSH-1-old-e	Heavy Duty Stopper Cylinder	RSH	RSH-1-old1-e	RS2H	1	RSH-old.jpg	RSH50, 63, 80 <br/>(Except φ20, φ32)	RS2H-2-e	2005/8/1	RS2H50, 63, 80	RS2H.jpg	/actuator/stopper/stopperfound2252.html	RS1-RSH-old-e.pdf		Yes			rs1h.pdf		RS2H-E
+A02	RSA	RSA-old-e	Heavy Duty Stopper Cylinder	RSA	RSA-old1-e	RS2H-X2700/2701	1		RSA	RSA-1-e	2015/9/1	RS2H-X2700					Yes (However,the total length of cylinder tube is shortened.)
+					RSA-old1-e		2		RSA-X721	RSA-2-e	2015/9/1	RS2H-X2701
+A02	CEU1	CEU1-old-e	3-point preset counter for Stroke Reading Cylinder 	CEU1	CEU1-old1-e	CEU5	1	CEU1-old.jpg	CEU1	CEU5-1-e	2015/3/1	CEU5	CEU5.jpg		CE-old-e.pdf		None		Mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.			CEU5-CEU1-E
+A02	CV1	CV1-old-e	Valve Mounted Cylinder	CV1	CV1-old1-e	CVM5	1	CV1-old.jpg	CV1	CVM5-1-e	2005/4/1	CVM5	CVM5.jpg	/actuator/valve/valvefound33444.html			Yes			cvm5.pdf		CV_-CDV_-E
+A02	MB1/MDB1	MB1-old-e	Square Tube Type Air Cylinder	MB1/MDB1	MB1-old1-e	MB1/MDB1-Z	1	MB1-old.jpg	MB1/MDB1	MB1-Z-1-e	2015/4/1	MB1/MDB1-Z	MB1.jpg		MB1-old-e.pdf		Yes					MB1-E
+A02	CKQG/CLKQG	CKQG-old-e	Pin Clamp Cylinder	CKQG<br/>CLKQG	CKQG-old1-e	CKQG-Z<br/>CLKQG-Z	1	CKQG-old.jpg	CKQG<br/>CLKQG	CKQG-Z-1-e	2017/6/1	CKQG-Z<br/>CLKQG-Z	CKQG.jpg				Yes					C(L)KQG-C(L)KQP-E
+A02	C(L)KU32-X2091/X2092	CKU32-old-e	Pin Clamp Cylinder	CKU32-X2091<br/>CKU32-X2092<br/>CLKU32-X2091<br/>CLKU32-X2092	CKU32-old1-e	CKU32-X2321<br/>CKU32-X2322<br/>CLKU32-X2321<br/>CLKU32-X2322	1	CKU32-old.jpg	CKU32-X2091	CKU32-1-e	2017/6/1	CKU32-X2321	CKU32.jpg		CKU32-old-e.pdf		Yes					C(L)KQG32-C(L)KU32-E
+		CKU32-old-e			CKU32-old1-e		2		CKU32-X2092	CKU32-2-e	2017/6/1	CKU32-X2322										C(L)KQG32-C(L)KU32-E
+		CKU32-old-e			CKU32-old1-e		3		CLKU32-X2091	CKU32-3-e	2017/6/1	CLKU32-X2321										C(L)KQG32-C(L)KU32-E
+		CKU32-old-e			CKU32-old1-e		4		CLKU32-X2092	CKU32-4-e	2017/6/1	CLKU32-X2322										C(L)KQG32-C(L)KU32-E
+A02	RSQ	RSQ-old-e	Stopper Cylinder	RSQ<br/>(φ16 toφ50)	RSQ-old1-e	RSQ-Z<br/>(φ16 toφ50)	1	RSQ-old.jpg	RSQ<br/>(φ16 toφ50)	RSQ-1-e	2018/4/1	RSQ-Z<br/>(φ16 toφ50)	RSQ.jpg		RSQ-old-e.pdf		Yes		Except φ12			RSQ-RSDQ-RSG-RSDG-E
+A02	CKU32-X2359	CKU32-X2359-old-e	Pin Plate Cylinder	CKU32-X2359	CKU32-X2359-old1-e	CKU32-X2359A	1	CKU32-X2359-old.jpg	CKU32-X2359	CKU32-X2359-1-e	2018/11/1	CKU32-X2359A	CKU32-X2359A.jpg		CLKU32-X-old-e.pdf		Yes
+A02	CKZ3T/CKZ3N	CKZ3-old-e	Power Clamp Cylinder	CKZ3T<br/>CKZ3N	CKZ3-old1-e	CKZ3T-X2734<br/>CKZ3N-X2742A	1	CKZ3-old.jpg	CKZ3T	CKZ3-1-e	2019/4/1	CKZ3T-X2734	CKZ3.jpg		ckz3-old-e.pdf		Yes ( However, the switch kit is changed)					CKZ3T-X2734-E
+		CKZ3-old-e			CKZ3-old1-e		2		CKZ3N	CKZ3-2-e	2019/4/1	CKZ3N-X2742A										CKZ3N-X-E
+A02	CEU2/CEU2P	CEU2-old-e	Controller for Stroke Reading Cylinder	CEU2<br/>CEU2P	CEU2-old1-e	-	1	CEU2-old.jpg	CEU2<br/>CEU2P	CEU2-1-e	2019/11/1	-			CEU2-old-e.pdf		None
+A02	MLGP	MLGP-old-e	Compact Guide Cylinder with Lock	MLGP	MLGP-old1-e	MLGP-Z	1	MLGP-old.jpg	MLGP	MLGP-1-e	2020/3/1	MLGP-Z	MLGP-Z.jpg		MLGP-old-e.pdf		Yes					MLGP-Z-E
+A02	CLKZ1R	CLKZ1R-old-e	Power Clamp Cylinder	CLKZ1R	CLKZ1R-old1-e	CKZT	1	CLKZ1R-old.jpg	CLKZ1R	CLKZ1R-1-e	2020/11/1	CKZT	CKZT.jpg		CLKZ1R-old-e.pdf		None					CKZT-E
+A02	CKGV	CKGV-old-e	Clamp Cylinder	CKGV	CKGV-old1-e	CKZT	1	CKGV-old.jpg	CKGV	CKGV-1-e	2021/1/1	CKZT	CKZT-2.jpg		CKGV-old-e.pdf		None					CKZT-E
+A02	IN574	IN574-old-e	Cylinder Speed Checker	IN574	IN574-old1-e	-	1	IN574-old.jpg	IN574	IN574-1	2021/3/1	-			IN574-old-e.pdf		None
+A03	CRB2/CDRB2	CRB2-old-e	Rotary Actuator	CRB2/CDRB2	CRB2-old1-e	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB2/CDRB2<br/>Standard, With angle adjuster	CRB2-Z-1-e	2013/4/1	CRB2-Z/CDRB2-Z<br/>Standard, With angle adjuster	CRB2-Z.jpg		CRB-old-e.pdf		Yes			crb1-crbu.pdf		CRB2-CDRB2-Z-E
+A03	CRB1/ CDRB1	CRB1-old-e	Rotary Actuator	CRB1/CDRB1	CRB1-old1-e	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB1/CDRB1<br/>Standard, With angle adjuster	CRB2-Z-2-e	2007/3/1	CRB2-Z/CDRB2-Z<br/>Standard, With angle adjuster	CRB2-Z.jpg		CRB-old-e.pdf		Yes			crb1-crbu.pdf		CRB2-CDRB2-Z-E
+A03	CRBU2/CDRBU2	CRBU2-old-e	Rotary Actuator/Free Mount Type　	CRBU2/CDRBU2	CRBU2-old1-e	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU2/CDRBU2<br/>Standard, With angle adjuster	CRBU2-Z-1-e	2013/12/1	CRBU2-Z/CDRBU2-Z<br/>Standard, With angle adjuster	CRBU2-Z.jpg		CRBU2-old-e.pdf		Yes		There are some changes in the port size and connecting port location.			CRBU2-E
+A03	CRBU/CDRBU	CRBU-old-e	Rotary Actuator/Free Mount Type　	CRBU/CDRBU	CRBU-old1-e	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU/CDRBU<br/>Standard, With angle adjuster	CRBU2-Z-2-e	2007/3/1	CRBU2-Z/CDRBU2-Z<br/>Standard, With angle adjuster	CRBU2-Z.jpg		CRBU2-old-e.pdf		Yes		There are some changes in the port size and connecting port location.			CRBU2-E
+A03	CRB/CDRB	CRB-old-e	Rotary Actuator	CRB/CDRB	CRB-old1-e	CRB1/CDRB1	1	CRB-old.jpg	CRB/CDRB:Size 50, 80, 100	CRB1-1-e	2009/10/1	CRB1/CDRB1:Size 50, 80, 100	CRB1.jpg	/rotarychuck/rotary/rotaryfound33640.html			Yes (except foot type)			crb_crb1.pdf		CRB1-CDRB1-E
+A03	CRA1/CDRA1	CRA1-old-e	Rotary Actuator	CRA1/CDRA1<br/>CRA1xxU (CDRA1xxU)<br/>Angle adjustable type	CRA1-old1-e	CRA1-Z/CDRA1-Z	1	CRA1-old.jpg	CRA1(CDRA1)/Basic <br/>Size 50,63,80,100<br/>(Except size30)	CRA1-Z-1-e	2013/4/1	CRA1-Z(CDRA1-Z)/Basic 	CRA1-Z.jpg	/rotarychuck/rotary/rotaryfound2291.html	CRA1-old-e.pdf		Yes					CRA1-CDRA1-Z-E
+		CRA1-old-e			CRA1-old1-e		2		CRA1xxU (CDRA1xxU)<br/>Angle adjustable type<br/>Size 50,63,80,100	CRA1-Z-2-e	2013/4/1	CRA1xxU-Z<br/>(CDRA1xxU)<br/>Angle adjustable type		/rotarychuck/rotary/rotaryfound2291.html								CRA1-CDRA1-Z-E
+A03	CRQ/CDRQ	CRQ-old-e	Compact Rotary Actuator	CRQ/CDRQ	CRQ-old1-e	CRQ2/CDRQ2	1	CRQ-old.jpg	CRQ/CDRQ	CRQ2-1-e		CRQ2/CDRQ2	CRQ2.jpg	/rotarychuck/rotary/rotaryfound33455.html			Yes			crq2.pdf		CRQ2-CDRQ2-E
+A03	MHT2	MHT2-old-e	Air Gripper Toggle Type	MHT2	MHT2-old1-e	MHT2-Z	1	MHT2-old.jpg	MHT2	MHT2-Z-1-e	2011/10/1	MHT2-Z	MHT2-Z.jpg	/rotarychuck/airchuck/airchuckfound2316.html	MHT-old-e.pdf		Yes					MHT2-Z-E
+A03	MHQ2/MHQG2	MHQ2-old-e	Air Gripper	MHQ2/MHQG2	MHQ2-old1-e	MHZ2	1	MHQ2-old.jpg	Standard <br/>MHQ2-10,16,20,25 <br/>(Except 6,32,40)	MHZ2-1-e	2007/3/1	MHZ2-10, 16, 20, 25	MHZ2.jpg	/rotarychuck/airchuck/airchuckfound33458.html			Yes			mhz2.pdf		MHZ_2-E
+		MHQ2-old-e			MHQ2-old1-e		2		High rigidity<br/>MHQG2-10,16,20,25 <br/>(Except 6,32,40)	MHZ2-2-e	2007/3/1	MHZ2-10, 16, 20, 25		/rotarychuck/airchuck/airchuckfound33458.html								MHZ_2-E
+A04	XT661-X427, X431, X434	XT661-old-e	Bernoulli Type Non-contact Gripper	XT661-4C-□-X427<br/>XT661-4CS-□-X427<br/>XT661-4C-□-X431<br/>XT661-4C-□-X434	XT661-old1-e	ZNC40-□<br/>ZNC40S-□<br/>ZNC40S-□<br/>ZNC40-□	1	XT661-old.jpg	XT661-4C-□-X427<br/>XT661-4CS-□-X427<br/>XT661-4C-□-X431<br/>XT661-4C-□-X434	XT661-1-e	2021/10/1	ZNC40-□<br/>ZNC40S-□<br/>ZNC40S-□<br/>ZNC40-□	ZNC40.jpg		XT661-X427-old-e.pdf		Yes					ZNC-E
+A04	ZX	ZX-old-e	Vacuum Module (Digital pressure switch ZSE3 product)	ZX<br/>(Digital pressure switch ZSE3 product)	ZX-old1-e	ZQ1□-□-E□-□<br/>ZK2□□□□A□-□-□	1	ZX-old.jpg	ZX<br/>(Digital pressure switch ZSE3 product)	ZX-1-e	2019/6/1	ZQ1□-□-E□-□	ZQ-ZK2.jpg		ZX-old-e.pdf		None					ZQ-E
+		ZX-old-e			ZX-old1-e		2		ZX<br/>(Digital pressure switch ZSE3 product)	ZX-2-e	2019/6/1	ZK2□□□□A□-□-□										ZK2-E
+A04	ZU	ZU-old-e	In-line Type Vacuum Ejector	ZU05<br/>ZU07	ZU-old1-e	ZU05□A<br/>ZU07□A	1	ZU-old.jpg	ZU05<br/>ZU07	ZU-1-e	2018/3/1	ZU05□A<br/>ZU07□A	ZU.jpg		ZU-old-e.pdf		None (However, port size is the same)					ZU_A-E
+A04	ZM	ZM-old-e	Vacuum Ejector/Air Operated Type Port Size M3	ZM*-P3/ZM*-Q3	ZM-old1-e	-	1		ZM*-P3/ZM*-Q3	ZM-1-e	2015/1/1	-							Port size M5 specification is continued.
+A04	ZQ	ZQ-old-e	Space Saving Vacuum Ejector / Pump System	ZQ	ZQ-old1-e	ZQ	1	ZQ-old.jpg	ZQ1xx-xxxxx-D31xx-xx-x	ZQ-1-e	2010/10/1	ZQ series with ZSE10, vacuum pressure switch	ZQ.jpg	/vacuum/ejector/ejectorfound34108.html	ZQ-old-e.pdf		Yes			zq.pdf		ZQ-E
+		ZQ-old-e			ZQ-old1-e		2		ZQ1xx-xxxxx-D32xx-xx-x	ZQ-2-e	2010/4/1	ZQ series with ZSE10, vacuum pressure switch		/vacuum/ejector/ejectorfound34108.html								ZQ-E
+		ZQ-old-e			ZQ-old1-e		3		ZQ1xx-xxxxx-D51xx-xx-x	ZQ-3-e	2010/10/1	ZQ series with ZSE10, vacuum pressure switch		/vacuum/ejector/ejectorfound34108.html								ZQ-E
+		ZQ-old-e			ZQ-old1-e		4		ZQ1xx-xxxxx-D52xx-xx-x	ZQ-4-e	2009/12/1	ZQ series with ZSE10, vacuum pressure switch		/vacuum/ejector/ejectorfound34108.html								ZQ-E
+A04	ZR	ZR-old-e	Large Size Vacuum Module	ZR	ZR-old1-e	ZR	1	ZR-old.jpg	ZR series with ZSE4,vacuum pressure switch	ZR-1-e	2009/1/1	ZR series with ZSE30A,vacuum pressure switch	ZR.jpg	/vacuum/ejector/ejectorfound34106.html	ZR-old-e.pdf		Yes			zr.pdf		ZR-E
+A04	ZMA	ZMA-old-e	Vacuum Ejector with Solid State Timer 	ZMA	ZMA-old1-e	ZK2xxK5xx-x-x-X123	1	ZMA-old.jpg	ZMA	ZK2-1-e	2013/4/1	ZK2xxK5xx-x-x-X123			ZMA-old-e.pdf		Please contact SMC.
+A04	ZL	ZL-old-e	Multistage Ejector	ZL	ZL-old1-e	ZL	1	ZL-old.jpg	ZL series with ZSE4,vacuum pressure switch	ZL-1-e	2009/1/1	ZL series with ZSE30A,vacuum pressure switch	ZL.jpg	/vacuum/ejector/ejectorfound34111.html	ZL-old-e.pdf		Yes					ZL-E
+A04	FGZ	FGZ-old-e	Compact Resin Air Suction Filter	FGZ	FGZ-old1-e	ZFZ	1		FGZ	ZFZ-1-e	2010/12/1	ZFZ		/upfiles/pgpdf/sp106e-004e.pdf			Yes		Interchangeable with replacement element
+A04	ZR	ZR1-old-e	Large Size Vacuum Module	ZR1**-C4***-**-*-*(-X***)<br/>ZR100-C4***-**-*-*(-X***)<br/>ZR1-VDC4****-*(-X***)<br/>ZR1-VC4****-*　(-X***)	ZR1-old1-e	ZR1**-C3**-*-*(-X***)<br/>ZR100-C3*-**-*-*(-X***)<br/>ZR1-VDC3**-*(-X***)<br/>ZR1-VC3**-*(-X***)	1		ZR1**-C4***-**-*-*(-X***)	ZR1-1-e	2016/8/1	ZR1**-C3**-*-*(-X***)			ZR1-old-e.pdf		Yes					ZR-E
+		ZR1-old-e			ZR1-old1-e		2		ZR100-C4***-**-*-*(-X***)	ZR1-2-e	2016/8/1	ZR100-C3*-**-*-*(-X***)										ZR-E
+		ZR1-old-e			ZR1-old1-e		3		ZR1-VDC4****-*(-X***)	ZR1-3-e	2016/8/1	ZR1-VDC3**-*(-X***)										ZR-E
+		ZR1-old-e			ZR1-old1-e		4		ZR1-VC4****-*　(-X***)	ZR1-4-e	2016/8/1	ZR1-VC3**-*(-X***)										ZR-E
+A04	ZYY/ZYX	ZY-old-e	Ejector Valve Unit	ZYY<br/>ZYX	ZY-old1-e	ZK2□A	1	ZY-old.jpg	ZYY<br/>ZYX	ZY-1-e	2017/3/1	ZK2□A	ZK2_A.jpg				None					ZK2_A-E
+A04	ZFC05/01/020	ZFC-old-e	Air Suction Filter with One-touch Fittings/Inline Type	ZFC05<br/>ZFC10<br/>ZFC20	ZFC-old1-e	ZFC1/ZFC3<br/>ZFC5<br/>ZFC7	1	ZFC-old.jpg	ZFC05	ZFC-1-e	2017/6/1	ZFC1/ZFC3	ZFC.jpg		zfc-old-e.pdf		Yes					ZFC-1-E
+		ZFC-old-e			ZFC-old1-e		2		ZFC10	ZFC-2-e	2017/6/1	ZFC5										ZFC-1-E
+		ZFC-old-e			ZFC-old1-e		3		ZFC20	ZFC-3-e	2017/6/1	ZFC7										ZFC-1-E
+A04	ZH□D	ZH-old-e	Vacuum Ejector/Body Ported Type	ZH05D to ZH20D<br/>NZH05D to NZH13D<br/>EZH05D to EZH20D	ZH-old1-e	ZH05D□A to ZH20D□A<br/>ZH05D□A to ZH13D□A<br/>ZH05D□A to ZH20D□A	1	ZH-old.jpg	ZH05D to ZH20D	ZH-1-e	2017/7/1	ZH05D□A to ZH20D□A	ZH.jpg		ZH-old-e.pdf		Yes					ZH_DSA-E
+		ZH-old-e			ZH-old1-e		2		NZH05D to NZH13D	ZH-2-e	2017/7/1	ZH05D□A to ZH13D□A										ZH_DSA-E
+		ZH-old-e			ZH-old1-e		3		EZH05D to EZH20D	ZH-3-e	2017/7/1	ZH05D□A to ZH20D□A										ZH_DSA-E
+A04	ZL112	ZL112-old-e	Multistage Ejector (Vacuum Generator) 	ZL112 (Metric spec) <br/>NZL112 (Inch spec)	ZL112-old1-e	ZL112A<br/>ZL112AN	1	ZL112-old.jpg	ZL112 (Metric spec) 	ZL112-1-e	2019/1/1	ZL112A	ZL112A.jpg		ZL112-old-e.pdf		Yes					ZL112A-E
+		ZL112-old-e			ZL112-old1-e		2		NZL112 (Inch spec)	ZL112-2-e	2019/1/1	ZL112AN										ZL112A-E
+A04	ZK2	ZK2-old-e	Vacuum Unit	ZK2	ZK2-old1-e	ZK2□A	1	ZK2-old.jpg	ZK2	ZK2_A-1-e	2020/10/1	ZK2□A	ZK2_A.jpg		ZK2-old-e.pdf		Yes					ZK2_A-E
+A04	ZL212	ZL212-olde-e	Multistage Ejector (Vacuum Generator)	ZL212	ZL212-old1-e	ZL3	1	ZL212-old.jpg	ZL212	ZL212-1-e	2021/3/1	ZL3	ZL3.jpg		ZL212-old-e.pdf		Yes					ZL112A-E
+A05	IDF22E to 75E	IDF22E-old-e	Refrigerated Air Dryer	IDF22E to 75E	IDF22E-old1-e	IDF60 to 90	1	IDF22E-old.jpg	IDF22E to 75E	IDF22E-1-e	2022/6/1	IDF60 to 90	IDF90.jpg		IDF_E-old-e.pdf		None					IDF-E
+A05	IDFA22E to 75E	IDFA22E-old-e	Refrigerated Air Dryer/For Use in Europe, Asia and Oceania	IDFA22E to 75E	IDFA22E-old1-e	IDFA60 to 90	1	IDFA22E-old.jpg	IDFA22E to 75E	IDFA22E-1-e	2022/6/1	IDFA60 to 90	IDFA90.jpg		IDFA_E-old-e.pdf		Yes					IDFA-E
+A05	IDFB22E/IDFB37E	IDFB-old-e	Refrigerated Air Dryer/For Use in North, Central, and South America	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-old1-e	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	1	IDFB22-old.jpg	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-1-e	2019/8/1	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	IDFB60.jpg		IDFB-old-e.pdf		None					IDFB-E
+A05	AMF	AMF-old-e	Odor Removal Filter	AMF800<br/>AMF900<br/>AMF1000<br/>AMF801<br/>AMF901	AMF-old1-e	AMF850<br/>-<br/>-<br/>AMF850<br/>-	1	AMF-old.jpg	AMF800	AMF-1-e	2015/10/1	AMF850	AMF.jpg				None					AMF-E
+		AMF-old-e			AMF-old1-e		2		AMF900	AMF-2-e	2015/10/1	-
+		AMF-old-e			AMF-old1-e		3		AMF1000	AMF-3-e	2015/10/1	-
+		AMF-old-e			AMF-old1-e		4		AMF801	AMF-4-e	2015/10/1	AMF850										AMF-E
+		AMF-old-e			AMF-old1-e		5		AMF901	AMF-5-e	2015/10/1	-
+A05	IDF□/C/D/IDU□C/D	IDF1D-1-old-e	Air Dryer	IDF1D to 8D,11C<br/>/IDU3D to 6D	IDF1D-1-old1-e	IDF1E to 11E<br/>/IDU3E to 6E	1	IDF1D-old.jpg	IDF1D to 8D,11C/IDU3D to 6D	IDF1E-1-e	2004/7/1	IDF1E to 11E/IDU3E to 6E	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDF_E-F-D-E
+A05	IDF□/C/D	IDF1D-2-old-e	Air Dryer	IDF15C to 37C1	IDF1D-2-old1-e	IDF15E1 to 37E	1	IDF1D-old.jpg	IDF15C to 37C1	IDF1E-2-e	2005/8/1	IDF15E1 to 37E	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDF_E-F-D-E
+A05	IDF□/C/D	IDF1D-3-old-e	Air Dryer	IDF55C,75C	IDF1D-3-old1-e	IDF55E,75E	1	IDF1D-old.jpg	IDF55C,75C	IDF1E-3-e	2007/1/1	IDF55E,75E	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDF_E-F-D-E
+A05	IDU□C/D	IDF1D-4-old-e	Air Dryer	IDU8D,11C,15C	IDF1D-4-old1-e	IDU8E to 15E1	1	IDF1D-old.jpg	IDU8D,11C,15C	IDF1E-4-e	2006/4/1	IDU8E to 15E1	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDU_E-E
+A05	IDU□C/D	IDF1D-5-old-e	Air Dryer	IDU22C1,37C1	IDF1D-5-old1-e	IDU22E,37E	1	IDF1D-old.jpg	IDU22C1,37C1	IDF1E-5-e	2007/8/1	IDU22E,37E	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDU_E-E
+A05	IDU□C/D	IDF1D-6-old-e	Air Dryer	IDU55C,75C	IDF1D-6-old1-e	IDU55E,75E	1	IDF1D-old.jpg	IDU55C,75C	IDF1E-6-e	2008/9/1	IDU55E,75E	IDF1E.jpg		IDU_IDF-old-e.pdf		None			idf-idu.pdf		IDU_E-E
+A05	IDF120D,150D	IDF120-old-e	Air Dryer / Large Size Series	IDF120D,150D	IDF120-old1-e	IDF125F,150F	1	IDF120-old.jpg	IDF120D	IDF125F-1-e	2011/9/1	IDF125F	IDF125F.jpg	/airprep/airprep/airprepfound34807.html	IDU_IDF-old-e.pdf		None					IDF_E-F-D-E
+		IDF120-old-e			IDF120-old1-e		2		IDF150D	IDF125F-2-e	2011/9/1	IDF150F		/airprep/airprep/airprepfound34807.html								IDF_E-F-D-E
+A05	IDG30, 50	IDG30-1-old-e	Membrane Air Dryer	IDG30, 50	IDG30-1-old1-e	IDG30A, 50A	1	IDG30-old.jpg	IDG30, 50	IDG30A-1-1-e	2012/1/1	IDG30A, 50A	IDG30A.jpg		IDG-old-e.pdf		Yes					IDG-E
+A05	IDG60L to 100L	IDG30-2-old-e	Membrane Air Dryer	IDG60L, 75L, 100L	IDG30-2-old1-e	IDG60LA, 75LA, 100LA	1	IDG30-old.jpg	IDG60L, 75L, 100L	IDG30A-2-1-e	2012/10/1	IDG60LA, 75LA, 100LA	IDG30A.jpg		IDG-old-e.pdf		Yes					IDG-E
+A05	IDG60S to 100S	IDG30-3-old-e	Membrane Air Dryer	IDG60S, 75S, 100S	IDG30-3-old1-e	IDG60SA, 75SA, 100SA	1	IDG30-old.jpg	IDG60S, 75S, 100S	IDG30A-3-1-e	2012/10/1	IDG60SA, 75SA, 100SA	IDG30A.jpg		IDG-old-e.pdf		Yes					IDG-E
+A05	AMG150 to 550	AMG150-old-e	Water Separator	AMG150 to 550	AMG150-old1-e	AMG150C to 550C	1	AMG150-old.jpg	AMG150	AMG150C-1-e	2009/8/1	AMG150C	AMG150C.jpg	/airprep/filter/filterfound34137.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AMG-E
+		AMG150-old-e			AMG150-old1-e		2		AMG250	AMG150C-2-e	2009/8/1	AMG250C		/airprep/filter/filterfound34137.html								AMG-E
+		AMG150-old-e			AMG150-old1-e		3		AMG350	AMG150C-3-e	2009/8/1	AMG350C		/airprep/filter/filterfound34137.html								AMG-E
+		AMG150-old-e			AMG150-old1-e		4		AMG450	AMG150C-4-e	2009/8/1	AMG450C		/airprep/filter/filterfound34137.html								AMG-E
+		AMG150-old-e			AMG150-old1-e		5		AMG550	AMG150C-5-e	2009/8/1	AMG550C		/airprep/filter/filterfound34137.html								AMG-E
+A05	AFF2B to 22B	AFF-old-e	Main Line Filter	AFF2B to 22B	AFF-old1-e	AFF2C to 22C	1	AFF-old.jpg	AFF2B	AFF2C-1-e	2009/8/1	AFF2C	AFF2C.jpg	/airprep/filter/filterfound34138.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AFF-E
+		AFF-old-e			AFF-old1-e		2		AFF4B	AFF2C-2-e	2009/8/1	AFF4C		/airprep/filter/filterfound34138.html								AFF-E
+		AFF-old-e			AFF-old1-e		3		AFF8B	AFF2C-3-e	2009/8/1	AFF8C		/airprep/filter/filterfound34138.html								AFF-E
+		AFF-old-e			AFF-old1-e		4		AFF11B	AFF2C-4-e	2009/8/1	AFF11C		/airprep/filter/filterfound34138.html								AFF-E
+		AFF-old-e			AFF-old1-e		5		AFF22B	AFF2C-5-e	2009/8/1	AFF22C		/airprep/filter/filterfound34138.html								AFF-E
+A05	AM150 to 550	AM150-old-e	Mist Separator	AM150 to 550	AM150-old1-e	AM150C to 550C	1	AM150-old.jpg	AM150	AM150C-1-e	2009/8/1	AM150C	AM150C.jpg	/airprep/filter/filterfound34139.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AM-E
+		AM150-old-e			AM150-old1-e		2		AM250	AM150C-2-e	2009/8/1	AM250C		/airprep/filter/filterfound34139.html								AM-E
+		AM150-old-e			AM150-old1-e		3		AM350	AM150C-3-e	2009/8/1	AM350C		/airprep/filter/filterfound34139.html								AM-E
+		AM150-old-e			AM150-old1-e		4		AM450	AM150C-4-e	2009/8/1	AM450C		/airprep/filter/filterfound34139.html								AM-E
+		AM150-old-e			AM150-old1-e		5		AM550	AM150C-5-e	2009/8/1	AM550C		/airprep/filter/filterfound34139.html								AM-E
+A05	AMD150 to 550	AMD150-old-e	Micro Mist Separator	AMD150 to 550	AMD150-old1-e	AMD150C to 550C	1	AMD150-old.jpg	AMD150	AMD150C-1-e	2009/8/1	AMD150C	AMD150C.jpg	/airprep/filter/filterfound34140.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AMD-E
+		AMD150-old-e			AMD150-old1-e		2		AMD250	AMD150C-2-e	2009/8/1	AMD250C		/airprep/filter/filterfound34140.html								AMD-E
+		AMD150-old-e			AMD150-old1-e		3		AMD350	AMD150C-3-e	2009/8/1	AMD350C		/airprep/filter/filterfound34140.html								AMD-E
+		AMD150-old-e			AMD150-old1-e		4		AMD450	AMD150C-4-e	2009/8/1	AMD450C		/airprep/filter/filterfound34140.html								AMD-E
+		AMD150-old-e			AMD150-old1-e		5		AMD550	AMD150C-5-e	2009/8/1	AMD550C		/airprep/filter/filterfound34140.html								AMD-E
+A05	AMH150 to 550	AMH150-old-e	Micro Mist Separator with Pre-filter	AMH150 to 550	AMH150-old1-e	AMH150C to 550C	1	AMH150-old.jpg	AMH150	AMH150C-1-e	2009/8/1	AMH150C	AMH150C.jpg	/airprep/filter/filterfound34141.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AMH-E
+		AMH150-old-e			AMH150-old1-e		2		AMH250	AMH150C-2-e	2009/8/1	AMH250C		/airprep/filter/filterfound34141.html								AMH-E
+		AMH150-old-e			AMH150-old1-e		3		AMH350	AMH150C-3-e	2009/8/1	AMH350C		/airprep/filter/filterfound34141.html								AMH-E
+		AMH150-old-e			AMH150-old1-e		4		AMH450	AMH150C-4-e	2009/8/1	AMH450C		/airprep/filter/filterfound34141.html								AMH-E
+		AMH150-old-e			AMH150-old1-e		5		AMH550	AMH150C-5-e	2009/8/1	AMH550C		/airprep/filter/filterfound34141.html								AMH-E
+A05	AME150 to 550	AME150-old-e	Super Mist Separator	AME150 to 550	AME150-old1-e	AME150C to 550C	1	AME150-old.jpg	AME150	AME150C-1-e	2009/8/1	AME150C	AME150C.jpg	/airprep/filter/filterfound34142.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AME-E
+		AME150-old-e			AME150-old1-e		2		AME250	AME150C-2-e	2009/8/1	AME250C		/airprep/filter/filterfound34142.html								AME-E
+		AME150-old-e			AME150-old1-e		3		AME350	AME150C-3-e	2009/8/1	AME350C		/airprep/filter/filterfound34142.html								AME-E
+		AME150-old-e			AME150-old1-e		4		AME450	AME150C-4-e	2009/8/1	AME450C		/airprep/filter/filterfound34142.html								AME-E
+		AME150-old-e			AME150-old1-e		5		AME550	AME150C-5-e	2009/8/1	AME550C		/airprep/filter/filterfound34142.html								AME-E
+A05	AMF150 to 550	AMF150-old-e	Odor Removal Filter	AMF150 to 550	AMF150-old1-e	AMF150C to 550C	1	AMF150-old.jpg	AMF150	AMF150C-1-e	2009/8/1	AMF150C	AMF150C.jpg	/airprep/filter/filterfound34143.html	AM_AFF-old-e.pdf		Yes (There are some differences of dimensions.)			amg_aff.pdf		AMF-E
+		AMF150-old-e			AMF150-old1-e		2		AMF250	AMF150C-2-e	2009/8/1	AMF250C		/airprep/filter/filterfound34143.html								AMF-E
+		AMF150-old-e			AMF150-old1-e		3		AMF350	AMF150C-3-e	2009/8/1	AMF350C		/airprep/filter/filterfound34143.html								AMF-E
+		AMF150-old-e			AMF150-old1-e		4		AMF450	AMF150C-4-e	2009/8/1	AMF450C		/airprep/filter/filterfound34143.html								AMF-E
+		AMF150-old-e			AMF150-old1-e		5		AMF550	AMF150C-5-e	2009/8/1	AMF550C		/airprep/filter/filterfound34143.html								AMF-E
+A05	AMD	AMD-old-e	Micro Mist Separator	AMD800<br/>AMD810<br/>AMD801<be/>AMD811	AMD-old1-e	-<be/>-<be/>-<be/>-	1	AMD-old.jpg	AMD800	AMD-1-e	2015/11/1	-
+		AMD-old-e			AMD-old2-e		2		AMD810	AMD-2-e	2015/11/1	-
+		AMD-old-e			AMD-old3-e		3		AMD801	AMD-3-e	2015/11/1	-
+		AMD-old-e			AMD-old4-e		4		AMD811	AMD-4-e	2015/11/1	-
+A06	KJ/KQ2	KJ-old-e	One-touch Fittings	KJ/KQ2	KJ-old1-e	KQ2	1	KJ-old.jpg	One-touch Mini KJ	KQ2-1-e	2012/5/1	KQ2	KQ2.jpg	/fitting/fitting/fittingfound2288.html	KJ-KQ2-old-e.pdf		Please contact SMC.					KQ2-E
+		KJ-old-e			KJ-old1-e		2		Clean series　10-KJ	KQ2-2-e	2012/5/1	10-KQ2										KQ-C-E
+		KJ-old-e			KJ-old1-e		3		One-touch Fittings KQ2	KQ2-3-e	2012/5/1	KQ2		/fitting/fitting/fittingfound2288.html								KQ2-E
+		KJ-old-e			KJ-old1-e		4		Clean series　10-KQ	KQ2-4-e	2012/5/1	10-KQ2										KQ-C-E
+		KJ-old-e			KJ-old1-e		5		Uni One-touch Fittings KQ2	KQ2-5-e	2012/5/1	KQ2		/fitting/fitting/fittingfound2288.html
+A06	KQB	KQB-old-e	Brass One-touch Fittings (Metal One-touch Fittings)	KQB	KQB-old1-e	KQB2	1	KQB-old.jpg	KQB	KQB2-1-e	2010/6/1	KQB2	KQB2.jpg	/fitting/fitting/fittingfound34818.html	KQB-old-e.pdf							KQB2-E
+A06	KQG	KQG-old-e	Stainless Steel 316 One-touch Fittings	KQG	KQG-old1-e	KQG2	1	KQG-old.jpg	KQG	KQG2-1-e	2010/6/1	KQG2	KQG2.jpg	/fitting/fspecial/fspecialfound34820.html	KQG-old-e.pdf							KQG2-E
+A06	KFG	KFG-old-e	Stainless Steel 316 Insert Fittings	KFG	KFG-old1-e	KFG2	1	KFG-old.jpg	KFG	KFG2-1-e	2010/6/1	KFG2	KFG2.jpg	/fitting/fspecial/fspecialfound34819.html	KFG-old-e.pdf							KFG2-E
+A07	AS	AS-old-e	Speed Controller with One-touch Fittings / In-line Type	AS	AS-old1-e	AS	1	AS-old.jpg	AS	AS-1-e	2011/9/1	AS	AS.jpg	/flowcontrol/speed/speedfound34808.html	AS-old-e.pdf		None					AS-I-E
+A08	AC	AC-old-e	Modular Type F.R.L. Unit	AC10 to 60	AC-old1-e	AC10-Ａ, AC20 to 60-B	1	AC-old.jpg	AC10 to 60	AC10-1-e	2014/12/1	AC10-Ａ<br/>AC20 to 60-B	AC10-A.jpg		AC-old-e.pdf		Yes
+A08	AC	AC-1-old-e	Modular Type F.R.L. Unit	AC100 to 600<br/>AC1000 to 6000	AC-1-old1-e	AC10-Ａ, AC20 to 60-B<br/>AAC10-Ａ, AC20 to 60-B	1	AC-old.jpg	AC100 to 600	AC10-1-1-e	2005/9/1	AC10-Ａ<br/>AC20 to 60-B	AC10-A.jpg		AC-old-e.pdf		None
+		AC-1-old-e			AC-1-old1-e		2		AC1000 to 6000	AC10-1-2-e	2005/9/1	AAC10-Ａ<br/>AC20 to 60-B
+A08	AF	AF-old-e	Air Filter	AF10 to 60	AF-old1-e	AF10 to 60-A	1	AF-old.jpg	AF10 to 60	AF-1-e	2014/12/1	AF10 to 60-A	AF-A.jpg		AC-old-e.pdf		Yes					AF-A-E
+A08	AF	AF-1-old-e	Air Filter	AF100 to 600<br/>AF1000 to 6000<br/>Clean series 10-AF	AF-1-old1-e	AF10 to 60-A<br/>Clean series 10-AF	1	AF-old.jpg	AF100 to 600	AF-1-1-e	2005/9/1	AF10 to 60-A	AF-A.jpg		AC-old-e.pdf		Yes (Except AF100 to 600)					AF-A-E
+		AF-1-old-e			AF-1-old1-e		2		AF1000 to 6000	AF-1-2-e	2005/9/1	AF10 to 60-A										AF-A-E
+		AF-1-old-e			AF-1-old1-e		3		Clean series 10-AF	AF-1-3-e	2005/9/1	Clean series 10-AF										AF-C-E
+A08	AFM/AFD	AFM_D-old-e	Mist Separator , Micro Mist Separator 	AFM20,30,40,40-06<br/>AFD20,30,40,40-06	AFM_D-old1-e	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A	1	AFM_D-old.jpg	AFM20,30,40,40-06	AFM_D-1-e	2014/12/1	AFM20,30,40,40-06-A	AFM_D.jpg		AC-old-e.pdf		Yes					AFM-A-E
+		AFM_D-old-e			AFM_D-old1-e		2		AFD20,30,40,40-06	AFM_D-2-e	2014/12/1	AFD20,30,40,40-06-A										AFD-A-E
+A08	AFM/AFD	AFM_D-1-old-e	Mist Separator , Micro Mist Separator 	AFM2000,3000,4000,4000-06<br/>AFD2000,3000,4000,4000-06<br/>Clean series 10-AFM<br/>Clean series 10-AFD	AFM_D-1-old1-e	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A<br/>Clean series 10-AFM<br/>Clean series 10-AFD	1	AFM_D-old.jpg	AFM2000,3000,4000,4000-06	AFM_D-1-1-e	2005/9/1	AFM20,30,40,40-06-A	AFM_D.jpg		AC-old-e.pdf		Yes					AFM-A-E
+		AFM_D-1-old-e			AFM_D-1-old1-e		2		AFD2000,3000,4000,4000-06	AFM_D-1-2-e	2005/9/1	AFD20,30,40,40-06-A										AFD-A-E
+		AFM_D-1-old-e			AFM_D-1-old1-e		3		Clean series 10-AFM	AFM_D-1-3-e	2005/9/1	Clean series 10-AFM										AFM-C-E
+		AFM_D-1-old-e			AFM_D-1-old1-e		4		Clean series 10-AFD	AFM_D-1-4-e	2005/9/1	Clean series 10-AFD										AFD-C-E
+A08	AR	AR-1-old-e	Regulator	AR10 to 60	AR-1-old1-e	AR10 to 40-A<br/>AR20 to 60-B	1	AR-old.jpg	AR10 to 60	AR-1-1-e	2014/12/1	AR10 to 40-A<br/>AR20 to 60-B	AR10-A.jpg		AC-old-e.pdf		Yes (Some Excluded)			ac_comp.pdf		AR-A-E
+A08	AR	AR-old-e	Regulator	AR20K to 60K<br/>AR1100 to 600<br/>AR10000 to 6000<br/>Clean series 10-AR	AR-old1-e	AR20 to 40-A<br/>AR20K to 60K-B<br/>AR20 to 40-A<br/>AR20 to 60-B<br/>AR10 to 40-A<br/>AR20 to 60-B<br/>Clean series 10-AR	1	AR-old.jpg	AR20K to 60K	AR-1-e	2005/9/1	AR20 to 40-A<br/>AR20K to 60K-B	AR10-A.jpg		AC-old-e.pdf		Yes (Some Excluded), None (AR100 to 600)					AR-A-E
+		AR-old-e			AR-old1-e		2		AR110 to 600	AR-2-e	2005/9/1	AR20 to 40-A<br/>AR20 to 60-B										AR-A-E
+		AR-old-e			AR-old1-e		3		AR1000 to 6000	AR-3-e	2005/9/1	AR10 to 40-A<br/>AR20 to 60-B										AR-A-E
+		AR-old-e			AR-old1-e		4		Clean series 10-AR	AR-4-e	2005/9/1	Clean series 10-AR										AR-C-E
+A08	AL	AL-1-old-e	Lubricator	AL10 to 60	AL-1-old1-e	AL10 to 60-A	1	AL-old.jpg	AL10 to 60	AL-1-1-e	2013/5/1	AL10 to 60-A	AL.jpg		AC-old-e.pdf		Yes 		Except 1000cm<sup>3</sup> tank type			AL-A-E
+A08	AL	AL-old-e	Lubricator	AL100 to 600<br/>AL1000 to 6000	AL-old1-e	AL10 to 60<br/>AL10 to 60-A	1	AL-old.jpg	AL100 to 600	AL-1-e	2005/9/1	AL10 to 60	AL.jpg		AC-old-e.pdf		Yes (Except AL100 to 600)		Except 1000cm<sup>3</sup> tank type			AL-A-E
+		AL-old-e			AL-old1-e		2		AL1000 to 6000	AL-2-e	2005/9/1	AL10 to 60-A										AL-A-E
+A08	AW	AW-1-old-e	Filter Regulator	AW10 to 60<br/>AW20K to 60K	AW-1-old1-e	AW10 to 40-A<br/>AW20 to 60-B<br/>AW20 to 40-A<br/>AW20K to 60K-B	1	AW-old.jpg	AW10 to 60	AW-1-1-e	2014/12/1	AW10 to 40-A<br/>AW20 to 60-B	AW10-A.jpg		AC-old-e.pdf		Yes (Some Excluded)					AW-A-E
+		AW-1-old-e			AW-1-old1-e		2		AW20K to 60K	AW-1-2-e	2014/12/1	AW20 to 40-A<br/>AW20K to 60K-B										AW-A-E
+A08	AW	AW-old-e	Filter Regulator	AW100 to 400<br/>AW1000 to 4000<br/>Clean series <br/> 10-AW	AW-old1-e	AW20 to 40-B<br/>AW20,40-B<br/>AW10 to 40-A<br/>AW20 to 40-B<br/>Clean series <br/> 10-AW	1	AW-old.jpg	AW100 to 400	AW-1-e	2005/9/1	AW20 to 40-B<br/>AW20,40-B	AW10-A.jpg		AC-old-e.pdf		Yes (Some Excluded), None (Aw100 to 600)					AW-A-E
+		AW-old-e			AW-old1-e		2		AW1000 to 4000	AW-2-e	2005/9/1	AW10 to 40-A<br/>AW20 to 40-B										AW-A-E
+		AW-old-e			AW-old1-e		3		Clean series <br/> 10-AW	AW-3-e	2005/9/1	Clean series <br/> 10-AW										AW-C-E
+A08	AWM	AWM-old-e	Mist Separator Regulator	AWM2000 to 4000<br/>Clean series <br/>10-AWM	AWM-old1-e	AWM20 to 40<br/>Clean series <br/>10-AWM	1	AWM-old.jpg	AWM2000 to 4000	AWM-1-e	2005/9/1	AWM20 to 40	AWM.jpg	/frl/frl/frlfound34163.html			Yes			aw.pdf		AWM-E
+		AWM-old-e			AWM-old1-e		2		Clean series<br/>10-AWM	AWM-2-e	2005/9/1	Clean series<br/>10-AWM		/clean/air/airfound34757.html								AWM-C-E
+A08	AWD	AWD-old-e	Micro Mist Separator Regulator	AWD2000 to 4000<br/>Clean series <br/>10-AWD	AWD-old1-e	AWD20 to 40<br/>Clean series <br/>10-AW	1	AWD-old.jpg	AWD2000 to 4000	AWD-1-e	2005/9/1	AWD20 to 40	AWD.jpg	/frl/frl/frlfound34164.html			Yes			aw.pdf		AWD-E
+		AWD-old-e			AWD-old1-e		2		Clean series<br/>10-AWD	AWD-2-e	2005/9/1	Clean series<br/>10-AWD		/clean/air/airfound34758.html								AWD-C-E
+A08	AU	AU-old-e	Lube Unit	AU100 to 300	AU-old1-e	AC20, 30	1	AU-old.jpg	AU100 to 300	AC20-1-e	2008/9/1	AC20, 30-A	AC10.jpg	/frl/frl/frlfound2293.html			None					AC-A-E
+A08	ARP3000	ARP-old-e	Direct Operated Precision Regulator	ARP3000	ARP-old1-e	ARP30	1	ARP-old.jpg	ARP3000	ARP30-1-e	2009/12/1	ARP30	ARP30.jpg	/frl/frregulator/frregulatorfound34179.html	ARP-old-e.pdf		Yes					ARP-E
+A08	IRV1000/2000/3000	IRV-old-e	Vacuum Regulator	IRV1000/2000/3000	IRV-old1-e	IRV10/20	1	IRV-old.jpg	IRV1000/2000/3000	IRV10-1-e	2010/3/1	IRV10/20	IRV10.jpg	/frl/frregulator/frregulatorfound34645.html	IRV-old-e.pdf		Yes			irv1000-10.pdf		IRV-E
+A08	T203-1	T203-old-e	Vacuum Regulator	T203-1	T203-old1-e	IRV10/20	1	T203-old.jpg	T203-1	IRV20-1-e	2007/1/1	IRV10/20	IRV20.jpg	/frl/frregulator/frregulatorfound34645.html			None			t203-1_irv.pdf		IRV-E
+A08	VBA	VBA-1-old-e	Booster Regulator	VBA1110	VBA-1-old1-e	VBA10A	1	VBA-old.jpg	VBA1110	VBA-1-e	2010/1/1	VBA10A	VBA.jpg		VBA-old-e.pdf		Yes			vba_comp.pdf		VBA-E
+A08	VBA	VBA-2-old-e	Booster Regulator	VBA1111-02N	VBA-2-old1-e	VBA11A	1	VBA-old.jpg	VBA1111-02N	VBA-2-e	2010/11/1	VBA11A	VBA.jpg		VBA-old-e.pdf		Yes			vba_comp.pdf		VBA-E
+A08	VBA	VBA-3-old-e	Booster Regulator	VBA1111-02	VBA-3-old1-e	VBA11A	1	VBA-old.jpg	VBA1111-02	VBA-3-e	2011/2/1	VBA11A	VBA.jpg		VBA-old-e.pdf		Yes			vba_comp.pdf		VBA-E
+A08	VBA	VBA-4-old-e	Booster Regulator	VBA2100, 4100	VBA-4-old1-e	VBA20A, 40A	1	VBA-old.jpg	VBA2100, 4100	VBA-4-e	2008/6/1	VBA20A, 40A	VBA.jpg		VBA-old-e.pdf		Yes			vba_comp.pdf		VBA-E
+A08	VBAT	VBAT-1-old-e	Air Tank	VBAT05A(-V)/<br/>VBAT10A	VBAT-1-old1-e	VBAT05A1(-V)/<br/>VBAT10A1	1	VBAT-old.jpg	VBAT05A(-V)/<br/>VBAT10A	VBAT-1-e	2009/12/1	VBAT05A1(-V)/<br/>VBAT10A1	VBAT.jpg		VBA-old-e.pdf		None			vbat.pdf		VBAT-E
+A08	VBAT	VBAT-old-e	Air Tank	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)<br/>VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-old1-e	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)<br/>VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)	1	VBAT-old.jpg	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)	VBAT-2-e	2010/1/1	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)	VBAT.jpg		VBA-old-e.pdf		None			vbat.pdf		VBAT-E
+		VBAT-old-e			VBAT-old1-e		2		VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-3-e	2010/1/1	VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)										VBAT-E
+A08	VY511,VYU5	VY5-old-e	Balance Controller	VY511-020<br/>VYU5□-D	VY5-old1-e	-	1	VY5-old.jpg	VY511-020	VY5-1-e	2016/12/1	-
+		VY5-old-e			VY5-old1-e		2		VYU5□-D	VY5-2-e	2016/12/1	-
+A08	VEA1	VEA1-old-e	Power Amplifier for Electro-Pneumatic Proportional Valve	VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-old1-e	VEA250<br/>VEA251<br/>VEA252	1		VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-1-e	2017/12/1	VEA250<br/>VEA251<br/>VEA252	VEA.jpg				None					VEA-E
+A08	ACG/ARG(K)/AWG(K)	ACG-old-e	Regulator with Built-in Pressure Gauge	ACG<br/>ARG(K)<br/>AWG(K)	ACG-old1-e	ACG-B<br/>ARG(K)-B<br/>AWG(K)-B	1	ACG-old.jpg	ACG<br/>ARG(K)<br/>AWG(K)	ACG-1-e	2021/5/1	ACG-B<br/>ARG(K)-B<br/>AWG(K)-B	ACG-B.jpg		ACG-old-e.pdf		Yes					ACG-B-E/ARG-B-E/ARG_K-B-E/AWG-B-E/AWG_K-B-E
+A09	AN	AN-old-e	Silencer	AN	AN-old1-e	AN	1	AN-old.jpg	AN200 to 400	AN-1-e	2012/1/1	AN05 to 40	AN.jpg	/silencer/silencer/silencerfound2236.html	AN-old-e.pdf		Yes					AN-E
+		AN-old-e			AN-old1-e		2		AN103 to 403	AN-2-e	2012/1/1	AN05 to 40		/silencer/silencer/silencerfound2236.html								AN-E
+		AN-old-e			AN-old1-e		3		AN103 to 300-KM	AN-3-e	2012/1/1	AN10 to 30-C		/silencer/silencer/silencerfound2236.html								AN-E
+A10	PFMC7	PFMC7-old-e	3-Color Display Digital Flow Switch	PFMC7	PFMC7-old1-e	PF2MC7	1	PFMC7-old.jpg	PFMC7	PFMC7-1-e	2021/10/1	PF2MC7	PF2MC7.jpg		PFMC7-old-e.pdf		Yes
+A10	D-F9G・F9H	D-F9G-old-e	Normally Closed Solid State Auto Switch	D-F9G<br/>D-F9H	D-F9G-old1-e	D-M9NE□<br/>D-M9PE□	1	D-F9G-old.jpg	D-F9G<br/>D-F9H	D-F9G-1-e	2021/7/1	D-M9NE□<br/>D-M9PE□	D-M9NE.jpg		D-F9G-old-e.pdf		Yes					D-AS1-E
+A10	PFMB	PFMB-old-e	2-Color Display Digital Flow Switch 	PFMB7201	PFMB-old1-e	PF2M721	1	PFMB-old.jpg	PFMB7201	PFMB-1-e	2021/9/1	PF2M721	PF2M7.jpg		PFMB-old-e.pdf		None					PF2M7-E
+A10	PSE200	PSE200-old-e	Multi-Channel Digital Pressure Sensor Controller	PSE200	PSE200-old1-e	PSE200A	1	PSE200-old.jpg	PSE200	PSE200-1-e	2021/3/1	PSE200A	PSE200A.jpg		PSE200-old-e.pdf		Yes					PSE200A-E
+A10	ZSE3/ISE3	ZSE3-old-e	LCD Readout Digital Pressure Switch	ZSE3/ISE3	ZSE3-old1-e	ZSE/ISE10<br/>ZSE/ISE20A	1	ZSE3-old.jpg	ZSE3/ISE3	ZSE3-1-e	2019/6/1	ZSE/ISE10	ZSE10_20A.jpg		ZSE3-old-e.pdf		None					ZSE10(F)-ISE10-E
+		ZSE3-old-e			ZSE3-old1-e		2		ZSE3/ISE3	ZSE3-2-e	2019/6/1	ZSE/ISE20A										ZSE20(F)-ISE20-E
+A10	ISE70	ISE70-old-e	2-Color Display Digital Pressure Switch	ISE70-□-□	ISE70-old1-e	ISE70-□-L2	1	ISE70-old.jpg	ISE70-□-□	ISE70-1-e	2018/2/1	ISE70-□-L2	ISE70.jpg		ISE70-old-e.pdf		None
+A10	ZSP1	ZSP1-old-e	Adsorption Confirmation Switch	ZSP1<br/>ZX1*-*-PS/PB-*	ZSP1-old1-e	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A<br/>ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3	1	ZSP1-old.jpg	ZSP1	ZSP1-1-e	2016/3/1	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A	ZSE-ZQ.jpg		ZSP1-old-e.pdf		None					PFMV-E/ZSE10(F)-ISE10-E/ZSE30A(F)-ISE30A-E
+		ZSP1-old-e			ZSP1-old1-e		2		ZX1*-*-PS/PB-*	ZSP1-2-e	2016/3/1	ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3										ZQ-E/PFMV-E
+A10	D-J51	D-J51-old-e	Solid State Auto Switch	D-J51	D-J51-old1-e	D-A54	1	D-J51-old.jpg	D-J51	D-J51-1-e	2015/3/1	D-A54	D-A54.jpg		D-J51-old-e.pdf		Yes					D-AS1-E
+A10	ZSE4/ISE4	ZSE4-old-e	Digital Pressure Switch	ZSE4/ISE4	ZSE4-old1-e	ZSE30A (F)/ISE30A	1	ZSE4-old.jpg	ZSE4 Vacuum pressure/ISE4 Positive pressure	ZSE30AF-1-e	2005/3/1	ZSE30A(F) Vacuum pressure/ISE30A Positive pressure	ZSE30AF.jpg	/sensor/pressure/pressurefound34641.html			None					ZSE30A(F)-ISE30A-E
+		ZSE4-old-e			ZSE4-old1-e		2		Clean series 10-ZSE4/ISE4	ZSE30AF-2-e	2005/3/1	Clean series 10-ZSE30A (F)/ISE30A		/clean/sensor/sensorfound34676.html								10-ZSE30A-E
+A10	ZSE30/ISE30	ZSE30-old-e	2-Color Display High-Precision Digital Pressure Switch	ZSE30/ISE30	ZSE30-old1-e	ZSE30A/ISE30A	1	ZSE30-old.jpg	ZSE30/ISE30	ZSE30A-1-e	2010/12/1	ZSE30A/ISE30A 	ZSE30A.jpg	/sensor/pressure/pressurefound34641.html	ZSE_ISE30-old-e.pdf		None					ZSE30A(F)-ISE30A-E
+		ZSE30-old-e			ZSE30-old1-e		2		Clean series <br/>10-ZSE30/<br/>10-ISE30	ZSE30A-2-e	2010/12/1	Clean series <br/>10-ZSE30A /<br/>10-ISE30A										10-ZSE30A-E
+A10	ZSE40/ISE40	ZSE40-old-e	High-Precision Digital Pressure Switch	ZSE40/ISE40	ZSE40-old1-e	ZSE40A/ISE40A	1	ZSE40-old.jpg	ZSE40/ISE40	ZSE40A-1-e	2011/3/1	ZSE40A/ISE40A	ZSE40A.jpg	/sensor/pressure/pressurefound34656.html	ZSE_ISE40-old-e.pdf		Yes					ZSE40A(F)-ISE40A-E
+		ZSE40-old-e			ZSE40-old1-e		2		Clean series <br/>10-ZSE40/<br/>10-ISE40	ZSE40A-2-e	2011/3/1	Clean series <br/>10-ZSE40A /<br/>10-ISE40A										10-ZSE40A-E
+A10	ZSE/ISE50 (F)・60 (F)	ISE50-old-e	High-Precision Digital Pressure Switch for General Fluids	ZSE/ISE50 (F), 60 (F)<br/>Clean series <br/>10-ZSE80 (F) /<br/>10-ISE80 (H)	ISE50-old1-e	ZSE20C(F)/ISE20C(H)	1	ISE50-old.jpg	ZSE/ISE50 (F), 60 (F)<br/>Clean series <br/>10-ZSE80 (F) /<br/>10-ISE80 (H)	ZSE80 F-1-e	2012/6/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg	/sensor/pressure/pressurefound34320.html	ZSE_ISE5060-old-e.pdf		None					ZSE20(F)-ISE20-E
+A10	ISE/ZSE5B・6B	ISE5B-old-e	Digital Pressure Switch	ISE5B/ZSE5B<br/>ISE5B/ZSE6B	ISE5B-old1-e	ZSE20C(F)/ISE20C(H)	1	ISE5B-old.jpg	ISE5B/ZSE5B<br/>ISE5B/ZSE6B	ISE80-1-e	2006/12/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg	/sensor/pressure/pressurefound34320.html			None					ZSE20(F)-ISE20-E
+A10	ISA	ISA-old-e	For Workpiece Placement Confirmation/Air Catch Sensor	ISA	ISA-old1-e	ISA2	1	ISA-old.jpg	ISA	ISA2-1-e	2013/3/1	ISA2	ISA2.jpg	/sensor/pressure/pressurefound34327.html	ISA-old-e.pdf		None					ISA2-E
+A10	PSE100	PSE100-old-e	Pressure Sensor Controller	PSE100	PSE100-old1-e	PSE300	1	PSE100-old.jpg	PSE100	PSE300-1-e	2008/7/1	PSE300	PSE300.jpg	/sensor/pressure/pressurefound34334.html			None			pse100.pdf		PSE300-E
+A10	PSE520, 521	PSE520-old-e	Pressure Sensor for General Fluids	PSE520, 521	PSE520-old1-e	PSE560, 561	1	PSE520-old.jpg	PSE520	PSE560-1-e	2005/9/1	PSE560	PSE560.jpg	/sensor/pressure/pressurefound34332.html			Yes			pse560.pdf		PSE56_-E
+		PSE520-old-e			PSE520-old1-e		2		PSE521	PSE560-2-e	2005/9/1	PSE561		/sensor/pressure/pressurefound34332.html								PSE56_-E
+		PSE520-old-e			PSE520-old1-e		3		10-PSE520	PSE560-3-e	2005/9/1	Clean series<br/>10-PSE560		/clean/sensor/sensorfound34685.html								PSE560-E
+		PSE520-old-e			PSE520-old1-e		4		10-PSE521	PSE560-4-e	2005/9/1	Clean series<br/>10-PSE561		/clean/sensor/sensorfound34685.html								PSE560-E
+A10	IS1000	IS1000-old-e	Pressure Switch	IS1000	IS1000-old1-e	IS10	1	IS1000-old.jpg	IS1000	IS10-1-e	2011/4/1	IS10	IS10.jpg	/sensor/pressure/pressurefound34837.html	IS1000-old-e.pdf		Yes					IS10-E
+A10	PFA/PFW	PFA-old-e	Digital Flow Switch for Air/Water	PFA/PFW	PFA-old1-e	PF2A/PF2W	1	PFA-old.jpg	For Air PFA7 Integrated display type	PF2A-1-e	2003/10/1	PF2A7 Integrated display type	PF2A.jpg	/sensor/flow/flowfound34341.html			Yes			pf2a-2w.pdf		PF2A-E
+		PFA-old-e			PFA-old1-e		2		For Air PFA3 Remote type display unit	PF2A-2-e	2003/10/1	PF2A3 Remote type display unit		/sensor/flow/flowfound34341.html								PF2A-E
+		PFA-old-e			PFA-old1-e		3		For Air PFA5 Remote type sensor unit	PF2A-3-e	2003/10/1	PF2A5 Remote type sensor unit		/sensor/flow/flowfound34341.html								PF2A-E
+		PFA-old-e			PFA-old1-e		4		For Water PFW7 Integrated display type	PF2A-4-e	2003/10/1	PF2W7 Integrated display type		/sensor/flow/flowfound34342.html								PF2W-E
+		PFA-old-e			PFA-old1-e		5		For Water PFW3 Remote type display unit	PF2A-5-e	2003/10/1	PF2W3 Remote type display unit		/sensor/flow/flowfound34342.html								PF2W-E
+		PFA-old-e			PFA-old1-e		6		For Water PFW5 Remote type sensor unit	PF2A-6-e	2003/10/1	PF2W5 Remote type sensor unit		/sensor/flow/flowfound34342.html								PF2W-E
+A10	PFD	PFD-old-e	Digital Flow Switch for Deionized Water and Chemicals	PFD	PFD-old1-e	PF2D	1	PFD-old.jpg	PFD3 Remote type display unit	PF2D-1-e	2003/10/1	PF2D3 Remote type display unit	PF2D.jpg	/sensor/flow/flowfound34343.html			Yes			pf2d.pdf		PF2D-E
+		PFD-old-e			PFD-old1-e		2		PFD5 Remote type sensor unit	PF2D-2-e	2003/10/1	PF2D5 Remote type sensor unit		/sensor/flow/flowfound34343.html								PF2D-E
+A10	D-F9x (V)	D-F9N-old-e	Solid State Auto Switch	D-F9x(V)	D-F9N-old1-e	D-M9x(V)	1	D-F9N-old.jpg	D-F9N(V)	D-M9N-1-e	2004/4/1	D-M9N(V)	D-M9N.jpg	/actuator/autosw/autoswfound33495.html			Yes		The operating range is shorter than the discontinued model.	d-m9.pdf		D-AS1-E
+		D-F9N-old-e			D-F9N-old1-e		2		D-F9P(V)	D-M9N-2-e	2004/4/1	D-M9P(V)		/actuator/autosw/autoswfound33495.html								D-AS1-E
+		D-F9N-old-e			D-F9N-old1-e		3		D-F9B(V)	D-M9N-3-e	2004/4/1	D-M9B(V)		/actuator/autosw/autoswfound33495.html								D-AS1-E
+A10	D-F9xW(V)	D-F9BW-old-e	Solid State Auto Switch	D-F9xW(V)	D-F9BW-old1-e	D-M9xW(V)	1	D-F9BW-old.jpg	D-F9BW(V)	D-M9BW-1-e	2008/3/1	D-M9BW(V)	D-M9BW.jpg	/actuator/autosw/autoswfound33495.html			Yes		 The operating range may change.	d-f9.pdf		D-AS1-E
+		D-F9BW-old-e			D-F9BW-old1-e		2		D-F9NW(V)	D-M9BW-2-e	2008/3/1	D-M9NW(V)		/actuator/autosw/autoswfound33495.html								D-AS1-E
+		D-F9BW-old-e			D-F9BW-old1-e		3		D-F9PW(V)	D-M9BW-3-e	2008/3/1	D-M9PW(V)		/actuator/autosw/autoswfound33495.html								D-AS1-E
+A10	D-F9BAx	D-F9BA-old-e	Solid State Auto Switch	D-F9BAx	D-F9BA-old1-e	D-M9BAx	1	D-F9BA-old.jpg	D-F9BAx	D-M9BA-1-e	2008/4/1	D-M9BAx	D-M9BA.jpg	/actuator/autosw/autoswfound33495.html			Yes		The operating range may change.			D-AS1-E
+A10	D-P3DW	D-P3DW-old-e	Magnetic Field Resistant 2-Color Indication Type Solid State Auto Switch	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DW-old1-e	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	1	D-P3DW-old.jpg	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DWA-1-e	2017/5/1	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	D-P3DW.jpg		D-P3DW-old-e.pdf		Yes					D-AS1-E
+A10	ISL	ISL-old-e	Pressure Switch for Lubricating Oil	ISL301	ISL-old1-e	ISG130-X310/X311	1		ISL301	ISL-1-e	2017/6/1	ISG130-X310/X311					None
+A10	PF2A7□H	PF2A-old-e	Digital Flow Switch for Air/High Flow Rate Type 	PF2A7□H	PF2A-old1-e	PF3A7□H	1	PF2A-old.jpg	PF2A7□H	PF2A-1-e	2018/1/1	PF3A7□H	PF3A.jpg		PF2A-old-e.pdf		None					PF3A7_H-E
+A10	ISE75	ISE75-old-e	2-Color Display Digital Pressure Switch	ISE75	ISE75-old1-e	ISE77G	1	ISE75-old.jpg	ISE75	ISE75-1-e	2018/7/1	ISE77G	ISE77G.jpg		ISE70-old-e.pdf		None					ISE70-71-L2-E
+A10	ISA2	ISA2-old-e	Non-Contact Sensor for Workpiece Placement Confirmation/Air Catch Sensor	ISA2<br/>IISA2	ISA2-old1-e	ISA3	1	ISA2-old.jpg	ISA2<br/>IISA2	ISA3-1-e	2019/3/1	ISA3	ISA3.jpg		ISA2-old-e.pdf		None					ISA3-E
+A10	D-M5□	D-M5B-old-e	Solid State Auto Switch	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-M5B-old1-e	D-E73A<br/>D-E76A	1	D-M5B-old.jpg	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-E73A-1-e	2020/3/1	D-E73A<br/>D-E76A	D-E73A.jpg		D-M5B-old-e.pdf				・Replacing with a reed auto switch disables some functions.<br/>・There is no replacement products for D-M5P / M5BW / M5NW / M5PW / M5NT / M5PT.			D-AS1-E
+A10	D-G5NB□	D-G5NB-old-e	Wide Range Detection Type Solid State Auto Switch	D-G5NB□	D-G5NB-old1-e	-	1	D-G5NB-old.jpg	D-G5NB□		2020/3/1	-			D-G5NB-old-e.pdf		None
+A10	ZSE30A(F)/ISE30A	ZSE30A-old-e	2-Color Display High-Precision Digital Pressure Switch	ZSE30A(F)/ISE30A	ZSE30A-old1-e	ZSE20(F)/ISE20<br/>ZSE20A(F)/ISE20A	1	ZSE30A-old.jpg	ZSE30A(F)/ISE30A		2020/12/1	ZSE20(F)/ISE20<br/>ZSE20A(F)/ISE20A	ZSE20F.jpg		ZSE30A-old-e.pdf		None					ZSE20(F)-ISE20-E
+A10	ZSE40A(F)/ISE40A	ZSE40A-old-e	2-Color Display High-Precision Digital Pressure Switch	ZSE40A(F)/ISE40A	ZSE40A-old1-e	ZSE20B(F)/ISE20B	1	ZSE40A-old.jpg	ZSE40A(F)/ISE40A		2020/12/1	ZSE20B(F)/ISE20B	ZSE20B.jpg		ZSE40A-old-e.pdf		None					ZSE20(F)-ISE20-E
+A10	ZSE80(F)/ISE80(H)	ZSE80-old-e	2-Color Display Digital Pressure Switch	ZSE80(F)/ISE80(H)	ZSE80-old1-e	ZSE20C(F)/ISE20C(H)	1	ZSE80-old.jpg	ZSE80(F)/ISE80(H)		2020/12/1	ZSE20C(F)/ISE20C(H)	ZSE20C.jpg		ZSE80-old-e.pdf		None					ZSE20(F)-ISE20-E
+A11	IZS30	IZS30-old-e	Ionizer	IZS30	IZS30-old1-e	IZS40/41/42	1	IZS30-old.jpg	IZS30	IZS40-1-e	2012/11/1	IZS40/41/42	IZS40.jpg	/electro/electro/electrofound2311.html			None					IZS40-41-42-E
+A11	IZN10	IZN10-old-e	Ionizer/Nozzle Type	IZN10	IZN10-old1-e	IZN10E	1	IZN10-old.jpg	IZN10	IZN10-1-e	2018/5/1	IZN10E	IZN10E.jpg		IZN10-old-e.pdf		Yes					IZN10E-E
+A12	VDW30	VDW30-old-e	Compact Direct Operated 2 Port Solenoid Valve for Water and Air	VDW31	VDW30-old1-e	VX21	1	VDW30-old.jpg	VDW31	VX21-1-e	2015/7/1	VX21	VX21-7.jpg		vdw-old-e.pdf		None					VX2-E
+A12	VPS	VPS-old-e	2 Port Solenoid Valve	VPS2175<br/>VPS2185<br/>VPS2195	VPS-old1-e	VXP2270<br/>VXP2380<br/>VXP2390	1		VPS2175	VXP-1-e	2015/4/1	VXP2270	VXP.jpg				None					VXP-E
+		VPS-old-e			VPS-old1-e		2		VPS2185	VXP-2-e	2015/4/1	VXP2380										VXP-E
+		VPS-old-e			VPS-old1-e		3		VPS2195	VXP-3-e	2015/4/1	VXP2390										VXP-E
+A12	VX21/22/23	VX21-1-old-e	Direct Operated 2 Port Solenoid Valve	VX21/22/23<br/>OLD VX21/22/23	VX21-1-old1-e	VX21/22/23	1	VX21-old.jpg	VX21/22/23	VX21-1-1-e	2012/3/1	VX21/22/23	VX21-1.jpg		VX2-old-e.pdf		Yes (Except VX21: Interchangeable type as a special product)					VX2-E
+		VX21-1-old-e			VX21-1-old1-e		2		OLD VX21/22/23	VX21-1-2-e	2005/4/1	VX21/22/23										VX2-E
+A12	VCA20/30/40	VCA20-old-e	Direct Operated 2 Port Solenoid Valve for Air	VCA20/30/40	VCA20-old1-e	VX21/22/23	1	VCA20-old.jpg	VCA20/30/40	VX21-2-1-e	2012/3/1	VX21/22/23	VX21-2.jpg	/process/process23vx/process23vxfound34866.html	VCA-old-e.pdf		None					VX2-E
+A12	VCW20/30/40	VCW20-old-e	Direct Operated 2 Port Solenoid Valve for Water	VCW20/30/40	VCW20-old1-e	VX21/22/23	1	VCW20-old.jpg	VCW20/30/40	VX21-3-1-e	2012/3/1	VX21/22/23	VX21-3.jpg	/process/process23vx/process23vxfound34866.html	VCW-old-e.pdf		None					VX2-E
+A12	VCB20/30/40	VCB20-old-e	Direct Operated 2 Port Solenoid Valve for Water	VCB20/30/40	VCB20-old1-e	VX21/22/23	1	VCB20-old.jpg	VCB20/30/40	VX21-4-1-e	2012/10/1	VX21/22/23	VX21-4.jpg	/process/process23vx/process23vxfound34866.html	VCB-old-e.pdf		None					VX2-E
+A12	VCL20/30/40	VCL20-old-e	Direct Operated 2 Port Solenoid Valve for Oil	VCL20/30/40	VCL20-old1-e	VX21/22/23	1	VCL20-old.jpg	VCL20/30/40	VX21-5-1-e	2012/10/1	VX21/22/23	VX21-5.jpg	/process/process23vx/process23vxfound34866.html	VCL-old-e.pdf		None					VX2-E
+A12	VCS20/30/40	VCS20-old-e	Direct Operated 2 Port Solenoid Valve for Steam	VCS20/30/40	VCS20-old1-e	VX21/22/23	1	VCS20-old.jpg	VCS20/30/40	VX21-6-1-e	2012/10/1	VX21/22/23	VX21-6.jpg	/process/process23vx/process23vxfound34866.html	VCS-old-e.pdf		None					VX2-E
+A12	VXF/VXFA	VXF-old-e	2 Port Solenoid Valve for Dust Collector / Air Operated Valve	VXF/VXFA	VXF-old1-e	VXF/VXFA	1	VXF-old.jpg	VXF/VXFA	VXF-1-e	2012/2/1	VXF/VXFA	VXF.jpg	/process/process23vx/process23vxfound34360.html	VXF-old-e.pdf		The port position has changed due to the change in the external appearance.					VXF2-VXFA2-E
+A12	VXA	VXA-old-e	Direct Air Operated 2 Port Valve	VXA	VXA-old1-e	VXA	1	VXA-old.jpg	VXA21/22	VXA-1-e	2010/4/1	VXA21/22	VXA.jpg	/process/process23vx/process23vxfound34362.html	VXA-old-e.pdf		Yes					VXA-E
+A12	VDW10/20	VDW10-old-e	Compact Direct Operated 2 Port Solenoid Valve	VDW10/20	VDW10-old1-e	VDW10/20	1	VDW10-old.jpg	VDW10/20	VDW10-1-e	2012/12/1	VDW10/20	VDW10.jpg	/process/pspecial/pspecialfound2249.html	VDW-old-e.pdf		Yes (N.C., single unit. Except Resin body)					VDW-E
+A12	VNC	VNC-old-e	Coolant Valve	VNC	VNC-old１-e	SGC	1	VNC-old.jpg	VNC2155-15AxTx	VNC-1-e	2014/6/1	SGC221A-0515Y-xTx	SGC.jpg		VNC-old-e.pdf		None					SGC-E
+		VNC-old-e			VNC-old１-e		2		VNC2155-20AxTx	VNC-2-e	2014/6/1	SGC321A-0520Y-xTx										SGC-E
+		VNC-old-e			VNC-old１-e		3		VNC2165-25AxTx	VNC-3-e	2014/6/1	SGC421A-0525Y-xTx										SGC-E
+A12	VXD	VXD-old-e	Pilot Operated 2 Port Solenoid Valve	VXD21/22/23<br/>OLD VXD21/22/23	VXD-old1-e	VXD23/24/25/26/27/28/29	1	VXD-old.jpg	VXD21/22/23	VXD-1-e	2015/3/1	VXD23/24/25/26/27/28/29	VXD.jpg		VXD_en_old.pdf		None					VXD-E
+		VXD-old-e			VXD-old1-e		2		OLD VXD21/22/23	VXD-2-e	2006/9/1	VXD23/24/25/26/27/28/29										VXD-E
+A12	VXZ	VXZ-old-e	Zero Differential Pressure Type/Pilot Operated 2 Port Solenoid Valve	VXZ22/23<br/>OLD VXZ22/23	VXZ-old1-e	VXZ23/24/25/26<br/>VXZ23/24/25/26	1	VXZ-old.jpg	VXZ22/23	VXZ-2-e	2015/3/1	VXZ23/24/25/26	VXZ.jpg		VXZ_en_old.pdf		None					VXZ-E
+		VXZ-old-e			VXZ-old1-e		2		OLD VXZ22/23	VXZ-3-e	2008/10/1	VXZ23/24/25/26										VXZ-E
+A12	VXS	VXS-old-e	Zero Differential Pressure Type/Pilot Operated 2 Port Solenoid Valve	VXS22/23	VXS-old1-e	VXS23/24/25/26	3	VXS-old.jpg	VXS22/23	VXS-3-e	2015/3/1	VXS23/24/25/26	VXS.jpg		VXS_en_old.pdf		None					VXS-2-E
+A13	PB1000	PB1000-old-e	Process Pump	PB1011<br/>PB1013	PB1000-old1-e	PB1011A<br/>PB1013A	1	PB1000-old.jpg	PB1011	PB1000A-1-e	2010/12/1	PB1011A	PB1000A.jpg		PB1000-old-e.pdf		Yes (Made to Order)			pb.pdf		PB-E
+		PB1000-old-e			PB1000-old1-e		2		PB1013	PB1000A-2-e	2010/12/1	PB1013A										PB-E
+A13	PB1000	PB1000-1-old	Process Pump	PB1013-X17	PB1000-1-old1-e	PB1313A	1	PB1000-old.jpg	PB1013-X17	PB1000A-3-e	2012/2/1	PB1313A	PB1000A.jpg		PB1000-old-e.pdf		Yes (Made to Order)			pb.pdf		PB-E
+A13	PA2000	PA2000-old-e	Process Pump	PA2000	PA2000-old1-e	PA3000/PAF3410-X68	1	PA2000-old.jpg	PA2000/PA2200	PA2000-1-e	2013/7/1	PA3100/PA3200	PA3100.jpg	/processpump/processpump/processpumpfound34390.html			None					PA-PAP-PAX-E
+		PA2000-old-e			PA2000-old1-e		2		PA2310	PA2000-2-e	2013/7/1	PAF3410-X68		/processpump/processpump/processpumpfound34392.html								PAF-E
+A14	HRZ	HRZ1-old-e	Thermo-cooler	HRZ	HRZ1-old1-e	HRZ-F	1	HRZ1-old.jpg	HRZ	HRZ1-1-e	2022/12/1	HRZ-F	HRZ-F.jpg		HRZ1-old-e.pdf		Yes					HRZ-F-E
+A14	HEA	HEA-old-e	Peltier-Type Air-Thermo	HEA	HEA-old1-e	IDH4	1	HEA-old.jpg	HEA	HEA-1-e	2021/12/1	IDH4	IDH.jpg		HEA-old-e.pdf		None					IDH_-E
+A14	HRG	HRG-old-e	Thermo-cooler	HRG001/002<br/>HRGC001/002	HRG-old1-e	HRS012/018/024<br/>HRS012/018/024	1	HRG-old.jpg	HRG001/002	HRS-1-e	2011/3/1	HRS012/018/024	HRS.jpg		HRGC-old-e.pdf		None					HRS-E
+		HRG-old-e			HRG-old1-e		2		HRGC001/002	HRS-2-e	2011/3/1	HRS012/018/024										HRS-E
+A14	HRG	HRG-1-old-e	Thermo-cooler	HRG005<br/>HRGC005	HRG-1-old1-e	HRS050	1	HRG-old.jpg	HRG005	HRS-3-e	2011/4/1	HRS050	HRS.jpg		HRGC-old-e.pdf		None					HRS-E
+		HRG-1-old-e			HRG-1-old1-e		2		HRGC005	HRS-4-e	2011/4/1	HRS050										HRS-E
+A14	HRG	HRG-2-old-e	Thermo-cooler	HRG010/015	HRG-2old1-e	HRS100/150	1	HRG-old.jpg	HRG010/015	HRS-5-e	2014/11/1	HRS100/150	HRS.jpg				None					HRS-2-E
+A14	HEC105/205W	HEC-old-e	Thermo-con	HEC105<br/>HEC205<br/>INR-244-323	HEC-old１-e	HEC001<br/>HEC003	1		HEC105	HEC-1-e	2008/9/1	HEC001	HEC.jpg				Yes					HEC-E
+		HEC-old-e			HEC-old１-e		2		HEC205	HEC-2-e	2008/9/1	HEC003										HEC-E
+		HEC-old-e			HEC-old１-e		3		INR-244-323	HEC-3-e	2008/9/1	HEC003										HEC-E
+A14	HRZ	HRZ-old-e	Thermo-chiller/High-performance Inverter Type	HRZ004-L-□<br/>HRZ004-L1-□<br/>HRZ008-L-□<br/>HRZ008-L1-□	HRZ-old1-e	HRZ008-WS-F<br/>HRZ008-W1S-F<br/>HRZ008-L-F<br/>HRZ008-L-F	1	HRZ-old.jpg	HRZ004-L-□<br/>HRZ004-L1-□<br/>HRZ008-L-□<br/>HRZ008-L1-□	HRZ-1-e	2020/10/1	HRZ008-WS-F<br/>HRZ008-W1S-F<br/>HRZ008-L-F<br/>HRZ008-L-F	HRZ.jpg		HRZ-old-e.pdf		Yes					HRZ-F-E
+A15	FGB	FGB-old-e	Industrial Filter	FGB	FGB-old1-e	FGA	1	FGB-old.jpg	FGB	FGB-1-e	2014/7/1	FGA	FGA.jpg		FGB-old-e.pdf		None (However,ｔhe elements are common with FGA.)					FGA-E
+A15	FGF	FGF-old-e	Bag Filter	FGFx1A-20-ExA <br/>(Element size L440)	FGF-old1-e	FGFx1A-20-ExB<br/>(Element size L440)	1	FGF-old.jpg	FGFx1A-20-ExA (Element size L440)	FGF-1-e	2009/12/1	FGFx1A-20-ExB (Element size L440)	FGF.jpg		FGF-old-e.pdf		None					FGF-E
+A15	FGF	FGF-1-old-e	Bag Filter	FGFx1B-20-ExA <br/>(Element size L770)	FGF-1-old1-e	FGFx1B-20-ExB<br/>(Element size L770)	1	FGF-old.jpg	FGFx1B-20-ExA (Element size L770)	FGF1B-1-e	2010/2/1	FGFx1B-20-ExB (Element size L770)	FGF.jpg		FGF-old-e.pdf		None					FGF-E
+A15	FGJ	FGJ-old-e	Industrial Filter for Cleaning Fluid 	FGJ	FGJ-old1-e	FGD/FQ1	1	FGJ-old.jpg	FGJSA-06-xxxX0	FGD-1-e	2012/12/1	FGDFA-06	FGD.jpg	/ifilter/ifilter/ifilterfound34396.html			none					FGD-E
+		FGJ-old-e			FGJ-old1-e		2		FGJSA-06-xxxX0	FGD-2-e	2012/12/1	FQ1011N-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-E
+		FGJ-old-e			FGJ-old1-e		3		FGJSB-06-xxxX0	FGD-3-e	2012/12/1	FGDFB-06		/ifilter/ifilter/ifilterfound34396.html								FGD-E
+		FGJ-old-e			FGJ-old1-e		4		FGJSB-06-xxxX0	FGD-4-e	2012/12/1	FQ1012N-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-E
+		FGJ-old-e			FGJ-old1-e		5		FGJLA-06-xxxX0	FGD-5-e	2012/12/1	FGDFA-06		/ifilter/ifilter/ifilterfound34396.html								FGD-E
+		FGJ-old-e			FGJ-old1-e		6		FGJLA-06-xxxX0	FGD-6-e	2012/12/1	FQ1011V-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-E
+		FGJ-old-e			FGJ-old1-e		7		FGJLB-06-xxxX0	FGD-7-e	2012/12/1	FGDFB-06		/ifilter/ifilter/ifilterfound34396.html								FGD-E
+		FGJ-old-e			FGJ-old1-e		8		FGJLB-06-xxxX0	FGD-8-e	2012/12/1	FQ1012V-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-E
+A15	FGK	FGK-old-e	Industrial Filter for Cleaning Fluid 	FGK	FGK-old1-e	FGE	1	FGK-old.jpg	FGKSA-xx-xxxX0	FGE-1-e	2012/12/1	FGESA-xx-xxxA	FGE.jpg	/ifilter/ifilter/ifilterfound34397.html			None					FGE-E
+		FGK-old-e			FGK-old1-e		2		FGKSB-xx-xxxX0	FGE-2-e	2012/12/1	FGESB-xx-xxxA		/ifilter/ifilter/ifilterfound34397.html								FGE-E
+		FGK-old-e			FGK-old1-e		3		FGKSC-xx-xxxX0	FGE-3-e	2012/12/1	FGESC-xx-xxxA		/ifilter/ifilter/ifilterfound34397.html								FGE-E
+		FGK-old-e			FGK-old1-e		4		FGKLA-xx-xxxX0	FGE-4-e	2012/12/1	FGELA-xx-xxxA		/ifilter/ifilter/ifilterfound34397.html								FGE-E
+		FGK-old-e			FGK-old1-e		5		FGKLB-xx-xxxX0	FGE-5-e	2012/12/1	FGELB-xx-xxxA		/ifilter/ifilter/ifilterfound34397.html								FGE-E
+		FGK-old-e			FGK-old1-e		6		FGKLC-xx-xxxX0	FGE-6-e	2012/12/1	FGELC-xx-xxxA		/ifilter/ifilter/ifilterfound34397.html								FGE-E
+A15	FZ･FGZA	FZ-old-e	Plastic Filter for Water	FZ･FGZA	FZ-old1-e	-	1		FZ･FGZA	FZ-1-e	2012/6/1	-
+A15	EHE	EHE-old-e	Fiber Element	EHE	EHE-old1-e	-	1		EHE	EHE-1-e	2014/11/1	-
+A16	LECSB/C/S(-S)	LECS-old-e	AC Servo Motor Driver	・Pulse Input Type (-S) /LECSB-S<br/>・CC-Link Direct Input Type (-S)/ LECSC-S<br/>・SSCNETⅢ type(-S)/ LECSS-S<br/>・Electric Actuator loaded with AC Servo Motor Driver S6/S7/S8<br/>(LEY/LEF/LEJ)	LECS-old1-e	・Pulse Input Type (-T) /LECSB-T<br/>・CC-Link Direct Input Type (-T)/ LECSC-T<br/>・SSCNETⅢ type (-T)/ LECSS-T<br/>・Electric Actuator loaded with AC Servo Motor Driver T6/T7/T8<br/>(LEY/LEF/LEJ)	1	LECS-old.jpg	・Pulse Input Type (-S) /LECSB-S<br/>・CC-Link Direct Input Type (-S)/ LECSC-S<br/>・SSCNETⅢ type(-S)/ LECSS-S<br/>・Electric Actuator loaded with AC Servo Motor Driver S6/S7/S8<br/>(LEY/LEF/LEJ)	LECS-3-e	2022/2/1	・Pulse Input Type (-T) /LECSB-T<br/>・CC-Link Direct Input Type (-T)/ LECSC-T<br/>・SSCNETⅢ type (-T)/ LECSS-T<br/>・Electric Actuator loaded with AC Servo Motor Driver T6/T7/T8<br/>(LEY/LEF/LEJ)	LECS-3.jpg		LECS-old-e.pdf		None					LECS-E
+A16	LECP6	LECP6-old-e	Controller For Electric Actuator /Step Data Input Type	LECP6	LECP6-old1-e	JXC51/61	1	LECP6-old.jpg	LECP6	LECP6-1-e	2021/1/1	JXC51/61	JXC51.jpg		LEC_JXC_-old-e.pdf		Yes					JXC51-61-E
+A16	LECPMJ	LECPMJ-old-e	Controller For Electric Actuator //CC-Link Direct Input Type	LECPMJ	LECPMJ-old1-e	JXCM1	1	LECPMJ-old.jpg	LECPMJ	LECPMJ-1-e	2021/1/1	JXCM1	JXCM1.jpg		LEC_JXC_-old-e.pdf		Yes					JXC91-E
+A16	LATC4	LATC4-old-e	Card Motor<sub>&reg;</sub> Controller	LATC4	LATC4-old1-e	LATCA	1	LATC4-old.jpg	LATC4	LATCA-1-e	2015/8/1	LATCA	LATCA.jpg		LACT4-old-e.pdf		Yes					LATC4-E
+A16	LG1H	LG1H-old-e	Single Axis Electric Actuator	LG1TH	LG1H-old1-e	LEF	1	LG1H-old.jpg	LG1TH	LEF-1-1-e	2010/6/1	LEF	LEF-1.jpg		LG1H-old-e.pdf		None			lg1.pdf		LEF-E
+A16	LG1H	LG1H-1-old-e	Single Axis Electric Actuator	LG1xS	LG1H-1-old1-e	LEF	1	LG1H-old.jpg	LG1xS	LEF-1-2-e	2010/9/1	LEF	LEF-1.jpg		LG1H-old-e.pdf		None			lg1.pdf		LEF-E
+A16	LJ1	LJ1-old-e	Single Axis Electric Actuator	LJ1	LJ1-old1-e	LEF	1	LJ1-old.jpg	LJ1HxS	LEF-2-1-e	2010/9/1	LEF (Some models are Series LJ1)	LEF-2.jpg	/electric/eactuator/eactuatorfound34646.html	LJ1-old-e.pdf		None			lj1.pdf		LEF-E
+		LJ1-old-e			LJ1-old1-e		2		LJ1S	LEF-2-2-e	2010/9/1	LEF (Some models are Series LJ1)		/electric/eactuator/eactuatorfound34646.html								LEF-E
+A16	LC8	LC8-old-e	Positioning Driver	LC8	LC8-old1-e	LECS	1	LC8-old.jpg	LC8	LECS-1-1-e	2010/3/1	LECS	LECS-1.jpg	/electric/electric/electricfound2286.html	LC8-old-e.pdf		None					LECS-E
+A16	LC1/LC7R	LC1-old-e	Dedicated Controller for Standard AC Servomotor	LC1/LC7R	LC1-old1-e	LECS	1	LC1-old.jpg	LEC-x (Dedicated Controller for AC Servomotor)	LECS-2-1-e	2012/9/1	LECS	LECS-2.jpg	/electric/electric/electricfound2286.html	LC1-old-e.pdf		None		・The LECS series is different from the LC1 series in features, so be sure to confirm the specifications when replacing any units.<br/>・Please note that the actuator must also be changed.			LECS-E
+		LC1-old-e			LC1-old1-e		2		LC1-1-1-T (Teaching box)	LECS-2-2-e	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-E
+		LC1-old-e			LC1-old1-e		3		LC7R-x (Regenerative absorption unit)	LECS-2-3-e	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-E
+		LC1-old-e			LC1-old1-e		4		LC1-1-1-W (Controller setup software)	LECS-2-4-e	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-E
+		LC1-old-e			LC1-old1-e		5		LC1-1-1 (2) R (Controller connector, Communication cable)	LECS-2-5-e	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-E
+A16	LJ1	LJ1-2old-e	Single Axis Electric Actuator	LJ1	LJ1-2old1-e	LEF/LEJ	1	LJ1-2old.jpg	LJ1	LEF-3-1-e	2014/5/1	LEF	LEF-3.jpg		LJ1-old-2-e.pdf		None		Some specifications, mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.			LEF-E
+		LJ1-2old-e			LJ1-2old1-e		2		LJ1	LEF-3-2-e	2014/5/1	LEJ										LEJ-E
+A16	LG1	LG1-old-e	Low Profile Single Axis Electric Actuator	LG1	LG1-old1-e	LEF/LEJ	1	LG1-old.jpg	LG1	LEF-4-1-e	2014/5/1	LEF	LEF-3.jpg		LG1-old-e.pdf		None		Some specifications, mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.			LEF-E
+		LG1-old-e			LG1-old1-e		2		LG1	LEF-4-2-e	2014/5/1	LEJ										LEJ-E
+A16	LTF	LTF-old-e	Electric Actuator with Integrated Guide	LTF	LTF-old1-e	LEF/LEJ	1	LTF-old.jpg	LTF	LEF-5-1-e	2014/5/1	LEF	LEF-3.jpg		LTF-old-e.pdf		None		Some specifications, mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.			LEF-E
+		LTF-old-e			LTF-old1-e		2		LTF	LEF-5-2-e	2014/5/1	LEJ										LEJ-E
+A16	LXF,LXP,LXS	LX-old-e	Short Stroke Electric Actuator	LXF<br/>LXP<br/>LXS	LX-old1-e	LES, LESH<br/>LEYG<br/>LES, LESH	1	LX-old.jpg	LXF	LEYG-1-e	2014/5/1	LES, LESH	LEGY-1.jpg		LX-old-e.pdf		None		Some specifications, mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.			LES-E
+		LX-old-e			LX-old1-e		2		LXP	LEYG-2-e	2014/5/1	LEYG										LEYG-E
+		LX-old-e			LX-old1-e		3		LXS	LEYG-3-e	2014/5/1	LES, LESH										LES-E
+A16	LC6	LC6-old-e	Stepper Motor Driver/Positioning Driver	LC6D<br/>LC6C	LC6-old1-e	LEC	1	LE6-old.jpg	LC6D	LEC-1-e	2014/5/1	LEC	LEC-1.jpg	/products/en/electric/s.do?ca_id=628	LC6-old-e.pdf		None		Some specifications, mounting/external dimensions and other features are different from those of the discontinued series, so be sure to check before replacing any units.
+		LC6-old-e			LC6-old1-e		2		LC6C	LEC-2-e	2014/5/1	LEC		/products/en/electric/s.do?ca_id=628
+A16	E-MY2	E-MY2-old-e	e-Rodless 	E-MY2	E-MY2-old1-e	LEM	1	E-MY2-old.jpg	E-MY2B	LEM-1-1-e	2014/3/1	LEMB	LEM-1.jpg		E-MY2-old-e.pdf		Yes		The dimensions are changed.			LEM-E
+		E-MY2-old-e			E-MY2-old1-e		2		E-MY2C	LEM-1-2-e	2014/3/1	LEMC										LEM-E
+		E-MY2-old-e			E-MY2-old1-e		3		E-MY2H	LEM-1-3-e	2014/3/1	LEMH										LEM-E
+		E-MY2-old-e			E-MY2-old1-e		4		E-MY2HT	LEM-1-4-e	2014/3/1	LEMHT										LEM-E
+A17	IP100, 110	IP100-old-e	Valve Positioner	IP100, 110	IP100-old1-e	IP5000	1	IP100-old.jpg	IP100-, IP110-, 2103-, INI216	IP5000-1-e	2006/3/1	IP5000	IP5000.jpg				None					IP5000-5100-E
+A17	IP6000	IP6000-old-e	Electro-Pneumatic Positioner	IP6000	IP6000-old1-e	IP8000	1	IP6000-old.jpg	IP6000	IP8000-1-e	2013/7/1	IP8000	IP8000.jpg	/keiso/positioner/positionerfound34659.html			Yes					IP8_00%2fIP8_01-E
+		IP6000-old-e			IP6000-old1-e		2		IP6100	IP8000-2-e	2013/7/1	IP8100		/keiso/positioner/positionerfound34659.html								IP8_00%2fIP8_01-E
+A18	LQ2	LQ2-old-e	Fluoropolymer Fittings	LQ2	LQ2-old1-e	LQ1	1	LQ2-old.jpg	LQ2	LQ1-1-e	2022/3/1	LQ1	LQ1.jpg				None					LQ1-F-E
+A18	LVA20/LVC20 Pilot port M5 thread type　	LV20-old-e	Air Operated Chemical Liquid Valve	LVC20-S<br/>LVA20	LV20-old1-e	LVC20-S-Z<br/>LVA20-Z	1	LV20-old.jpg	LVC20-S	LV20-1-e	2015/3/1	LVC20-S-Z	LV20-Z.jpg				Yes (The pilot port thread size will be changed from M5 × 0.8 to Rc, NPT, PF1/8.)					LVC-E
+		LV20-old-e			LV20-old1-e		2		LVA20	LV20-2-e	2015/3/1	LVA20-Z										LVA-E
+A18	LQ-G	LQ-G-old-e	Fluoropolymer Fittings Installation Jig	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-old1-e	LQ-GR	1	LQ-G-old.jpg	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-1-e	2015/5/1	LQ-GR	LQ-G.jpg		LQ-G-old-e.pdf
+A19	XSA	XSA-old-e	High Vacuum Straight Solenoid Valve	XSA	XSA-old1-e	XSA	1	XSA-old.jpg	XSA	XSA-1-e	2015/3/1	XSA	XSA.jpg		XSA_en_old.pdf		Yes (The dimensions are changed.）					XSA-2-E
+A19	XL□	XLA-old-e	Aluminum High Vacuum Angle Valve	XLA<br/>XLAV<br/>XLC<br/>XLF<br/>XLFV<br/>XLG	XLA-old1-e	XLA-2<br/>XLAV-2<br/>XLC-2<br/>XLF-2<br/>XLFV-2<br/>XLG-2	1	XLA-old.jpg	XLA	XLA-1-e	2017/9/1	XLA-2	XLA-2.jpg		XLA-old-e.pdf		Yes (However,the total length of products are changed.）					XLA-E
+		XLA-old-e			XLA-old1-e		2		XLAV	XLA-2-e	2017/9/1	XLAV-2										XLA-E
+		XLA-old-e			XLA-old1-e		3		XLC	XLA-3-e	2017/9/1	XLC-2										XLA-E
+		XLA-old-e			XLA-old1-e		4		XLF	XLA-4-e	2017/9/1	XLF-2										XLA-E
+		XLA-old-e			XLA-old1-e		5		XLFV	XLA-5-e	2017/9/1	XLFV-2										XLA-E
+		XLA-old-e			XLA-old1-e		6		XLG	XLA-6-e	2017/9/1	XLG-2										XLA-E
+A20	HOW	HOW-old-e	Floating Pipe Type Oil Cooler	HOW	HOW-old1-e	HOWF	1	HOW-old.jpg	HOW	HOW-1-e	2022/7/1	HOWF	HOWF.jpg		HOW-old-e.pdf		Yes					HOWF-E

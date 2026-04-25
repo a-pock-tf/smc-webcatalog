@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+  <title th:text="#{g.omlist}">omlist</title>
+  <script th:src="@{/clipboard/clipboard.min.js}"></script>
+
+
+  <script>
+
+    $(function () {
+      new ClipboardJS('.copy_id');
+    });
+
+  </script>
+
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/omlist/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- disp message or error ========================= -->
+    <div class="ui positive message" th:if="${param.message}">[[${param.message}]]</div>
+    <div class="ui negative message" th:if="${param.error}">[[${param.error}]]</div>
+    <!-- list table ================================== -->
+
+    <p>&nbsp;</p>
+
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="${is_success}">Success</div>
+                </div>
+                <div class="ui positive message" th:if="${param.success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${param.notTest}">
+                  <div class="header" th:text="#{msg.update.not.test}">not TEST</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="#{msg.error}">Error!</div>
+                </div>
+
+
+<div class="editform">
+    <p>→<a th:href="@{/login/admin/omlist}">オーダーメイドリストアップロードに戻る</a></p>
+</div>
+
+
+  </div><!-- end contents -->
+</body>
+
+</html>

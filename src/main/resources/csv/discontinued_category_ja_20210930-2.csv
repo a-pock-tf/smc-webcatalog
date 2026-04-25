@@ -1,0 +1,21 @@
+日本語		英語		中国語		カテゴリ順番
+A01	方向制御機器	A01	Directional Control Valves	A01	方向控制元件	1
+A02	エアシリンダ	A02	Air Cylinder	A02	气缸	2
+A03	ロータリアクチュエータ/エアチャック	A03	Rotary Actuator/Air Gripper	A03	摆缸/气爪	3
+A04	真空用機器	A04	Vacuum Equipment	A04	真空用元件	4
+A05	圧縮空気清浄化機器	A05	Air Preparation Equipment	A05	气源处理元件	5
+A06	管継手	A06	Fittings	A06	接头	6
+A07	駆動制御機器	A07	Flow Control Equipment	A07	速度控制阀	7
+A08	モジュラF.R.L./圧力制御機器	A08	Modular F.R.L./Pressure Control Equipment	A08	F.R.L组件/压力控制元件	8
+A09	サイレンサ	A09	Silencer	A09	消音器	9
+A10	スイッチ／センサ	A10	Switches/Sensors	A10	传感器/开关	10
+A11	静電対策機器／除電機器	A11	Static Neutralization Equipment	A11	静电对策元件（静电消除器）	11
+A12	流体制御用機器	A12	Fluid Control Equipment	A12	流体控制元件	12
+A18	薬液用バルブ	A18	Chemical Liquid Valves	A18	化学液用阀	13
+A13	プロセスポンプ	A13	Process Pumps	A13	隔膜泵	14
+A14	温調機器	A14	Temperature Control Equipment	A14	温控器	15
+A15	工業用フィルタ	A15	Industrial Filters	A15	工业用过滤器	16
+A16	電動アクチュエータ	A16	Electric Actuators	A16	电动执行器	17
+A19	高真空機器	A19	High Vacuum Equipment	A19	高真空元件	18
+A17	計装機器	A17	Instrumentation Equipment	A17	过程控制元件	19
+A20	油圧用機器	A20	Hydraulic Equipment	A20	液压用元件	20

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+  <title th:text="#{g.omlist}">omlist</title>
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/omlist/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- disp message or error ========================= -->
+    <div class="ui positive message" th:if="${param.message}">[[${param.message}]]</div>
+    <div class="ui negative message" th:if="${param.error}">[[${param.error}]]</div>
+    <!-- list table ================================== -->
+	<div class="ui negative message" th:if="${is_error}">
+		<span th:each="str, stat : ${is_error.split('\r\n|\r|\n', -1)}">
+                  <div class="header" th:text="${str}">Error!</div>
+                  <br th:if="${!stat.last}"/>
+        </span>
+    </div>
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+        <h4 class="ui dividing header">オーダーメイドリストCSVアップロード</h4>
+
+    <!--form ja-jp -->
+    <form method="post" th:action="@{/login/admin/omlist/post}"  enctype="multipart/form-data"  th:object="${omlistForm}"
+            class="ui small form">
+
+            <div  class="required field">
+              <label for="">CSV</label>
+              <input type="file" th:field="*{file}"/>
+              <ul class="error"><li th:each="err : ${#fields.errors('file')}" th:text="${err}" /></ul>
+            </div>
+            <div  class="required field">
+              <label for="">Lang</label>
+              <div style="border: 1px solid rgba(34,36,38,.15);border-radius: .28571429rem;    padding: 0.67857143em 1em;font-size: 1em;">
+              <span th:each="item : ${selectLang}">
+              <label th:for="${item.key}">
+              <input type="radio" name="lang" th:id="${item.key}" th:value="${item.key}" th:text="${item.value}" th:field="*{lang}" />
+              </label>
+              </span>
+              </div>
+              <ul class="error"><li th:each="err : ${#fields.errors('lang')}" th:text="${err}" /></ul>
+            </div>
+<p>※言語によりファイル名、文字コードを以下のようにしてください。</p>
+<table><tr>
+<th>言語</th><th>ファイル名</th><th>文字コード</th>
+</tr><tr>
+<td>ja-jp</td><td> omlist.csv</td><td> Shift_JIS </td>
+</tr><tr>
+<td>en-jp</td><td> omlist.csv </td><td> Shift_JIS</td>
+</tr><tr>
+<td>zh-cn</td><td> omlist_zh.csv </td><td> <span style="color:red">UTF-8</span></td>
+</tr><tr>
+<td>zh-tw</td><td>omlist_zhtw.csv </td><td> <span style="color:red">UTF-8</span></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<button class="ui tiny positive button" type="submit" id="form_save">
+              <i class="save icon"></i>Save
+            </button>
+    </form>
+    </div>
+    </div>
+    </div>
+
+<p>&nbsp;</p>
+
+  </div><!-- end contents -->
+</body>
+
+</html>

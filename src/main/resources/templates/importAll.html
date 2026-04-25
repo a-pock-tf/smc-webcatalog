@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+</head>
+<body>
+<p>
+  <span th:text="${hello}">Hello World!</span>
+</p>
+
+
+  <p>Categoryのデータ</p>
+  <table>
+    <tr th:each="data : ${category}" th:object="${data}">
+      <td ><a th:href="@{|/login/admin/importSeries/*{id}|}" th:text="*{id}"></a></td>
+      <td th:text="*{parent_id}"></td>
+      <td th:text="*{parent_order}"></td>
+      <td th:text="*{type}"></td>
+      <td th:text="*{lang}"></td>
+      <td th:text="*{name}"></td>
+      <td th:text="*{active}"></td>
+     </tr>
+  </table>
+
+  <p>Seriesのデータ</p>
+  <table>
+    <tr th:each="data : ${series}" th:object="${data}">
+      <td th:text="*{name}"></td>
+      <td th:text="*{text}"></td>
+      <td th:text="*{id}"></td>
+      <td th:text="*{ca_id}"></td>
+      <td th:text="*{opt1}"></td>
+      <td th:text="*{active}"></td>
+    </tr>
+  </table>
+
+</body>
+</html>

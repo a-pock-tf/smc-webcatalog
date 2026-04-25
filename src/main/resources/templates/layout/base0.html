@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/bootstrap4.3.1/bootstrap.min.css}" href="../../static/bootstrap4.3.1/bootstrap.min.css">
+
+    <link th:href="@{/fontawesome-free-5.9.0/css/fontawesome.css}" href="../../static/fontawesome-free-5.9.0/css/fontawesome.css" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-5.9.0/css/brands.css}" href="../../static/fontawesome-free-5.9.0/css/brands.css" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-5.9.0/css/solid.css}" href="../../static/fontawesome-free-5.9.0/css/solid.css" rel="stylesheet">
+    
+    <link rel="stylesheet" th:href="@{/css/global.css}" href="../../static/css/global.css">
+    
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Web Catalog Admin</title>
+    <meta name="description" content="common-meta">
+</head>
+
+<body>
+    <div class="container-fluid wrapper">
+
+        <!--/* ここにコンテンツを挿入 */-->
+        <div layout:fragment="main_nav"></div>
+
+        <div class="contents_wrapper">
+            <!--/* layout中で共通部品を使う場合はlayout:replace */-->
+            <div layout:replace="~{layout/inc_menu::main_menu}"></div>
+
+            <!--/* ここにコンテンツを挿入 */-->
+            <div layout:fragment="contents" class="contents">
+            </div><!-- end contents_wrapper -->
+            <footer class="text-right">footer</footer>
+
+        </div><!-- end wrapper -->
+    </div>
+
+
+    <script th:src="@{/bootstrap4.3.1/jquery-3.3.1.slim.min.js}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap4.3.1/popper.min.js}" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script th:src="@{/bootstrap4.3.1/bootstrap.min.js}" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--/* 追加のスクリプトはここに */-->
+    <div layout:fragment="before_end_body"></div>
+
+</body></html>

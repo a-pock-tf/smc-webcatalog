@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+[v-cloak] {
+	visibility: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f8f8f9;
+	/* background-color: #fff; */
+	font-size: 0.8rem;
+}
+
+.debug {
+	font-size: 11px;
+}
+
+i.sort_icons {
+	visibility: hidden;
+}
+
+.action_sort_save {
+	display: none;
+}
+
+.error {
+	line-height: 2rem;
+	color: #833838;
+}
+
+ul.error {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.error li {
+	line-height: 1.5rem;
+}
+
+.copy_id {
+	cursor: pointer;
+}
+
+.label {
+	font-weight: 400 !important;
+}
+
+.ico_category {
+	color: #d4d4d4;
+}
+
+.category_sub {
+	margin-left: 16px;
+}
+
+table.ui td,
+th {
+	padding: 0.5rem !important;
+}
+
+.act_compare_close {
+	position: absolute;
+	right: 30px;
+}

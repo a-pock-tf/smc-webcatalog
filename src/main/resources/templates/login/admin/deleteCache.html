@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--start required-->
+  <style>
+    .ok {
+      color: green;
+    }
+
+    .err {
+      color: red;
+    }
+
+  </style>
+  <!--end required-->
+
+</head>
+
+<body >
+  <div layout:fragment="contents" class="ui middle aligned center aligned grid six wide column">
+    <p>&nbsp;</p>
+    <div class="ui segment ten wide column left aligned" style="margin-top:25px;">
+<!--  <h3>説明</h3>
+  <ul>
+    <li>基本的にWEBサーバーに設置してください(ブラウザのファイル閲覧でも動作するかも)</li>
+    <li>&lt;div id="app"&gt;&lt;&frasl;div&gt;内と、style,scriptをコピペしてください</li>
+    <li>cssなどは適当にあててください</li>
+  </ul> -->
+
+  <h3>キャッシュ削除</h3>
+
+  <!--start required -->
+  <div id="app">
+
+    <ul>
+      <li>URLはhttps://から入力します</li>
+      <li>改行区切りで複数入力可能です(最大100個)</li>
+      <li>リクエスト制限もあるので連打しないようにしてください</li>
+    </ul>
+    <form v-on:submit.prevent="deleteCache">
+      <textarea rows="10" cols="100" v-model="urls"></textarea>
+      <br>
+      <input type="submit" value="送信" v-bind:disabled="disabled">&nbsp;&nbsp;&nbsp;
+      <input type="reset" value="リセット" v-on:click="clearForm">
+
+      <ul v-for="res in result.Results">
+        <li>URL:{{res.URL}} <br>
+          Status:<span :class="res.Status=='200'?'ok':'err'">{{res.Status}} ({{res.Result}})</span>
+        </li>
+      </ul>
+
+      <p v-if="result">
+        Success: {{result.Success}} <br>
+        is_ok: {{result.is_ok}}
+      </p>
+      <p v-if="error">
+        APIに接続できません。
+      </p>
+
+    </form>
+
+    <hr>
+    <p>■ステータス(Status)について</p>
+    <ul>
+      <li>Status:200 削除完了</li>
+      <li>Status:400 URLが不正など</li>
+      <li>Status:404 キャッシュが存在しない、またはURLが存在しない</li>
+      <li>Success,is_ok: 不明(falseでも削除は完了する。すべて成功したらOK?)</li>
+    </ul>
+
+    <p>
+      ■"APIに接続できません"と表示されたら<br>
+      apiサーバーが落ちている可能性があります。<!--以下をお試しください。--><br>
+    </p>
+    <p><a href="deleteAllCache">全件削除</a>
+    </p>
+<!--    <pre>
+gslbサーバー(59.106.214.196)にログイン
+# su
+# cd ~admin/cdntools
+# forever restart index.js
+(restart|start|stop)ができます
+    </pre> -->
+
+  </div>
+  <!--emd required -->
+
+  <!--start required -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    const app = Vue.createApp({
+      el: "#app",
+      data() {
+        return {
+          result: "",
+          urls: "",
+          disabled: true,
+          error: false,
+        }
+      },
+      watch: {
+        urls(newValue,oldValue) {
+          if (this.urls != null && this.urls.trim().length > 0) {
+            this.disabled = false;
+          }
+        }
+      },
+      mounted() {
+        //comment for production
+        //this.urls = "https://www-tmp.smcworld.com/overseas/sguide/ja-jp/index.html\nhttps://www-tmp.smcworld.com/overseas/sguide/ja-jp/usa.html";
+      },
+      methods: {
+        deleteCache: function () {
+
+          this.result = [];
+          this.disabled = true;
+          this.error = false;
+
+          var urlsArray = this.urls.trim().split(/\n/);
+
+          if (urlsArray == null || urlsArray.length == 0) {
+            return;
+          }
+          var gslbUser = "cdncache";
+          var gslbPass = "vHFQSTt3pFk3dv0RkA9XHRxrP3vs251F";
+
+          axios.post("https://gslb.smcworld.com/proxy2/api/v1/deletecache",
+          {
+            URL: urlsArray,
+          },
+          {
+			  auth: { username: gslbUser, password: gslbPass }
+		  }).then((response) => {
+
+            this.result = response.data;
+            this.disabled = false;
+
+          }).catch((error) => {
+            this.error = "true"
+          });
+
+        },
+
+        clearForm: function () {
+          this.urls = "";
+          this.disabled = true;
+        }
+      }
+    }).mount("#app");
+
+
+  </script>
+    </div>
+  </div><!-- end contents -->
+</body>
+
+</html>

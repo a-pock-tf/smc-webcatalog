@@ -1,0 +1,428 @@
+カテゴリID	シリーズ名用(生産終了機種)	ｼﾘｰｽﾞ名用１ID	名称	枠内シリーズ１（生産終了機種）	ｼﾘｰｽﾞ１ID(zh)	シリーズ2（代替機種）		ｼﾘｰｽﾞ１画像名	対象型式	終了型式ID(zh)	終了年月日Time ofdiscontinuation	代替型式	ｼﾘｰｽﾞ2画像名	enカタログリンク	終了機種カタログ : 停产型号的样本	生産終了機種取扱説明書	取付互換：安装互换性	その他：其他	注意事項：注意事项	新旧比較詳細:产品细节对比PDF	リンク先	新ID(ZH)
+A01	VQ4000/5000	VQ4000_5000-old-zh	5通电磁阀	VQ4000<br/>VQ5000	VQ4000_5000-old1-zh	VQ4000<br/>VQ5000	1	VQ4000_5000-old.jpg	VQ4000	VQ4000_5000-1-zh	2016/7/1	VQ4000	VQ4000_5000.jpg		VQ4000_5000-old-e.pdf		有（规格中有变更）					VQ4000-5000-ZH
+		VQ4000_5000-old-zh	5通电磁阀		VQ4000_5000-old2-zh		2		VQ5000	VQ4000_5000-2-zh	2016/7/1	VQ5000										VQ4000-5000-ZH
+A01	VQC4000	VQC4000-old-zh	5通电磁阀	VQC4000	VQC4000-old1-zh	VQC4000	1	VQC4000-old.jpg	VQC4000	VQC4000-1-zh	2016/7/1	VQC4000	VQC4000.jpg		VQC4000-old-e.pdf		有（规格中有变更）					VQC4000-5000-ZH
+A01	VF1000/3000/5000	VF-old-zh	5通电磁阀	VF1000/3000/5000	VF-old1-zh	VF1000/3000/5000	1	VF-old.jpg	VF1000/3000/5000	VF-1-zh	2009/11/1	VF1000/3000/5000	VF.jpg	/directional/pilot45/pilot45found34646.html	VF-old-e.pdf		有			vf.pdf		VF-ZH
+A01	VQ1000/2000	VQ-old-zh	5通电磁阀	VQ1000/2000	VQ-old1-zh	VQ1000/2000	1	VQ-old.jpg	VQ1000/2000	VQ-1-zh	2009/7/1	VQ1000/2000	VQ.jpg	/directional/pilot45/pilot45found34649.html	VQ-old-e.pdf		有					VQ-ZH
+A01	VQC1000/2000	VQC-old-zh	5通电磁阀	VQC1000/2000	VQC-old1-zh	VQC1000/2000	1	VQC-old.jpg	VQC1000/2000	VQC-1-zh	2009/7/1	VQC1000/2000	VQC.jpg	/directional/pilot45/pilot45found34650.html	VQC-old-e.pdf		有					VQC-ZH
+A01	VQZ	VQZ-old-zh	3/5通电磁阀	VQZ	VQZ-old1-zh	VQZ	1	VQZ-old.jpg	VQZ1000/2000/3000	VQZ-1-zh	2007/6/1	VQZ1000/2000/3000	VQZ.jpg	/directional/pilot45/pilot45found34036.html	VQZ-old-e.pdf		有			vqz100.pdf		VQZ-ZH
+		VQZ-old-zh			VQZ-old1-zh		2		VQZ100/200/300	VQZ-2-zh	2007/6/1	VQZ100/200/300		/directional/pilot3/pilot3found34042.html								VQZ-3-ZH
+A01	SQ1000/2000	SQ-old-zh	5通电磁阀	SQ1000/2000	SQ-old1-zh	SQ1000/2000	１	SQ-old.jpg	SQ1000	SQ-1-zh	2013/7/1	SQ1000	SQ.jpg	/directional/pilot45/pilot45found2304.html	SQ-old-e.pdf		有					SQ-ZH
+		SQ-old-zh			SQ-old1-zh		2		SQ2000	SQ-2-zh	2013/7/1	SQ2000		/directional/pilot45/pilot45found2304.html								SQ-ZH
+A01	VP(A)300/500/700	VPA-old-zh	3通电磁阀/3通气控阀	VP(A)300/500/700	VPA-old1-zh	VP(A)300/500/700	1	VPA-old.jpg	VP300/500/700	VPA-1-zh	2009/11/1	VP300/500/700	VPA.jpg	/directional/pilot3/pilot3found34630.html	VP-VPA-old-e.pdf		有			vp.pdf		VP-3-ZH
+		VPA-old-zh			VPA-old1-zh		2		VPA300/500/700	VPA-2-zh	2009/11/1	VPA300/500/700		/directional/air/airfound34631.html								VPA-A-ZH
+A01	VT307	VT307-old-zh	3通电磁阀/直动阀座型	VT307	VT307-old1-zh	VT307	1	VT307-old.jpg	VT307	VT307-1-zh	2013/6/1	VT307	VT307.jpg	/directional/direct345/direct345.htm#2310	VT307-old-e.pdf		有（直接出线型的导线尺寸不同）					VT307-ZH
+A01	VT301	VT301-old-zh	3通电磁阀	VT301	VT301-old1-zh	VT307	1	VT301-old.jpg	VT301	VT301-1-zh	2013/6/1	VT307	VT307.jpg	/directional/direct345/direct345.htm#2310			有（螺纹尺寸、支架安装方法及直接出线型的导线尺寸不同）					VT307-ZH
+A01	VZA	VZA-old-zh	3/5通气控阀	VZA	VZA-old1-zh	SYJA	1	VZA-old.jpg	VZA300,500	SYJA-1-zh	2008/10/1	SYJA500,700	SYJA.jpg	/directional/air/airfound34068.html			有			vza.pdf		SYJA-A-ZH
+		VZA-old-zh			VZA-old1-zh		2		VZA3000,5000	SYJA-2-zh	2008/10/1	SYJA5000,7000		/directional/air/airfound34062.html								SYJA-ZH
+A01	EX240	EX240-old-zh	串行传送系统	EX240	EX240-old1-zh	EX600	1	EX240-old.jpg	EX240	EX600-1-zh	2011/5/1	EX600	EX600.jpg	/directional/serial/serialfound34779.html	EX240-old-e.pdf		无					EX600-ZH
+A01	EX500	EX500-old-zh	现场总线系统 对应CC-Link的GW单元	EX500	EX500-old1-zh	EX260, EX600	1	EX500-old.jpg	EX500-GMJ1	EX260-1-zh	2012/12/1	EX260-SMJ□	EX260.jpg	/directional/serial/serialfound34058.html	EX500-old-e.pdf		无					EX260-ZH
+		EX500-old-zh			EX500-old1-zh		2		EX500-GMJ1	EX260-2-zh	2012/12/1	EX600-SMJ□		/directional/serial/serialfound34779.html								EX600-ZH
+A01	VM	VM-old-zh	机控阀	VM100/200	VM-old1-zh	VM100/200	1	VM-old.jpg	VM100,200	VM-1-zh	2013/12/1	VM100,200	VM.jpg		VM-old-e.pdf		有		VM100下方配管型的尺寸有变更			VM-VZM-VFM-ZH
+A01	VHS	VHS-old-zh	符合OSHA规格/带锁孔的残压释放3通阀	VHS	VHS-old1-zh	VHS	1	VHS-old.jpg	VHS20～50	VHS-1-zh	2014/12/1	VHS20～50	VHS.jpg		VHS20-old-e.pdf		有 (其他部分的尺寸有变更，请通过样本确认)					VHS-ZH
+A01	VHS	VHSW-old-zh	符合OSHA规格/带锁孔的残压释放3通阀（双作用型）	VHS	VHSW-old1-zh	VHS	1	VHSW-old.jpg	VHS4510	VNSW-1-zh	2014/12/1	VHS4510	VHSW.jpg		VHS4510-old-e.pdf		有 (其他部分的尺寸有变更，请通过样本确认)					VHS-ZH
+		VHSW-old-zh			VHSW-old1-zh		2		VHS4510-06	VNSW-2-zh	2014/12/1	VHS4510										VHS-ZH
+		VHSW-old-zh			VHSW-old1-zh		3		VHS5510	VNSW-3-zh	2014/12/1	VHS4510										VHS-ZH
+A01	VJ3000	VJ3000-old-zh	5通电磁阀	VJ3000	VJ3000-old1-zh	SYJ/SY/VZ	1	VJ3000-old.jpg	VJ3000　逆加压规格	SYJ1-1-zh	2011/8/1	SYJ	SYJ1.jpg				逆加压规格有，分离型树脂底座和双层管系统没有
+		VJ3000-old-zh			VJ3000-old1-zh		2		VJ3000<br/>分离型树脂底座	SYJ1-2-zh	2011/8/1	SY		/directional/pilot45/pilot45found34799.html								SY-ZH
+		VJ3000-old-zh			VJ3000-old1-zh		3		VJ3000<br/>双层管系统	SYJ1-3-zh	2011/8/1	VZ
+A01	VJ/VJA	VJ-old-zh	3/5通电磁阀	VJ/VJA	VJ-old1-zh	SYJ/V100	1	VJ-old.jpg	VJ3000/5000/7000	SYJ2-1-zh	2013/9/1	SYJ3000/5000/7000	SYJ2.jpg	/directional/pilot45/pilot45found34027.html			VJ100无安装互换性					SYJ-ZH
+		VJ-old-zh			VJ-old1-zh		2		VJ100	SYJ2-2-zh	2013/9/1	V100		/directional/direct345/direct345found34048.html								V100-ZH
+		VJ-old-zh			VJ-old1-zh		3		VJ300/500/700	SYJ2-3-zh	2013/9/1	SYJ300/500/700		/directional/pilot3/pilot3found34041.html								SYJ-3-ZH
+		VJ-old-zh			VJ-old1-zh		4		VJA3000	SYJ2-4-zh	2013/9/1	SYJA3000		/directional/air/airfound34062.html								SYJA-ZH
+		VJ-old-zh			VJ-old1-zh		5		VJA300	SYJ2-5-zh	2013/9/1	SYJA300		/directional/air/airfound34068.html								SYJA-A-ZH
+A01	VF100	VF100-old-zh	3通电磁阀	VF100	VF100-old1-zh	VKF300,VT307,VQZ100	1	VF100-old.jpg	VF100	VF100-1-zh	2014/11/1	VKF300	VKF300.jpg				无					VKF-ZH
+		VF100-old-zh			VF100-old1-zh		2		VF100	VF100-2-zh	2014/11/1	VT307										VT307-ZH
+		VF100-old-zh			VF100-old1-zh		3		VF100	VF100-3-zh	2014/11/1	VQZ100										VQZ-3-ZH
+A01	EVS7	EVS7-old-zh	5通电磁阀	EVS7双DIN型	EVS7-old1-zh	EVS7CNOMO型	1	EVS7-old.jpg	EVS7双DIN型	EVS7-1-zh	2014/11/1	EVS7CNOMO型	EVS7CNOMO.jpg				无
+A01	VFA4000	VFA-old-zh	5通电磁阀	VFA4000	VFA-old1-zh	VFSA3000	1	VFA-old.jpg	VFA4000	VFSA-1-zh	2014/11/1	VFSA3000	VFSA.jpg				无
+A01	VP7/VPN/VS7	VP7-old-zh	5通电磁阀	VS7-6-*-*-*****-X10<br/>VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)<br/>VS7-8-*-*-*****-X10<br/>VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VP7-old1-zh	VQ7-6-*-*-******<br/>VQ7-6-*-*-***R***<br/>VQ7-8-*-*-******<br/>VQ7-8-*-*-***R***	1		VS7-6-*-*-*****-X10	VQ7-1-zh	2015/9/1	VQ7-6-*-*-******	VQ7.jpg				有					VQ-5PI-ZH
+		VP7-old-zh			VP7-old1-zh		2		VP7-6-*-*-*****-X10<br/>VPN-6-*-*-*****(-X*)	VQ7-2-zh	2015/9/1	VQ7-6-*-*-***R***										VQ-5PI-ZH
+		VP7-old-zh			VP7-old1-zh		3		VS7-8-*-*-*****-X10	VQ7-3-zh	2015/9/1	VQ7-8-*-*-******										VQ-5PI-ZH
+		VP7-old-zh			VP7-old1-zh		4		VP7-8-*-*-*****-X10<br/>VPN-8-*-*-*****(-X*)	VQ7-4-zh	2015/9/1	VQ7-8-*-*-***R***										VQ-5PI-ZH
+A01	SY/SX/VQ	SS5Y-old-zh	5通电磁阀 配有欧姆龙传送单元G71-0D16	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30<br/><br/>SS5X5-45S30<br/>VV5Q11-**G-D*-X14	SS5Y-old1-zh	SS5Y3-45G<br/>SS5Y5-45G<br/>SS5X3-45G<br/>SS5X5-45G<br/>-	1	SS5Y-old.jpg	SS5Y3-45S3<br/>SS5Y3-45S30<br/>SS5Y5-45S3<br/>SS5Y5-45S30	SS5Y-1-zh	2015/6/1	SS5Y3-45G<br/>SS5Y5-45G	SS5Y.jpg				部分型号有可替换品					SY-5-ZH
+		SS5Y-old-zh			SS5Y-old1-zh		2		SS5X3-45S3<br/>SS5X3-45S30<br/>SS5X5-45S3<br/>SS5X5-45S30	SS5Y-2-zh	2015/6/1	SS5X3-45G<br/>SS5X5-45G
+		SS5Y-old-zh			SS5Y-old1-zh		3		VV5Q11-**G-D*-X14	SS5Y-3-zh	2015/6/1	-
+A01	EVFS/EVFR	EVFS-old-zh	5通电磁阀	EVFS<br/>EVFR	EVFS-old1-zh	VFS<br/>VFR	1		EVFS	EVFS-1-zh	2016/7/1	VFS	VFS-VFR.jpg				有					VFS-ZH
+		EVFS-old-zh			EVFS-old1-zh		2		EVFR	EVFS-2-zh	2016/7/1	VFR										VFR-ZH
+A01	V4000/NVSP4000	V4000-old-zh	5通电磁阀	V4000<br/>NVSP4000	V4000-old1-zh	VFS3000<br/>VQ4000	1		V4000	V4000-1-zh	2016/3/1	VFS3000<br/>VQ4000	VFS-VQ.jpg				无					VFS-ZH/VQ4000-5000-ZH
+		V4000-old-zh			V4000-old1-zh		2		NVSP4000	V4000-2-zh	2016/3/1	VFS3000<br/>VQ4000										VFS-ZH/VQ4000-5000-ZH
+A01	PCW	PCW-old-zh	PC配线系统	PCW	PCW-old1-zh	-	1	PCW-old.jpg	PCW	PCW-1	2016/7/1	-			PCW-old-e.pdf
+A01	EX120/121/122/123/140	EX120_140-old-zh	串行传送系统	EX120-SUW1(-X5/-X17/-X55/-X56)<br/>EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)<br/>EX122-SUW1、EX123U-SUW1(-X201)<br/>EX123D-SUW1<br/>EX140-SUW1(-X73)	EX120_140-old1-zh	EX120及其网络<br/>(CC-Link等)<br/>EX121及其网络<br/>(CC-Link等)<br/>EX122及其网络<br/>(CC-Link等)<br/>EX123及其网络<br/>(CC-Link等)<br/>EX140及其网络<br/>(CC-Link等)	1		EX120-SUW1(-X5/-X17/-X55/-X56)	EX120_140-1-zh	2016/7/1	EX120及其网络<br/>(CC-Link等)			EX120-old-e.pdf		有（规格方面不具有互换性）					EX-ZH
+		EX120_140-old-zh			EX120_140-old1-zh		2		EX121-SUW1(-X3/-X9/-X65/-X66/-X67/-X72)	EX120_140-2-zh	2016/7/1	EX121及其网络<br/>(CC-Link等)										EX-ZH
+		EX120_140-old-zh			EX120_140-old1-zh		3		EX122-SUW1、EX123U-SUW1(-X201)	EX120_140-3-zh	2016/7/1	EX122及其网络<br/>(CC-Link等)										EX-ZH
+		EX120_140-old-zh			EX120_140-old1-zh		4		EX123D-SUW1	EX120_140-4-zh	2016/7/1	EX123及其网络<br/>(CC-Link等)										EX-ZH
+		EX120_140-old-zh			EX120_140-old1-zh		5		EX140-SUW1(-X73)	EX120_140-5-zh	2016/7/1	EX140及其网络<br/>(CC-Link等)										EX-ZH
+A01	VQ0000/1000/2000	VQ0000-old-zh	5通电磁阀 直接配管型／盒式	VQ0000<br/>VQ1000 横向配管型<br/>VQ1000 上配管型<br/>VQ2000<br/>VQ1*6* 单体单元	VQ0000-old1-zh	SJ2000<br/>SJ3000<br/>SQ1000<br/>SY3000<br/>SQ2000<br/>SY3000<br/>S0700	1	VQ0000-old.jpg	VQ0000	VQ0000-1-zh	2017/12/1	SJ2000	SJ-SQ.jpg				无					SJ-ZH
+		VQ0000-old-zh			VQ0000-old1-zh		2		VQ1000<br/>横向配管型	VQ0000-2-zh	2017/12/1	SJ3000<br/>SQ1000										SJ-ZH/SQ-ZH
+		VQ0000-old-zh			VQ0000-old1-zh		3		VQ1000<br/>上方配管型	VQ0000-3-zh	2017/12/1	SY3000										SY-5-ZH
+		VQ0000-old-zh			VQ0000-old1-zh		4		VQ2000	VQ0000-4-zh	2017/12/1	SQ2000										SQ-ZH
+		VQ0000-old-zh			VQ0000-old1-zh		5		VQ1*6*<br/>单体单元	VQ0000-5-zh	2017/12/1	SY3000<br/>S0700										SY-5-ZH/S0700-2-ZH
+A01	VQ0000/1000	VQ00_10-old-zh	5通电磁阀 底板配管型／插头引线	VQ0000<br/>VQ1000	VQ00_10-old1-zh	S0700<br/>SJ2000<br/>SY3000	1	VQ00_10-old.jpg	VQ0000	VQ00_10-1-zh	2017/12/1	S0700<br/>SJ2000	S0700.jpg				无					S0700-2-ZH/SJ-ZH
+		VQ00_10-old-zh			VQ00_10-old1-zh		2		VQ1000	VQ00_10-2-zh	2017/12/1	SY3000										SY-5-ZH
+A01	EX120/121/122/123/140 	EX120-SSL1-old-zh	串行传送系统	EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-old1-zh	-	1		EX120-SSL1/SSL2<br/>EX121-SSL1/SSL2<br/>EX122-SSL1/SSL2<br/>EX123-SSL1/SSL2<br/>EX140-SSL1/SSL2	EX120-SSL1-1-zh	2018/5/1	-			EX120-180-old.pdf
+A01	EX500（GW unit）	EX500-GW-old-zh	串行传输系统/对应CC-Link SI单元	EX500-GEN1<br/>(含非标品)	EX500-GW-old1-zh	EX500-GEN2	1		EX500-GEN1<br/>(含非标品)	EX500-GW-1-zh	2019/3/1	EX500-GEN2	EX500-GEN2.jpg				无					EX500-ZH
+A01	EX250-SMJ2	EX250-SMJ2-old-zh	串行传输系统/对应CC-Link SI单元	EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-old1-zh	EX600-SMJ□<br/>EX260-SMJ□	1		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-1-zh	2019/7/1	EX600-SMJ□			EX250-old-e.pdf		无					EX600-ZH
+		EX250-SMJ2-old-zh			EX250-SMJ2-old1-zh		2		EX250-SMJ2<br/>EX250-SMJ2-X105<br/>EX250-SMJ2-X110<br/>EX250-SMJ2-X113<br/>EX250-SMJ2-X126<br/>EX250-SMJ2-X135<br/>EX250-SMJ2-X148	EX250-SMJ2-2-zh	2019/7/1	EX260-SMJ□										EX260-ZH
+A01	SX3000/5000/7000	SX3000-old-zh	5通电磁阀	SX3000/5000/7000<br/>扁平线缆<br/>串行传输<br/>单体底板<br/>SX3000/5000/7000<br/>单独配线<br/> 单体	SX3000-old1-zh	SY3000/5000/7000<br/>插入型<br/>SY3000/5000/7000	1	SX-old.jpg	SX3000/5000/7000<br/>扁平线缆<br/>串行传输<br/>单体底板	SX3000-1-zh	2020/5/1	SY3000/5000/7000<br/>Plug-in Type	SY3000.jpg				无					SY-ZH
+		SX3000-old-zh			SX3000-old1-zh		2		SX3000/5000/7000<br/>单独配线<br/> 单体	SX3000-2-zh	2020/5/1	SY3000/5000/7000										SY-5-ZH
+A01	VKF300	VKF300-old-zh	3通电磁阀／直动座阀型	VKF300	VKF300-old1-zh	VK300	1	VKF300-old.jpg	VKF300	VKF300-1-zh	2020/8/1	VK300	VK300.jpg		VKF300-old-e.pdf		无					VK-ZH
+A01	SY3000/5000	SY3000-2-old-zh	5通电磁阀	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SY3000-2-old1-zh	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	1	SS5Y-2-old.jpg	SS5Y3-45T□<br/>SS5Y3-45T1□<br/>SS5Y5-45T□<br/>SS5Y5-45T1□	SS5Y-4-zh	2019/12/1	SS5Y3-10T-□<br/>SS5Y3-12T-□<br/>SS5Y5-□10T□-□<br/>SS5Y5-□11T□-□<br/>SS5Y5-□12T□-□	SS5Y-2.jpg		SY5-old-e.pdf		无					SY-ZH
+A02	CM2Y/CG1Y/CA2Y	SMOOTH-old-zh	低摩擦气缸	CM2Y<br/>CG1Y<br/>CA2Y	SMOOTH-old1-zh	CM2Y-Z<br/>CG1Y-Z<br/>CA2Y-Z	1	SMOOTH-old.jpg	CM2Y	SMOOTH-1-zh	2013/9/1	CM2Y-Z	SMOOTH.jpg		/catalog/BEST-5-3-en/pdf/3-p1163-1301-smoothc_en.pdf		有					SMOOTH-C-ZH
+		SMOOTH-old-zh			SMOOTH-old1-zh		2		CG1Y	SMOOTH-2-zh	2013/9/1	CG1Y-Z										SMOOTH-C-ZH
+		SMOOTH-old-zh			SMOOTH-old1-zh		3		CA2Y	SMOOTH-3-zh	2013/9/1	CA2Y-Z										SMOOTH-C-ZH
+A02	CQ2Y	SMOOTH-1-old-zh	低摩擦气缸	CQ2Y	SMOOTH-1-old1-zh	CQ2Y-Z	1	SMOOTH-old.jpg	CQ2Y	SMOOTH-4-zh	2010/10/1	CQ2Y-Z	SMOOTH.jpg		/catalog/BEST-5-3-en/pdf/3-p1163-1301-smoothc_en.pdf		有					SMOOTH-C-ZH
+A02	CJ2X/CM2X	LOWSPEED-old-zh	低速气缸	CJ2X<br/>CM2X	LOWSPEED-old1-zh	CJ2X-Z<br/>CM2X-Z	1	LOWSPEED-old.jpg	CJ2X	LOWSPEED-1-zh	2013/9/1	CJ2X-Z	LOWSPEED.jpg		/catalog/BEST-5-3-en/pdf/3-p1163-1301-smoothc_en.pdf		有					Low-Speed-Cylinder-ZH
+		LOWSPEED-old-zh			LOWSPEED-old1-zh		2		CM2X	LOWSPEED-2-zh	2013/9/1	CM2X-Z										Low-Speed-Cylinder-ZH
+A02	CP96/CP96SD	CP96-old-zh	符合ISO规格的气缸	CP96/CP96SD	CP96-old1-zh	CP96/CP96SD	1	CP96-old.jpg	CP96/CP96SD	CP96-1-zh	2015/3/1	CP96/CP96SD	CP96.jpg		CP96-old-e.pdf		有					CP96-CP96SD-2-ZH
+A02	C96/C96SD	C96-old-zh	符合ISO规格的气缸	C96/C96SD	C96-old1-zh	C96/C96SD	1	C96-old.jpg	C96/C96SD	C96-1-zh	2015/3/1	C96/C96SD	C96.jpg		C96-old-e.pdf		有					C96-C96SD-2-ZH
+A02	MXH	MXH-old-zh	紧凑型滑台	MXH	MXH-old1-zh	MXH-Z	1	MXH-old.jpg	MXH	MXH-Z-1	2014/12/1	MXH-Z	MXH-Z.jpg		mxh-old-e.pdf		有					MXH-Z2-ZH
+A02	CJ1/CDJ1	CJ1-old-zh	气缸	CJ1/CDJ1	CJ1-old1-zh	CJ2/CDJ2-Z	1	CJ1-old.jpg	CJ1/CDJ1<br/>φ6,φ10,φ15	CJ1-1-zh	2005/2/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ15	CJ2.jpg	/actuator/standard/standardfound2306.html	CJ1-CJP-old-e.pdf		有					CJ2-CDJ2-Z-ZH
+		CJ1-old-zh			CJ1-old1-zh		2		洁净系列<br/>10-/11-CJ1/CDJ1<br/>φ6,φ10,φ15	CJ1-3-zh	2005/2/1	洁净系列<br/>10-/11-CJ2/CDJ2-Z		/clean/actuator/actuatorfound34710.html								CJ2-Z-E
+A02	CZ1/CDZ1	CZ1-old-zh	气缸	CZ1/CDZ1	CZ1-old1-zh	CJ2Z/CDZJ2	1	CZ1-old.jpg	CZ1/CDZ1	CJ2Z-1-zh	2005/2/1	CJ2Z/CDJ2Z	CJ2Z.jpg	/actuator/standard/standardfound33385.html			无			cj2z.pdf		CJ2-CDJ2-ZH
+A02	CJP/CDJP	CJP-old-zh	针型气缸	CJP/CDJP	CJP-old1-zh	CJP2/CDJP2	1	CJP-old.jpg	CJP/CDJP	CJP2-1-zh	2008/5/1	CJP2/CDJP2	CJP2.jpg	/actuator/standard/standardfound33384.html	CJ1-CJP-old-e.pdf		基本型有互换性					CJP2-CDJP2-CJP-ZH
+A02	CJ2/CDJ2	CJ2-old-zh	气缸	CJ2/CDJ2	CJ2-old1-zh	CJ2/CDJ2-Z	1	CJ2-old.jpg	CJ2/CDJ2<br/>φ6,φ10,φ16	CJ2-1-zh	2013/9/1	CJ2/CDJ2-Z<br/>φ6,φ10,φ16	CJ2.jpg	/actuator/standard/standardfound2306.html	CJ2-old-e.pdf		有		・端锁型CBJ2尚未停产	CJ2-e-cmp.pdf		CJ2-CDJ2-Z-ZH
+		CJ2-old-zh			CJ2-old1-zh		2		洁净系列<br/>10-/11-CJ2/CDJ2<br/>φ6,φ10,φ16 	CJ2-2-zh	2013/9/1	洁净系列<br/>10-/11-CJ2/CDJ2ｰZ<br/>φ6,φ10,φ16		/clean/actuator/actuatorfound34710.html								CJ2-Z-E
+A02	CM/CDM	CM-old-zh	气缸	CM/CDM	CM-old1-zh	CM2/CDM2-Z	1	CM-old.jpg	CM/CDM	CM2-1-zh	2005/2/1	CM2/CDM2-Z	CM2.jpg	/actuator/standard/standardfound2301.html			有					CM2-CDM2-Z-ZH
+		CM-old-zh			CM-old1-zh		2		洁净系列<br/>10-/11-CM/CDM	CM-2-zh	2005/2/1	洁净系列<br/>10-/11-CM2/CDM2-Z		/clean/actuator/actuatorfound34711.html								CM2-Z-E
+A02	CM2/CDM2	CM2-old-zh	气缸	CM2/CDM2	CM2-old1-zh	CM2/CDM2-Z	1	CM2-old.jpg	CM2/CDM2	CM2-1-zh	2013/9/1	CM2/CDM2-Z	CM2.jpg	/actuator/standard/standardfound2301.html	CM2-old-e.pdf		有		・集中配管型CM2□□P、端锁型CBM2尚未停产	CM2-e-comp.pdf		CM2-CDM2-Z-ZH
+		CM2-old-zh			CM2-old1-zh		2		洁净系列<br/>10-/11-CM2/CDM2	CM2-2-zh	2013/9/1	洁净系列<br/>10-/11-CM2/CDM2-Z		/clean/actuator/actuatorfound34711.html								CM2-Z-E
+A02	CG/CDG	CG-old-zh	气缸	CG/CDG	CG-old1-zh	CG1/CDG1-Z	1	CG-old.jpg	CG/CDG	CG1-1-zh	2005/2/1	CG1/CDG1-Z	CG1.jpg	/actuator/standard/standardfound2302.html			有					CG1-CDG1-Z-ZH
+		CG-old-zh			CG-old1-zh		2		洁净系列<br/>10-/11-CG/CDG1	CG1-2-zh	2005/2/1	洁净系列<br/>10-/11-CG1/CDG1-Z		/clean/actuator/actuatorfound34712.html								CG1-Z-E
+A02	CG1/CDG1	CG1-old-zh	气缸	CG1/CDG1	CG1-old1-zh	CG1/CDG1-Z	1	CG1-old.jpg	CG1/CDG1	CG1-1-zh	2013/9/1	CG1/CDG1-Z	CG1.jpg	/actuator/standard/standardfound2302.html	CG1-old-e.pdf		有		・端锁型CBG1尚未停产	CG1-e-comp.pdf		CG1-CDG1-Z-ZH
+		CG1-old-zh			CG1-old1-zh		2		洁净系列<br/>10-/11-CG1/CDG1	CG1-2-zh	2013/9/1	洁净系列<br/>10-/11-CG1/CDG1-Z		/clean/actuator/actuatorfound34712.html								CG1-Z-E
+A02	MB/MDB	MB-old-zh	气缸	MB/MDB	MB-old1-zh	MB/MDB-Z	1	MB-old.jpg	MB/MDB<br/>(φ125除外)	MB-1-zh	2013/9/1	MB/MDB-Z	MB.jpg	/actuator/standard/standardfound2309.html	MB-old-e.pdf		有		・端锁型MBB尚未停产	MB-e-comp.pdf		MB-MDB-Z-ZH
+A02	CA1/CDA1	CA1-old-zh	气缸	CA1/CDA1	CA1-old1-zh	CA2/CDA2-Z	1	CA1-old.jpg	CA1/CDA1	CA1-1-zh	2005/2/1	CA2/CDA2-Z	CA2.jpg	/actuator/standard/standardfound2303.html			有					CA2-CDA2-Z-ZH
+		CA1-old-zh			CA1-old1-zh		2		洁净系列<br/>10-/11-CA1/CDA1	CA1-2-zh	2005/2/1	洁净系列<br/>10-/11-CA2/CDA2		/clean/actuator/actuatorfound34713.html								CA2-E
+A02	CA2/CDA2	CA2-old-zh	气缸	CA2/CDA2	CA2-old1-zh	CA2/CDA2-Z	1	CA2-old.jpg	CA2/CDA2	CA2-1-zh	2013/9/1	CA2/CDA2-Z	CA2.jpg	/actuator/standard/standardfound2303.html	CA2-old-e.pdf		有		・杆不回转型CA2K/CA2KW、端锁型CBA2、<br/>气液型缸CA2□H/CA2W□H尚未停产。			CA2-CDA2-Z-ZH
+A02	CQ2/CDQ2	CQ2-old-zh	薄型气缸	CQ2□/CDQ2□12～100<br/>洁净系列<br/>10-/11-CQ2/CDQ2	CQ2-old1-zh	CQ2□/CDQ2□12～100<br/>洁净系列 <br/>10-/11-CQ2/CDQ2	1	CQ2-old.jpg	CQ2□/CDQ2□12～100	CQ2-1-zh	2009/10/1	CQ2□/CDQ2□12～100	CQ2.jpg	/actuator/compact/compactfound34668.html	CQ2-old-e.pdf		有		・φ12, 16, 20, 25的非磁石内置型尚未停产。<br/>・轴方向配管型CQP2、薄型端锁型气缸CBQ2、低速气缸CQ2X尚未停产。<br/>・带耐热型磁性开关-XB14的型号（订制规格）尚未停产。	cq2.pdf		CQ2-CDQ2-Z-ZH
+		CQ2-old-zh			CQ2-old1-zh		2		洁净系列<br/>10-/11-CQ2/CDQ2	CQ2-2-zh	2009/10/1	洁净系列<br/>10-/11-CQ2/CDQ2		/clean/actuator/actuatorfound34717.html								CQ2-C-E
+A02	CQ2/CDQ2	CQ2-1-old-zh	薄型气缸	CQ2□/CDQ2□125～200	CQ2-1-old1-zh	CQ2□/CDQ2□125～200	1	CQ2-old.jpg	CQ2□/CDQ2□125～200	CQ2-3-zh	2011/4/1	CQ2□/CDQ2□125～200	CQ2.jpg	/actuator/compact/compactfound34668.html	CQ2-old-e.pdf		有		・φ12, 16, 20, 25的非磁石内置型尚未停产。<br/>・轴方向配管型CQP2、薄型端锁型气缸CBQ2、低速气缸CQ2X尚未停产。<br/>・带耐热型磁性开关-XB14的型号（订制规格）尚未停产。	cq2.pdf		CQ2-CDQ2-Z-ZH
+A02	MU/MDU	MU-old-zh	平板式气缸	MU/MDU	MU-old1-zh	MU/MDU	1	MU-old.jpg	MU/MDU	MU-1-zh	2010/3/1	MU/MDU	MU.jpg	/actuator/compact/compactfound34651.html	MU-old-e.pdf		有			mu.pdf		MU-MDU-Z-ZH
+A02	MY1B	MY1B-old-zh	机械接合式无杆缸／基本型	55-MY1B φ25, φ32, φ40<br/>MY1B	MY1B-old1-zh	55-MY1B-Z φ25, φ32, φ40<br/>MY1B-Z	1	MY1B-old.jpg	55-MY1B φ25, φ32, φ40	MY1B-1-zh	2019/3/1	55-MY1B-Z φ25, φ32, φ40	MY1B.jpg		MY1-old-e.pdf		有
+		MY1B-old-zh			MY1B-old1-zh		2		MY1B φ25, φ32, φ40<br/>不包括 φ10, φ16, φ20, φ50～ φ100)	MY1B-2-zh	2013/4/1	MY1B-Z φ25, φ32, φ40										MY1-ZH
+A02	MY1H	MY1H-old-zh	机械接合式无杆缸／直线导轨型	55-MY1H φ25, φ32, φ40<br/>MY1H	MY1H-old1-zh	55-MY1H-Z φ25, φ32, φ40<br/>MY1H-Z	1	MY1H-old.jpg	55-MY1H φ25, φ32, φ40	MY1H-1-zh	2019/3/1	55-MY1H-Z φ25, φ32, φ40	MY1H.jpg		MY1-old-e.pdf		有
+		MY1H-old-zh			MY1H-old1-zh		2		MY1H φ25, φ32, φ40<br/>(不包括 φ10, φ16, φ20)	MY1H-2-zh	2013/4/1	MY1H-Z φ25, φ32, φ40										MY1-ZH
+A02	MY1B	MY1B-old-zh	机械接合式无杆气缸/基本型	MY1B	MY1B-old1	MY1B-Z	1	MY1B-old.jpg	MY1B φ25, φ32, φ40<br/>(不包括φ10, φ16, φ20, φ50～ φ100)	MY1B-1	2013/4/1	MY1B-Z φ25, φ32, φ40	MY1B.jpg	/actuator/rodless/rodlessfound33406.html	MY1-old-e.pdf		有					MY1B-Z-ZH
+A02	MY1H	MY1H-old-zh	机械接合式无杆气缸/直线导轨型	MY1H	MY1H-old1	MY1H-Z	1	MY1H-old.jpg	MY1H φ25, φ32, φ40<br/>(不包括φ10, φ16, φ20)	MY1H-1	2013/4/1	MY1H-Z φ25, φ32, φ40	MY1H.jpg	/actuator/rodless/rodlessfound2258.html	MY1-old-e.pdf		有					MY1H-Z-ZH
+A02	CY1B/CY1R	CY1B-old-zh	磁耦合式无杠气缸	CY1B/CY1R	CY1B-old1-zh	CY3B/CY3R	1	CY1B-old.jpg	基本型　CY1B　	CY3B-1-zh	2006/3/1	基本型　CY3B	CY3B.jpg	/actuator/rodless/rodlessfound33636.html	CY1-old-e.pdf		有		φ6的不具有互换性	cy3x.pdf		CY3-ZH
+		CY1B-old-zh			CY1B-old1-zh		2		直接安装型　CY1R	CY3B-2-zh	2006/3/1	直接安装型　CY3R		/actuator/rodless/rodlessfound33636.html								CY3-ZH
+		CY1B-old-zh			CY1B-old1-zh		3		洁净系列<br/>12-CY1B/R	CY3B-3-zh	2006/3/1	洁净系列<br/>12-CY3B/R		/clean/actuator/actuatorfound34728.html								CY3-C-ZH
+A02	CY1S	CY1S-old-zh	磁耦合式无杆气缸 滑动轴承	CY1S	CY1S-old1-zh	CY1S-Z	1	CY1S-old.jpg	CY1S	CY1S-1-zh	2013/9/1	CY1S-Z	CY1S.jpg	/actuator/rodless/rodlessfound2314.html	CY1-old-e.pdf		有 (旧型号安装孔内径上的螺纹没有互换性)					CY1S-Z-ZH
+A02	MXU	MXU-old-zh	紧凑型滑台	MXU	MXU-old1-zh	MXH-Z	1	MXU-old.jpg	MXU	MXH-1-zh	2010/7/1	MXH-Z	MXH-Z.jpg	/actuator/table/tablefound33648.html	MXU-old-e.pdf		无					MXH-Z2-ZH
+A02	MGP	MGP-old-zh	薄型带导杆气缸	MGP	MGP-old1-zh	MGP-Z	1	MGP-old.jpg	MGP	MGP-1-zh	2012/4/1	MGP-Z	MGP.jpg	/actuator/guide/guidefound2231.html	MGP-old-e.pdf		有		对象型号：标准型、高精度型（高精度球面导向套型）			MGP-Z-ZH
+A02	CLA/CDLA	CLA-old-zh	精密锁紧气缸	CLA/CDLA	CLA-old1-zh	CLA2/CDLA2	1	CLA-old.jpg	CLA/CDLA	CLA2-1-zh	2009/9/1	CLA2/CDLA2	CLA2.jpg				有			cna_cla_cna2_cla2.pdf		CLA2-CDLA2-ZH
+A02	CNA/CDNA	CNA-old-zh	带锁气缸	CNA/CDNA	CNA-old1-zh	CNA2/CDNA2	1	CNA-old.jpg	CNA/CDNA	CNA2-1-zh	2009/9/1	CNA2/CDNA2	CNA2.jpg	/actuator/lock/lockfound34669.html	CNA-old-e.pdf		有			cna_cla_cna2_cla2.pdf		CNA2-CDNA2-ZH
+A02	MK/MK2	MK-old-zh	回转夹紧气缸	MK/MK2	MK-old1-zh	MK	1	MK-old.jpg	MK/MK2	MK-1-zh	2010/10/1	MK	MK.jpg	/actuator/clamp/clampfound34805.html	MK-old-e.pdf		安装间距有互换性 (MK2的全长尺寸不具有互换性)			mk.pdf		MK-Z-ZH
+A02	CK1/CKG1/CKP1	CK1-old-zh	夹紧气缸	CK1/CKG1/CKP1	CK1-old1-zh	CK1/CKG1/CKP1-Z	1	CK1-old.jpg	CK1	CK1-1-zh	2013/9/1	CK1-Z	CK1.jpg	/actuator/clamp/clampfound2305.html	CK1-old-e.pdf		有					CK_1-Z-ZH
+		CK1-old-zh			CK1-old1-zh		2		CKG1	CK1-2-zh	2013/9/1	CKG1-Z		/actuator/clamp/clampfound2305.html								CK_1-Z-ZH
+		CK1-old-zh			CK1-old1-zh		3		CKP1	CK1-3-zh	2013/9/1	CKP1-Z		/actuator/clamp/clampfound2305.html								CK_1-Z-ZH
+A02	CLK1/CLK1G	CLK1-old-zh	带锁夹紧气缸	CLK1/CLK1G	CLK1-old1-zh	CLK2/CLK2G	1	CLK1-old.jpg	CLK1/CLK1G	CLK2-1-zh	2008/1/1	CLK2/CLK2G	CLK2.jpg	/actuator/clamp/clampfound33985.html			有					CLK2-ZH
+A02	RSH	RSH-old-zh	重载止动气缸	RS1H	RSH-old1-zh	RS2H	1	RSH-old.jpg	RS1H50, 63, 80	RS2H-1-zh	2012/8/1	RS2H50, 63, 80	RS2H.jpg	/actuator/stopper/stopperfound2252.html	RS1-RSH-old-e.pdf		有			rs1h.pdf		RS2H-ZH
+A02	RS1H	RSH-1-old-zh	重载止动气缸	RSH	RSH-1-old1-zh	RS2H	1	RSH-old.jpg	RSH50, 63, 80 <br/>(φ20, φ32除外)	RS2H-2-zh	2005/8/1	RS2H50, 63, 80	RS2H.jpg	/actuator/stopper/stopperfound2252.html	RS1-RSH-old-e.pdf		有			rs1h.pdf		RS2H-ZH
+A02	RSA	RSA-old-zh	重载止动气缸	RSA	RSA-old1-zh	RS2H-X2700/2701	1		RSA	RSA-1-zh	2015/9/1	RS2H-X2700					有（气缸全长缩短）
+					RSA-old1-zh		2		RSA-X721	RSA-2-zh	2015/9/1	RS2H-X2701
+A02	CEU1	CEU1-old-zh	行程可读气缸用<br/>3点预置计数器	CEU1	CEU1-old1-zh	CEU5	1	CEU1-old.jpg	CEU1	CEU5-1-zh	2015/3/1	CEU5	CEU5.jpg		CE-old-e.pdf		无		功能、外观尺寸等方面有不同的部分，进行变更时务必请进行确认。			CEU5-CEU1-ZH
+A02	CV1	CV1-old-zh	带阀气缸	CV1	CV1-old1-zh	CVM5	1	CV1-old.jpg	CV1	CVM5-1-zh	2005/4/1	CVM5	CVM5.jpg	/actuator/valve/valvefound33444.html			有			cvm5.pdf		CV_-CDV_-ZH
+A02	MB1/MDB1	MB1-old-zh	方形缸筒气缸	MB1/MDB1	MB1-old1-zh	MB1/MDB1-Z	1	MB1-old.jpg	MB1/MDB1	MB1-Z-1-zh	2015/4/1	MB1/MDB1-Z	MB1.jpg		MB1-old-e.pdf		有					MB1-ZH
+A02	CKQG/CLKQG	CKQG-old-zh	销钉夹紧缸	CKQG<br/>CLKQG	CKQG-old1-zh	CKQG-Z<br/>CLKQG-Z	1	CKQG-old.jpg	CKQG<br/>CLKQG	CKQG-Z-1-zh	2017/6/1	CKQG-Z<br/>CLKQG-Z	CKQG.jpg				有					C(L)KQG-C(L)KQP-ZH
+A02	C(L)KU32-X2091/X2092	CKU32-old-zh	销钉夹紧缸	CKU32-X2091<br/>CKU32-X2092<br/>CLKU32-X2091<br/>CLKU32-X2092	CKU32-old1-zh	CKU32-X2321<br/>CKU32-X2322<br/>CLKU32-X2321<br/>CLKU32-X2322	1	CKU32-old.jpg	CKU32-X2091	CKU32-1-zh	2017/6/1	CKU32-X2321	CKU32.jpg		CKU32-old-e.pdf		有					C(L)KQG32-C(L)KU32-ZH
+		CKU32-old-zh			CKU32-old1-zh		2		CKU32-X2092	CKU32-2-zh	2017/6/1	CKU32-X2322										C(L)KQG32-C(L)KU32-ZH
+		CKU32-old-zh			CKU32-old1-zh		3		CLKU32-X2091	CKU32-3-zh	2017/6/1	CLKU32-X2321										C(L)KQG32-C(L)KU32-ZH
+		CKU32-old-zh			CKU32-old1-zh		4		CLKU32-X2092	CKU32-4-zh	2017/6/1	CLKU32-X2322										C(L)KQG32-C(L)KU32-ZH
+A02	RSQ	RSQ-old-zh	阻挡缸	RSQ<br/>(φ16～φ50)	RSQ-old1-zh	RSQ-Z<br/>(φ16～φ50)	1	RSQ-old.jpg	RSQ<br/>(φ16～φ50)	RSQ-1-zh	2018/4/1	RSQ-Z<br/>(φ16～φ50)	RSQ.jpg		RSQ-old-e.pdf		有		φ12的尚未停产			RSQ-Z-E
+A02	CKU32-X2359	CKU32-X2359-old-zh	扁平型销钉缸	CKU32-X2359	CKU32-X2359-old1-zh	CKU32-X2359A	1	CKU32-X2359-old.jpg	CKU32-X2359	CKU32-X2359-1-zh	2018/11/1	CKU32-X2359A	CKU32-X2359A.jpg		CLKU32-X-old-e.pdf		有
+A02	CKZ3T/CKZ3N	CKZ3-old-zh	强力夹紧缸	CKZ3T<br/>CKZ3N	CKZ3-old1-zh	CKZ3T-X2734<br/>CKZ3N-X2742A	1	CKZ3-old.jpg	CKZ3T	CKZ3-1-zh	2019/4/1	CKZ3T-X2734	CKZ3.jpg		ckz3-old-e.pdf		有( 但开关安装件须变更)					CKZ3T-X2734-ZH
+		CKZ3-old-zh			CKZ3-old1-zh		2		CKZ3N	CKZ3-2-zh	2019/4/1	CKZ3N-X2742A										CKZ3N-X-ZH
+A02	CEU2/CEU2P	CEU2-old-zh	测程缸用控制器	CEU2<br/>CEU2P	CEU2-old1-zh	-	1	CEU2-old.jpg	CEU2<br/>CEU2P	CEU2-1-v	2019/11/1	-			CEU2-old-e.pdf		无
+A02	MLGP	MLGP-old-zh	薄型导杆式带锁气缸	MLGP	MLGP-old1-zh	MLGP-Z	1	MLGP-old.jpg	MLGP	MLGP-1-zh	2020/3/1	MLGP-Z	MLGP-Z.jpg		MLGP-old-e.pdf		有					MLGP-Z-ZH
+A02	CLKZ1R	CLKZ1R-old-zh	强力夹紧缸	CLKZ1R	CLKZ1R-old1-zh	CKZT	1	CLKZ1R-old.jpg	CLKZ1R	CLKZ1R-1-zh	2020/11/1	CKZT	CKZT.jpg		CLKZ1R-old-e.pdf		无					CKZT-ZH
+A03	CRB2/CDRB2	CRB2-old-zh	摆动气缸	CRB2/CDRB2	CRB2-old1-zh	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB2/CDRB2<br/>标准、带角度调节	CRB2-Z-1-zh	2013/4/1	CRB2-Z/CDRB2-Z<br/>标准、带角度调节	CRB2-Z.jpg		CRB-old-e.pdf		有			crb1-crbu.pdf		CRB2-CDRB2-Z-ZH
+A03	CRB1/ CDRB1	CRB1-old-zh	摆动气缸	CRB1/CDRB1	CRB1-old1-zh	CRB2-Z/CDRB2-Z	1	CRB2-old.jpg	CRB1/CDRB1<br/>标准、带角度调节	CRB2-Z-2-zh	2007/3/1	CRB2-Z/CDRB2-Z<br/>标准、带角度调节	CRB2-Z.jpg		CRB-old-e.pdf		有			crb1-crbu.pdf		CRB2-CDRB2-Z-ZH
+A03	CRBU2/CDRBU2	CRBU2-old-zh	摆动气缸/自由安装型	CRBU2/CDRBU2	CRBU2-old1-zh	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU2/CDRBU2<br/>标准、带角度调节	CRBU2-Z-1-zh	2013/12/1	CRBU2-Z/CDRBU2-Z<br/>标准、带角度调节	CRBU2-Z.jpg		CRBU2-old-e.pdf		有		配管管径和连接通口的位置有变更			CRBU2-ZH
+A03	CRBU/CDRBU	CRBU-old-zh	摆动气缸/自由安装型	CRBU/CDRBU	CRBU-old1-zh	CRBU2-Z/CDRBU2-Z	1	CRBU2-old.jpg	CRBU/CDRBU<br/>标准、带角度调节	CRBU2-Z-2-zh	2007/3/1	CRBU2-Z/CDRBU2-Z<br/>标准、带角度调节	CRBU2-Z.jpg		CRBU2-old-e.pdf		有		配管管径和连接通口的位置有变更			CRBU2-ZH
+A03	CRB/CDRB	CRB-old-zh	摆动气缸	CRB/CDRB	CRB-old1-zh	CRB1/CDRB1	1	CRB-old.jpg	CRB/CDRB:尺寸50, 80, 100	CRB1-1-zh	2009/10/1	CRB1/CDRB1:尺寸50, 80, 100	CRB1.jpg	/rotarychuck/rotary/rotaryfound33640.html			有（脚座型不具有安装互换性）			crb_crb1.pdf		CRB1-CDRB1-ZH
+A03	CRA1/CDRA1	CRA1-old-zh	摆动气缸	CRA1/CDRA1<br/>CRA1□□U(CDRA1□□U)<br/>角度可变型	CRA1-old1-zh	CRA1-Z/CDRA1-Z	1	CRA1-old.jpg	CRA1(CDRA1)/基本型<br/>尺寸:30,50,63,80,100	CRA1-Z-1-zh	2013/4/1	CRA1-Z(CDRA1-Z)/基本型	CRA1-Z.jpg	/rotarychuck/rotary/rotaryfound2291.html	CRA1-old-e.pdf		有					CRA1-CDRA1-Z-ZH
+		CRA1-old-zh			CRA1-old1-zh		2		CRA1□□U(CDRA1□□U)<br/>角度可变型<br/>尺寸:50,63,80,100	CRA1-Z-2-zh	2013/4/1	CRA1□□U-Z<br/>(CDRA1□□U)<br/>角度可变型		/rotarychuck/rotary/rotaryfound2291.html								CRA1-CDRA1-Z-ZH
+A03	CRQ/CDRQ	CRQ-old-zh	薄型摆动气缸	CRQ/CDRQ	CRQ-old1-zh	CRQ2/CDRQ2	1	CRQ-old.jpg	CRQ/CDRQ	CRQ2-1-zh		CRQ2/CDRQ2	CRQ2.jpg	/rotarychuck/rotary/rotaryfound33455.html			有			crq2.pdf		CRQ2-CDRQ2-ZH
+A03	MHT2	MHT2-old-zh	肘节型气爪	MHT2	MHT2-old1-zh	MHT2-Z	1	MHT2-old.jpg	MHT2	MHT2-Z-1-zh	2011/10/1	MHT2-Z	MHT2-Z.jpg	/rotarychuck/airchuck/airchuckfound2316.html	MHT-old-e.pdf		有					MHT2-Z-ZH
+A03	MHQ2/MHQG2	MHQ2-old-zh	气爪	MHQ2/MHQG2	MHQ2-old1-zh	MHZ2	1	MHQ2-old.jpg	标准型 <br/>MHQ2-10,16,20,25 <br/>(6,32,40除外)	MHZ2-1-zh	2007/3/1	MHZ2-10, 16, 20, 25	MHZ2.jpg	/rotarychuck/airchuck/airchuckfound33458.html			有			mhz2.pdf		MHZ_2-ZH
+		MHQ2-old-zh			MHQ2-old1-zh		2		高刚性 <br/>MHQG2-10,16,20,25 <br/>(6,32,40除外)	MHZ2-2-zh	2007/3/1	MHZ2-10, 16, 20, 25		/rotarychuck/airchuck/airchuckfound33458.html								MHZ_2-ZH
+A04	ZX	ZX-old-zh	真空单元(安装有数字式压力传感器ZSE3)	ZX<br/>(安装有数字式压力传感器ZSE3)	ZX-old1-zh	ZQ1□-□-E□-□<br/>ZK2□□□□A□-□-□	1	ZX-old.jpg	ZX<br/>(安装有数字式压力传感器ZSE3)	ZX-1-zh	2019/6/1	ZQ1□-□-E□-□	ZQ-ZK2.jpg		ZX-old-e.pdf		无					ZQ-ZH
+		ZX-old-zh			ZX-old1-zh		2		ZX<br/>(安装有数字式压力传感器ZSE3)	ZX-2-zh	2019/6/1	ZK2□□□□A□-□-□										ZK2-ZH
+A04	ZU	ZU-old-zh	直通型真空发生器	ZU05<br/>ZU07	ZU-old1-zh	ZU05□A<br/>ZU07□A	1	ZU-old.jpg	ZU05<br/>ZU07	ZU-1-zh	2018/3/1	ZU05□A<br/>ZU07□A	ZU.jpg		ZU-old-e.pdf		无(通口连接口径相同)					ZU_A-ZH
+A04	ZM	ZM-old-zh	真空发生器/气控型 通口口径M3	ZM*-P3/ZM*-Q3	ZM-old1-zh	-	1		ZM*-P3/ZM*-Q3	ZM-1-zh	2015/1/1	-							通口口径M5的规格仍在生产
+A04	ZQ	ZQ-old-zh	薄型真空过滤器/薄型真空泵系统	ZQ	ZQ-old1-zh	ZQ	1	ZQ-old.jpg	ZQ1□□-□□□□□-D31□□-□□-□	ZQ-1-zh	2010/10/1	ZQ系列 带真空压力开关 ZSE10	ZQ.jpg	/vacuum/ejector/ejectorfound34108.html	ZQ-old-e.pdf		有			zq.pdf		ZQ-ZH
+		ZQ-old-zh			ZQ-old1-zh		2		ZQ1□□-□□□□□-D32□□-□□-□	ZQ-2-zh	2010/4/1	ZQ系列 带真空压力开关 ZSE10		/vacuum/ejector/ejectorfound34108.html								ZQ-ZH
+		ZQ-old-zh			ZQ-old1-zh		3		ZQ1□□-□□□□□-D51□□-□□-□	ZQ-3-zh	2010/10/1	ZQ系列 带真空压力开关 ZSE10		/vacuum/ejector/ejectorfound34108.html								ZQ-ZH
+		ZQ-old-zh			ZQ-old1-zh		4		ZQ1□□-□□□□□-D52□□-□□-□	ZQ-4-zh	2009/12/1	ZQ系列 带真空压力开关 ZSE10		/vacuum/ejector/ejectorfound34108.html								ZQ-ZH
+A04	ZR	ZR-old-zh	大型真空单元	ZR	ZR-old1-zh	ZR	1	ZR-old.jpg	ZR系列 带真空用压力开关 ZSE4	ZR-1-zh	2009/1/1	ZR系列 带真空压力开关 ZSE30A	ZR.jpg	/vacuum/ejector/ejectorfound34106.html	ZR-old-e.pdf		有			zr.pdf		ZR-ZH
+A04	ZMA	ZMA-old-zh	带电子计时器的真空发生器	ZMA	ZMA-old1-zh	ZK2□□K5□□-□-□-X123	1	ZMA-old.jpg	ZMA	ZK2-1-zh	2013/4/1	ZK2□□K5□□-□-□-X123			ZMA-old-e.pdf		请与本公司联络确认
+A04	ZL	ZL-old-zh	多级真空发生器	ZL	ZL-old1-zh	ZL	1	ZL-old.jpg	ZL系列 带真空用压力开关 ZSE4	ZL-1-zh	2009/1/1	ZL系列 带真空压力开关 ZSE30A	ZL.jpg	/vacuum/ejector/ejectorfound34111.html	ZL-old-e.pdf		有					ZL-ZH
+A04	FGZ	FGZ-old-zh	树脂制小型真空过滤器	FGZ	FGZ-old1-zh	ZFZ	1		FGZ	ZFZ-1-zh	2010/12/1	ZFZ		/upfiles/pgpdf/sp106e-004e.pdf			有		更换用的滤芯具有互换性
+A04	ZR	ZR1-old-zh	大型真空单元	ZR1**-C4***-**-*-*(-X***)<br/>ZR100-C4***-**-*-*(-X***)<br/>ZR1-VDC4****-*(-X***)<br/>ZR1-VC4****-*　(-X***)	ZR1-old1-zh	ZR1**-C3**-*-*(-X***)<br/>ZR100-C3*-**-*-*(-X***)<br/>ZR1-VDC3**-*(-X***)<br/>ZR1-VC3**-*(-X***)	1		ZR1**-C4***-**-*-*(-X***)	ZR1-1-zh	2016/8/1	ZR1**-C3**-*-*(-X***)			ZR1-old-e.pdf		有					ZR-ZH
+		ZR1-old-zh			ZR1-old1-zh		2		ZR100-C4***-**-*-*(-X***)	ZR1-2-zh	2016/8/1	ZR100-C3*-**-*-*(-X***)										ZR-ZH
+		ZR1-old-zh			ZR1-old1-zh		3		ZR1-VDC4****-*(-X***)	ZR1-3-zh	2016/8/1	ZR1-VDC3**-*(-X***)										ZR-ZH
+		ZR1-old-zh			ZR1-old1-zh		4		ZR1-VC4****-*　(-X***)	ZR1-4-zh	2016/8/1	ZR1-VC3**-*(-X***)										ZR-ZH
+A04	ZYY/ZYX	ZY-old-zh	真空发生器阀组件	ZYY<br/>ZYX	ZY-old1-zh	ZK2	1	ZY-old.jpg	ZYY	ZY-1-zh	2017/3/1	ZK2	ZK2.jpg				无					ZK2-ZH
+		ZY-old-zh			ZY-old1-zh		2		ZYX	ZY-2-zh	2017/3/1	ZK2										ZK2-ZH
+A04	ZFC05/01/020	ZFC-old-zh	带快换管接头的真空过滤器／直通型	ZFC05<br/>ZFC10<br/>ZFC20	ZFC-old1-zh	ZFC1/ZFC3<br/>ZFC5<br/>ZFC7	1	ZFC-old.jpg	ZFC05	ZFC-1-zh	2017/6/1	ZFC1/ZFC3	ZFC.jpg		zfc-old-e.pdf		有					ZFC-1-ZH
+		ZFC-old-zh			ZFC-old1-zh		2		ZFC10	ZFC-2-zh	2017/6/1	ZFC5										ZFC-1-ZH
+		ZFC-old-zh			ZFC-old1-zh		3		ZFC20	ZFC-3-zh	2017/6/1	ZFC7										ZFC-1-ZH
+A04	ZH□D	ZH-old-zh	真空发生器/直接配管型	ZH05D～ZH20D<br/>NZH05D～NZH13D<br/>EZH05D～EZH20D	ZH-old1-zh	ZH05D□A～ZH20D□A<br/>ZH05D□A～ZH13D□A<br/>ZH05D□A～ZH20D□A	1	ZH-old.jpg	ZH05D～ZH20D	ZH-1-zh	2017/7/1	ZH05D□A～ZH20D□A	ZH.jpg		ZH-old-e.pdf		有					ZH_DSA-ZH
+		ZH-old-zh			ZH-old1-zh		2		NZH05D～NZH13D	ZH-2-zh	2017/7/1	ZH05D□A～ZH13D□A										ZH_DSA-ZH
+		ZH-old-zh			ZH-old1-zh		3		EZH05D～EZH20D	ZH-3-zh	2017/7/1	ZH05D□A～ZH20D□A										ZH_DSA-ZH
+A04	ZL112	ZL112-old-zh	多级真空发生器	ZL112 (公制规格)<br/>NZL112 (英制规格)	ZL112-old1-zh	ZL112A<br/>ZL112AN	1	ZL112-old.jpg	ZL112  (公制规格)	ZL112-1-zh	2019/1/1	ZL112A	ZL112A.jpg		ZL112-old-e.pdf		有					ZL112A-ZH
+		ZL112-old-zh			ZL112-old1-zh		2		NZL112 (英制规格)	ZL112-2-zh	2019/1/1	ZL112AN										ZL112A-ZH
+A04	ZK2	ZK2-old-zh	真空单元	ZK2	ZK2-old1-zh	ZK2□A	1	ZK2-old.jpg	ZK2	ZK2_A-1-zh	2020/10/1	ZK2□A	ZK2_A.jpg		ZK2-old-e.pdf		有					ZK2_A-ZH
+A05	IDFB22E/IDFB37E	IDFB-old-zh	冷冻式空气干燥机/北美、中南美规格	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-old1-zh	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	1	IDFB22-old.jpg	IDFB22E-11<br/>IDFB22E-23<br/>IDFB37E-23	IDFB-1-zh	2019/8/1	IDFB60-11<br/>IDFB60-23<br/>IDFB70-23	IDFB60.jpg		IDFB-old-e.pdf		无					IDFB-ZH
+A05	AMF	AMF-old-zh	除臭过滤器	AMF800<br/>AMF900<br/>AMF1000<br/>AMF801<br/>AMF901	AMF-old1-zh	AMF850<br/>-<br>-<br/>AMF850<br/>-	1	AMF-old.jpg	AMF800	AMF-1-zh	2015/10/1	AMF850	AMF.jpg				无					AMF-ZH
+		AMF-old-zh			AMF-old1-zh		2		AMF900	AMF-2-zh	2015/10/1	-
+		AMF-old-zh			AMF-old1-zh		3		AMF1000	AMF-3-zh	2015/10/1	-
+		AMF-old-zh			AMF-old1-zh		4		AMF801	AMF-4-zh	2015/10/1	AMF850										AMF-ZH
+		AMF-old-zh			AMF-old1-zh		5		AMF901	AMF-5-zh	2015/10/1	-
+A05	IDF□/C/D/IDU□C/D	IDF1D-1-old-zh	冷冻式空气干燥机	IDF1D～8D,11C<br/>/IDU3D～6D	IDF1D-1-old1-zh	IDF1E～11E<br/>/IDU3E～6E	1	IDF1D-old.jpg	IDF1D～8D,11C/IDU3D～6D	IDF1E-1-zh	2004/7/1	IDF1E～11E/IDU3E～6E	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDF_E-F-D-ZH
+A05	IDF□/C/D	IDF1D-2-old-zh	冷冻式空气干燥机	IDF15C～37C1	IDF1D-2-old1-zh	IDF15E1～37E	1	IDF1D-old.jpg	IDF15C～37C1	IDF1E-2-zh	2005/8/1	IDF15E1～37E	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDF_E-F-D-ZH
+A05	IDF□/C/D	IDF1D-3-old-zh	冷冻式空气干燥机	IDF55C,75C	IDF1D-3-old1-zh	IDF55E,75E	1	IDF1D-old.jpg	IDF55C,75C	IDF1E-3-zh	2007/1/1	IDF55E,75E	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDF_E-F-D-ZH
+A05	IDU□C/D	IDF1D-4-old-zh	冷冻式空气干燥机	IDU8D,11C,15C	IDF1D-4-old1-zh	IDU8E～15E1	1	IDF1D-old.jpg	IDU8D,11C,15C	IDF1E-4-zh	2006/4/1	IDU8E～15E1	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDU_E-ZH
+A05	IDU□C/D	IDF1D-5-old-zh	冷冻式空气干燥机	IDU22C1,37C1	IDF1D-5-old1-zh	IDU22E,37E	1	IDF1D-old.jpg	IDU22C1,37C1	IDF1E-5-zh	2007/8/1	IDU22E,37E	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDU_E-ZH
+A05	IDU□C/D	IDF1D-6-old-zh	冷冻式空气干燥机	IDU55C,75C	IDF1D-6-old1-zh	IDU55E,75E	1	IDF1D-old.jpg	IDU55C,75C	IDF1E-6-zh	2008/9/1	IDU55E,75E	IDF1E.jpg		IDU_IDF-old-e.pdf		无			idf-idu.pdf		IDU_E-ZH
+A05	IDF120D,150D	IDF120-old-zh	冷冻式空气干燥机/大型系列	IDF120D,150D	IDF120-old1-zh	IDF125F,150F	1	IDF120-old.jpg	IDF120D	IDF125F-1-zh	2011/9/1	IDF125F	IDF125F.jpg	/airprep/airprep/airprepfound34807.html	IDU_IDF-old-e.pdf		无					IDF_E-F-D-ZH
+		IDF120-old-zh			IDF120-old1-zh		2		IDF150D	IDF125F-2-zh	2011/9/1	IDF150F		/airprep/airprep/airprepfound34807.html								IDF_E-F-D-ZH
+A05	IDG30, 50	IDG30-1-old-zh	高分子膜式空气干燥器	IDG30, 50	IDG30-1-old1-zh	IDG30A, 50A	1	IDG30-old.jpg	IDG30, 50	IDG30A-1-1-zh	2012/1/1	IDG30A, 50A	IDG30A.jpg		IDG-old-e.pdf		有					IDG-ZH
+A05	IDG60L～100L	IDG30-2-old-zh	高分子膜式空气干燥器	IDG60L, 75L, 100L	IDG30-2-old1-zh	IDG60LA, 75LA, 100LA	1	IDG30-old.jpg	IDG60L, 75L, 100L	IDG30A-2-1-zh	2012/10/1	IDG60LA, 75LA, 100LA	IDG30A.jpg		IDG-old-e.pdf		有					IDG-ZH
+A05	IDG60S～100S	IDG30-3-old-zh	高分子膜式空气干燥器	IDG60S, 75S, 100S	IDG30-3-old1-zh	IDG60SA, 75SA, 100SA	1	IDG30-old.jpg	IDG60S, 75S, 100S	IDG30A-3-1-zh	2012/10/1	IDG60SA, 75SA, 100SA	IDG30A.jpg		IDG-old-e.pdf		有					IDG-ZH
+A05	AMG150～550	AMG150-old-zh	水分分离器	AMG150～550	AMG150-old1-zh	AMG150C～550C	1	AMG150-old.jpg	AMG150	AMG150C-1-zh	2009/8/1	AMG150C	AMG150C.jpg	/airprep/filter/filterfound34137.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AMG-ZH
+		AMG150-old-zh			AMG150-old1-zh		2		AMG250	AMG150C-2-zh	2009/8/1	AMG250C		/airprep/filter/filterfound34137.html								AMG-ZH
+		AMG150-old-zh			AMG150-old1-zh		3		AMG350	AMG150C-3-zh	2009/8/1	AMG350C		/airprep/filter/filterfound34137.html								AMG-ZH
+		AMG150-old-zh			AMG150-old1-zh		4		AMG450	AMG150C-4-zh	2009/8/1	AMG450C		/airprep/filter/filterfound34137.html								AMG-ZH
+		AMG150-old-zh			AMG150-old1-zh		5		AMG550	AMG150C-5-zh	2009/8/1	AMG550C		/airprep/filter/filterfound34137.html								AMG-ZH
+A05	AFF2B～22B	AFF-old-zh	主管路过滤器	AFF2B～22B	AFF-old1-zh	AFF2C～22C	1	AFF-old.jpg	AFF2B	AFF2C-1-zh	2009/8/1	AFF2C	AFF2C.jpg	/airprep/filter/filterfound34138.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AFF-ZH
+		AFF-old-zh			AFF-old1-zh		2		AFF4B	AFF2C-2-zh	2009/8/1	AFF4C		/airprep/filter/filterfound34138.html								AFF-ZH
+		AFF-old-zh			AFF-old1-zh		3		AFF8B	AFF2C-3-zh	2009/8/1	AFF8C		/airprep/filter/filterfound34138.html								AFF-ZH
+		AFF-old-zh			AFF-old1-zh		4		AFF11B	AFF2C-4-zh	2009/8/1	AFF11C		/airprep/filter/filterfound34138.html								AFF-ZH
+		AFF-old-zh			AFF-old1-zh		5		AFF22B	AFF2C-5-zh	2009/8/1	AFF22C		/airprep/filter/filterfound34138.html								AFF-ZH
+A05	AM150～550	AM150-old-zh	油雾分离器	AM150～550	AM150-old1-zh	AM150C～550C	1	AM150-old.jpg	AM150	AM150C-1-zh	2009/8/1	AM150C	AM150C.jpg	/airprep/filter/filterfound34139.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AM-ZH
+		AM150-old-zh			AM150-old1-zh		2		AM250	AM150C-2-zh	2009/8/1	AM250C		/airprep/filter/filterfound34139.html								AM-ZH
+		AM150-old-zh			AM150-old1-zh		3		AM350	AM150C-3-zh	2009/8/1	AM350C		/airprep/filter/filterfound34139.html								AM-ZH
+		AM150-old-zh			AM150-old1-zh		4		AM450	AM150C-4-zh	2009/8/1	AM450C		/airprep/filter/filterfound34139.html								AM-ZH
+		AM150-old-zh			AM150-old1-zh		5		AM550	AM150C-5-zh	2009/8/1	AM550C		/airprep/filter/filterfound34139.html								AM-ZH
+A05	AMD150～550	AMD150-old-zh	微雾分离器	AMD150～550	AMD150-old1-zh	AMD150C～550C	1	AMD150-old.jpg	AMD150	AMD150C-1-zh	2009/8/1	AMD150C	AMD150C.jpg	/airprep/filter/filterfound34140.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AMD-ZH
+		AMD150-old-zh			AMD150-old1-zh		2		AMD250	AMD150C-2-zh	2009/8/1	AMD250C		/airprep/filter/filterfound34140.html								AMD-ZH
+		AMD150-old-zh			AMD150-old1-zh		3		AMD350	AMD150C-3-zh	2009/8/1	AMD350C		/airprep/filter/filterfound34140.html								AMD-ZH
+		AMD150-old-zh			AMD150-old1-zh		4		AMD450	AMD150C-4-zh	2009/8/1	AMD450C		/airprep/filter/filterfound34140.html								AMD-ZH
+		AMD150-old-zh			AMD150-old1-zh		5		AMD550	AMD150C-5-zh	2009/8/1	AMD550C		/airprep/filter/filterfound34140.html								AMD-ZH
+A05	AMH150～550	AMH150-old-zh	带前置过滤器的微雾分离器	AMH150～550	AMH150-old1-zh	AMH150C～550C	1	AMH150-old.jpg	AMH150	AMH150C-1-zh	2009/8/1	AMH150C	AMH150C.jpg	/airprep/filter/filterfound34141.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AMH-ZH
+		AMH150-old-zh			AMH150-old1-zh		2		AMH250	AMH150C-2-zh	2009/8/1	AMH250C		/airprep/filter/filterfound34141.html								AMH-ZH
+		AMH150-old-zh			AMH150-old1-zh		3		AMH350	AMH150C-3-zh	2009/8/1	AMH350C		/airprep/filter/filterfound34141.html								AMH-ZH
+		AMH150-old-zh			AMH150-old1-zh		4		AMH450	AMH150C-4-zh	2009/8/1	AMH450C		/airprep/filter/filterfound34141.html								AMH-ZH
+		AMH150-old-zh			AMH150-old1-zh		5		AMH550	AMH150C-5-zh	2009/8/1	AMH550C		/airprep/filter/filterfound34141.html								AMH-ZH
+A05	AME150～550	AME150-old-zh	超微油雾分离器	AME150～550	AME150-old1-zh	AME150C～550C	1	AME150-old.jpg	AME150	AME150C-1-zh	2009/8/1	AME150C	AME150C.jpg	/airprep/filter/filterfound34142.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AME-ZH
+		AME150-old-zh			AME150-old1-zh		2		AME250	AME150C-2-zh	2009/8/1	AME250C		/airprep/filter/filterfound34142.html								AME-ZH
+		AME150-old-zh			AME150-old1-zh		3		AME350	AME150C-3-zh	2009/8/1	AME350C		/airprep/filter/filterfound34142.html								AME-ZH
+		AME150-old-zh			AME150-old1-zh		4		AME450	AME150C-4-zh	2009/8/1	AME450C		/airprep/filter/filterfound34142.html								AME-ZH
+		AME150-old-zh			AME150-old1-zh		5		AME550	AME150C-5-zh	2009/8/1	AME550C		/airprep/filter/filterfound34142.html								AME-ZH
+A05	AMF150～550	AMF150-old-zh	除臭过滤器	AMF150～550	AMF150-old1-zh	AMF150C～550C	1	AMF150-old.jpg	AMF150	AMF150C-1-zh	2009/8/1	AMF150C	AMF150C.jpg	/airprep/filter/filterfound34143.html	AM_AFF-old-e.pdf		有 (有多个尺寸不同）			amg_aff.pdf		AMF-ZH
+		AMF150-old-zh			AMF150-old1-zh		2		AMF250	AMF150C-2-zh	2009/8/1	AMF250C		/airprep/filter/filterfound34143.html								AMF-ZH
+		AMF150-old-zh			AMF150-old1-zh		3		AMF350	AMF150C-3-zh	2009/8/1	AMF350C		/airprep/filter/filterfound34143.html								AMF-ZH
+		AMF150-old-zh			AMF150-old1-zh		4		AMF450	AMF150C-4-zh	2009/8/1	AMF450C		/airprep/filter/filterfound34143.html								AMF-ZH
+		AMF150-old-zh			AMF150-old1-zh		5		AMF550	AMF150C-5-zh	2009/8/1	AMF550C		/airprep/filter/filterfound34143.html								AMF-ZH
+A05	AMD	AMD-old-zh	微雾分离器	AMD800<br/>AMD810<br/>AMD801<be/>AMD811	AMD-old1-zh	-<be/>-<be/>-<be/>-	1	AMD-old.jpg	AMD800	AMD-1-zh	2015/11/1	-
+		AMD-old-zh			AMD-old1-zh		2		AMD810	AMD-2-zh	2015/11/1	-
+		AMD-old-zh			AMD-old1-zh		3		AMD801	AMD-3-zh	2015/11/1	-
+		AMD-old-zh			AMD-old1-zh		4		AMD811	AMD-4-zh	2015/11/1	-
+A06	KJ/KQ2	KJ-old-zh	快换接头	KJ/KQ2	KJ-old1-zh	KQ2	1	KJ-old.jpg	小型快换管接头　KJ	KQ2-1-zh	2012/5/1	KQ2	KQ2.jpg	/fitting/fitting/fittingfound2288.html	KJ-KQ2-old-e.pdf		请与本公司联络确认					KQ2-ZH
+		KJ-old-zh			KJ-old1-zh		2		洁净系列<br/>10-KJ	KQ2-2-zh	2012/5/1	10-KQ2										KQ-C-ZH
+		KJ-old-zh			KJ-old1-zh		3		快换管接头　KQ2	KQ2-3-zh	2012/5/1	KQ2		/fitting/fitting/fittingfound2288.html								KQ2-ZH
+		KJ-old-zh			KJ-old1-zh		4		洁净系列<br/>10-KQ	KQ2-4-zh	2012/5/1	10-KQ2										KQ-C-ZH
+		KJ-old-zh			KJ-old1-zh		5		Uni-快换管接头　KQ2	KQ2-5-zh	2012/5/1	KQ2		/fitting/fitting/fittingfound2288.html
+A06	KQB	KQB-old-zh	黄铜快换接头（金属快换接头）	KQB	KQB-old1-zh	KQB2	1	KQB-old.jpg	KQB	KQB2-1-zh	2010/6/1	KQB2	KQB2.jpg	/fitting/fitting/fittingfound34818.html	KQB-old-e.pdf							KQB2-ZH
+A06	KQG	KQG-old-zh	SUS316快换接头	KQG	KQG-old1-zh	KQG2	1	KQG-old.jpg	KQG	KQG2-1-zh	2010/6/1	KQG2	KQG2.jpg	/fitting/fspecial/fspecialfound34820.html	KQG-old-e.pdf							KQG2-ZH
+A06	KFG	KFG-old-zh	SUS316嵌入式接头	KFG	KFG-old1-zh	KFG2	1	KFG-old.jpg	KFG	KFG2-1-zh	2010/6/1	KFG2	KFG2.jpg	/fitting/fspecial/fspecialfound34819.html	KFG-old-e.pdf							KFG2-ZH
+A07	AS	AS-old-zh	带快换接头的速度控制阀/直通型	AS	AS-old1-zh	AS	1	AS-old.jpg	AS	AS-1-zh	2011/9/1	AS	AS.jpg	/flowcontrol/speed/speedfound34808.html	AS-old-e.pdf		无					AS-I-ZH
+A08	AC	AC-old-zh	模块式F.R.L.三联件	AC10～60	AC-old1-zh	AC10-Ａ, AC20～60-B	1	AC-old.jpg	AC10～60	AC10-1-zh	2014/12/1	AC10-Ａ<br/>AC20～60-B	AC10-A.jpg		AC-old-e.pdf		有					AC-2-ZH
+A08	AC	AC-1-old-zh	模块式F.R.L.三联件	AC100～600<br/>AC1000～6000	AC-1-old1-zh	AC10-Ａ, AC20～60-B<br/>AAC10-Ａ, AC20～60-B	1	AC-old.jpg	AC100～600	AC10-1-1-zh	2005/9/1	AC10-Ａ<br/>AC20～60-B	AC10-A.jpg		AC-old-e.pdf		无					AC-2-ZH
+		AC-1-old-zh			AC-1-old1-zh		2		AC1000～6000	AC10-1-2-zh	2005/9/1	AAC10-Ａ<br/>AC20～60-B										AC-2-ZH
+A08	AF	AF-old-zh	空气过滤器	AF10～60	AF-old1-zh	AF10～60-A	1	AF-old.jpg	AF10～60	AF-1-zh	2014/12/1	AF10～60-A	AF-A.jpg		AC-old-e.pdf		有					AF-A-ZH
+A08	AF	AF-1-old-zh	空气过滤器	AF100～600<br/>AF1000～6000<br/>洁净系列　10-AF	AF-1-old1-zh	AF10～60-A<br/>洁净系列　10-AF	1	AF-old.jpg	AF100～600	AF-1-1-zh	2005/9/1	AF10～60-A	AF-A.jpg		AC-old-e.pdf		有（AF100～600无）					AF-A-ZH
+		AF-1-old-zh			AF-1-old1-zh		2		AF1000～6000	AF-1-2-zh	2005/9/1	AF10～60-A										AF-A-ZH
+		AF-1-old-zh			AF-1-old1-zh		3		洁净系列　10-AF	AF-1-3-zh	2005/9/1	洁净系列　10-AF										AF-2-C-ZH
+A08	AFM/AFD	AFM_D-old-zh	油雾分离器、微雾分离器	AFM20,30,40,40-06<br/>AFD20,30,40,40-06	AFM_D-old1-zh	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A	1	AFM_D-old.jpg	AFM20,30,40,40-06	AFM_D-1-zh	2014/12/1	AFM20,30,40,40-06-A	AFM_D.jpg		AC-old-e.pdf		有					AFM-A-ZH
+		AFM_D-old-zh			AFM_D-old1-zh		2		AFD20,30,40,40-06	AFM_D-2-zh	2014/12/1	AFD20,30,40,40-06-A										AFD-A-ZH
+A08	AFM/AFD	AFM_D-1-old-zh	油雾分离器、微雾分离器	AFM2000,3000,4000,4000-06<br/>AFD2000,3000,4000,4000-06<br/>洁净系列　10-AFM<br/>洁净系列　10-AFD	AFM_D-1-old1-zh	AFM20,30,40,40-06-A<br/>AFD20,30,40,40-06-A<br/>洁净系列　10-AFM<br/>洁净系列　10-AFD	1	AFM_D-old.jpg	AFM2000,3000,4000,4000-06	AFM_D-1-1-zh	2005/9/1	AFM20,30,40,40-06-A	AFM_D.jpg		AC-old-e.pdf		有					AFM-A-ZH
+		AFM_D-1-old-zh			AFM_D-1-old1-zh		2		AFD2000,3000,4000,4000-06	AFM_D-1-2-zh	2005/9/1	AFD20,30,40,40-06-A										AFD-A-ZH
+		AFM_D-1-old-zh			AFM_D-1-old1-zh		3		洁净系列　10-AFM	AFM_D-1-3-zh	2005/9/1	洁净系列<br/>10-AFM										AFM-2-C-ZH
+		AFM_D-1-old-zh			AFM_D-1-old1-zh		4		洁净系列　10-AFD	AFM_D-1-4-zh	2005/9/1	洁净系列<br/>10-AFD										AFD-2-C-ZH
+A08	AR	AR-1-old-zh	减压阀	AR10～60	AR-1-old1-zh	AR10～40-A<br/>AR20～60-B	1	AR-old.jpg	AR10～60	AR-1-1-zh	2014/12/1	AR10～40-A<br/>AR20～60-B	AR10-A.jpg		AC-old-e.pdf		有（部分无）			ac_comp.pdf		AR-A-ZH/AR-2-ZH
+A08	AR	AR-old-zh	减压阀	AR20K～60K<br/>AR110～600<br/>AR1000～6000<br/>洁净系列　10-AR	AR-old1-zh	AR20～40-A<br/>AR20K～60K-B<br/>AR20～40-A<br/>AR20～60-B<br/>AR10～40-A<br/>AR20～60-B<br/>洁净系列　10-AR	1	AR-old.jpg	AR20K～60K	AR-1-zh	2005/9/1	AR20～40-A<br/>AR20K～60K-B	AR10-A.jpg		AC-old-e.pdf		有（部分无）、无（AR100～600）					AR-A-ZH/AR-2-ZH
+		AR-old-zh			AR-old1-zh		2		AR110～600	AR-2-zh	2005/9/1	AR20～40-A<br/>AR20～60-B										AR-A-ZH/AR-2-ZH
+		AR-old-zh			AR-old1-zh		3		AR1000～6000	AR-3-zh	2005/9/1	AR10～40-A<br/>AR20～60-B										AR-A-ZH/AR-2-ZH
+		AR-old-zh			AR-old1-zh		4		洁净系列　10-AR	AR-4-zh	2005/9/1	洁净系列<br/>10-AR										AR-2-C-ZH
+A08	AL	AL-1-old-zh	油雾器	AL10～60	AL-1-old1-zh	AL10～60-A	1	AL-old.jpg	AL10～60	AL-1-1-zh	2013/5/1	AL10～60-A	AL.jpg		AC-old-e.pdf		有		1000cm<sup>3</sup>的水箱尚未停产			AL-A-ZH
+A08	AL	AL-old-zh	油雾器	AL100～600<br/>AL1000～6000	AL-old1-zh	AL10～60<br/>AL10～60-A	1	AL-old.jpg	AL100～600	AL-1-zh	2005/9/1	AL10～60	AL.jpg		AC-old-e.pdf		有（AL100～600无）		1000cm<sup>3</sup>的水箱尚未停产			AL-A-ZH
+		AL-old-zh			AL-old1-zh		2		AL1000～6000	AL-2-zh	2005/9/1	AL10～60-A										AL-A-ZH
+A08	AW	AW-1-old-zh	过滤减压阀	AW10～60<br/>AW20K～60K	AW-1-old1-zh	AW10～40-A<br/>AW20～60-B<br/>AW20～40-A<br/>AW20K～60K-B	1	AW-old.jpg	AW10～60	AW-1-1-zh	2014/12/1	AW10～40-A<br/>AW20～60-B	AW10-A.jpg		AC-old-e.pdf		有（部分无）					AW-A-ZH/AW-2-ZH
+		AW-1-old-zh			AW-1-old1-zh		2		AW20K～60K	AW-1-2-zh	2014/12/1	AW20～40-A<br/>AW20K～60K-B										AW-A-ZH/AW-2-ZH
+A08	AW	AW-old-zh	过滤减压阀	AW100～400<br/>AW1000～4000<br/>洁净系列　10-AW	AW-old1-zh	AW20～40-B<br/>AW20,40-B<br/>AW10～40-A<br/>AW20～40-B<br/>洁净系列<br/>10-AW	1	AW-old.jpg	AW100～400	AW-1-zh	2005/9/1	AW20～40-B<br/>AW20,40-B	AW10-A.jpg		AC-old-e.pdf		有（部分无）、无（AW100～600）					AW-A-ZH/AW-2-ZH
+		AW-old-zh			AW-old1-zh		2		AW1000～4000	AW-2-zh	2005/9/1	AW10～40-A<br/>AW20～40-B										AW-A-ZH/AW-2-ZH
+		AW-old-zh			AW-old1-zh		3		洁净系列　10-AW	AW-3-zh	2005/9/1	洁净系列　10-AW										AW-2-C-ZH
+A08	AWM	AWM-old-zh	减压阀油雾分离器一体型	AWM2000～4000<br/>洁净系列<br/>10-AWM	AWM-old1-zh	AWM20～40<br/>洁净系列<br/>10-AWM	1	AWM-old.jpg	AWM2000～4000	AWM-1-zh	2005/9/1	AWM20～40	AWM.jpg	/frl/frl/frlfound34163.html			有			aw.pdf		AWM-ZH
+		AWM-old-zh			AWM-old1-zh		2		洁净系列<br/>10-AWM	AWM-2-zh	2005/9/1	洁净系列<br/>10-AWM		/clean/air/airfound34757.html								AWM-2-C-ZH
+A08	AWD	AWD-old-zh	减压阀微雾分离器一体型	AWD2000～4000<br/>洁净系列  10-AWD	AWD-old1-zh	AWD20～40<br/>洁净系列  10-AWD	1	AWD-old.jpg	AWD2000～4000	AWD-1-zh	2005/9/1	AWD20～40	AWD.jpg	/frl/frl/frlfound34164.html			有			aw.pdf		AWD-ZH
+		AWD-old-zh			AWD-old1-zh		2		洁净系列<br/>10-AWD	AWD-2-zh	2005/9/1	洁净系列<br/>10-AWD		/clean/air/airfound34758.html								AWD-2-C-ZH
+A08	AU	AU-old-zh	润滑单元	AU100～300	AU-old1-zh	AC20, 30-A	1	AU-old.jpg	AU100～300	AC20-1-zh	2008/9/1	AC20, 30-A	AC10.jpg	/frl/frl/frlfound2293.html			无					AC-A-ZH
+A08	ARP3000	ARP-old-zh	直动式精密减压阀	ARP3000	ARP-old1-zh	ARP30	1	ARP-old.jpg	ARP3000	ARP30-1-zh	2009/12/1	ARP30	ARP30.jpg	/frl/frregulator/frregulatorfound34179.html	ARP-old-e.pdf		有					ARP-ZH
+A08	IRV1000/2000/3000	IRV-old-zh	真空减压阀	IRV1000/2000/3000	IRV-old1-zh	IRV10/20	1	IRV-old.jpg	IRV1000/2000/3000	IRV10-1-zh	2010/3/1	IRV10/20	IRV10.jpg	/frl/frregulator/frregulatorfound34645.html	IRV-old-e.pdf		有			irv1000-10.pdf		IRV-ZH
+A08	T203-1	T203-old-zh	真空减压阀	T203-1	T203-old1-zh	IRV10/20	1	T203-old.jpg	T203-1	IRV20-1-zh	2007/1/1	IRV10/20	IRV20.jpg	/frl/frregulator/frregulatorfound34645.html			无			t203-1_irv.pdf		IRV-ZH
+A08	VBA	VBA-1-old-zh	增压阀	VBA1110	VBA-1-old1-zh	VBA10A	1	VBA-old.jpg	VBA1110	VBA-1-zh	2010/1/1	VBA10A	VBA.jpg		VBA-old-e.pdf		有			vba_comp.pdf		VBA-ZH
+A08	VBA	VBA-2-old-zh	增压阀	VBA1111-02N	VBA-2-old1-zh	VBA11A	1	VBA-old.jpg	VBA1111-02N	VBA-2-zh	2010/11/1	VBA11A	VBA.jpg		VBA-old-e.pdf		有			vba_comp.pdf		VBA-ZH
+A08	VBA	VBA-3-old-zh	增压阀	VBA1111-02	VBA-3-old1-zh	VBA11A	1	VBA-old.jpg	VBA1111-02	VBA-3-zh	2011/2/1	VBA11A	VBA.jpg		VBA-old-e.pdf		有			vba_comp.pdf		VBA-ZH
+A08	VBA	VBA-4-old-zh	增压阀	VBA2100, 4100	VBA-4-old1-zh	VBA20A, 40A	1	VBA-old.jpg	VBA2100, 4100	VBA-4-zh	2008/6/1	VBA20A, 40A	VBA.jpg		VBA-old-e.pdf		有			vba_comp.pdf		VBA-ZH
+A08	VBAT	VBAT-1-old-zh	气罐	VBAT05A(-V)/<br/>VBAT10A	VBAT-1-old1-zh	VBAT05A1(-V)/<br/>VBAT10A1	1	VBAT-old.jpg	VBAT05A(-V)/<br/>VBAT10A	VBAT-1-zh	2009/12/1	VBAT05A1(-V)/<br/>VBAT10A1	VBAT.jpg		VBA-old-e.pdf		无			vbat.pdf		VBAT-ZH
+A08	VBAT	VBAT-old-zh	气罐	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)<br/>VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-old1-zh	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)<br/>VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)	1	VBAT-old.jpg	VBAT10A-V/<br/>VBAT20A(-V)/<br/>VBAT38A(-V)	VBAT-2-zh	2010/1/1	VBAT10A1-V/<br/>VBAT20A1(-V)/<br/>VBAT38A1(-V)	VBAT.jpg		VBA-old-e.pdf		无			vbat.pdf		VBAT-ZH
+		VBAT-old-zh			VBAT-old1-zh		2		VBAT05S(-V)/<br/>VBAT10S(-V)/<br/>VBAT20S(-V)/<br/>VBAT38S(-V)	VBAT-3-zh	2010/1/1	VBAT05S1(-V)/<br/>VBAT10S1(-V)/<br/>VBAT20S1(-V)/<br/>VBAT38S1(-V)										VBAT-ZH
+A08	VY511,VYU5	VY5-old-zh	平衡控制阀	VY511-020<br/>VYU5□-D	VY5-old1-zh	-	1	VY5-old.jpg	VY511-020	VY5-1-zh	2016/12/1	-
+		VY5-old-zh			VY5-old1-zh		2		VYU5□-D	VY5-2-zh	2016/12/1	-
+A08	VEA1	VEA1-old-zh	电气比例阀专用功率放大器　	VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-old1-zh	VEA250<br/>VEA251<br/>VEA252	1		VEA110、VEA111<br/>VEA120、VEA121<br/>VEA130、VEA131<br/>VEA140、VEA141	VEA1-1-zh	2017/12/1	VEA250<br/>VEA251<br/>VEA252	VEA.jpg				无					VEA-ZH
+A09	AN	AN-old-zh	消音器	AN	AN-old1-zh	AN	1	AN-old.jpg	AN200～400	AN-1-zh	2012/1/1	AN05～40	AN.jpg	/silencer/silencer/silencerfound2236.html	AN-old-e.pdf		有					AN-ZH
+		AN-old-zh			AN-old1-zh		2		AN103～403	AN-2-zh	2012/1/1	AN05～40		/silencer/silencer/silencerfound2236.html								AN-ZH
+		AN-old-zh			AN-old1-zh		3		AN103～300-KM	AN-3-zh	2012/1/1	AN10～30-C		/silencer/silencer/silencerfound2236.html								AN-ZH
+A10	ZSE3/ISE3	ZSE3-old-zh	LCD显示型数字式压力传感器	ZSE3/ISE3	ZSE3-old1-zh	ZSE/ISE10<br/>ZSE/ISE20A	1	ZSE3-old.jpg	ZSE3/ISE3	ZSE3-1-zh	2019/6/1	ZSE/ISE10	ZSE10_20A.jpg		ZSE3-old-e.pdf		无					ZSE10(F)-ISE10-ZH
+		ZSE3-old-zh			ZSE3-old1-zh		2		ZSE3/ISE3	ZSE3-2-zh	2019/6/1	ZSE/ISE20A										ZSE20(F)-ISE20-ZH
+A10	ISE70	ISE70-old-zh	2色显示式数字式压力开关	ISE70-□-□	ISE70-old1-zh	ISE70-□-L2	1	ISE70-old.jpg	ISE70-□-□	ISE70-1-zh	2018/2/1	ISE70-□-L2	ISE70.jpg		ISE70-old-e.pdf		无					ISE70-71-L2-ZH
+A10	ZSP1	ZSP1-old-zh	吸附确认开关	ZSP1<br/>ZX1*-*-PS/PB-*	ZSP1-old1-zh	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A<br/>ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3	1	ZSP1-old.jpg	ZSP1	ZSP1-1-zh	2016/3/1	PFMV5＋PFMV3<br/>ZSE10<br/>ZSE30A	ZSE-ZQ.jpg		ZSP1-old-e.pdf		无					PFMV-ZH/ZSE10(F)-ISE10-ZH/ZSE30A(F)-ISE30A-ZH
+		ZSP1-old-zh			ZSP1-old1-zh		2		ZX1*-*-PS/PB-*	ZSP1-2-zh	2016/3/1	ZQ*-*-E/F*-*<br/>PFMV5＋PFMV3										ZQ-ZH/PFMV-ZH
+A10	D-J51	D-J51-old-zh	无触点磁性开关	D-J51	D-J51-old1-zh	D-A54	1	D-J51-old.jpg	D-J51	D-J51-1-zh	2015/3/1	D-A54	D-A54.jpg		D-J51-old-e.pdf		有					D-AS1-ZH
+A10	ZSE4/ISE4	ZSE4-old-zh	数字式压力开关	ZSE4/ISE4	ZSE4-old1-zh	ZSE30A (F)/ISE30A	1	ZSE4-old.jpg	ZSE4真空用/<br/>ISE4正压用	ZSE30AF-1-zh	2005/3/1	ZSE30A (F) 真空用/<br/>ISE30A 正压用	ZSE30AF.jpg	/sensor/pressure/pressurefound34641.html			无					ZSE30A(F)-ISE30A-ZH
+		ZSE4-old-zh			ZSE4-old1-zh		2		洁净系列<br/>10-ZSE4/ISE4	ZSE30AF-2-zh	2005/3/1	洁净系列<br/>10-ZSE30A (F)/<br/>ISE30A		/clean/sensor/sensorfound34676.html								10-ZSE30A-C-ZH
+A10	ZSE30/ISE30	ZSE30-old-zh	2色显示式高精度数字式压力开关	ZSE30/ISE30	ZSE30-old1-zh	ZSE30A/ISE30A	1	ZSE30-old.jpg	ZSE30/<br/>ISE30	ZSE30A-1-zh	2010/12/1	ZSE30A/<br/>ISE30A	ZSE30A.jpg	/sensor/pressure/pressurefound34641.html	ZSE_ISE30-old-e.pdf		无					ZSE30A(F)-ISE30A-ZH
+		ZSE30-old-zh			ZSE30-old1-zh		2		洁净系列<br/>10-ZSE30/<br/>10-ISE30	ZSE30A-2-zh	2010/12/1	洁净系列<br/>10-ZSE30A /<br/>10-ISE30A										10-ZSE30A-C-ZH
+A10	ZSE40/ISE40	ZSE40-old-zh	高精度数字式压力开关	ZSE40/ISE40	ZSE40-old1-zh	ZSE40A/ISE40A	1	ZSE40-old.jpg	ZSE40/ISE40	ZSE40A-1-zh	2011/3/1	ZSE40A/ISE40A	ZSE40A.jpg	/sensor/pressure/pressurefound34656.html	ZSE_ISE40-old-e.pdf		有					ZSE40A(F)-ISE40A-ZH
+		ZSE40-old-zh			ZSE40-old1-zh		2		洁净系列<br/>10-ZSE40/<br/>10-ISE40	ZSE40A-2-zh	2011/3/1	洁净系列<br/>10-ZSE40A /<br/>10-ISE40A										10-ZSE40A-C-ZH
+A10	ZSE/ISE50 (F)・60 (F)	ISE50-old-zh	通用流体用高精度数字式压力开关	ZSE/ISE50 (F)・60 (F)	ISE50-old1-zh	ZSE80 (F)/ISE80 (H)	1	ISE50-old.jpg	ZSE/ISE50 (F)・60 (F)	ZSE80 F-1-zh	2012/6/1	ZSE80 (F)/ISE80 (H)	ZSE80 F.jpg	/sensor/pressure/pressurefound34320.html	ZSE_ISE5060-old-e.pdf		有					ZSE-ISE80-ZH
+		ISE50-old-zh			ISE50-old1-zh		2		洁净系列<br/>10-ZSE/<br/>10-ISE50 (F)・60 (F)	ZSE80 F-2	2012/6/1	洁净系列<br/>10-ZSE80 (F) /<br/>10-ISE80 (H)										10-ZSE80-C-ZH
+A10	ISE/ZSE5B・6B	ISE5B-old-zh	数字式压力开关	ISE/ZSE5B・6B	ISE5B-old1-zh	ISE80/ZSE80	1	ISE5B-old.jpg	ISE5B/ZSE5B	ISE80-1-zh	2006/12/1	ISE80/ZSE80	ISE80.jpg	/sensor/pressure/pressurefound34320.html			无			zse_ise5b6b_zse_ise80.pdf		ZSE-ISE80-ZH
+		ISE5B-old-zh			ISE5B-old1-zh		2		ISE5B/ZSE6B	ISE80-2-zh	2006/12/1	ISE80/ZSE80		/sensor/pressure/pressurefound34320.html								ZSE-ISE80-ZH
+A10	ISA	ISA-old-zh	工件位置确认用/气动位置传感器	ISA	ISA-old1-zh	ISA2	1	ISA-old.jpg	ISA	ISA2-1-zh	2013/3/1	ISA2	ISA2.jpg	/sensor/pressure/pressurefound34327.html	ISA-old-e.pdf		无					ISA2-ZH
+A10	PSE100	PSE100-old-zh	压力传感器控制器	PSE100	PSE100-old1-zh	PSE300	1	PSE100-old.jpg	PSE100	PSE300-1-zh	2008/7/1	PSE300	PSE300.jpg	/sensor/pressure/pressurefound34334.html			无			pse100.pdf		PSE300-ZH
+A10	PSE520, 521	PSE520-old-zh	通用流体压力传感器	PSE520, 521	PSE520-old1-zh	PSE560, 561	1	PSE520-old.jpg	PSE520	PSE560-1-zh	2005/9/1	PSE560	PSE560.jpg	/sensor/pressure/pressurefound34332.html			有			pse560.pdf		PSE56_-ZH
+		PSE520-old-zh			PSE520-old1-zh		2		PSE521	PSE560-2-zh	2005/9/1	PSE561		/sensor/pressure/pressurefound34332.html								PSE56_-ZH
+		PSE520-old-zh			PSE520-old1-zh		3		10-PSE520	PSE560-3-zh	2005/9/1	洁净系列<br/>10-PSE560		/clean/sensor/sensorfound34685.html								PSE560-C-ZH
+		PSE520-old-zh			PSE520-old1-zh		4		10-PSE521	PSE560-4-zh	2005/9/1	洁净系列<br/>10-PSE561		/clean/sensor/sensorfound34685.html								PSE560-C-ZH
+A10	IS1000	IS1000-old-zh	压力开关	IS1000	IS1000-old1-zh	IS10	1	IS1000-old.jpg	IS1000	IS10-1-zh	2011/4/1	IS10	IS10.jpg	/sensor/pressure/pressurefound34837.html	IS1000-old-e.pdf		有					IS10-ZH
+A10	PFA/PFW	PFA-old-zh	空气/水用数字式流量开关	PFA/PFW	PFA-old1-zh	PF2A/PF2W	1	PFA-old.jpg	空气用 PFA7 <br/>与显示部一体型	PF2A-1-zh	2003/10/1	PF2A7 <br/>显示部一体型	PF2A.jpg	/sensor/flow/flowfound34341.html			有			pf2a-2w.pdf		PF2A-ZH
+		PFA-old-zh			PFA-old1-zh		2		空気用 PFA3 <br/>显示部分离型	PF2A-2-zh	2003/10/1	PF2A3 <br/>显示部分离型		/sensor/flow/flowfound34341.html								PF2A-ZH
+		PFA-old-zh			PFA-old1-zh		3		空気用 PFA5 <br/>传感器分离型	PF2A-3-zh	2003/10/1	PF2A5 <br/>传感器分离型		/sensor/flow/flowfound34341.html								PF2A-ZH
+		PFA-old-zh			PFA-old1-zh		4		水用 PFW7 <br/>显示部一体型	PF2A-4-zh	2003/10/1	PF2W7 <br/>显示部一体型		/sensor/flow/flowfound34342.html								PF2W-ZH
+		PFA-old-zh			PFA-old1-zh		5		水用 PFW3 <br/>显示部分离型	PF2A-5-zh	2003/10/1	PF2W3 <br/>显示部分离型		/sensor/flow/flowfound34342.html								PF2W-ZH
+		PFA-old-zh			PFA-old1-zh		6		水用 PFW5 <br/>传感器分离型	PF2A-6-zh	2003/10/1	PF2W5 <br/>传感器分离型		/sensor/flow/flowfound34342.html								PF2W-ZH
+A10	PFD	PFD-old-zh	纯水、化学液用数字式流量开关	PFD	PFD-old1-zh	PF2D	1	PFD-old.jpg	PFD3 显示部分离型	PF2D-1-zh	2003/10/1	PF2D3 显示部分离型	PF2D.jpg	/sensor/flow/flowfound34343.html			有			pf2d.pdf		PF2D-ZH
+		PFD-old-zh			PFD-old1-zh		2		PFD5 传感器分离型	PF2D-2-zh	2003/10/1	PF2D5 传感器分离型		/sensor/flow/flowfound34343.html								PF2D-ZH
+A10	D-F9□ (V)	D-F9N-old-zh	无触点磁性开关	D-F9□ (V)	D-F9N-old1-zh	D-M9□ (V)	1	D-F9N-old.jpg	D-F9N(V)	D-M9N-1-zh	2004/4/1	D-M9N(V)	D-M9N.jpg	/actuator/autosw/autoswfound33495.html			有		动作范围变短	d-m9.pdf		D-AS1-ZH
+		D-F9N-old-zh			D-F9N-old1-zh		2		D-F9P(V)	D-M9N-2-zh	2004/4/1	D-M9P(V)		/actuator/autosw/autoswfound33495.html								D-AS1-ZH
+		D-F9N-old-zh			D-F9N-old1-zh		3		D-F9B(V)	D-M9N-3-zh	2004/4/1	D-M9B(V)		/actuator/autosw/autoswfound33495.html								D-AS1-ZH
+A10	D-F9□W(V)	D-F9BW-old-zh	无触点磁性开关	D-F9□W(V)	D-F9BW-old1-zh	D-M9□W(V)	1	D-F9BW-old.jpg	D-F9BW(V)	D-M9BW-1-zh	2008/3/1	D-M9BW(V)	D-M9BW.jpg	/actuator/autosw/autoswfound33495.html			有		部分型号的动作范围发生了变化	d-f9.pdf		D-AS1-ZH
+		D-F9BW-old-zh			D-F9BW-old1-zh		2		D-F9NW(V)	D-M9BW-2-zh	2008/3/1	D-M9NW(V)		/actuator/autosw/autoswfound33495.html								D-AS1-ZH
+		D-F9BW-old-zh			D-F9BW-old1-zh		3		D-F9PW(V)	D-M9BW-3-zh	2008/3/1	D-M9PW(V)		/actuator/autosw/autoswfound33495.html								D-AS1-ZH
+A10	D-F9BA□	D-F9BA-old-zh	无触点磁性开关	D-F9BA□	D-F9BA-old1-zh	D-M9BA□	1	D-F9BA-old.jpg	D-F9BA□	D-M9BA-1-zh	2008/4/1	D-M9BA□	D-M9BA.jpg	/actuator/autosw/autoswfound33495.html			有		部分型号的动作范围发生了变化			D-AS1-ZH
+A10	D-P3DW	D-P3DW-old-zh	耐强磁的2色显示式无触点磁性开关	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DW-old1-zh	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	1	D-P3DW-old.jpg	D-P3DW<br/>D-P3DWL<br/>D-P3DWZ<br/>D-P3DWSC<br/>D-P3DWSE	D-P3DWA-1-zh	2017/5/1	D-P3DWA<br/>D-P3DWAL<br/>D-P3DWAZ<br/>D-P3DWASC<br/>D-P3DWASE	D-P3DW.jpg		D-P3DW-old-e.pdf		有					D-AS1-ZH
+A10	ISL	ISL-old-zh	润滑油用压力开关	ISL301	ISL-old1-zh	ISG130-X310/X311	1		ISL301	ISL-1-zh	2017/6/1	ISG130-X310/X311					无
+A10	PF2A7□H	PF2A-old-zh	空气用数字式流量开关/大流量型	PF2A7□H	PF2A-old1-zh	PF3A7□H	1	PF2A-old.jpg	PF2A7□H	PF2A-1-zh	2018/1/1	PF3A7□H	PF3A.jpg		PF2A-old-e.pdf		无					PF3A7_H-ZH
+A10	ISE75	ISE75-old-zh	2色显示式数字式压力传感器	ISE75	ISE75-old1-zh	ISE77G	1	ISE75-old.jpg	ISE75	ISE75-1-zh	2018/7/1	ISE77G	ISE77G.jpg		ISE70-old-e.pdf		无					ISE70-71-L2-ZH
+A10	ISA2	ISA2-old-zh	位置确认用非接触传感器／气动位置传感器	ISA2<br/>IISA2	ISA2-old1-zh	ISA3	1	ISA2-old.jpg	ISA2<br/>IISA2	ISA3-1-zh	2019/3/1	ISA3	ISA3.jpg		ISA2-old-e.pdf		无					ISA3-ZH
+A10	D-M5□	D-M5B-old-zh	无触点磁性开关	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-M5B-old1-zh	D-E73A<br/>D-E76A	1	D-M5B-old.jpg	D-M5B<br/>D-M5N<br/>D-M5P<br/>D-M5BW<br/>D-M5NW<br/>D-M5PW<br/>D-M5NT<br/>D-M5PT	D-E73A-1-zh	2020/3/1	D-E73A<br/>D-E76A	D-E73A.jpg		D-M5B-old-e.pdf				・替换有触点磁性开关后，会无法对应部分功能<br/>・D-M5P/M5BW/M5NW/M5PW/M5NT/M5PT无代替品			D-AS1-ZH
+A10	D-G5NB□	D-G5NB-old-zh	广范围检测型无触点磁性开关	D-G5NB□	D-G5NB-old1-zh	-	1	D-G5NB-old.jpg	D-G5NB□		2020/3/1	-			D-G5NB-old-e.pdf		无
+A11	IZS30	IZS30-old-zh	静电消除器	IZS30	IZS30-old1-zh	IZS40/41/42	1	IZS30-old.jpg	IZS30	IZS40-1-zh	2012/11/1	IZS40/41/42	IZS40.jpg	/electro/electro/electrofound2311.html			无					IZS40-41-42-ZH
+A11	IZN10	IZN10-old-zh	静电消除器/喷嘴型	IZN10	IZN10-old1-zh	IZN10E	1	IZN10-old.jpg	IZN10	IZN10-1-zh	2018/5/1	IZN10E	IZN10E.jpg		IZN10-old-e.pdf		有					IZN10E-E
+A12	VDW30	VDW30-old-zh	水、空气用小型直动2通电磁阀	VDW31	VDW30-old1-zh	VX21	1	VDW30-old.jpg	VDW31	VX21-1-zh	2015/7/1	VX21	VX21-7.jpg		vdw-old-e.pdf		无					VX2-ZH
+A12	VPS	VPS-old-zh	2通电磁阀	VPS2175<br/>VPS2185<br/>VPS2195	VPS-old1-zh	VXP2270<br/>VXP2380<br/>VXP2390	1		VPS2175	VXP-1-zh	2015/4/1	VXP2270	VXP.jpg				无					VXP-ZH
+		VPS-old-zh			VPS-old1-zh		2		VPS2185	VXP-2-zh	2015/4/1	VXP2380										VXP-ZH
+		VPS-old-zh			VPS-old1-zh		3		VPS2195	VXP-3-zh	2015/4/1	VXP2390										VXP-ZH
+A12	VX21/22/23	VX21-1-old-zh	直动型2通电磁阀	VX21/22/23	VX21-1-old1-zh	VX21/22/23	1	VX21-old.jpg	VX21/22/23	VX21-1-1-zh	2012/3/1	VX21/22/23	VX21-1.jpg		VX2-old-e.pdf		有（VX21无：互换型为非标品）					VX2-ZH
+A12	VX21/22/23	VX21-old-zh	直动型2通电磁阀	旧VX21/22/23	VX21-old1-zh	VX21/22/23	1	VX21-old.jpg	旧VX21/22/23	VX21-1-2-zh	2005/4/1	VX21/22/23	VX21-1.jpg		VX2-old-e.pdf		有（VX21无：互换型为非标品）					VX2-ZH
+A12	VCA20/30/40	VCA20-old-zh	空气用直动型2通电磁阀	VCA20/30/40	VCA20-old1-zh	VX21/22/23	1	VCA20-old.jpg	VCA20/30/40	VX21-2-1-zh	2012/3/1	VX21/22/23	VX21-2.jpg	/process/process23vx/process23vxfound34866.html	VCA-old-e.pdf		无					VX2-ZH
+A12	VCW20/30/40	VCW20-old-zh	水用直动型2通电磁阀	VCW20/30/40	VCW20-old1-zh	VX21/22/23	1	VCW20-old.jpg	VCW20/30/40	VX21-3-1-zh	2012/3/1	VX21/22/23	VX21-3.jpg	/process/process23vx/process23vxfound34866.html	VCW-old-e.pdf		无					VX2-ZH
+A12	VCB20/30/40	VCB20-old-zh	温水用直动型2通电磁阀	VCB20/30/40	VCB20-old1-zh	VX21/22/23	1	VCB20-old.jpg	VCB20/30/40	VX21-4-1-zh	2012/10/1	VX21/22/23	VX21-4.jpg	/process/process23vx/process23vxfound34866.html	VCB-old-e.pdf		无					VX2-ZH
+A12	VCL20/30/40	VCL20-old-zh	油用直动型2通电磁阀	VCL20/30/40	VCL20-old1-zh	VX21/22/23	1	VCL20-old.jpg	VCL20/30/40	VX21-5-1-zh	2012/10/1	VX21/22/23	VX21-5.jpg	/process/process23vx/process23vxfound34866.html	VCL-old-e.pdf		无					VX2-ZH
+A12	VCS20/30/40	VCS20-old-zh	蒸汽用直动型2通电磁阀	VCS20/30/40	VCS20-old1-zh	VX21/22/23	1	VCS20-old.jpg	VCS20/30/40	VX21-6-1-zh	2012/10/1	VX21/22/23	VX21-6.jpg	/process/process23vx/process23vxfound34866.html	VCS-old-e.pdf		无					VX2-ZH
+A12	VXF/VXFA	VXF-old-zh	集尘器用2通电磁阀/气控阀	VXF/VXFA	VXF-old1-zh	VXF/VXFA	1	VXF-old.jpg	VXF/VXFA	VXF-1-zh	2012/2/1	VXF/VXFA	VXF.jpg	/process/process23vx/process23vxfound34360.html	VXF-old-e.pdf		随着外观形状的变更，通口位置也会发生变化。					VXF2-VXFA2-ZH
+A12	VXA	VXA-old-zh	直动型气控2通阀	VXA	VXA-old1-zh	VXA	1	VXA-old.jpg	VXA21/22	VXA-1-zh	2010/4/1	VXA21/22	VXA.jpg	/process/process23vx/process23vxfound34362.html	VXA-old-e.pdf		有					VXA-ZH
+A12	VDW10/20	VDW10-old-zh	小型直动2通电磁阀	VDW10/20	VDW10-old1-zh	VDW10/20	1	VDW10-old.jpg	VDW10/20	VDW10-1-zh	2012/12/1	VDW10/20	VDW10.jpg	/process/pspecial/pspecialfound2249.html	VDW-old-e.pdf		有(树脂主体的型号无)	对象型号：N.C.规格、单体规格				VDW-ZH
+A12	VNC	VNC-old-zh	冷却液阀	VNC	VNC-old１-zh	SGC	1	VNC-old.jpg	VNC2155-15A□T□	VNC-1-zh	2014/6/1	SGC221A-0515Y-□T□	SGC.jpg		VNC-old-e.pdf		无					SGC-ZH
+		VNC-old-zh			VNC-old１-zh		2		VNC2155-20A□T□	VNC-2-zh	2014/6/1	SGC321A-0520Y-□T□										SGC-ZH
+		VNC-old-zh			VNC-old１-zh		3		VNC2165-25A□T□	VNC-3-zh	2014/6/1	SGC421A-0525Y-□T□										SGC-ZH
+A12	VXD	VXD-old-zh	先导型2通电磁阀	VXD21/22/23	VXD-old1-zh	VXD23/24/25/26/27/28/29	1	VXD-old.jpg	VXD21/22/23	VXD-1-zh	2015/3/1	VXD23/24/25/26/27/28/29	VXD.jpg		VXD_en_old.pdf		无					VXD-ZH
+A12	VXZ	VXZ-old-zh	零压差动作型·先导型2通电磁阀	VXZ22/23	VXZ-old1-zh	VXZ23/24/25/26	2	VXZ-old.jpg	VXZ22/23	VXZ-2-zh	2015/3/1	VXZ23/24/25/26	VXZ.jpg		VXZ_en_old.pdf		无					VXZ-ZH
+A12	VXS	VXS-old-zh	零压差动作型·先导型2通电磁阀	VXS22/23	VXS-old1-zh	VXS23/24/25/26	3	VXS-old.jpg	VXS22/23	VXS-3-zh	2015/3/1	VXS23/24/25/26	VXS.jpg		VXS_en_old.pdf		无					VXS-2-ZH
+A13	PB1000	PB1000-old-zh	隔膜泵	PB1011<br/>PB1013	PB1000-old1-zh	PB1011A<br/>PB1013A	1	PB1000-old.jpg	PB1011	PB1000A-1-zh	2010/12/1	PB1011A	PB1000A.jpg		PB1000-old-e.pdf		有（订制规格）			pb.pdf		PB-ZH
+		PB1000-old-zh			PB1000-old1-zh		2		PB1013	PB1000A-2-zh	2010/12/1	PB1013A										PB-ZH
+A13	PB1000	PB1000-1-old	隔膜泵	PB1013-X17	PB1000-1-old1-zh	PB1313A	1	PB1000-old.jpg	PB1013-X17	PB1000A-3-zh	2012/2/1	PB1313A	PB1000A.jpg		PB1000-old-e.pdf		有（订制规格）			pb.pdf		PB-ZH
+A13	PA2000	PA2000-old-zh	隔膜泵	PA2000	PA2000-old1-zh	PA3000/PAF3410-X68	1	PA2000-old.jpg	PA2000/PA2200	PA2000-1-zh	2013/7/1	PA3100/PA3200	PA3100.jpg	/processpump/processpump/processpumpfound34390.html			无					PA-PAP-PAX-ZH
+		PA2000-old-zh			PA2000-old1-zh		2		PA2310	PA2000-2-zh	2013/7/1	PAF3410-X68		/processpump/processpump/processpumpfound34392.html								PAF-ZH
+A14	HRG	HRG-old-zh	冷冻式温控器	HRG001/002<br/>HRGC001/002	HRG-old1-zh	HRS012/018/024<br/>HRS012/018/024	1	HRG-old.jpg	HRG001/002	HRS-1-zh	2011/3/1	HRS012/018/024	HRS.jpg		HRGC-old-e.pdf		无					HRS-ZH
+		HRG-old-zh			HRG-old1-zh		2		HRGC001/002	HRS-2-zh	2011/3/1	HRS012/018/024										HRS-ZH
+A14	HRG	HRG-1-old-zh	冷冻式温控器	HRG005<br/>HRGC005	HRG-1-old1-zh	HRS050	1	HRG-old.jpg	HRG005	HRS-3-zh	2011/4/1	HRS050	HRS.jpg		HRGC-old-e.pdf		无					HRS-ZH
+		HRG-1-old-zh			HRG-1-old1-zh		2		HRGC005	HRS-4-zh	2011/4/1	HRS050										HRS-ZH
+A14	HRG	HRG-2-old-zh	冷冻式温控器	HRG010/015	HRG-2old1-zh	HRS100/150	1	HRG-old.jpg	HRG010/015	HRS-5-zh	2014/11/1	HRS100/150	HRS.jpg				无					HRS100-150-ZH
+A14	HEC105/205W	HEC-old-zh	珀耳贴式（高精度）温控器	HEC105<br/>HEC205<br/>INR-244-323	HEC-old１-zh	HEC001<br/>HEC003	1		HEC105	HEC-1-zh	2008/9/1	HEC001	HEC.jpg				有					HEC-ZH
+		HEC-old-zh			HEC-old１-zh		2		HEC205	HEC-2-zh	2008/9/1	HEC003										HEC-ZH
+		HEC-old-zh			HEC-old１-zh		3		INR-244-323	HEC-3-zh	2008/9/1	HEC003										HEC-ZH
+A15	FGB	FGB-old-zh	工业用过滤器	FGB	FGB-old1-zh	FGA	1	FGB-old.jpg	FGB	FGB-1-zh	2014/7/1	FGA	FGA.jpg		FGB-old-e.pdf		无 (滤芯与FGA的相同)					FGA-ZH
+A15	FGF	FGF-old-zh	袋式过滤器	FGF□1A-20-E□A <br/>(滤芯尺寸L440)	FGF-old1-zh	FGF□1A-20-E□B<br/>(滤芯尺寸L440)	1	FGF-old.jpg	FGF□1A-20-E□A <br/>(滤芯尺寸L440)	FGF-1-zh	2009/12/1	FGF□1A-20-E□B<br/>(滤芯尺寸L440)	FGF.jpg		FGF-old-e.pdf		无					FGF-ZH
+A15	FGF	FGF-1-old-zh	袋式过滤器	FGF□1B-20-E□A <br/>(滤芯尺寸L770)	FGF-1-old1-zh	FGF□1B-20-E□B<br/>(滤芯尺寸L770)	1	FGF-old.jpg	FGF□1B-20-E□A <br/>(滤芯尺寸L770)	FGF1B-1-zh	2010/2/1	FGF□1B-20-E□B<br/>(滤芯尺寸L770)	FGF.jpg		FGF-old-e.pdf		无					FGF-ZH
+A15	FGJ	FGJ-old-zh	洗净液用过滤器	FGJ	FGJ-old1-zh	FGD/FQ1	1	FGJ-old.jpg	FGJSA-06-□□□X0	FGD-1-zh	2012/12/1	FGDFA-06	FGD.jpg	/ifilter/ifilter/ifilterfound34396.html			无					FGD-ZH
+		FGJ-old-zh			FGJ-old1-zh		2		FGJSA-06-□□□X0	FGD-2-zh	2012/12/1	FQ1011N-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-ZH
+		FGJ-old-zh			FGJ-old1-zh		3		FGJSB-06-□□□X0	FGD-3-zh	2012/12/1	FGDFB-06		/ifilter/ifilter/ifilterfound34396.html								FGD-ZH
+		FGJ-old-zh			FGJ-old1-zh		4		FGJSB-06-□□□X0	FGD-4-zh	2012/12/1	FQ1012N-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-ZH
+		FGJ-old-zh			FGJ-old1-zh		5		FGJLA-06-□□□X0	FGD-5-zh	2012/12/1	FGDFA-06		/ifilter/ifilter/ifilterfound34396.html								FGD-ZH
+		FGJ-old-zh			FGJ-old1-zh		6		FGJLA-06-□□□X0	FGD-6-zh	2012/12/1	FQ1011V-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-ZH
+		FGJ-old-zh			FGJ-old1-zh		7		FGJLB-06-□□□X0	FGD-7-zh	2012/12/1	FGDFB-06		/ifilter/ifilter/ifilterfound34396.html								FGD-ZH
+		FGJ-old-zh			FGJ-old1-zh		8		FGJLB-06-□□□X0	FGD-8-zh	2012/12/1	FQ1012V-06		/ifilter/ifilter/ifilterfound34404.html								FQ1-ZH
+A15	FGK	FGK-old-zh	洗净液用过滤器	FGK	FGK-old1-zh	FGE	1	FGK-old.jpg	FGKSA-□□-□□□X0	FGE-1-zh	2012/12/1	FGESA-□□-□□□A	FGE.jpg	/ifilter/ifilter/ifilterfound34397.html			无					FGE-ZH
+		FGK-old-zh			FGK-old1-zh		2		FGKSB-□□-□□□X0	FGE-2-zh	2012/12/1	FGESB-□□-□□□A		/ifilter/ifilter/ifilterfound34397.html								FGE-ZH
+		FGK-old-zh			FGK-old1-zh		3		FGKSC-□□-□□□X0	FGE-3-zh	2012/12/1	FGESC-□□-□□□A		/ifilter/ifilter/ifilterfound34397.html								FGE-ZH
+		FGK-old-zh			FGK-old1-zh		4		FGKLA-□□-□□□X0	FGE-4-zh	2012/12/1	FGELA-□□-□□□A		/ifilter/ifilter/ifilterfound34397.html								FGE-ZH
+		FGK-old-zh			FGK-old1-zh		5		FGKLB-□□-□□□X0	FGE-5-zh	2012/12/1	FGELB-□□-□□□A		/ifilter/ifilter/ifilterfound34397.html								FGE-ZH
+		FGK-old-zh			FGK-old1-zh		6		FGKLC-□□-□□□X0	FGE-6-zh	2012/12/1	FGELC-□□-□□□A		/ifilter/ifilter/ifilterfound34397.html								FGE-ZH
+A15	FZ･FGZA	FZ-old-zh	水用塑料过滤器	FZ･FGZA	FZ-old1-zh	-	1		FZ･FGZA	FZ-1-zh	2012/6/1	-
+A15	EHE	EHE-old-zh	PP纤维滤芯	EHE	EHE-old1-zh	-	1		EHE	EHE-1-zh	2014/11/1	-
+A16	LATC4	LATC4-old-zh	卡片电缸/控制器	LATC4	LATC4-old1-zh	LATCA	1	LATC4-old.jpg	LATC4	LATCA-1-zh	2015/8/1	LATCA	LATCA.jpg		LACT4-old-e.pdf		有					LATC4-ZH
+A16	LG1H	LG1H-old-zh	单轴电动执行器	LG1TH	LG1H-old1-zh	LEF	1	LG1H-old.jpg	LG1TH	LEF-1-1-zh	2010/6/1	LEF	LEF-1.jpg		LG1H-old-e.pdf		无			lg1.pdf		LEF-ZH
+A16	LG1H	LG1H-1-old-zh	单轴电动执行器	LG1□S	LG1H-1-old1-zh	LEF	1	LG1H-old.jpg	LG1□S	LEF-1-2-zh	2010/9/1	LEF	LEF-1.jpg		LG1H-old-e.pdf		无			lg1.pdf		LEF-ZH
+A16	LJ1	LJ1-old-zh	单轴电动执行器	LJ1	LJ1-old1-zh	LEF	1	LJ1-old.jpg	LJ1H□S	LEF-2-1-zh	2010/9/1	LEF (一部分为LJ1)	LEF-2.jpg	/electric/eactuator/eactuatorfound34646.html	LJ1-old-e.pdf		无			lj1.pdf		LEF-ZH
+		LJ1-old-zh			LJ1-old1-zh		2		LJ1S	LEF-2-2-zh	2010/9/1	LEF (一部分为LJ1)		/electric/eactuator/eactuatorfound34646.html								LEF-ZH
+A16	LC8	LC8-old-zh	定位驱动器	LC8	LC8-old1-zh	LECS	1	LC8-old.jpg	LC8	LECS-1-1-zh	2010/3/1	LECS	LECS-1.jpg	/electric/electric/electricfound2286.html	LC8-old-e.pdf		无					LECS-ZH
+A16	LC1/LC7R	LC1-old-zh	标准AC伺服电机专用控制器	LC1/LC7R	LC1-old1-zh	LECS	1	LC1-old.jpg	LC1-□ (AC伺服电机专用控制器)	LECS-2-1-zh	2012/9/1	LECS	LECS-2.jpg	/electric/electric/electricfound2286.html	LC1-old-e.pdf		无		LECS系列与LC1系列在功能方面有所不同，变更时请务必确认规格。<br/>执行器也需要随之变更，请注意。			LECS-ZH
+		LC1-old-zh			LC1-old1-zh		2		LC1-1-1-T (示教盒)	LECS-2-2-zh	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-ZH
+		LC1-old-zh			LC1-old1-zh		3		LC7R-□ (再生回收单元)	LECS-2-3-zh	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-ZH
+		LC1-old-zh			LC1-old1-zh		4		LC1-1-1-W (控制器设置软件)	LECS-2-4-zh	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-ZH
+		LC1-old-zh			LC1-old1-zh		5		LC1-1-1 (2) (R)  (连接控制器、线缆)	LECS-2-5-zh	2012/9/1	LECS		/electric/electric/electricfound2286.html								LECS-ZH
+A16	LJ1	LJ1-2old-zh	单轴电动执行器	LJ1	LJ1-2old1-zh	LEF/LEJ	1	LJ1-2old.jpg	LJ1	LEF-3-1-zh	2014/5/1	LEF	LEF-3.jpg		LJ1-old-2-e.pdf		无		规格、安装尺寸、外观尺寸等功能方面有不同的地方，<br/>变更时请务必进行确认。			LEF-ZH
+		LJ1-2old-zh			LJ1-2old1-zh		2		LJ1	LEF-3-2-zh	2014/5/1	LEJ										LEJ-ZH
+A16	LG1	LG1-old-zh	薄型单轴电动执行器	LG1	LG1-old1-zh	LEF/LEJ	1	LG1-old.jpg	LG1	LEF-4-1-zh	2014/5/1	LEF	LEF-3.jpg		LG1-old-e.pdf		无		规格、安装尺寸、外观尺寸等功能方面有不同的地方，<br/>变更时请务必进行确认。			LEF-ZH
+		LG1-old-zh			LG1-old1-zh		2		LG1	LEF-4-2-zh	2014/5/1	LEJ										LEJ-ZH
+A16	LTF	LTF-old-zh	导轨一体型电动执行器	LTF	LTF-old1-zh	LEF/LEJ	1	LTF-old.jpg	LTF	LEF-5-1-zh	2014/5/1	LEF	LEF-3.jpg		LTF-old-e.pdf		无		规格、安装尺寸、外观尺寸等功能方面有不同的地方，<br/>变更时请务必进行确认。			LEF-ZH
+		LTF-old-zh			LTF-old1-zh		2		LTF	LEF-5-2-zh	2014/5/1	LEJ										LEJ-ZH
+A16	LXF,LXP,LXS	LX-old-zh	短行程电动执行器	LXF<br/>LXP<br/>LXS	LX-old1-zh	LEYG<br/>LEYG<br/>LES, LESH	1	LX-old.jpg	LXF	LEYG-1-zh	2014/5/1	LEYG	LEGY-1.jpg		LX-old-e.pdf		无		规格、安装尺寸、外观尺寸等功能方面有不同的地方，<br/>变更时请务必进行确认。			LEYG-ZH
+		LX-old-zh			LX-old1-zh		2		LXP	LEYG-2-zh	2014/5/1	LEYG										LEYG-ZH
+		LX-old-zh			LX-old1-zh		3		LXS	LEYG-3-zh	2014/5/1	LES, LESH										LES-ZH
+A16	LC6	LC6-old-zh	步进电机驱动器/定位驱动器	LC6D<br/>LC6C	LC6-old1-zh	LEC	1	LE6-old.jpg	LC6D	LEC-1-zh	2014/5/1	LEC	LEC-1.jpg	/products/en/electric/s.do?ca_id=628	LC6-old-e.pdf		无		规格、安装尺寸、外观尺寸等功能方面有不同的地方，<br/>变更时请务必进行确认。
+		LC6-old-zh			LC6-old1-zh		2		LC6C	LEC-2-zh	2014/5/1	LEC		/products/en/electric/s.do?ca_id=628
+A16	E-MY2	E-MY2-old-zh	e-无杆缸	E-MY2	E-MY2-old1-zh	LEM	1	E-MY2-old.jpg	E-MY2B	LEM-1-1-zh	2014/3/1	LEMB	LEM-1.jpg		E-MY2-old-e.pdf		有		外形尺寸有变更。			LEM-ZH
+		E-MY2-old-zh			E-MY2-old1-zh		2		E-MY2C	LEM-1-2-zh	2014/3/1	LEMC										LEM-ZH
+		E-MY2-old-zh			E-MY2-old1-zh		3		E-MY2H	LEM-1-3-zh	2014/3/1	LEMH										LEM-ZH
+		E-MY2-old-zh			E-MY2-old1-zh		4		E-MY2HT	LEM-1-4-zh	2014/3/1	LEMHT										LEM-ZH
+A17	IP100, 110	IP100-old-zh	阀定位器	IP100, 110	IP100-old1-zh	IP5000	1	IP100-old.jpg	IP100-, IP110-, 2103-, INI216系列的全部型号	IP5000-1-zh	2006/3/1	IP5000	IP5000.jpg				无					IP5000-5100-ZH
+A17	IP6000	IP6000-old-zh	电-气定位器	IP6000	IP6000-old1-zh	IP8000	1	IP6000-old.jpg	IP6000	IP8000-1-zh	2013/7/1	IP8000	IP8000.jpg	/keiso/positioner/positionerfound34659.html			有					IP8_00%2fIP8_01-ZH
+		IP6000-old-zh			IP6000-old1-zh		2		IP6100	IP8000-2-zh	2013/7/1	IP8100		/keiso/positioner/positionerfound34659.html								IP8_00%2fIP8_01-ZH
+A18	先导通口M5规格　LVA20/LVC20	LV20-old-zh	化学液用气控阀	LVC20-S<br/>LVA20	LV20-old1-zh	LVC20-S-Z<br/>LVA20-Z	1	LV20-old.jpg	LVC20-S	LV20-1-zh	2015/3/1	LVC20-S-Z	LV20-Z.jpg				有（先导通口螺纹尺寸由M5×0.8变更为RC、NPT、PF1/8）					LVC-ZH
+		LV20-old-zh			LV20-old1-zh		2		LVA20	LV20-2-zh	2015/3/1	LVA20-Z										LVA-ZH
+A18	LQ-G	LQ-G-old-zh	氟树脂管接头 安装工具	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-old1-zh	LQ-GR	1	LQ-G-old.jpg	LQ-GA<br/>LQ-GB<br/>LQ-GC<br/>LQ-GL<br/>LQ-GM	LQ-G-1-zh	2015/5/1	LQ-GR	LQ-G.jpg		/catalog/SMC-HP-PDF/smc-lq1-2-m-a-en.pdf
+A19	XSA	XSA-old-zh	高真空直动电磁阀	XSA	XSA-old1-zh	XSA	1	XSA-old.jpg	XSA	XSA-1-zh	2015/3/1	XSA	XSA.jpg		XSA_en_old.pdf		有 (外形尺寸有变更。）					XSA-2-ZH
+A19	XL□	XLA-old-zh	铝制高真空L型阀	XLA<br/>XLAV<br/>XLC<br/>XLF<br/>XLFV<br/>XLG	XLA-old1-zh	XLA-2<br/>XLAV-2<br/>XLC-2<br/>XLF-2<br/>XLFV-2<br/>XLG-2	1	XLA-old.jpg	XLA	XLA-1-zh	2017/9/1	XLA-2	XLA-2.jpg		XLA-old-e.pdf		有（产品全长有变更）					XLA-ZH
+		XLA-old-zh			XLA-old1-zh		2		XLAV	XLA-2-zh	2017/9/1	XLAV-2										XLA-ZH
+		XLA-old-zh			XLA-old1-zh		3		XLC	XLA-3-zh	2017/9/1	XLC-2										XLA-ZH
+		XLA-old-zh			XLA-old1-zh		4		XLF	XLA-4-zh	2017/9/1	XLF-2										XLA-ZH
+		XLA-old-zh			XLA-old1-zh		5		XLFV	XLA-5-zh	2017/9/1	XLFV-2										XLA-ZH
+		XLA-old-zh			XLA-old1-zh		6		XLG	XLA-6-zh	2017/9/1	XLG-2										XLA-ZH
+A20	HOW	HOW-old-zh	浮动管板式油冷却器	HOW	HOW-old1-zh	HOWF	1	HOW-old.jpg	HOW	HOW-1-zh	2022/7/1	HOWF	HOWF.jpg		HOW-old-e.pdf		有 					HOWF-ZH

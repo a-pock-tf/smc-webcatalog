@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/category/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+		<h4 class="ui dividing header">[[${category.name}]] Narrow down Value</h4>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/category/narrowdown/value/post}" th:object="${narrowDownValueForm}"
+            class="ui small form">
+            <input type="hidden" name="categoryId" th:value="${categoryId}" />
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+			<div class="ui positive message" th:if="${is_success}">
+              <div class="header" th:text="#{msg.update.success}">Success</div>
+            </div>
+            <div class="ui negative message" th:if="${is_error}">
+              <div class="header" th:text="${is_error}">Error</div>
+            </div>
+                
+            <table class="ui selectable small striped table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Series ID</th>
+          <th th:each="col : *{columns}">[[${col}]]</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr th:each="seriesValue, st : *{seriesList}">
+          <td colspan="">
+			  <input type="hidden" name="id" th:field="*{seriesList[__${st.index}__].id}" />
+			  [[${seriesValue.name}]]
+          </td>
+          <td>
+			  <input type="hidden" name="seriesId" th:field="*{seriesList[__${st.index}__].seriesId}" />
+			  <input type="hidden" name="modelNumber" th:field="*{seriesList[__${st.index}__].modelNumber}" />
+			  [[${seriesValue.modelNumber}]]
+		  </td>
+          <td th:each="pm, st2 : ${seriesValue.params}">
+            <input type="text" name="pm" th:field="*{seriesList[__${st.index}__].params[__${st2.index}__]}" placeholder="1,2,3 (comma separated value) or 1-2 (if range column, hyphen separated value)"/>
+            <input type="hidden" name="idList" th:field="*{seriesList[__${st.index}__].idList[__${st2.index}__]}" />
+          </td>
+        </tr>
+      </tbody>
+            </table>
+            <button class="ui tiny positive button" type="submit" th:if="${SessionScreenState.state.equals('TEST')}">
+              <i class="save icon"></i>[[#{act.save}]]
+            </button>
+          </form>
+        </div>
+
+        
+      </div>
+
+    </div>
+
+<div th:if="${SessionScreenState.type.equals('CATALOG')} and ${SessionScreenState.layer1Category == false} ">
+	<a href=""  th:href="@{|/login/admin/category/narrowdown/valueCSV/${categoryId}|}">CSVダウンロード</a>&nbsp;&nbsp;<br>
+	<div>CSVアップロード<br>
+	<form method="post" th:action="@{/login/admin/category/narrowdown/valueCSV/post}" enctype="multipart/form-data">
+		<input type="hidden" name="categoryId" th:value="${categoryId}">
+		<input type="file" name="file">
+		<br>*ファイルの文字コード : ja-jp,en-jp「Shift-JIS」 zh-ch,zh-tw 「UTF-8」<br> <input type="submit" name="upload"></form>
+	</div>
+</div>
+
+</div><!-- end contents -->
+</body>
+</html>

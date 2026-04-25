@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <!--/*<meta charset="UTF-8">*/-->
+  <style>
+  .ui.striped.table tbody tr:nth-child(2n), .ui.striped.table>tr:nth-child(2n) {
+    background-color: rgba(0,0,50,.04);
+  }
+  </style>
+  <title>Login</title>
+</head>
+
+<body>
+
+  <!-- nav -->
+  <div layout:fragment="main_nav">
+  <!-- nav -->
+  <div class="ui top --fixed pointing menu">
+    <!-- 検索用 -->
+    <script>
+      $(function () {
+        //search action
+        $("#search_button").click(function () {
+          if ($("#search_keyword").val() == "") return false;
+          if ($("#search_url").val().indexOf("other") > 0) {
+        	  var url = $("#search_url").val();
+              location.href = url.replace("/?type=other", "") + "/search?keyword=" +$("#search_keyword").val() + "&type=other";
+          } else {
+              location.href = $("#search_url").val() + "/search?keyword=" +$("#search_keyword").val();
+          }
+        });
+      });
+    </script>
+
+    <a href="#"  th:href="@{|/login/admin/welcome|}" class="header item"><img class="logo" th:src="@{/images/logo.png}" src="../../static/images/logo.png"
+        alt="SMC" style="width:70px;"></a>
+    <a th:class="(${SessionScreenState.view} == 'CATEGORY')? 'active item' : 'item'" th:href="@{/login/admin/category/}"><i class="folder icon"></i>[[#{g.category}]]</a>
+    <a th:class="(${SessionScreenState.view} == 'OTHER' )? 'active item' : 'item'" th:href="@{/login/admin/category/other/}"><i class="folder outline icon"></i>[[#{g.category.other}]]</a>
+    <a th:class="(${SessionScreenState.view} == 'SERIES')? 'active item' : 'item'" th:href="@{/login/admin/series/}"><i class="cubes icon"></i>[[#{g.series}]]</a>
+    <div class="ui search item borderless">
+      <div class="ui action input">
+        <input id="search_keyword"  type="text" placeholder="ID,Name" th:value="${keyword}">
+        <input id="search_url" type="hidden" th:value="@{'/login/admin/'+ ${SessionScreenState.CategoryOrSeriesUrl}}">
+        <button id="search_button" class="ui icon button">
+        <i  class="search icon" ></i>
+        </button>
+      </div>
+      <div class="results">
+      </div>
+    </div>
+    <div class="right menu">
+      <div class="item borderless" th:if="(${SessionScreenState.view} != 'USER' and ${SessionScreenState.view} != 'LANG' )">
+        <div class="tiny ui buttons" style="margin-right:1rem;" th:if="(${SessionScreenState.view} != 'SERIES_LINK_MASTER')">
+          <a th:if="(${SessionScreenState.view} != 'SERIES' and ${SessionScreenState.view} == 'CATEGORY')" th:href="@{/login/admin/category?state=TEST}" th:class="${SessionScreenState.prod}? 'ui button ' : 'ui button green'">[[#{ModelState.TEST}]]</a>
+          <a th:if="(${SessionScreenState.view} != 'SERIES' and ${SessionScreenState.view} == 'OTHER')" th:href="@{/login/admin/category/other/?state=TEST}" th:class="${SessionScreenState.prod}? 'ui button ' : 'ui button green'">[[#{ModelState.TEST}]]</a>
+          <a th:if="(${SessionScreenState.view} == 'SERIES')" th:href="@{/login/admin/series?state=TEST}" th:class="${SessionScreenState.prod}? 'ui button ' : 'ui button green'">[[#{ModelState.TEST}]]</a>
+          <div class="or" data-text="or">
+          </div>
+          <a th:if="(${SessionScreenState.view} != 'SERIES' and ${SessionScreenState.view} == 'CATEGORY')" th:href="@{/login/admin/category?state=PROD}" th:class="${SessionScreenState.prod}? 'ui button blue' : 'ui button '">[[#{ModelState.PROD}]]</a>
+          <a th:if="(${SessionScreenState.view} != 'SERIES' and ${SessionScreenState.view} == 'OTHER')" th:href="@{/login/admin/category/other/?state=PROD}" th:class="${SessionScreenState.prod}? 'ui button blue' : 'ui button '">[[#{ModelState.PROD}]]</a>
+          <a th:if="(${SessionScreenState.view} == 'SERIES')" th:href="@{/login/admin/series?state=PROD}" th:class="${SessionScreenState.prod}? 'ui button blue' : 'ui button '">[[#{ModelState.PROD}]]</a>
+        </div>
+        <div class="ui simple dropdown">
+          <i class="globe icon"></i> [[${SessionScreenState.lang}]] <i class="dropdown icon"></i>
+          <div class="menu">
+            <a th:each="lang : ${application.LANG_VIEW_LIST}" th:if="${SessionUser.isEditableLang(__lang.name__)}" th:class="(${SessionScreenState.lang == lang.name})? 'active selected item' : 'item'" th:href="@{'/login/admin/'+ ${SessionScreenState.LangSelectedUrl}(lang=${lang.name})}">[[${lang.name}]]</a>
+          </div>
+        </div>
+      </div>
+      <a th:if="${SessionUser.admin}" th:class="(${SessionScreenState.view} == 'SERIES_LINK_MASTER')? 'active item' : 'item'" th:href="@{/login/admin/serieslinkmaster}">
+        <i class="cog icon"></i>[[#{g.serieslinkmaster}]] </a>
+      <a th:if="${SessionUser.admin}" th:class="(${SessionScreenState.view} == 'LANG')? 'active item' : 'item'" th:href="@{/login/admin/lang}">
+        <i class="cog icon"></i>[[#{g.lang}]] </a>
+      <a th:if="${SessionUser.admin}" th:class="(${SessionScreenState.view} == 'USER')? 'active item' : 'item'" th:href="@{/login/admin/user}">
+        [[${SessionUser.name}]]</a>
+      <a th:unless="${SessionUser.admin}" th:class="(${SessionScreenState.view} == 'USER')? 'active item' : 'item'" th:href="@{/login/admin/user/password}">
+        [[${SessionUser.name}]]</a>
+      <a class="item" th:href="@{/login/logout/?logout=1}">
+        <i class="logout icon"></i>[[#{act.logout}]] </a>
+    </div>
+  </div>
+  <!-- end nav -->
+
+  </div>
+  <!-- end nav -->
+
+
+</body>
+
+</html>

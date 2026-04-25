@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.user}">User</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/lang/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+		<p>If you want to replace HTML, please leave it empty and click 'Save' button. Get it automatically from HeartCore. <br>
+<font color="red">* After replace, please check &lt;base&gt; tag.</font></p>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/lang/template/post}" th:object="${templateForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+
+
+
+            <div class="field">
+              <label for="">Lang name</label>
+              [[*{lang}]]<input type="hidden" name="lang" th:value="*{lang}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('lang')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">HeartCoreID</label>
+              <input name="heartCoreId" placeholder="input 'HeartCore WebCatalog Top ID'"  th:value="*{heartCoreId}"/><input type="checkbox" value="1" name="replace">Replace
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('heartCoreId')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">HTML of Header</label>
+              <textarea name="header" placeholder="If you want to replace it, please 'replace' check."  th:field="*{header}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('header')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">HTML of Contents</label>
+              <textarea name="contents" placeholder="If you want to replace it, please 'replace' check."  th:field="*{contents}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('contents')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">HTML of Footer</label>
+              <textarea name="footer" placeholder="If you want to replace it, please 'replace' check."  th:field="*{footer}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('footer')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">Memo</label>
+              <textarea name="memo" placeholder="memo"  th:field="*{memo}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('memo')}" th:text="${err}" /></ul>
+            </div>
+            
+            <div class=" field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+
+            <button class="ui tiny positive button" type="submit">
+              <i class="save icon"></i>Save
+            </button>
+            <button class="ui tiny primary button" type="submit" th:if="*{state.toString()} == 'TEST'" onclick="ToProd();">
+              <i class="save icon"></i>Save &amp; Prod
+            </button>
+            <input type="hidden" id="toProd" name="toProd" value="0" />
+            <a class="ui tiny button" th:href="@{|/login/admin/lang/|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+<script>
+	function ToProd() {
+		$("#toProd").val("1");
+	}
+</script>
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" th:if="*{id}" th:value="*{id}" />
+              state:<input type="text" name="state" th:value="*{state}" />
+              stateRefId:<input type="text" name="stateRefId" th:value="*{stateRefId}" />
+            </div>
+          </form>
+        </div>
+
+        <div class="column col_compare_dst" style="display:none">
+          <h4 class="ui dividing header">
+            en-jp
+            <a class="ui mini fitted label act_compare_close"><i class="x icon"></i>[[#{msg.close}]]</a>
+          </h4>
+
+
+        </div>
+      </div>
+
+      <div class="ui vertical divider divider_compare" style="display:none">
+        <i class="columns grey icon"></i>
+      </div>
+    </div>
+
+
+</div><!-- end contents -->
+</body>
+</html>

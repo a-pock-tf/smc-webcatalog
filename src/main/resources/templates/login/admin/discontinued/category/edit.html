@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login_discontinued}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/discontinued/category/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 比較グリッド表示用 -->
+    <script>
+      $(function () {
+        //$(".col_compare_src").css('width','100%');
+        //$(".col_compare_dst").hide();
+
+        //comapre action
+        $(".act_compare").click(function () {
+          $(".grid_compare").removeClass("one column");
+          $(".grid_compare").addClass("two column");
+          $(".col_compare_dst").show();
+          $(".divider_compare").show();
+          $(".hidden.message").show();
+        });
+        //comapre action
+        $(".act_compare_close").click(function () {
+          $(".col_compare_dst").hide();
+          $(".divider_compare").hide();
+          $(".grid_compare").removeClass("two column");
+          $(".grid_compare").addClass("one column");
+          $(".hidden.message").hide();
+        });
+      });
+      var url = '[[@{/login/admin/discontinued/api/category/}]]';
+      function compare(lang, id) {
+        $.ajax({
+        	  type: 'GET',
+        	  url: url + id + '/' + lang,
+        	  dataType: 'json'
+        })
+        .then(function(json) {
+	    	$('#compare_disp').text(json.lang);
+	    	$('#compare_name').val(json.name);
+ 	    	$('#compare_slug').val(json.slug);
+ 	    	$('#compare_active').prop('checked',json.active);
+ 	    	$('#compare_id').val(json.id);
+ 	    	$('#compare_oldId').val(json.oldId);
+ 	    	$('#compare_state').val(json.state);
+ 	    	$('#compare_lang').val(json.lang);
+ 	    	$('#compare_stateRefId').val(json.stateRefId);
+ 	    	$('#compare_langRefId').val(json.langRefId);
+        	  },
+        	  function() {
+        	    console.log('読み込みに失敗しました');
+        	  }
+    	);
+      }
+
+    </script>
+
+
+    <!-- 言語選択 -->
+    <div class="ui secondary pointing menu">
+
+      <a th:each="lang : ${application.LANG_VIEW_LIST}" th:if="${SessionUser.isEditableLang(__lang.name__) and langRefList != null}"
+        th:class="(${SessionScreenState.lang == lang.name})? 'active selected item' : 'item'"
+        th:href="${#lists.contains(langRefList, lang.name)} ? '/webcatalog/login/admin/discontinued/category/edit/'+${langBaseId}+'/lang/'+${lang.name} : '/webcatalog/login/admin/discontinued/category/new/'+${langBaseId}+'/lang/'+${lang.name}">
+        <i th:class="${#lists.contains(langRefList, lang.name)} ? 'linkify icon' : 'icon'"></i>[[${lang.name}]]</a>
+      <a class='active selected item' th:if="${langRefList == null}"  >[[${categoryForm.lang}]]</a>
+
+      <div class="right menu">
+        <div class="item" th:if="${langRefList != null}" >
+          <div class="ui icon top right pointing dropdown">
+            <i class="columns icon"></i> [[#{view.form.compare}]] <i class="dropdown icon"></i>
+            <div class="menu">
+              <!-- <a th:each="lang : ${application.LANG_VIEW_LIST}"  th:if="${SessionUser.isEditableLang(__lang.name__)}"  -->
+              <a th:each="lang : ${application.LANG_VIEW_LIST}"
+               th:attr="onclick='compare(\'' + ${lang.name} + '\',\'' + ${categoryForm.id} + '\');'"
+               th:class="${#lists.contains(langRefList, lang.name)} ? 'item act_compare' : 'item disabled'">[[${lang.name}]]</a>
+              <a th:if="(${diffCategory != null} and ${diffCategory.state} == 'TEST')" class="item act_compare"
+                th:attr="onclick='compare(\'' + ${categoryForm.lang} + '\', \'' + ${diffCategory.id} + '\');'" >
+                <span class="ui green label">[[#{ModelState.TEST}]]</span>[[${#calendars.format(diffCategory.mtime,'yyy/MM/dd HH:mm')}]]</a>
+              <a th:if="(${diffCategory != null} and ${diffCategory.state} != 'TEST')" class="item act_compare"
+                th:attr="onclick='compare(\'' + ${categoryForm.lang} + '\', \'' + ${diffCategory.id} + '\');'" >
+                <span class="ui blue label">[[#{ModelState.PROD}]]</span>[[${#calendars.format(diffCategory.mtime,'yyy/MM/dd HH:mm')}]]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+          <h4 class="ui dividing header">[[${categoryForm.lang}]]</h4>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/discontinued/category/post}" th:object="${categoryForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="${is_error}">Error</div>
+                </div>
+                <div class="ui negative message" th:if="${param.notParent}">
+                  <div class="header" th:text="#{msg.update.not.parent}">Error</div>
+                </div>
+                <div class="ui negative message" th:if="${param.notTest}">
+                  <div class="header" th:text="#{msg.update.not.test}">Error</div>
+                </div>
+
+
+
+
+            <div class="required field">
+              <label for="">Category name</label>
+              <input type="text" name="name" th:value="*{name}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('name')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Slug</label>
+              <input type="text" name="slug" th:placeholder="#{msg.unique}" th:value="*{slug}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('slug')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+
+            <button class="ui tiny positive button" type="submit">
+              <i class="save icon"></i>[[#{act.save}]]
+            </button>
+            <a th:if="${SessionScreenState.BackToList == true}" class="ui tiny button" th:href="@{|${SessionScreenState.backUrl}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+            <a th:if="${SessionScreenState.BackToList == false}" class="ui tiny button" th:href="@{|${SessionScreenState.backUrl}?keyword=${SessionScreenState.keyword}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" th:if="*{id}" th:value="*{id}" />
+              oldId:<input type="text" name="oldId" th:if="*{oldId}" th:value="*{oldId}" />
+              state:<input type="text" name="state" th:value="*{state}" />
+              lang:<input type="text" name="lang" th:value="*{lang}" />
+              stateRefId:<input type="text" name="stateRefId" th:value="*{stateRefId}" />
+              langRefId:<input type="text" name="langRefId" th:value="*{langRefId}" />
+            </div>
+          </form>
+        </div>
+
+        <!-- compare start -->
+        <div class="column col_compare_dst" style="display:none">
+          <h4 class="ui dividing header">
+            <span id="compare_disp">en-jp</span>
+            <a class="ui mini fitted label act_compare_close"><i class="x icon"></i>[[#{msg.close}]]</a>
+          </h4>
+
+          <!--form ja-jp -->
+          <form id="form_compare" name="form_compare" action="" class="ui small form">
+            <div class="required field">
+              <label for="">Category name</label>
+              <input type="text" id="compare_name" name="name" value="Pilot Operated 4/5 Port Solenoid Valves" />
+            </div>
+            <div class="required field">
+              <label for="">Slug</label>
+              <input type="text" id="compare_slug"  name="slug" value="4_5valve" />
+            </div>
+
+            <div class="required field">
+              <label for="">Active</label>
+              <input type="checkbox" id="compare_active" name="active" value="on"  />
+            </div>
+            <p></p>
+            <!-- <button class="ui tiny positive button" type="submit">
+              <i class="save icon"></i>Save
+            </button> -->
+            <a th:if="${SessionScreenState.BackToList == true}" class="ui tiny button" th:href="@{|${SessionScreenState.backUrl}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+            <a th:if="${SessionScreenState.BackToList == false}" class="ui tiny button" th:href="@{|${SessionScreenState.backUrl}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" id="compare_id" name="id"  />
+              oldId:<input type="text" id="compare_oldId" name="oldId"  />
+              state:<input type="text" id="compare_state" name="state"  />
+              lang:<input type="text" id="compare_lang" name="lang"  />
+              stateRefId:<input type="text" id="compare_stateRefId"  />
+              langRefId:<input type="text" id="compare_langRefId"  />
+            </div>
+          </form>
+        </div>
+        <!-- compare end -->
+      </div>
+
+      <div class="ui vertical divider divider_compare" style="display:none">
+        <i class="columns grey icon"></i>
+      </div>
+    </div>
+
+  <!-- DEBUG:  -->
+  <p class="ui top attached block header">
+  <span><i class="bug icon"></i>debug</span>
+  </p>
+
+  <div class="ui bottom attached segment">
+	<!-- Categoryがあればdebug -->
+    <div th:if="${category}">
+        <a th:href="@{|/login/admin/api/discontinued/category/${category.id}|}" id="json_url"></a>
+        <div class="jsoncode ui" id="json-renderer"></div>
+        <script>
+          $(function () {
+            getJSONAndRendar($("#json_url").attr("href"), "json-renderer");
+          });
+        </script>
+    </div>
+
+  </div> <!-- end segment -->
+  <!-- DEBUG:  -->
+
+
+</div><!-- end contents -->
+</body>
+</html>

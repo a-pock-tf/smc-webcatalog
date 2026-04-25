@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <title>index</title>
+  <meta name="description" content="個別metaグ">
+</head>
+
+<body>
+
+  <div layout:fragment="contents">
+    <!--ApplicatonスコープのBean-->
+    <p th:text="${@testCategory.name}"></p>
+
+    <!--application.propertiesへのアクセス-->
+    <p th:text="${@environment.getProperty('my.secret')}"></p>
+
+  </div><!-- end contents -->
+
+</body>
+
+</html>

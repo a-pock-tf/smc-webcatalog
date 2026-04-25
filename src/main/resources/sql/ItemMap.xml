@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <typeAlias alias="ImpDbItem" type="com.smc.webcatalog.model.ImpDbItem" />
+
+    <resultMap id="DbItemResult" class="ImpDbItem">
+    	<result property="id" column="it_id"/>
+    	<result property="sid" column="it_sid"/>
+
+		<result property="se_id" column="se_id"/>
+		<result property="name" column="it_name"/>
+		<result property="name2" column="it_name2"/>
+		<result property="text" column="it_text"/>
+		<result property="text2" column="it_text2"/>
+		<result property="order" column="it_order"/>
+		<result property="pdf1" column="it_pdf1"/>
+		<result property="pdf2" column="it_pdf2"/>
+		<result property="pdf3" column="it_pdf3"/>
+		<result property="pdf1_page" column="it_pdf1_page"/>
+		<result property="pdf2_page" column="it_pdf2_page"/>
+		<result property="pdf3_page" column="it_pdf3_page"/>
+
+		<result property="cad1" column="it_cad1"/>
+		<result property="cad2" column="it_cad2"/>
+		<result property="cad3" column="it_cad3"/>
+		<result property="img1" column="it_img1"/>
+		<result property="img2" column="it_img2"/>
+		<result property="img3" column="it_img3"/>
+		<result property="link1" column="it_link1"/>
+		<result property="link2" column="it_link2"/>
+		<result property="link3" column="it_link3"/>
+		<result property="link4" column="it_link4"/>
+		<result property="link5" column="it_link5"/>
+		<result property="link6" column="it_link6"/>
+		<result property="link7" column="it_link7"/>
+		<result property="link8" column="it_link8"/>
+		<result property="link9" column="it_link9"/>
+		<result property="link10" column="it_link10"/>
+
+		<result property="webcatalog" column="it_webcatalog"/>
+		<result property="lang" column="it_lang"/>
+
+
+		<result property="c1" column="c1"/>
+		<result property="c2" column="c2"/>
+		<result property="c3" column="c3"/>
+		<result property="c4" column="c4"/>
+		<result property="c5" column="c5"/>
+		<result property="c6" column="c6"/>
+		<result property="c7" column="c7"/>
+		<result property="c8" column="c8"/>
+		<result property="c9" column="c9"/>
+		<result property="c10" column="c10"/>
+		<result property="c11" column="c11"/>
+		<result property="c12" column="c12"/>
+		<result property="c13" column="c13"/>
+		<result property="c14" column="c14"/>
+		<result property="c15" column="c15"/>
+		<result property="c16" column="c16"/>
+		<result property="c17" column="c17"/>
+		<result property="c18" column="c18"/>
+		<result property="c19" column="c19"/>
+		<result property="c20" column="c20"/>
+		<result property="c21" column="c21"/>
+		<result property="c22" column="c22"/>
+		<result property="c23" column="c23"/>
+		<result property="c24" column="c24"/>
+		<result property="c25" column="c25"/>
+		<result property="c26" column="c26"/>
+		<result property="c27" column="c27"/>
+		<result property="c28" column="c28"/>
+		<result property="c29" column="c29"/>
+		<result property="c30" column="c30"/>
+		<result property="c31" column="c31"/>
+		<result property="c32" column="c32"/>
+		<result property="c33" column="c33"/>
+		<result property="c34" column="c34"/>
+		<result property="c35" column="c35"/>
+		<result property="c36" column="c36"/>
+		<result property="c37" column="c37"/>
+		<result property="c38" column="c38"/>
+		<result property="c39" column="c39"/>
+		<result property="c40" column="c40"/>
+		<result property="c41" column="c41"/>
+		<result property="c42" column="c42"/>
+		<result property="c43" column="c43"/>
+		<result property="c44" column="c44"/>
+		<result property="c45" column="c45"/>
+		<result property="c46" column="c46"/>
+		<result property="c47" column="c47"/>
+		<result property="c48" column="c48"/>
+		<result property="c49" column="c49"/>
+		<result property="c50" column="c50"/>
+		<result property="active" column="it_active"/>
+		<result property="ctime" column="ctime"/>
+		<result property="mtime" column="mtime"/>
+		<result property="by" column="by"/>
+	</resultMap>
+
+
+    <insert id="insertItem" parameterClass="ImpDbItem">
+
+		insert into item (
+		it_id,se_id,it_name,it_name2,it_text,it_text2,it_order,
+		it_pdf1,it_pdf2,it_pdf3,it_pdf1_page,it_pdf2_page,it_pdf3_page,it_cad1,it_cad2,it_cad3,it_img1,it_img2,it_img3,
+		it_link1,it_link2,it_link3,it_link4,it_link5,
+		it_link6,it_link7,it_link8,it_link9,it_link10,
+		c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,
+		c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,
+		it_active,ctime,mtime,by,it_sid,it_webcatalog,it_lang)
+		values (
+		#id#,#se_id#,#name#,#name2#,#text#,#text2#,#order#,#pdf1#,#pdf2#,#pdf3#,#pdf1_page#,#pdf2_page#,#pdf3_page#,#cad1#,#cad2#,#cad3#,#img1#,#img2#,#img3#,
+		#link1#,#link2#,#link3#,#link4#,#link5#,
+		#link6#,#link7#,#link8#,#link9#,#link10#,
+
+		#c1#,#c2#,#c3#,#c4#,#c5#,#c6#,#c7#,#c8#,#c9#,#c10#,#c11#,#c12#,#c13#,#c14#,#c15#,#c16#,#c17#,#c18#,#c19#,#c20#,#c21#,#c22#,#c23#,#c24#,#c25#,
+		#c26#,#c27#,#c28#,#c29#,#c30#,#c31#,#c32#,#c33#,#c34#,#c35#,#c36#,#c37#,#c38#,#c39#,#c40#,#c41#,#c42#,#c43#,#c44#,#c45#,#c46#,#c47#,#c48#,#c49#,#c50#,
+		#active#,#ctime#,#mtime#,#by#,#sid#,#webcatalog#,#lang#)
+
+    </insert>
+
+    <update id="updateItem" parameterClass="ImpDbItem">
+
+	  update item
+		set
+		se_id=#se_id#, it_name=#name#, it_name2=#name2#, it_text=#text#, it_text2=#text2#,it_order=#order#, it_pdf1=#pdf1#, it_pdf2=#pdf2#, it_pdf3=#pdf3#,
+		it_pdf1_page=#pdf1_page#,it_pdf2_page=#pdf2_page#,it_pdf3_page=#pdf3_page#,
+		it_cad1=#cad1#, it_cad2=#cad2#, it_cad3=#cad3#, it_img1=#img1#, it_img2=#img2#, it_img3=#img3#,
+		it_link1=#link1#, it_link2=#link2#, it_link3=#link3#, it_link4=#link4#, it_link5=#link5#,
+		it_link6=#link6#, it_link7=#link7#, it_link8=#link8#, it_link9=#link9#, it_link10=#link10#,
+		c1=#c1#, c2=#c2#, c3=#c3#, c4=#c4#, c5=#c5#, c6=#c6#, c7=#c7#, c8=#c8#, c9=#c9#, c10=#c10#, c11=#c11#, c12=#c12#, c13=#c13#, c14=#c14#, c15=#c15#,
+		c16=#c16#, c17=#c17#, c18=#c18#, c19=#c19#, c20=#c20#, c21=#c21#, c22=#c22#, c23=#c23#, c24=#c24#, c25=#c25#, c26=#c26#, c27=#c27#, c28=#c28#,
+		c29=#c29#, c30=#c30#, c31=#c31#, c32=#c32#, c33=#c33#, c34=#c34#, c35=#c35#, c36=#c36#, c37=#c37#, c38=#c38#, c39=#c39#, c40=#c40#, c41=#c41#,
+		c42=#c42#, c43=#c43#, c44=#c44#, c45=#c45#, c46=#c46#, c47=#c47#, c48=#c48#, c49=#c49#, c50=#c50#,
+	   it_active=#active#, ctime=#ctime#, mtime=#mtime#, by=#by# ,
+	   it_sid=#sid#, it_webcatalog=#webcatalog# ,it_lang = #lang#
+	   where it_id=#id#
+
+
+    </update>
+
+
+
+    <update id="updateItemOrder" parameterClass="ImpDbItem">
+    	update item set it_order=#order# where it_id=#id#
+	</update>
+
+    <select id="getItem" resultMap="DbItemResult">
+		select * from item where it_id=#id#
+    </select>
+
+    <select id="getItemOtherBySid" parameterClass="ImpDbItem" resultMap="DbItemResult">
+		select * from item where it_sid=#sid# and it_id!=#id#
+    </select>
+
+    <sql id="sql_it_active">
+	<isNotNull property="active">
+	and it_active = #active#
+	</isNotNull>
+	</sql>
+
+
+    <select id="listItemBySeries_id" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="DbItemResult">
+		select * from item where se_id=#id# <include refid="sql_it_active"/>  order by se_id,it_order
+    </select>
+
+    <select id="getItemMaxOrder" resultClass="java.lang.Integer">
+		select count(*) from item where se_id=#id#
+    </select>
+
+    <select id="getItemMax" resultClass="Long">
+	select max(it_id) from item
+    </select>
+
+
+
+    <select id="searchItem" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="DbItemResult">
+		select * from item
+		where se_id=#se_id# <include refid="sql_it_active"/>
+
+		<isNotNull property="cname">
+		<iterate property="keywords" prepend="and" open="(" close=")" conjunction="and">
+		 $cname$~*#keywords[]#
+		</iterate>
+		</isNotNull>
+
+		<isNull property="cname">
+		<iterate property="keywords" prepend="and" conjunction="and">
+		 (it_sid~*#keywords[]# or c1~*#keywords[]# or c2~*#keywords[]# or  c3~*#keywords[]# or c4~*#keywords[]# or c5~*#keywords[]#
+		 or c6~*#keywords[]# or c7~*#keywords[]# or c8~*#keywords[]# or c9~*#keywords[]# or c10~*#keywords[]#
+		 or c11~*#keywords[]# or c12~*#keywords[]# or c13~*#keywords[]# or c14~*#keywords[]# or c15~*#keywords[]#
+		 or c16~*#keywords[]# or c17~*#keywords[]# or c18~*#keywords[]# or c19~*#keywords[]# or c20~*#keywords[]#
+		 or c21~*#keywords[]# or c22~*#keywords[]# or c23~*#keywords[]# or c24~*#keywords[]# or c25~*#keywords[]#
+		 or c26~*#keywords[]# or c27~*#keywords[]# or c28~*#keywords[]# or c29~*#keywords[]# or c30~*#keywords[]#
+		 or c31~*#keywords[]# or c32~*#keywords[]# or c33~*#keywords[]# or c34~*#keywords[]# or c35~*#keywords[]#
+		 or c36~*#keywords[]# or c37~*#keywords[]# or c38~*#keywords[]# or c39~*#keywords[]# or c40~*#keywords[]#
+		 or c41~*#keywords[]# or c42~*#keywords[]# or c43~*#keywords[]# or c44~*#keywords[]# or c45~*#keywords[]#
+		 or c46~*#keywords[]# or c47~*#keywords[]# or c48~*#keywords[]# or c49~*#keywords[]# or c50~*#keywords[]#)
+		</iterate>
+		</isNull>
+
+		<isNull property="order">
+		order by se_id,it_order
+		</isNull>
+
+		<isNotNull property="order">
+		order by $order$,it_order
+		</isNotNull>
+
+		<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+		</isNotEqual>
+
+    </select>
+
+
+
+    <select id="searchItemGlobal" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="DbItemResult">
+		select * from item
+
+		<isNull property="cname">
+		<iterate property="keywords" prepend="where" conjunction="and">
+		 (it_sid~*#keywords[]# or c1~*#keywords[]# or c2~*#keywords[]# or  c3~*#keywords[]# or c4~*#keywords[]# or c5~*#keywords[]#
+		 or c6~*#keywords[]# or c7~*#keywords[]# or c8~*#keywords[]# or c9~*#keywords[]# or c10~*#keywords[]#
+		 or c11~*#keywords[]# or c12~*#keywords[]# or c13~*#keywords[]# or c14~*#keywords[]# or c15~*#keywords[]#
+		 or c16~*#keywords[]# or c17~*#keywords[]# or c18~*#keywords[]# or c19~*#keywords[]# or c20~*#keywords[]#
+		 or c21~*#keywords[]# or c22~*#keywords[]# or c23~*#keywords[]# or c24~*#keywords[]# or c25~*#keywords[]#
+		 or c26~*#keywords[]# or c27~*#keywords[]# or c28~*#keywords[]# or c29~*#keywords[]# or c30~*#keywords[]#
+		 or c31~*#keywords[]# or c32~*#keywords[]# or c33~*#keywords[]# or c34~*#keywords[]# or c35~*#keywords[]#
+		 or c36~*#keywords[]# or c37~*#keywords[]# or c38~*#keywords[]# or c39~*#keywords[]# or c40~*#keywords[]#
+		 or c41~*#keywords[]# or c42~*#keywords[]# or c43~*#keywords[]# or c44~*#keywords[]# or c45~*#keywords[]#
+		 or c46~*#keywords[]# or c47~*#keywords[]# or c48~*#keywords[]# or c49~*#keywords[]# or c50~*#keywords[]#)
+		</iterate>
+		</isNull>
+
+		<isNull property="order">
+		order by se_id,it_order
+		</isNull>
+
+		<isNotNull property="order">
+		order by $order$,it_order
+		</isNotNull>
+
+		<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+		</isNotEqual>
+
+    </select>
+
+    <delete id="deleteItemBySeId">
+		delete from item where se_id=#id#
+    </delete>
+
+    <delete id="deleteItem">
+		delete from item where it_id=#id#
+    </delete>
+
+    <update id="clearItemCol" parameterClass="java.util.Map">
+		update item set $colname$=null where se_id=#se_id#
+    </update>
+
+
+
+</sqlMap>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Headers & Client IP</title>
+</head>
+
+<body>
+    <h1>Request Headers & Client Information</h1>
+
+    <!-- クライアントIPアドレス -->
+    <h2>Client IP Address</h2>
+    <p><strong>Remote Address:</strong> <span th:text="${#request.remoteAddr}"></span></p>
+    <p><strong>X-Forwarded-For:</strong> <span th:text="${#request.getHeader('X-Forwarded-For')}"></span></p>
+    <p><strong>X-Real-IP:</strong> <span th:text="${#request.getHeader('X-Real-IP')}"></span></p>
+
+    <!-- すべてのリクエストヘッダー -->
+    <h2>All Request Headers</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th width="25%">Header Name</th>
+                <th>Header Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="headerName : ${#request.headerNames}">
+                <td th:text="${headerName}"></td>
+                <td th:text="${#request.getHeader(headerName)}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 追加のリクエスト情報 -->
+    <h2>Additional Request Information</h2>
+    <p><strong>Request URL:</strong> <span th:text="${#request.requestURL}"></span></p>
+    <p><strong>Request URI:</strong> <span th:text="${#request.requestURI}"></span></p>
+    <p><strong>Method:</strong> <span th:text="${#request.method}"></span></p>
+    <p><strong>Protocol:</strong> <span th:text="${#request.protocol}"></span></p>
+    <p><strong>Server Name:</strong> <span th:text="${#request.serverName}"></span></p>
+    <p><strong>Server Port:</strong> <span th:text="${#request.serverPort}"></span></p>
+    <p><strong>Context Path:</strong> <span th:text="${#request.contextPath}"></span></p>
+</body>
+
+</html>

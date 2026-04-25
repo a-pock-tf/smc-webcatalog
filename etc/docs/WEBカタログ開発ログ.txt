@@ -1,0 +1,221 @@
+WEBカタログ開発ログ
+
+
+※概要=================================================================
+
+
+■フレームワーク
+Web: SpringBoot 2
+ビルドツール: Gradle 3
+JDK: Java 1.8
+DB: MongoDB
+チーム開発: Git (リポジトリはBitbucketを使用)
+
+
+■書籍/参考サイト
+SpringBoot2
+https://www.amazon.co.jp/dp/4798053473/
+
+MongoDB
+https://www.amazon.co.jp/dp/4873115906/
+
+Git
+https://backlog.com/ja/git-tutorial/
+
+※特にGitはローカルとBitbucketで概念を把握してください。
+↓ここに登録
+https://bitbucket.org/product/
+
+
+
+※テスト用サイトの作成=====================================================
+テストサイトを作成し、spring-bootその他を理解
+
+
+■Plaiadesのインストール(2019-03版 java 64bit full版)
+以下よりEclipseダウンロード
+http://ftp.jaist.ac.jp/pub/mergedoc/pleiades/2019/pleiades-2019-03-java-win-64bit-jre_20190508.zip
+
+※解凍はwindowsエクスプローラーで行う
+※解凍のパスはc:\にする(c:\pleiades\以下に解凍される)
+※eclipse.exeのプロパティで"常に管理者として実行"
+※workspaceはC:\workspaceを指定
+
+
+■新規プロジェクトの作成
+新規->spring boot->spring web starter project
+
+以下あわせる
+型:Gradle3
+java version:8
+↓次へ
+spring boot version 2.1.6(2.1系)
+左下(▼を展開していく)の web -> startar webを選択
+↓
+入門コンテンツのインポートが行われる
+
+
+■起動
+実行-> spring boot app
+ブラウザから
+http://localhost:8080
+にアクセス
+
+
+SpringBoot2の本 P.130からControllerの基本をつかむ
+
+
+■P.140 Thymeleafのインストール
+(RestではないControllerの追加+テンプレートエンジンの活用)
+
+プロジェクト右くり->Spring->Starterの編集
+↓
+開発ツール->Spring boot dev tools(動的リロードなどの開発ツール)
+テンプレートエンジン->Thymeleafを追加
+
+
+■P.216 JPAのインストール
+ここで基本的なDBアクセスを学ぶ(ただし、最終的に使うのはMongoDB)
+プロジェクト右くり->Spring->Starterの編集
+↓
+SQL->
+・Spring Data JPA
+・HyperSQL Database
+
+■MongoDBのインストール
+https://www.mongodb.com/download-center/community
+version4.0.10
+windows64bit .msi
+インストール中にMonbodb Compass(GUIツール)も入れる
+以下ドキュメント
+https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#new-features.2-1-0
+
+==その他のツール=========================================================
+
+■Atom
+・Eclipseを開きながら、Thymeleafリソースの編集をする、更新が検知されるように以下設定
+ウインドウ->設定->一般->ワークスペース
+■ネイティブフックまたはポーリングを利用してリフレッシュ
+■アクセス時にリフレッシュ
+
+・Packege "Tag" をインストール(閉じタグ自動入力)
+
+■LiveReload
+FireFox版を使用、Thymeleafを更新した際に自動でリロードされる
+(Chrome版は不具合あり)
+https://addons.mozilla.org/ja/firefox/addon/livereload-web-extension/
+
+==プロジェクトの取り込み============================================================================
+
+Gitについて練習しておいてください。
+
+ブランチ develop を統合ブランチとし、 masterはリリース用・保管用とします。
+したがってローカルでブランチを切る場合は develop をもとにしてブランチを切ってください。
+(develop以外のブランチはリモートに push せず、ローカルで developにマージしてから push)
+
+
+■Gitのユーザー名セット
+Eclipse ウインドウ->設定->チーム->Git->構成
+ユーザー設定タブ で エントリーを追加
+user.name -> bitbucketのユーザー名
+user.email -> bitbucketのメールアドレス
+
+
+■プロジェクトの取り込み
+Eclipse パースペクティブ Git
+↓
+Gitリポジトリ のペインの上部アイコン(左から2番目、雲とドラム缶のようなやつ)
+マウスオーバーすると"Gitリポジトリーをクローンし、このビューに追加"をクリック
+↓
+クローンURI
+↓
+ロケーション:URIに bitbucketログイン後、ソース画面右上の クローン で表示されるURIをコピペ
+(その他はデフォルトで)
+ユーザー名、PWはbitbucketのもの
+□セキュアストアに保管 をチェック
+↓
+ブランチが表示される
+master
+develop
+両方選択
+↓
+!!ココ重要
+宛先:ディレクトリー(ローカルに保管するディレクトリを指定 c:\workspace配下など)
+宛先:初期ブランチ develop を指定
+↓
+完了
+
+
+■gitリポジトリからプロジェクトの作成
+リポジトリルート右クリ->プロジェクトのインポート
+フォルダー smc-webcatalogがチェックされていることを確認
+
+
+
+
+==雑記(やらなくてよい)============================================================================
+■Semantic UI をNode.jsでインストール
+
+・Node.jsのインストール
+https://nodejs.org/ja/download/
+Windows64bit
+
+・gulpインストール
+npm install -g gulp
+
+・Node.js Commant promptを起動
+npm install semantic-ui --save
+↓
+Automatic install を選択し、親dirを指定
+
+
+
+
+■mavenリポジトリのセット
+C:\Users\ユーザー名\.m2\settings.xmlを作成
+------start--------------------
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>C:\maven\repository</localRepository>
+  <interactiveMode/>
+  <usePluginRegistry/>
+  <offline/>
+  <pluginGroups/>
+  <servers/>
+  <mirrors/>
+  <proxies/>
+  <profiles/>
+  <activeProfiles/>
+</settings>
+----------end-------------------------
+
+eclipseのウインドウ->設定->maven->ユーザー設定
+設定を更新
+
+C:\maven\respository
+がリポジトリとなる
+
+
+
+
+==================================================
+
+
+■JDKダウンロード
+JDK12 windows64bit exe
+https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
+
+PATH,JAVA_HOMEの設定
+https://eng-entrance.com/java-install-jdk-windows
+
+
+■STSのダウンロード
+最新版
+https://download.springsource.com/release/STS/3.9.8.RELEASE/dist/e4.11/spring-tool-suite-3.9.8.RELEASE-e4.11.0-win32-x86_64.zip
+
+※解凍はwindowsエクスプローラーで行う
+※解凍のパスはc:\にする(c:\pleiades\以下に解凍される)
+※eclipse.exeのプロパティで"常に管理者として実行"
+※workspaceはC:\workspaceを指定

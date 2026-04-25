@@ -1,0 +1,44 @@
+WEBカタログ 静的HTML出力について
+
+
+※概要=================================================================
+
+※作成
+基本は、本番アップ時（カテゴリ全体 or シリーズ単体 ）にHTMLファイルを生成する。
+TEST時は/products/preview/{lang}～で確認。
+
+・言語のTemplate更新時はPROD、TESTがないので、即時HTMLファイル生成。
+/static/html/{lang}/index.html    WEBカタログの言語トップのみ
+
+・大カテゴリトップ
+/static/html/{lang}/{slug}/index.html    大カテゴリ毎のトップと配下すべて。
+
+・小カテゴリトップ
+/static/html/{lang}/{slug}/{slug2}/index.html   小カテゴリ(Seriesの特長以外も入っている）
+
+・シリーズ
+　カテゴリが決まっているもの
+/static/html/{lang}/{slug}/{slug2}/{seid}/index.html s.html   indexはSeriesの特長も入っていて、s.htmlは特長以外
+　カテゴリが決まっていない検索等で使う。（タイトルの下に複数カテゴリが表示されている）
+/static/html/{lang}/series/{seid}/index.html s.html
+
+
+※更新
+
+・本番のカテゴリ
+カテゴリ配下すべてのファイル更新。（シリーズも含め）
+Slug更新時はディレクトリの更新も必要
+TESTからPRODへの本番アップ時、Slugが変わっていればディレクトリを更新
+
+・本番のシリーズ
+該当のファイルのみ更新
+
+
+※削除
+
+・本番カテゴリの削除
+/{slug}/配下をすべて削除
+/series/は残したまま
+
+・本番シリーズの削除
+/{slug}/　/series/　配下の該当シリーズのみ削除

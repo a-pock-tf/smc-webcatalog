@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <title>[[#{act.login}]]</title>
+  <meta name="description" content="page-meta">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/single.css}">
+</head>
+
+<body onload="document.getElementById('login').focus();">
+
+  <div layout:fragment="contents">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column" style="max-width:450px;">
+        <h2 class="ui teal image ">
+          <img th:src="@{/images/logo.png}" class="image">
+          <div class="content" th:text="#{g.title}">Title</div>
+        </h2>
+
+        <form method="post" th:action="@{'/login/'}" th:object="${loginForm}" class="ui form">
+<!--         <div class="ui negative message" th:if="${#fields.hasErrors('*')}"> -->
+        <div class="ui negative message" th:if="${loginError}">
+                    <div class="header">[[#{msg.badCredentials}]]</div>
+                    <ul>
+    <!--                  <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li> -->
+                        <li th:text="${message}" class="err"></li>
+                    </ul>
+            </div>
+          <div class="ui negative message" th:if="${param.error}">
+           [[#{msg.error}]]
+          </div>
+          <div class="ui negative message" th:if="${param.sessionerror}">
+           [[#{msg.timeout}]]
+          </div>
+          <div class="ui negative message" th:if="${param.logout}">
+           [[#{msg.logout}]]
+          </div>
+          <div class="ui segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" id="login" name="loginid" placeholder="E-mail address" th:value="*{loginid}" >
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="loginpw" placeholder="Password"  th:value="${param.loginpw != null } ? ${param.loginpw[0]} : ''">
+              </div>
+            </div>
+            <button type="submit" class="ui fluid large teal submit button" style="">Login</button>
+          </div>
+
+          <div class="ui error message"></div>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!-- applicationsope
+    <p th:text="${@testCategory.name}"></p>
+   -->
+
+  </div><!-- end contents -->
+  <div layout:fragment="footer">
+  Copyright &copy; SMC Corporation. All Rights Reserved.
+  </div>
+</body>
+
+</html>

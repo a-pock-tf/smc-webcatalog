@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta http-equiv="content-style-type" content="text/css" />
+
+
+<title>SMC-製品検索</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+<link href="/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/header/header.css" rel="stylesheet" type="text/css" />
+<link href="/products/css/style.css?180208" rel="stylesheet" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="/js/global.js?063001"></script>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+</head>
+<body>
+
+<div id="winmain" style="width:1050px;margin:10px auto">
+
+<div class="wintitle">品番確認</div>
+
+	<table cellpadding="0" cellspacing="0" class="resulttbl">
+		<tr>
+			<th colspan="2" class="">型式・名称</th>
+			<th class="last">品番確認</th>
+		</tr>
+		<tr th:if="${result!=null}" th:each="c : ${result}" th:object="${c}">
+			<td class="" style="padding: 5px;border-right: none;width:55px;height:60px;"><img th:src="*{picUrl}"/></td>
+			<td class="" style="text-align: left;padding: 5px;">[[*{name}]]</td>
+			<td class="last">
+					<a href="./s3sframe.jsp?sid=${se.sid}&iframe_src=https://3sapi.smcworld.com/Product/SelectIFrame%3ftypeID=${sinfo.typeId}%26language=ja-JP%26userID=JP_test%26btnLabel=詳細表示%26hookUrl=https://${SERVER_FQDN}/products/ja/s3s_detail.html?partNumber=" target="_parent">詳細</a>
+			</td>
+		</tr>
+	</table>
+
+<p th:if="${result==null}">
+<br/>
+<br/>
+品番確認システムに対応しておりませんので、大変お手数ですが、カタログをご参照ください。
+</p>
+
+</div><!--winmain-->
+</body>
+</html>

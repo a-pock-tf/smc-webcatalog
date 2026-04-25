@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <!--/*<meta charset="UTF-8">*/-->
+  <title>Login</title>
+</head>
+
+<body>
+
+  <!-- nav -->
+  <div layout:fragment="main_nav">
+  <!-- nav -->
+  <div class="ui top --fixed pointing menu">
+
+    <a href="#"  th:href="@{|/login/admin/welcome|}" class="header item"><img class="logo" th:src="@{/images/logo.png}" src="../../static/images/logo.png"
+        alt="SMC" style="width:70px;"></a>
+    <div class="right menu">
+      <a class="item" th:href="@{/login/logout/?logout=1}">
+        <i class="logout icon"></i>[[#{act.logout}]] </a>
+    </div>
+  </div>
+  <!-- end nav -->
+
+  </div>
+  <!-- end nav -->
+
+
+</body>
+
+</html>

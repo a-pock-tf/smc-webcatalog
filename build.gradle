@@ -1,0 +1,111 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'java'
+	id 'war'
+}
+
+ext {
+    lombokVersion = "1.18.22"
+}
+
+bootWar{
+	archiveName 'webcatalog.war'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+sourceSets {
+    main {
+       resources {
+           exclude '**/static/html/**'
+           exclude '**/static/offline/**'
+           exclude '**/static/offline_jp/**'
+           exclude '**/static/offline_en/**'
+           exclude '**/static/offline/**'
+           exclude '**/static/offline.zip'
+       }
+    }
+}
+
+
+group = 'com.smc'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.hsqldb:hsqldb'
+	implementation 'commons-httpclient:commons-httpclient:3.1'
+	//compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.0.1'
+	implementation group: 'org.json', name: 'json', version: '20201115'
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation group: 'commons-io', name: 'commons-io', version: '2.7'
+
+    //thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation "nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect"
+
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+	implementation "com.github.rozidan:modelmapper-spring-boot-starter:1.0.0"
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+//security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security:spring-security-config'
+	implementation 'org.springframework.security:spring-security-crypto'
+//   compile 'org.springframework.security:spring-security-config'
+//	compile 'org.springframework.security:spring-security-crypto'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation("junit:junit:4.12")
+
+	runtimeOnly 'org.postgresql:postgresql'
+
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// https://mvnrepository.com/artifact/net.arnx/jsonic
+	implementation group: 'net.arnx', name: 'jsonic', version: '1.2.7'
+	implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+	implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.31'
+	// https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-common
+	implementation group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.31'
+	// https://jmaven.com/maven/org.glassfish.jersey.media/jersey-media-sse
+	implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-sse', version: '2.31'
+	// https://jmaven.com/maven/org.glassfish.jersey.inject/project
+	implementation group: 'org.glassfish.jersey.inject', name: 'project', version: '2.29.1'
+	implementation group: 'org.glassfish.jersey.containers', name:'jersey-container-servlet', version: '2.31'
+	implementation 'org.glassfish.jersey.inject:jersey-hk2:2.31'
+
+	implementation 'org.hibernate.validator:hibernate-validator:6.0.23.Final'
+	implementation 'commons-lang:commons-lang:2.6'
+	implementation 'org.apache.ibatis:ibatis-sqlmap:2.3.4.726'
+	implementation 'commons-beanutils:commons-beanutils:1.9.4'
+	implementation 'au.com.bytecode:opencsv:2.4'
+	implementation 'com.squareup.okhttp3:okhttp:3.7.0'
+	
+	// swagger
+	implementation 'io.swagger:swagger-core:1.6.7'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+
+//	compile fileTree(dir: 'lib', include: '*.jar')
+}

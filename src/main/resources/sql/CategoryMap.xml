@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <typeAlias alias="ImpCategory" type="com.smc.webcatalog.model.ImpCategory" />
+
+    <resultMap id="CategoryResult" class="ImpCategory">
+	<result property="id" column="ca_id" nullValue="0"/>
+	<result property="type" column="ca_type"/>
+	<result property="order" column="ca_order" nullValue="0"/>
+	<result property="name" column="ca_name"/>
+	<result property="lang" column="ca_lang"/>
+	<result property="parent_id" column="ca_parent_id" nullValue="0"/>
+	<result property="active" column="ca_active" nullValue="false"/>
+	<result property="ctime" column="ca_ctime"/>
+	<result property="mtime" column="ca_mtime"/>
+	<result property="by" column="ca_by"/>
+	</resultMap>
+
+    <resultMap id="CategoryResult2" class="ImpCategory">
+	<result property="id" column="cs_ca_id" nullValue="0"/>
+	<result property="type" column="ca_type"/>
+	<result property="order" column="ca_order" nullValue="0"/>
+	<result property="name" column="ca_name"/>
+	<result property="lang" column="ca_lang"/>
+	<result property="parent_id" column="ca_parent_id" nullValue="0"/>
+	<result property="active" column="ca_active" nullValue="false"/>
+	<result property="ctime" column="ca_ctime"/>
+	<result property="mtime" column="ca_mtime"/>
+	<result property="by" column="ca_by"/>
+	</resultMap>
+
+
+    <insert id="insertCategory" parameterClass="ImpCategory">
+		insert into category (
+		ca_id, ca_type,ca_order,ca_name,ca_lang,ca_parent_id,ca_active,ca_ctime,ca_mtime,ca_by)
+		values (
+		#id#, #type#,#order#,#name#,#lang#,#parent_id#,#active#,#ctime#,#mtime#,#by#);
+
+    </insert>
+
+    <update id="updateCategory" parameterClass="ImpCategory">
+		update category
+		set
+		ca_type=#type#, ca_order=#order#, ca_name=#name#, ca_lang=#lang#, ca_parent_id=#parent_id#,
+		ca_active=#active#, ca_mtime=#mtime#, ca_by=#by#
+		where ca_id=#id#
+    </update>
+
+    <update id="updateCategoryOrder" parameterClass="ImpCategory">
+    	update category set ca_order=#order# where ca_id=#id#
+	</update>
+
+    <select id="getCategory" resultMap="CategoryResult">
+		select * from category where ca_id=#id#
+    </select>
+
+    <select id="listCategory" resultMap="CategoryResult" parameterClass="ImpCategory">
+		select * from category where ca_parent_id=#parent_id#
+
+		<isNotNull property="type">
+		and ca_type=#type#
+		</isNotNull>
+		order by ca_order
+    </select>
+
+    <select id="getCategoryByName" resultMap="CategoryResult" parameterClass="ImpCategory">
+		select * from category where ca_name=#name# and ca_type=#type# order by ca_id limit 1
+    </select>
+
+    <select id="getCategoryMaxOrder" resultClass="java.lang.Integer">
+		select max(ca_order) from category where ca_parent_id=#id#
+    </select>
+
+    <select id="getCategoryMaxId" resultClass="java.lang.Integer">
+		select max(ca_id) from category
+    </select>
+
+    <delete id="deleteCategory">
+		delete from category where ca_id=#id#
+    </delete>
+
+    <delete id="deleteAllCategory">
+		delete from category where ca_lang=#lang# and ca_type='SERIES'
+    </delete>
+
+
+</sqlMap>

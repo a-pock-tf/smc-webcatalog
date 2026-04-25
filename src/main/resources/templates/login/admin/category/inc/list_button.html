@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <!-- リストの新規・並び替え -->
+  <div th:fragment="list_button" class="action_area" style="font-size: 10px !important;">
+    <a th:if="${SessionScreenState.prod == false and SessionUser.isEditableLang(__category.lang__)}" th:href="@{/login/admin/category/new/(parentId=${category.id})}" class="ui mini primary button action_new"><i
+        class="folder outline icon"></i>[[#{view.list.category.new}]]</a>
+    <button class="ui mini gray button action_sort"><i class="th list icon"></i>[[#{view.list.sort}]]</button>
+    <span class="action_sort_save">
+      <div class="ui right pointing blue basic label">
+        [[#{view.list.sort.message}]]
+      </div>
+      <button class="ui mini green button"><i class="save icon"></i>[[#{act.save}]]</button>
+      <button class="ui mini button action_sort_cancel">[[#{act.cancel}]]</button>
+    </span>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/*
+3DCAD
+*/
+
+body{
+	overflow-x:hidden ;
+}
+
+#center_main{
+	width:850px !important;
+}
+
+.resulttbl{
+	margin-top:5px;
+}
+
+.resulttbl td{
+	text-align:left;
+}
+
+.resulttbl2 td{
+	padding:6px;
+}
+
+form{
+	padding:5px auto 5px;
+}
+
+.wintitle{
+	margin-left:30px;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <link th:href="@{/fontawesome-free-5.9.0/css/fontawesome.css}" href="../../static/fontawesome-free-5.9.0/css/fontawesome.css" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-5.9.0/css/brands.css}" href="../../static/fontawesome-free-5.9.0/css/brands.css" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-5.9.0/css/solid.css}" href="../../static/fontawesome-free-5.9.0/css/solid.css" rel="stylesheet">
+    <title>Hello, world!</title>
+    <style>
+    </style>
+</head>
+
+<body>
+   
+    <div class="container-fluid wrapper">
+
+
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+                <a class="navbar-brand" href="/">
+                    <img src="../../static/images/logo.png" height="25" alt="SMC" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/list/">カテゴリ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="contents_wrapper">
+
+            <div>
+                <!-- からにしておきます -->
+            </div>
+
+
+            <div class="contents">
+                <div class="row">
+                    <div class="col col-sm-8"><h5>カテゴリ</h5></div>
+                
+                    <div class="col col-sm-4">
+                        <div class="btn-group btn-group-toggle fa-pull-right" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary btn-sm active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> テスト
+                            </label>
+                            <label class="btn btn-outline-success btn-sm">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> 本番
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div>
+                    <a href="./">テスト一覧</a>
+                    <a href="./?state=PROD">本番一覧</a>
+                </div> -->
+    
+                
+
+                <!--category bread crump-->
+                <div class="clearfix"></div>
+                <h5><i class="fas fa-folder"></i><a href="#">/root</a></h5>
+
+                <table class="table table-sm">
+                    <thead class="">
+                        <tr class="">
+                            <th scope="col">name</th>
+                            <th scope="col">id</th>
+                            <th scope="col">mtime</th>
+                            <th scope="col" class="text-right">
+                                <a class="btn btn-primary btn-sm" href="/login/admin/category/new" role="button">
+                                    <i class="fas fa-certificate" area-hidden="true"></i>&nbsp;<span>新規</span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de2d58</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=true</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de2d58">カテゴリ1dd</a><br/>
+                                <span class="debug">slug=c1</span>
+                            </td>
+                            <td>
+                                <span>Fri Jun 28 08:22:26 GMT+09:00 2019</span>
+                            </td>
+                            <td class="text-right">
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de2d58">
+                                    <i class="fas fa-edit" area-hidden="true"></i>&nbsp;編集
+                                </a>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de2d58">
+                                    <i class="fas fa-delete" area-hidden="true"></i>&nbsp;削除
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de2e2a</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=false</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de2e2a">カテゴリ2</a><br/>
+                                <span class="debug">slug=c2</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de2e2a">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de2efc</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=true</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de2efc">カテゴリ3</a><br/>
+                                <span class="debug">slug=c3</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de2efc">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de2fce</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=false</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de2fce">カテゴリ4</a><br/>
+                                <span class="debug">slug=c4</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de2fce">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de30a0</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=true</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de30a0">カテゴリ5</a><br/>
+                                <span class="debug">slug=c5</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de30a0">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de3172</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=false</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de3172">カテゴリ6</a><br/>
+                                <span class="debug">slug=c6</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de3172">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570e4f17c53ee0de3244</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=true</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570e4f17c53ee0de3244">カテゴリ7</a><br/>
+                                <span class="debug">slug=c7</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:34 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570e4f17c53ee0de3244">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570f4f17c53ee0de3316</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=false</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570f4f17c53ee0de3316">カテゴリ8</a><br/>
+                                <span class="debug">slug=c8</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:35 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570f4f17c53ee0de3316">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570f4f17c53ee0de33e8</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=true</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570f4f17c53ee0de33e8">カテゴリ9</a><br/>
+                                <span class="debug">slug=c9</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:35 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570f4f17c53ee0de33e8">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="debug">
+                                    <span>5d14570f4f17c53ee0de34ba</span><br/>
+                                    <span>state=テスト公開</span>&nbsp;&frasl;&nbsp;<span>active=false</span><br/>
+                                    <span>lang=ja-jp</span>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fas fa-folder"></i> <a href="/login/admin/category/5d14570f4f17c53ee0de34ba">カテゴリ10</a><br/>
+                                <span class="debug">slug=c10</span>
+                            </td>
+                            <td>
+                                <span>Thu Jun 27 14:41:35 GMT+09:00 2019</span>
+                            </td>
+                            <td>
+                                <a href="/login/admin/category/edit/5d14570f4f17c53ee0de34ba">編集</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div><!-- end contents_wrapper -->
+            <footer class="text-right">footer</footer>
+
+        </div><!-- end wrapper -->
+    </div>
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+</body>
+
+</html>

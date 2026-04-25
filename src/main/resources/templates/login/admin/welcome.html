@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+  <title th:text="#{g.title}">User</title>
+  <script th:src="@{/clipboard/clipboard.min.js}"></script>
+
+
+  <script>
+
+    $(function () {
+      new ClipboardJS('.copy_id');
+    });
+
+  </script>
+
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui middle aligned center aligned grid six wide column">
+
+    <!-- disp message or error ========================= -->
+    <div class="ui positive message" th:if="${param.message}">[[${param.message}]]</div>
+    <div class="ui negative message" th:if="${param.error}">[[${param.error}]]</div>
+    <!-- list table ================================== -->
+    <p>&nbsp;</p>
+    <div class="ui segment six wide column" style="margin-top:25px;">
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/category?${path}|}"><h3><i class="book icon"></i>Webカタログ</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/psitem?${path}|}"><h3><i class="list icon"></i>検索更新</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/discontinued/category?${path}|}"><h3><i class="minus circle icon"></i>生産終了品</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/cad3d?${path}|}"><h3><i class="list icon"></i>3DCAD検索更新</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/omlist?${path}|}"><h3><i class="wrench icon"></i>オーダーメイドリスト</h3></a></div>
+        <div>&nbsp;</div>
+        <div><hr></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="/switching/login/" target="_blank"><h3><i class="exchange icon"></i>言語切り替え</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="/event/login/" target="_blank"><h3><i class="university icon"></i>展示会</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="/pg-information/login/" target="_blank"><h3><i class="wrench icon"></i>P.G.Information</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="/web-manual/login/" target="_blank"><h3><i class="book icon"></i>取扱説明書</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="/troubleshooting/login/" target="_blank"><h3><i class="book icon"></i>トラブルシューティング</h3></a></div>
+        <div>&nbsp;</div>
+        <div><hr></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="http://utest.smcworld.com/3SAPI/connect_check.php" target="_blank"><h3><i class="folder open icon"></i>3S API 接続確認</h3></a></div>
+        <div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/deleteCacheCloudflare?${path}|}" target="_blank"><h3><i class="eraser icon"></i>CDNキャッシュクリア(Cloudflare)</h3></a></div>
+        <!--<div>&nbsp;</div>
+        <div class="ui middle aligned left"><a href="#" th:href="@{|/login/admin/deleteCache?${path}|}" target="_blank"><h3><i class="eraser icon"></i>CDNキャッシュクリア</h3></a></div>-->
+    </div>
+  </div><!-- end contents -->
+</body>
+
+</html>

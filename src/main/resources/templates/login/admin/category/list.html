@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+  <script th:src="@{/clipboard/clipboard.min.js}"></script>
+
+
+  <script>
+
+    $(function () {
+      new ClipboardJS('.copy_id');
+    });
+
+  </script>
+
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/category/inc/breadcrumb::breadcrumb}"></div>
+
+    <script>
+      // for sort ========
+      $(function () {
+        $('.sort_icons').hide();
+
+        //この階層で移動
+        $(".action_sort").click(function () {
+          $('#sortable').sortable({
+            update: function (event, ui) {
+
+// ここだと毎回UPDATE
+/*              var text = "";
+              //並び順の取得
+              $('#sortable td.ids').each(function () {
+                text = text + $(this).html() + "-";
+              });
+              text = "[parent]" + $('#parentId').val() + "-" + text;
+
+              $('#ids').val(text);
+              $('#sortForm').submit();*/
+/*              $.ajax({
+                  url:'/login/admin/category/sort',
+                  type:'POST',
+                  data:{
+                	  'ids':text,
+                  }
+              })
+              // Ajaxリクエストが成功した時発動
+              .done( (data) => {
+                  console.log(data);
+                  window.alert("Success." + data);
+              })
+              // Ajaxリクエストが失敗した時発動
+              .fail( (data) => {
+                  console.log(data);
+                  window.alert("Failed!" + data);
+              })
+              */
+            }
+          });
+
+          //set styles
+          $('#sortable tr').css("cursor", "pointer");
+          $('#sortable tr').addClass("ui warning");
+
+
+          $('i.sort_icons').transition('slide right');
+
+          $(".action_new , .action_sort").toggle();
+          $(".action_sort_save").fadeToggle();
+        });
+
+        $('.action_new')
+          .popup({
+            popup: $('.custom.popup'),
+            on: 'click',
+            inline: true,
+            hoverable: true,
+            position: 'bottom left'
+          });
+        $('.action_sort_save')
+          .click(function () {
+          	//alert("click" + $('.action_sort_save').css('display'));
+            if ($('.action_sort_save').css('display') != 'none') { // キャンセルを押した場合もclick()が発火するため
+              var text = "";
+              //並び順の取得
+//              $('#sortable td.ids').each(function () {
+//                text = text + $(this).html() + "-";
+              $('#sortable input.ids').each(function () {
+                text = text + $(this).val() + "-";
+              });
+              text = "[parent]" + $('#parentId').val() + "-" + text;
+
+              $('#ids').val(text);
+              $('#sortForm').submit();
+            }
+          });
+
+        $(".action_sort_cancel").click(function () {
+          $(".action_new , .action_sort").show();
+          $(".action_sort_save").hide();
+          $('#sortable tr').removeClass("ui warning");
+          $('#sortable').sortable("destroy");
+        })
+      });
+
+   // for prod ==========================
+      $(function () {
+        $(".act_prod").click(function () {
+          var id = $(this).attr('id');
+          $(".mod_prod").modal({
+            centered: false,
+            onDeny: function () {
+              //window.alert('Wait not yet!');
+              //return false;
+            },
+            onApprove: function () {
+              //window.alert('Approved!' + id);
+              var url = '[[@{/login/admin/category}]]';
+              location.href= url + "/state?state=PROD&id=" + id;
+            }
+          }).modal("show");
+        })
+      });
+
+      // for delete ==========================
+      $(function () {
+        $(".act_delete").click(function () {
+          var id = $(this).attr('id');
+          $(".mod_delete").modal({
+            centered: false,
+            onDeny: function () {
+              //window.alert('Wait not yet!');
+              //return false;
+            },
+            onApprove: function () {
+              //window.alert('Approved!');
+              var url = '[[@{/login/admin/category}]]';
+              location.href= url + "/del/" + id;
+            }
+          }).modal("show");
+        })
+
+
+      });
+
+    </script>
+
+
+    <!--mordal prod-->
+    <div class="ui small modal mod_prod">
+      <div class="header">
+        [[#{view.form.alert.confirm.prod}]]
+      </div>
+      <div class="content">
+        <p>[[#{view.form.alert.category.prod.message}]]</p>
+        <p>[[#{view.form.alert.category.prod.message.sub}]]</p>
+      </div>
+      <div class="actions">
+        <div class="ui mini green approve button">
+          [[#{view.form.alert.approve}]]
+        </div>
+        <div class="ui mini cancel button">
+          [[#{view.form.alert.cancel}]]
+        </div>
+      </div>
+    </div>
+    <!--mordal delete-->
+    <div class="ui small modal mod_delete">
+      <div class="header">
+        [[#{view.form.alert.confirm.delete}]]
+      </div>
+      <div class="content">
+        <p>[[#{view.form.alert.category.delete.message}]]</p>
+        <p>[[#{view.form.alert.category.delete.message.sub}]]</p>
+      </div>
+      <div class="actions">
+        <div class="ui mini green approve button">
+          [[#{view.form.alert.approve}]]
+        </div>
+        <div class="ui mini cancel button">
+          [[#{view.form.alert.cancel}]]
+        </div>
+      </div>
+    </div>
+    <!-- update form ============================== -->
+    <form id="sortForm" method="post" th:action="@{|/login/admin/category${SessionScreenState.categoryTypeUrl}/sort|}">
+      <input type="hidden" id="parentId" name="parentId" th:if="${category!=null}" th:value="${category.id}">
+      <input type="hidden" id="ids" name="ids" value="">
+    </form>
+    <!-- disp message or error ========================= -->
+    <div class="ui positive message" th:if="${param.message}">[[${param.message}]]</div>
+    <div class="ui positive message" th:if="${message}">[[${message}]]</div>
+    <div class="ui negative message" th:if="${param.error}">[[${param.error}]]</div>
+    <div class="ui negative message" th:if="${error}">[[${error}]]</div>
+    <!-- list table ================================== -->
+    <table class="ui selectable small striped table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Slug</th>
+          <th th:if="${SessionScreenState.type.equals('CATALOG')} and ${SessionScreenState.prod == false}">Preview</th>
+          <th th:if="${SessionScreenState.type.equals('CATALOG')} and ${SessionScreenState.prod} ">&nbsp;</td>
+          <th th:if="${SessionScreenState.type.equals('CATALOG') == false}">Index</th>
+          <th>MTime</th>
+          <th>Series</th>
+          <th th:if="${SessionScreenState.layer1Category == true} ">Template</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">FAQ</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">Narrow Down</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">Compare</th>
+          <th class="two wide right aligned">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr>
+          <td colspan="">
+            <span th:if="${category!=null}">
+              <i class="folder open blue icon category"></i> [[${category.name}]]
+              <a href="list.html" th:href="@{|/login/admin/category${SessionScreenState.categoryTypeUrl}/${category.parentId}|}"><i
+                class="arrow up alternate icon"></i> .. / </a>
+            </span>
+          </td>
+          <td colspan="8" class="ui right aligned">
+            <div th:replace="~{login/admin/category/inc/list_button::list_button}"></div>
+          </td>
+        </tr>
+      </tbody>
+      <tbody class="" id="sortable">
+
+        <tr class="repeat" th:if="${category!=null}" th:each="c : ${category.children}" th:object="${c}">
+
+          <td class="align-middle">
+            <i class="sort_icons bars icon"></i>
+            <a href="/login/admin/category/list-series.html" th:href="@{|/login/admin/category${SessionScreenState.categoryTypeUrl}/*{id}|}"
+              class="category_sub" th:text="*{name}"><i class="folder icon category "></i>パイロット式4·5ポートソレノイドバルブ</a>
+            <!-- state 表示 -->
+            <!-- if と 事前評価によるmessageの呼び出し -->
+            <!--
+                    <span th:if="*{state.toString() == 'TEST'}" class="ui tiny label" th:text="#{ModelState.__*{state}__}"></span>
+                    <span th:if="*{state.toString() == 'PROD'}" class="ui tiny teal label" th:text="#{ModelState.__*{state}__}"></span>
+                    -->
+            <!-- active表示 -->
+            <span th:if="*{!active}" class="ui tiny label" th:text="#{active.__*{active}__}"></span>
+
+            <!--<span>[5d172c7e4f17c54118599a2a]</span>-->
+          </td>
+          <td class=""> [[*{slug}]] <input type="hidden" class="ids" th:value="*{id}"></td>
+          <td class=""  th:if="*{state.toString() == 'TEST'} and ${category != null and #strings.isEmpty(category.parentId) == false} and ${SessionScreenState.type.equals('CATALOG')}"> <a th:href="@{|/login/admin/preview/*{lang}/${category.slug}/*{slug}|}" target="_blank">[[#{act.preview}]]</a> &nbsp;<a th:if="*{lang != 'ja-jp'}" th:href="@{|/login/admin/preview/ja-jp/${category.slug}/*{slug}|}" target="_blank">ja-jp</a></td>
+          <td class=""  th:if="*{state.toString() == 'TEST'} and ${category == null or #strings.isEmpty(category.parentId)} and ${SessionScreenState.type.equals('CATALOG')}"> <a th:href="@{|/login/admin/preview/*{lang}/*{slug}|}"  target="_blank">[[#{act.preview}]]</a> &nbsp;<a th:if="*{lang != 'ja-jp'}" th:href="@{|/login/admin/preview/ja-jp/*{slug}|}" target="_blank">ja-jp</a></td>
+          <td class="" th:if="*{state.toString() == 'PROD'}  and ${SessionScreenState.type.equals('CATALOG')}">&nbsp;</td>
+          <td class="" th:if="${SessionScreenState.type.equals('CATALOG') == false}">[[*{oldId}]]</td>
+          <td class="">
+            <span th:text="*{#calendars.format(mtime,'yyy/MM/dd HH:mm')}">2019/06/29 18:16</span>
+          </td>
+          <td >   <a href="/login/admin/series/edit.html" th:href="@{|/login/admin/series/?categoryId=*{id}|}"><i class="list alternate icon"></i>[[#{view.list.category.series.name}]]</a></td>
+          <td th:if="${SessionScreenState.layer1Category == true} ">   <a href="/login/admin/categroy/template.html" th:if="${SessionScreenState.type.equals('CATALOG')}" th:href="@{|/login/admin/category/template/*{id}|}"><i class="file alternate icon"></i>[[#{view.list.category.template.name}]]</a></td>
+          <td th:if="${SessionScreenState.layer1Category == false} and *{state.toString() == 'TEST'}"><a href="/login/admin/categroy/faq.html" th:if="${SessionScreenState.type.equals('CATALOG')}" th:href="@{|/login/admin/category/faq/*{id}|}"><i class="question circle icon"></i>FAQ</a></td>
+		  <td th:if="${SessionScreenState.layer1Category == false} and *{state.toString() == 'TEST'} ">
+			  <a href="/login/admin/categroy/narrowdown/column.html" th:if="${SessionScreenState.type.equals('CATALOG')} and *{narrowdown}" th:href="@{|/login/admin/category/narrowdown/column/*{id}|}"><i class="search icon"></i>Column</a>
+			  <a href="/login/admin/categroy/narrowdown/value.html" th:if="${SessionScreenState.type.equals('CATALOG')} and *{narrowdown}" th:href="@{|/login/admin/category/narrowdown/value/*{id}|}"><i class="search icon"></i>Value</a>
+		  </td>
+		  <td th:if="${SessionScreenState.layer1Category == false} and *{state.toString() == 'TEST'} ">
+			  <!-- <a href="/login/admin/categroy/narrowdown/compare.html" th:if="${SessionScreenState.type.equals('CATALOG')} and *{compare}" th:href="@{|/login/admin/category/narrowdown/compare/*{id}|}"><i class="th list icon"></i>Compare</a> -->
+			  <i class="th checkmark icon" th:if="${SessionScreenState.type.equals('CATALOG')} and *{compare}"></i>
+		  </td>
+          <td class="single line right aligned">
+            <a href="/login/admin/category/edit.html" th:href="@{|/login/admin/category/edit/*{id}|}"><i class="pencil alternate icon"></i>[[#{act.edit}]]</a>
+            &nbsp;-&nbsp;
+            <span th:if="${SessionScreenState.prod == false and SessionUser.isEditableLang(__category.lang__)}"  th:id="*{id}">
+              <a href="#" class="act_prod" th:id="*{id}"><i  th:id="*{id}" class="cloud upload icon"></i>[[#{ModelState.PROD}]]</a>
+              &nbsp;-&nbsp;</span>
+            <a href="#" class="act_delete" th:id="*{id}"><i class="edit icon" th:id="*{id}" ></i>[[#{act.delete}]]</a>
+          </td>
+        </tr>
+      </tbody>
+      <tbody class="">
+        <tr>
+          <td colspan="">
+            <a href="/login/admin/category/" th:href="@{|/login/admin/category${SessionScreenState.categoryTypeUrl}/${category.parentId}|}"><i class="arrow up alternate icon"></i> .. / </a>
+          </td>
+          <td colspan="8" class="ui right aligned">
+            <div th:replace="~{login/admin/category/inc/list_button::list_button}"></div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Slug</th>
+          <th th:if="${SessionScreenState.type.equals('CATALOG')} and ${SessionScreenState.prod == false}">Preview</th>
+          <th th:if="${SessionScreenState.type.equals('CATALOG')} and ${SessionScreenState.prod} ">&nbsp;</td>
+          <th th:if="${SessionScreenState.type.equals('CATALOG') == false}">Index</th>
+          <th>MTime</th>
+          <th>Series</th>
+          <th th:if="${SessionScreenState.layer1Category == true}">Template</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">FAQ</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">Narrow Down</th>
+          <th th:if="${SessionScreenState.layer1Category == false} and ${SessionScreenState.prod == false}">Compare</th>
+          <th class="two wide right aligned">Actions</th>
+        </tr>
+      </tfoot>
+    </table>
+<div th:if="${SessionScreenState.type.equals('CATALOG')}">
+<a href=""  th:href="@{|/login/admin/swagger-ui/index.html|}">API</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/csv|}">CSVダウンロード</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/csv?type=detail|}">カタログCSV</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allUpdate|}">全本番アップ</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allUpdate?page=1|}">-5</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allUpdate?page=2|}">-15</a>&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allUpdate?page=3|}">16-</a>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allCategoryTemplateUpdate|}">全テンプレート</a>
+&nbsp;&nbsp;&nbsp;
+<a href=""  th:href="@{|/login/admin/category/allOrderUpdate|}">重み振り直し</a>
+</div>
+
+
+
+
+
+
+  </div><!-- end contents -->
+</body>
+
+</html>

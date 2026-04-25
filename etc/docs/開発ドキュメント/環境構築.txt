@@ -1,0 +1,65 @@
+// ===== tomcat =====
+
+※war ・・・gradlewにて作成。ランナーでgradlewを動かすと/build/libs/products.warに作成される。
+
+// ===== mongodb =====
+mongodbエクスポート
+
+C:\Program Files\MongoDB\Server\4.0\bin>mongodump.exe --host localhost --db smc-webcatalog --out C:\Users\tfujishima
+
+2021-05-07T17:37:03.469+0900    writing smc-webcatalog.series_link to
+2021-05-07T17:37:03.513+0900    writing smc-webcatalog.series to
+2021-05-07T17:37:03.513+0900    writing smc-webcatalog.category to
+2021-05-07T17:37:03.513+0900    writing smc-webcatalog.category_series to
+2021-05-07T17:37:03.697+0900    done dumping smc-webcatalog.series_link (30206 documents)
+2021-05-07T17:37:03.697+0900    writing smc-webcatalog.series_link_master to
+2021-05-07T17:37:03.699+0900    done dumping smc-webcatalog.series_link_master (96 documents)
+2021-05-07T17:37:03.700+0900    writing smc-webcatalog.templateCategory to
+2021-05-07T17:37:03.701+0900    done dumping smc-webcatalog.series (9060 documents)
+2021-05-07T17:37:03.702+0900    writing smc-webcatalog.user to
+2021-05-07T17:37:03.703+0900    done dumping smc-webcatalog.user (7 documents)
+2021-05-07T17:37:03.703+0900    writing smc-webcatalog.lang to
+2021-05-07T17:37:03.705+0900    done dumping smc-webcatalog.lang (6 documents)
+2021-05-07T17:37:03.705+0900    writing smc-webcatalog.template to
+2021-05-07T17:37:03.709+0900    done dumping smc-webcatalog.template (3 documents)
+2021-05-07T17:37:03.711+0900    done dumping smc-webcatalog.templateCategory (57 documents)
+2021-05-07T17:37:05.535+0900    done dumping smc-webcatalog.category (1762 documents)
+2021-05-07T17:37:05.538+0900    done dumping smc-webcatalog.category_series (1520 documents)
+
+C:\Users\tfujishima\smc-webcatalogに.json.bsonなどのファイルが出来る。
+
+mongodbインストール
+
+vi /etc/yum.repos.d/mongodb.repo
+
+[mongodb]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/7Server/mongodb-org/4.0/x86_64/
+gpgcheck=0
+enabled=1
+
+yum install mongodb-org
+
+mongodbインポート
+
+mongorestore --db smc-webcatalog smc-webcatalog
+
+※SELinux
+ ausearch -c 'ftdc' --raw | audit2allow -M my-ftdc
+ semodule -i my-ftdc.pp
+
+
+// ===== postgresql =====
+
+/home/htdocs/配下の
+smccamp smc-webcatalogをコピー。
+
+※createuser
+smccamp "I5BNRYGe"
+
+smccampの下のrestoreDb.shを実行
+/home/htdocs/smccamp/WEB-INF/files/scripts/restoreDb.sh /home/public/source/smccamp_db2020-10-06-105620.out
+
+※SELinux
+ ausearch -c 'localhost-start' --raw | audit2allow -M my-localhoststart
+ semodule -i my-localhoststart.pp

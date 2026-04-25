@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+<!-- ImpSeries -->
+   	<typeAlias alias="ImpSeries" type="com.smc.webcatalog.model.ImpSeries" />
+
+   	<resultMap id="SeriesResult" class="ImpSeries">
+		<result property="id" column="se_id" nullValue="0"/>
+		<result property="sid" column="se_sid"/>
+		<result property="name" column="se_name"/>
+		<result property="name2" column="se_name2"/>
+		<result property="order" column="se_order"/>
+		<result property="text"  column="se_text"/>
+		<result property="text2"  column="se_text2"/>
+		<result property="pdf1"  column="se_pdf1"/>
+		<result property="pdf2"  column="se_pdf2"/>
+		<result property="pdf3"  column="se_pdf3"/>
+		<result property="pdf1_page"  column="se_pdf1_page"/>
+		<result property="pdf2_page"  column="se_pdf2_page"/>
+		<result property="pdf3_page"  column="se_pdf3_page"/>
+
+		<result property="contain" column="se_contain"/>
+		<result property="more" column="se_more"/>
+		<result property="webcatalog" column="se_webcatalog"/>
+		<result property="lang" column="se_lang"/>
+		<result property="search_idx" column="se_search_idx"/>
+		<result property="keyword" column="se_keyword"/>
+
+
+		<result property="cad1"  column="se_cad1"/>
+		<result property="cad2"  column="se_cad2"/>
+		<result property="cad3"  column="se_cad3"/>
+		<result property="img1"  column="se_img1"/>
+		<result property="img2"  column="se_img2"/>
+		<result property="img3"  column="se_img3"/>
+		<result property="link1"  column="se_link1"/>
+		<result property="link2"  column="se_link2"/>
+		<result property="link3"  column="se_link3"/>
+		<result property="link4"  column="se_link4"/>
+		<result property="link5"  column="se_link5"/>
+		<result property="link6"  column="se_link6"/>
+		<result property="link7"  column="se_link7"/>
+		<result property="link8"  column="se_link8"/>
+		<result property="link9"  column="se_link9"/>
+		<result property="link10"  column="se_link10"/>
+
+		<result property="link11"  column="se_link11"/>
+		<result property="link12"  column="se_link12"/>
+		<result property="link13"  column="se_link13"/>
+		<result property="link14"  column="se_link14"/>
+		<result property="link15"  column="se_link15"/>
+
+        <result property="link16"  column="se_link16"/>
+        <result property="link17"  column="se_link17"/>
+        <result property="link18"  column="se_link18"/>
+        <result property="link19"  column="se_link19"/>
+        <result property="link20"  column="se_link20"/>
+
+		<result property="opt1"   column="se_opt1"/>
+
+		<result property="ctime" column="ctime"/>
+		<result property="mtime" column="mtime"/>
+		<result property="by" column="by"/>
+		<result property="active" column="se_active" nullValue="false"/>
+		<result property="hascad3d" column="se_hascad3d" nullValue="false"/>
+		<result property="has_cy_custom" column="se_has_cy_custom" nullValue="false"/>
+        <result property="has_cy_om"     column="se_has_cy_om" nullValue="false"/>
+
+
+		<result property="ca_id" column="ca_id" nullValue="0"/>
+		<result property="cs_id"    column="cs_id" nullValue="0"/>
+		<result property="cs_ca_id" column="cs_ca_id" nullValue="0"/>
+		<result property="cs_order" column="cs_order" nullValue="0"/>
+		<result property="category" resultMap="CategoryResult2" nullValue="null"/>
+		<result property="catpans_txt" column="se_catpans_txt"/>
+	</resultMap>
+
+   	<resultMap id="SeriesResultWebcatalog" class="ImpSeries">
+		<result property="id" column="se_id" nullValue="0"/>
+		<result property="sid" column="se_sid"/>
+		<result property="name" column="se_name"/>
+		<result property="name2" column="se_name2"/>
+		<result property="order" column="se_order"/>
+		<result property="text"  column="se_text"/>
+		<result property="text2"  column="se_text2"/>
+		<result property="pdf1"  column="se_pdf1"/>
+		<result property="pdf2"  column="se_pdf2"/>
+		<result property="pdf3"  column="se_pdf3"/>
+		<result property="pdf1_page"  column="se_pdf1_page"/>
+		<result property="pdf2_page"  column="se_pdf2_page"/>
+		<result property="pdf3_page"  column="se_pdf3_page"/>
+
+		<result property="contain" column="se_contain"/>
+		<result property="more" column="se_more"/>
+		<result property="webcatalog" column="se_webcatalog"/>
+		<result property="lang" column="se_lang"/>
+		<result property="search_idx" column="se_search_idx"/>
+		<result property="keyword" column="se_keyword"/>
+
+
+		<result property="cad1"  column="se_cad1"/>
+		<result property="cad2"  column="se_cad2"/>
+		<result property="cad3"  column="se_cad3"/>
+		<result property="img1"  column="se_img1"/>
+		<result property="img2"  column="se_img2"/>
+		<result property="img3"  column="se_img3"/>
+		<result property="link1"  column="se_link1"/>
+		<result property="link2"  column="se_link2"/>
+		<result property="link3"  column="se_link3"/>
+		<result property="link4"  column="se_link4"/>
+		<result property="link5"  column="se_link5"/>
+		<result property="link6"  column="se_link6"/>
+		<result property="link7"  column="se_link7"/>
+		<result property="link8"  column="se_link8"/>
+		<result property="link9"  column="se_link9"/>
+		<result property="link10"  column="se_link10"/>
+
+		<result property="link11"  column="se_link11"/>
+		<result property="link12"  column="se_link12"/>
+		<result property="link13"  column="se_link13"/>
+		<result property="link14"  column="se_link14"/>
+		<result property="link15"  column="se_link15"/>
+
+        <result property="link16"  column="se_link16"/>
+        <result property="link17"  column="se_link17"/>
+        <result property="link18"  column="se_link18"/>
+        <result property="link19"  column="se_link19"/>
+        <result property="link20"  column="se_link20"/>
+
+		<result property="opt1"   column="se_opt1"/>
+
+		<result property="ctime" column="ctime"/>
+		<result property="mtime" column="mtime"/>
+		<result property="by" column="by"/>
+		<result property="active" column="se_active" nullValue="false"/>
+		<result property="hascad3d" column="se_hascad3d" nullValue="false"/>
+        <result property="has_cy_custom" column="se_has_cy_custom" nullValue="false"/>
+        <result property="has_cy_om"     column="se_has_cy_om" nullValue="false"/>
+
+		<result property="ca_id" column="ca_id" nullValue="0"/>
+		<result property="cs_id"    column="cs_id" nullValue="0"/>
+		<result property="cs_ca_id" column="cs_ca_id" nullValue="0"/>
+		<result property="cs_order" column="cs_order" nullValue="0"/>
+		<result property="ca_parent_order" column="parent_order" nullValue="0"/>
+		<result property="category" resultMap="CategoryResult2" nullValue="null"/>
+		<result property="catpans_txt" column="se_catpans_txt"/>
+	</resultMap>
+
+
+	<sql id="sql_series">
+	 series se
+	 left join category_series cs using(se_id)
+	 left join category ca on cs_ca_id = ca.ca_id
+	</sql>
+
+	<!-- 他のテーブルとのjoin用 using(se_sid) -->
+	<sql id="sql_series_join">
+		left join
+	(
+		select distinct on(se_id) * from series se
+		left join category_series cs using(se_id)
+		left join category ca on cs_ca_id=ca.ca_id
+		where se_sid is not null and se_sid!=''
+	) as se_join using (se_sid)
+	</sql>
+
+	<sql id="sql_active">
+	<isNotNull property="active">
+	and se_active = #active#
+	</isNotNull>
+	</sql>
+
+   <insert id="insertSeries" parameterClass="ImpSeries">
+	insert into series (
+	se_id,se_name,se_name2,se_order,se_text,se_text2,se_pdf1,se_pdf2,se_pdf3,
+	se_pdf1_page,se_pdf2_page,se_pdf3_page,se_cad1,se_cad2,se_cad3,
+	se_img1,se_img2,se_img3,
+	se_link1,se_link2,se_link3,se_link4,se_link5,
+	se_link6,se_link7,se_link8,se_link9,se_link10,
+	se_link11,se_link12,se_link13,se_link14,se_link15,
+	se_link16,se_link17,se_link18,se_link19,se_link20,
+	se_active,ctime,mtime,by,ca_id,
+	se_sid,se_contain,se_more,se_webcatalog,se_lang,se_search_idx,se_keyword,se_opt1,se_catpans_txt,se_hascad3d)
+	values (
+	#id#,#name#,#name2#,#order#,#text#,#text2#,#pdf1#,#pdf2#,#pdf3#,#pdf1_page#,#pdf2_page#,#pdf3_page#,
+	#cad1#,#cad2#,#cad3#,#img1#,#img2#,#img3#,
+	#link1#,#link2#,#link3#,#link4#,#link5#,
+	#link6#,#link7#,#link8#,#link9#,#link10#,
+	#link11#,#link12#,#link13#,#link14#,#link15#,
+    #link16#,#link17#,#link18#,#link19#,#link20#,
+	#active#,#ctime#,#mtime#,#by#,#ca_id#,
+	#sid#,#contain#,#more#,#webcatalog#,#lang#,#search_idx#,#keyword#,#opt1#,#catpans_txt#,#hascad3d#)
+   </insert>
+
+   <update id="updateSeries" parameterClass="ImpSeries">
+	update series
+	set
+	se_name=#name#, se_name2=#name2#, se_order=#order#, se_text=#text#, se_text2=#text2#,
+	se_pdf1=#pdf1#, se_pdf2=#pdf2#, se_pdf3=#pdf3#,
+	se_pdf1_page=#pdf1_page#, se_pdf2_page=#pdf2_page#, se_pdf3_page=#pdf3_page#,
+	se_cad1=#cad1#, se_cad2=#cad2#, se_cad3=#cad3#,
+	se_img1=#img1#, se_img2=#img2#, se_img3=#img3#,
+	se_link1=#link1#, se_link2=#link2#, se_link3=#link3#, se_link4=#link4#, se_link5=#link5#,
+	se_link6=#link6#, se_link7=#link7#, se_link8=#link8#, se_link9=#link9#, se_link10=#link10#,
+	se_link11=#link11#, se_link12=#link12#, se_link13=#link13#, se_link14=#link14#, se_link15=#link15#,
+	se_link16=#link16#, se_link17=#link17#, se_link18=#link18#, se_link19=#link19#, se_link20=#link20#,
+
+	se_active=#active#, ctime=#ctime#, mtime=#mtime#, by=#by# ,ca_id=#ca_id#,
+	se_sid=#sid#, se_contain=#contain#, se_more=#more#, se_webcatalog=#webcatalog# ,se_lang=#lang# ,
+	se_search_idx=#search_idx#, se_keyword=#keyword#, se_opt1=#opt1#, se_catpans_txt=#catpans_txt# ,
+	se_hascad3d=#hascad3d#, se_has_cy_custom=#has_cy_custom#, se_has_cy_om=#has_cy_om#
+	where se_id=#id#
+	</update>
+
+    <update id="updateSeriesKeyword" parameterClass="ImpSeries">
+	update series set se_keyword=#keyword# where se_id=#id#
+	</update>
+
+    <update id="updateSeriesCatpans_txt" parameterClass="java.util.Map">
+	update series set se_catpans_txt=regexp_replace(se_catpans_txt,#regexp#,#rep#)
+	where se_catpans_txt~*#where#
+	</update>
+
+	<update id="updateSeriesOrder" parameterClass="ImpSeries">
+	update series set se_order=#order# where se_id=#id#
+   </update>
+
+    <!-- deprecated -->
+   <update id="updateSeriesCad3d" parameterClass="ImpSeries">
+	update series set se_hascad3d=#hascad3d# where se_id=#id#
+   </update>
+
+   <!-- has_cad3dなどまずはfalseに(langごと) -->
+   <update id="updateSeriesHasXAll" parameterClass="com.smc.webcatalog.model.ImpSearchCondition">
+    update series set $colname$=#bool# where se_lang=#lang#
+   </update>
+
+   <!-- has_cad3dなどまずはfalseに -->
+   <update id="updateSeriesHasX" parameterClass="com.smc.webcatalog.model.ImpSearchCondition">
+    update series set $colname$=#bool# where se_id=#id#
+   </update>
+
+	<update id="updateSeriesCa_id" parameterClass="com.smc.webcatalog.model.ImpSearchCondition">
+	update series set ca_id=#dst_ca_id# where ca_id=#src_ca_id#
+   </update>
+
+   <select id="listSeries" resultMap="SeriesResult">
+	select * from <include refid="sql_series"/>
+   </select>
+
+   <select id="listSeriesByCategory" resultMap="SeriesResult">
+	select * from <include refid="sql_series"/>
+	where ca.ca_id=#ca_id# <include refid="sql_active"/> order by cs_order
+   </select>
+
+   <select id="listSeriesByParentCategory" resultMap="SeriesResult">
+	select * from <include refid="sql_series"/>
+	where ca_parent_id=#ca_id# <include refid="sql_active"/> order by cs_order
+   </select>
+
+   <select id="getSeries" resultMap="SeriesResult">
+	select * from  <include refid="sql_series"/>
+	where se_id=#id#
+	order by cs_id
+   </select>
+
+   <select id="getSeriesBySid" resultMap="SeriesResult">
+	select * from  <include refid="sql_series"/>
+	where se_sid=#id#
+	order by cs_id
+   </select>
+
+   <select id="getSeriesOtherBySid" parameterClass="ImpSeries" resultMap="SeriesResult">
+	select * from  <include refid="sql_series"/>
+	where se_sid=#sid# and se_id!=#id#
+   </select>
+
+   <select id="getSeriesMax" resultClass="Long">
+	select max(se_id) from series
+   </select>
+
+
+<!--
+   <select id="getSeriesByOrder" resultMap="SeriesResult">
+	select * from series left join category using(ca_id) where se_order=#order#
+   </select>
+
+	<select id="getSeriesMaxOrder" resultClass="java.lang.Integer">
+	select count(*) from series where ca_parent_id=#ca_id#
+	</select>
+-->
+
+   <delete id="deleteSeries">
+	 delete from series where se_id=#id#
+   </delete>
+
+
+
+<!-- SeriesMap -->
+   	<typeAlias alias="SeriesMap" type="com.smc.webcatalog.model.ImpSeriesMap" />
+
+   	<resultMap id="SeriesMapResult" class="SeriesMap">
+		<result property="id" column="sm_id"/>
+		<result property="se_id" column="se_id"/>
+		<result property="type" column="sm_type"/>
+		<result property="name" column="sm_name"/>
+		<result property="cname" column="sm_cname"/>
+		<result property="order" column="sm_order"/>
+		<result property="ctime" column="ctime"/>
+		<result property="mtime" column="mtime"/>
+		<result property="by" column="by"/>
+		<result property="active" column="sm_active"/>
+	</resultMap>
+
+	<insert id="insertSeriesMap" parameterClass="SeriesMap">
+	insert into seriesmap (se_id,sm_type,sm_name,sm_cname,sm_order,sm_active,ctime,mtime,by)
+	values (#se_id#, #type#, #name#, #cname#, #order#,#active#,#ctime#,#mtime#,#by#)
+		<selectKey keyProperty="id" resultClass="long" type="post">
+       	select last_value as value from seriesmap_sm_id_seq
+      	</selectKey>
+    </insert>
+
+   <update id="updateSeriesMap" parameterClass="SeriesMap">
+	update seriesmap set se_id=#se_id#, sm_type=#type#, sm_name=#name#,
+	sm_cname=#cname#, sm_order=#order#,sm_active=#active#, mtime=#mtime#,by=#by# where sm_id=#id#
+   </update>
+
+   <select id="listSeriesMap" resultMap="SeriesMapResult">
+	select * from seriesmap where se_id=#id# order by sm_order
+   </select>
+
+
+   <select id="getColumnByName" resultClass="java.lang.String">
+	select sm_cname from seriesmap where sm_name=#name# limit 1
+   </select>
+
+   <select id="getSeriesMap" resultMap="SeriesMapResult">
+	select * from seriesmap where sm_id=#id#
+   </select>
+
+   <delete id="deleteSeriesMap">
+	 delete from seriesmap where sm_id=#id#
+   </delete>
+
+   <delete id="deleteSeriesMapBySeriesId">
+	 delete from seriesmap where se_id=#id#
+   </delete>
+
+
+
+  <select id="listSeriesBySeids" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="SeriesResult">
+
+	select distinct on (se_id)* from (
+
+		select * from series se
+		left join category_series cs using(se_id)
+		left join category ca on cs_ca_id=ca.ca_id
+
+		<iterate property="se_ids" prepend="where" conjunction="or" open="(" close=")">
+		se_id=#se_ids[]#
+		</iterate>
+
+		<isNotEmpty property="category_prefix" prepend="and" >
+		ca_name~*#category_prefix#
+		</isNotEmpty>
+
+
+		order by cs_ca_id
+
+	) as se1 where se_id!=0 <include refid="sql_active"/>
+
+
+	<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+	</isNotEqual>
+
+  </select>
+
+
+   <select id="searchSeries" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="SeriesResult">
+	select * from (
+
+	select distinct on (se_id) * from
+	(
+		select * from series se
+		left join category_series cs using(se_id)
+		left join category ca on cs_ca_id=ca.ca_id
+	join
+
+	(
+	select se_id from item i left join series using(se_id)
+
+	<isNotNull property="cname">
+		<iterate property="keywords" prepend="where" open="(" close=")" conjunction="and">
+		 $cname$~*#keywords[]#
+		</iterate>
+	</isNotNull>
+
+	<isNull property="cname">
+		<iterate property="keywords" prepend="where" conjunction="and">
+		 (se_sid~*#keywords[]# or se_name~*#keywords[]# or se_name2~*#keywords[]# or se_text~*#keywords[]#
+		 or c1~*#keywords[]# or c2~*#keywords[]# or  c3~*#keywords[]# or c4~*#keywords[]# or c5~*#keywords[]#
+		 or c6~*#keywords[]# or c7~*#keywords[]# or c8~*#keywords[]# or c9~*#keywords[]# or c10~*#keywords[]#
+		 or c11~*#keywords[]# or c12~*#keywords[]# or c13~*#keywords[]# or c14~*#keywords[]# or c15~*#keywords[]#
+		 or c16~*#keywords[]# or c17~*#keywords[]# or c18~*#keywords[]# or c19~*#keywords[]# or c20~*#keywords[]#
+		 or c21~*#keywords[]# or c22~*#keywords[]# or c23~*#keywords[]# or c24~*#keywords[]# or c25~*#keywords[]#
+		 or c26~*#keywords[]# or c27~*#keywords[]# or c28~*#keywords[]# or c29~*#keywords[]# or c30~*#keywords[]#
+		 or c31~*#keywords[]# or c32~*#keywords[]# or c33~*#keywords[]# or c34~*#keywords[]# or c35~*#keywords[]#
+		 or c36~*#keywords[]# or c37~*#keywords[]# or c38~*#keywords[]# or c39~*#keywords[]# or c40~*#keywords[]#
+		 or c41~*#keywords[]# or c42~*#keywords[]# or c43~*#keywords[]# or c44~*#keywords[]# or c45~*#keywords[]#
+		 or c46~*#keywords[]# or c47~*#keywords[]# or c48~*#keywords[]# or c49~*#keywords[]# or c50~*#keywords[]#)
+		</iterate>
+	</isNull>
+
+	<isNotNull property="lang" prepend="and">
+	se_lang = #lang#
+	</isNotNull>
+
+		 group by se_id) as se2
+
+	using(se_id)
+	) as se3
+
+	<isNotEqual property="ca_id" compareValue="0">
+		where ca_parent_id=#ca_id#
+	</isNotEqual>
+
+	) as se4 where se_id!=0 <include refid="sql_active"/>
+
+	order by
+
+	<isNotNull property="keywords">
+	 se_search_idx desc ,
+	</isNotNull>
+
+	se_order asc
+
+	<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+	</isNotEqual>
+
+  </select>
+
+
+  <!-- 総合カタログのキーワード検索とABC検索用 -->
+  <select id="searchWebcatalog" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="SeriesResultWebcatalog">
+
+	select * from (
+
+	select distinct on (se_id) * from
+	(
+		select *,ca_parent.ca_order as parent_order from series se
+		left join category_series cs using(se_id)
+		left join category ca on cs_ca_id=ca.ca_id
+		left join category ca_parent on ca.ca_parent_id=ca_parent.ca_id
+		join
+
+	(
+	select se_id from item i left join series using(se_id)
+
+	<isEqual property="mode" compareValue="KEYWORD">
+	<isNotNull property="keywords">
+	<iterate property="keywords" prepend="where" conjunction="and">
+		 (se_sid~*#keywords[]# or se_name~*#keywords[]# or se_name2~*#keywords[]# or se_text~*#keywords[]#
+		 or c1~*#keywords[]# or c2~*#keywords[]# or  c3~*#keywords[]# or c4~*#keywords[]# or c5~*#keywords[]#
+		 or c6~*#keywords[]# or c7~*#keywords[]# or c8~*#keywords[]# or c9~*#keywords[]# or c10~*#keywords[]#
+		 or c11~*#keywords[]# or c12~*#keywords[]# or c13~*#keywords[]# or c14~*#keywords[]# or c15~*#keywords[]#
+		 or c16~*#keywords[]# or c17~*#keywords[]# or c18~*#keywords[]# or c19~*#keywords[]# or c20~*#keywords[]#
+		 or c21~*#keywords[]# or c22~*#keywords[]# or c23~*#keywords[]# or c24~*#keywords[]# or c25~*#keywords[]#
+		 or c26~*#keywords[]# or c27~*#keywords[]# or c28~*#keywords[]# or c29~*#keywords[]# or c30~*#keywords[]#
+		 or c31~*#keywords[]# or c32~*#keywords[]# or c33~*#keywords[]# or c34~*#keywords[]# or c35~*#keywords[]#
+		 or c36~*#keywords[]# or c37~*#keywords[]# or c38~*#keywords[]# or c39~*#keywords[]# or c40~*#keywords[]#
+		 or c41~*#keywords[]# or c42~*#keywords[]# or c43~*#keywords[]# or c44~*#keywords[]# or c45~*#keywords[]#
+		 or c46~*#keywords[]# or c47~*#keywords[]# or c48~*#keywords[]# or c49~*#keywords[]# or c50~*#keywords[]#)
+	<!--
+	 se_keyword~*#keywords[]#
+	-->
+	</iterate>
+	</isNotNull>
+	</isEqual>
+
+	<isNotEqual property="mode" compareValue="KEYWORD">
+	<isNotNull property="keywords">
+	<iterate property="keywords" prepend="where" conjunction="and">
+		(se_name2~*#keywords[]#)
+	</iterate>
+	</isNotNull>
+	</isNotEqual>
+
+
+		 group by se_id) as se2
+
+	using(se_id)
+	) as se3
+
+	<iterate property="ca_ids" prepend="where" open="(" close=")" conjunction="or">
+		cs_ca_id=#ca_ids[]#
+	</iterate>
+
+	<isNotNull property="lang">
+		and se_lang = #lang#
+	</isNotNull>
+
+	) as se4 where se_id!=0 <include refid="sql_active"/>
+
+
+	order by
+
+	<isNotEqual property="mode" compareValue="HEAD">
+		<isEqual property="mode" compareValue="KEYWORD">
+		<isNotNull property="keywords">
+		 se_search_idx desc, parent_order asc,
+		</isNotNull>
+		</isEqual>
+		cs_order asc
+	</isNotEqual>
+
+	<isEqual property="mode" compareValue="HEAD">
+	se_name2 , se_id
+	</isEqual>
+
+
+	<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+	</isNotEqual>
+
+  </select>
+
+<!--
+   <select id="searchSeriesByCa_id" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="SeriesResult">
+	select * from
+	( select * from series left join category using(ca_id)
+	join
+	(
+	select se_id from item i left join series using(se_id)
+
+	<isNull property="cname">
+		<iterate property="keywords" prepend="where" conjunction="and">
+		 (se_sid~*#keywords[]# or se_name~*#keywords[]# or se_name2~*#keywords[]# or se_text~*#keywords[]#
+		 or c1~*#keywords[]# or c2~*#keywords[]# or  c3~*#keywords[]# or c4~*#keywords[]# or c5~*#keywords[]#
+		 or c6~*#keywords[]# or c7~*#keywords[]# or c8~*#keywords[]# or c9~*#keywords[]# or c10~*#keywords[]#
+		 or c11~*#keywords[]# or c12~*#keywords[]# or c13~*#keywords[]# or c14~*#keywords[]# or c15~*#keywords[]#
+		 or c16~*#keywords[]# or c17~*#keywords[]# or c18~*#keywords[]# or c19~*#keywords[]# or c20~*#keywords[]#
+		 or c21~*#keywords[]# or c22~*#keywords[]# or c23~*#keywords[]# or c24~*#keywords[]# or c25~*#keywords[]#
+		 or c26~*#keywords[]# or c27~*#keywords[]# or c28~*#keywords[]# or c29~*#keywords[]# or c30~*#keywords[]#
+		 or c31~*#keywords[]# or c32~*#keywords[]# or c33~*#keywords[]# or c34~*#keywords[]# or c35~*#keywords[]#
+		 or c36~*#keywords[]# or c37~*#keywords[]# or c38~*#keywords[]# or c39~*#keywords[]# or c40~*#keywords[]#
+		 or c41~*#keywords[]# or c42~*#keywords[]# or c43~*#keywords[]# or c44~*#keywords[]# or c45~*#keywords[]#
+		 or c46~*#keywords[]# or c47~*#keywords[]# or c48~*#keywords[]# or c49~*#keywords[]# or c50~*#keywords[]#)
+		</iterate>
+	</isNull>
+		 group by se_id) as se2
+
+	using(se_id)
+	) as se3
+
+	<isNotEqual property="ca_id" compareValue="0">
+		where ca_parent_id=#ca_id#
+	</isNotEqual>
+
+	order by se_order
+
+	<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+	</isNotEqual>
+
+  </select>
+  -->
+
+  <select id="searchSeriesByCategory" parameterClass="com.smc.webcatalog.model.ImpSearchCondition" resultMap="SeriesResult">
+
+	select * from series se
+	left join category_series cs using(se_id)
+	left join category ca on cs_ca_id = ca.ca_id
+
+	where cs_ca_id=#ca_id# <include refid="sql_active"/>
+	order by cs_order
+
+	<isNotEqual property="limit" compareValue="0">
+		limit #limit# offset #offset#
+	</isNotEqual>
+
+  </select>
+
+<!-- category_series -->
+
+	<insert id="insert_category_series" parameterClass="ImpSeries">
+		insert into category_series (cs_ca_id,se_id,cs_order)
+		values (#cs_ca_id#,#id#,#order#)
+	</insert>
+
+	<update id="update_category_series" parameterClass="ImpSeries">
+		update category_series set cs_ca_id=#cs_ca_id#,se_id=#id#,cs_order=#order# where cs_id=#id#
+	</update>
+
+	<update id="update_category_series_order" parameterClass="ImpSeries">
+		update category_series set cs_order=#cs_order# where cs_ca_id=#cs_ca_id# and se_id=#id#
+	</update>
+
+	<delete id="delete_all_category_series">
+	delete from category_series;
+	</delete>
+
+	<delete id="delete_category_series" parameterClass="ImpSeries">
+	delete from category_series where cs_ca_id=#cs_ca_id# and se_id=#id#;
+	</delete>
+
+	<delete id="delete_category_series_by_ca_id">
+	delete from category_series where cs_ca_id=#id#
+	</delete>
+
+	<delete id="delete_category_series_by_se_id">
+	delete from category_series where se_id=#id#
+	</delete>
+
+</sqlMap>

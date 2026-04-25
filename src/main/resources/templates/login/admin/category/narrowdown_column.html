@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/handsontable-14.5.0/handsontable.full.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/handsontable-14.5.0/custom.css}">
+  <script th:src="@{/handsontable-14.5.0/handsontable.full.min.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/category/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+          <h4 class="ui dividing header">[[${category.name}]] Narrow down Column</h4>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/category/narrowdown/column/post}" th:object="${narrowDownColumnForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui positive message" th:if="${param.success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${param.notTest}">
+                  <div class="header" th:text="#{msg.update.not.test}">not TEST</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="${is_error}">Error!</div>
+                </div>
+
+
+
+            <div class="required field">
+				<input type="hidden" name="categoryId" th:value="*{categoryId}" />
+              <label for="">Column / Select Type</label>
+              <p>上段が項目名、下段に「select radio checkbox range」のいずれかを入力してください。</p>
+              <div id="json_column"></div>
+              <input type="hidden" id="save_json" name="json" th:value="*{json}" />
+              <input type="button" id="reset" value="RESET" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('json')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+            
+            <button class="ui tiny positive button" type="submit" id="form_save" th:if="${SessionScreenState.state.equals('TEST')}">
+              <i class="save icon"></i>[[#{act.save}]]
+            </button>
+          </form>
+        </div>
+
+        
+      </div>
+
+    </div>
+    
+    
+    <div th:unless="(${narrowDownColumnForm.json} and ${narrowDownColumnForm.json!=''})">
+    <!-- handsontable NEW -->
+    <script>
+	var grid = document.getElementById('json_column');
+	var saved = document.getElementById('save_json');
+	var width = 50;
+	var hot = new Handsontable(grid, {
+	    data: [
+	    	 ['ColA', 'ColB'],
+		        ['select', 'checkbox']
+	    ],
+	    contextMenu: true,
+	    stretchH: 'all',
+//		wordWrap: false,
+		colWidths: width,
+		licenseKey: 'non-commercial-and-evaluation'
+	});
+	$('#form_save').click(function(){
+		saved.value=JSON.stringify( hot.getData());
+	});
+	</script>
+	</div>
+	<div th:if="(${narrowDownColumnForm.json} and ${narrowDownColumnForm.json!=''})">
+    <!-- handsontable EDIT -->
+	<script th:inline="javascript">
+	var grid = document.getElementById('json_column');
+	var saved = document.getElementById('save_json');
+	var edit = [(${narrowDownColumnForm.json})];
+	var width = 50;
+	var hot = new Handsontable(grid, {
+	    data: edit,
+	    contextMenu: true,
+	    stretchH: 'all',
+//	    wordWrap: false,
+		colWidths: width,
+		hiddenRows: true,
+        hiddenRows: {
+          rows: [2]
+        },
+	    licenseKey: 'non-commercial-and-evaluation'
+	});
+	$('#form_save').click(function(){
+		saved.value=JSON.stringify( hot.getData());
+	});
+	</script>
+	</div>
+
+    <div>
+	<script>
+	$('#reset').click(function(){
+		if (hot) {hot.destroy();hot=null;}
+		var grid = document.getElementById('json_column');
+		var saved = document.getElementById('save_json');
+		var width = 50;
+		hot = new Handsontable(grid, {
+		    data: [
+		    	 ['ColA', 'ColB'],
+		        ['select', 'checkbox']
+		    ],
+		    contextMenu: true,
+		    stretchH: 'all',
+			colWidths: width,
+			licenseKey: 'non-commercial-and-evaluation'
+		});
+	});
+	</script>
+	</div>
+
+</div><!-- end contents -->
+</body>
+</html>

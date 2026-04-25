@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.user}">User</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/serieslinkmaster/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/serieslinkmaster/post}" th:object="${seriesLinkMasterForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="#{msg.error}">Error!</div>
+                </div>
+
+
+
+
+            <div class="required field">
+              <label for="">Title(Index)</label>
+              <input type="text" name="title" th:value="*{title}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('title')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Name</label>
+              <input type="text" name="name" th:value="*{name}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('name')}" th:text="${err}" /><br>Display for Icon or Tab</ul>
+            </div>
+
+            <div class=" field">
+              <label for="">DefaultUrl</label>
+              <input type="text" name="defaultUrl" th:value="*{defaultUrl}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('defaultUrl')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field" >
+              <label for="">Type</label>
+              <select class="custom-control-select" name="type" >
+                <option th:each="ca : ${type}" th:value="${ca}" th:selected="(*{type} == ${ca})">[[${ca}]]</option>
+              </select>
+            </div>
+
+            <div class="required field">
+              <label for="">Order</label>
+              <input type="text" name="order" th:value="*{order}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('order')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">icon CSS class</label>
+              <input type="text" name="iconClass" th:value="*{iconClass}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('iconClass')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">blank</label>
+              <input type="checkbox" name="blank" value="on" th:field="*{blank}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('blank')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+
+            <button class="ui tiny positive button" type="submit">
+              <i class="save icon"></i>Save
+            </button>
+            <a class="ui tiny button" th:href="@{|/login/admin/serieslinkmaster/|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" th:if="*{id}" th:value="*{id}" />
+              lang:<input type="text" name="lang" th:value="*{lang}" />
+            </div>
+          </form>
+        </div>
+
+        <div class="column col_compare_dst" style="display:none">
+          <h4 class="ui dividing header">
+            en-jp
+            <a class="ui mini fitted label act_compare_close"><i class="x icon"></i>[[#{msg.close}]]</a>
+          </h4>
+
+
+        </div>
+      </div>
+
+      <div class="ui vertical divider divider_compare" style="display:none">
+        <i class="columns grey icon"></i>
+      </div>
+    </div>
+
+
+</div><!-- end contents -->
+</body>
+</html>

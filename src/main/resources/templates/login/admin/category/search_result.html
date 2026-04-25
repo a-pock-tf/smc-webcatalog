@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+  <script th:src="@{/clipboard/clipboard.min.js}"></script>
+
+
+  <script>
+
+    $(function () {
+      new ClipboardJS('.copy_id');
+    });
+
+  </script>
+
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/category/inc/breadcrumb_search_result}"></div>
+
+    <script>
+
+      // for delete ==========================
+      var url = '[[@{/login/admin/category/}]]';
+      $(function () {
+        $(".act_delete").click(function () {
+        	var id = $(this).attr('id');
+          $(".mod_delete").modal({
+            centered: false,
+            onDeny: function () {
+              //window.alert('Wait not yet!');
+              //return false;
+            },
+            onApprove: function () {
+              //window.alert('Approved!');
+            	location.href= url + "del/" + id;
+            }
+          }).modal("show");
+        })
+
+
+      });
+
+    </script>
+
+
+    <!--mordal delete-->
+    <div class="ui small modal mod_delete">
+      <div class="header">
+        [[#{view.form.alert.confirm.delete}]]
+      </div>
+      <div class="content">
+        <p>[[#{view.form.alert.category.delete.message}]]</p>
+        <p>[[#{view.form.alert.category.delete.message.sub}]]</p>
+      </div>
+      <div class="actions">
+        <div class="ui mini green approve button">
+          [[#{view.form.alert.approve}]]
+        </div>
+        <div class="ui mini cancel button">
+          [[#{view.form.alert.cancel}]]
+        </div>
+      </div>
+    </div>
+    <!-- disp message or error ========================= -->
+    <div class="ui positive message" th:if="${param.message}">[[${param.message}]]</div>
+    <div class="ui negative message" th:if="${param.error}">[[${param.error}]]</div>
+    <!-- list table ================================== -->
+    <table class="ui small table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Lang</th>
+          <th>SystemId</th>
+          <th>CTime</th>
+          <th class="two wide right aligned">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody class="" id="sortable">
+
+        <tr class="repeat" th:if="${list!=null}" th:each="c : ${list}" th:object="${c}">
+
+          <td class="align-middle">
+            <i class="sort_icons bars icon"></i>
+            <a href="/login/admin/category/list.html" th:href="@{|/login/admin/category/edit/*{id}|}"
+              class="category_sub" th:text="*{name}"><i class="folder icon category "></i>パイロット式4·5ポートソレノイドバルブ</a>
+            <!-- state 表示 -->
+            <!-- if と 事前評価によるmessageの呼び出し -->
+            <!--
+                    <span th:if="*{state.toString() == 'TEST'}" class="ui tiny label" th:text="#{ModelState.__*{state}__}"></span>
+                    <span th:if="*{state.toString() == 'PROD'}" class="ui tiny teal label" th:text="#{ModelState.__*{state}__}"></span>
+                    -->
+            <!-- active表示 -->
+            <span th:if="*{!active}" class="ui tiny label" th:text="#{active.__*{active}__}"></span>
+
+            <!--<span>[5d172c7e4f17c54118599a2a]</span>-->
+          </td>
+          <td class=""> [[*{lang}]] </td>
+          <td class="ids"> [[*{id}]] </td>
+          <td class="">
+            <span th:text="*{#calendars.format(ctime,'yyy/MM/dd HH:mm')}">2019/06/29 18:16</span>
+          </td>
+          <td class="single line right aligned">
+            <a href="/login/admin/category/edit.html" th:href="@{|/login/admin/category/edit/*{id}|}"><i class="pencil alternate icon"></i>[[#{act.edit}]]</a>
+            &nbsp;-&nbsp;
+            <a href="#" class="act_delete" th:id="*{id}"><i class="edit icon"></i>[[#{act.delete}]]</a>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Lang</th>
+          <th>SystemId</th>
+          <th>CTime</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+
+
+
+
+
+  </div><!-- end contents -->
+</body>
+
+</html>

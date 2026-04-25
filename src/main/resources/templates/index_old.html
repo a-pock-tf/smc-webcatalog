@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <title>Login</title>
+  <meta name="description" content="page-meta">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/single.css}">
+</head>
+
+<body>
+
+  <div layout:fragment="contents">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column" style="max-width:450px;">
+
+        <h2 class="ui teal image header">
+          <img th:src="@{/images/logo.png}" class="image">
+          <div class="content" th:text="#{g.title}">Title</div>
+        </h2>
+
+        <form method="post" th:action="@{/signup}" th:object="${loginForm}" class="ui form">
+<!--         <div class="ui negative message" th:if="${#fields.hasErrors('*')}"> -->
+        <div class="ui negative message" th:if="${loginError}">
+                    <div class="header">エラー</div>
+                    <ul>
+    <!--                  <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li> -->
+                        <li th:text="${message}" class="err"></li>
+                    </ul>
+            </div>
+          <div class="ui segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="loginid" placeholder="E-mail address" th:value="*{loginid}" >
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="loginpw" placeholder="Password"  th:value="*{loginpw}">
+              </div>
+            </div>
+            <button type="submit" class="ui fluid large teal submit button" style="">Login</button>
+          </div>
+
+          <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+          ログインはまだ実装していないので、<a th:href="@{/login/admin/category/}">こちらをクリック</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- applicationsope
+    <p th:text="${@testCategory.name}"></p>
+   -->
+
+  </div><!-- end contents -->
+
+</body>
+
+</html>

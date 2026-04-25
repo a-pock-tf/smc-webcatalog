@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.series}">Series</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/handsontable-7.4.2/handsontable.full.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/handsontable-7.4.2/custom.css}">
+  <script th:src="@{/handsontable-7.4.2/handsontable.full.min.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/series/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 比較グリッド表示用 -->
+    <script>
+      $(function () {
+        //$(".col_compare_src").css('width','100%');
+        //$(".col_compare_dst").hide();
+
+        //comapre action
+        $(".act_compare").click(function () {
+          $(".grid_compare").removeClass("one column");
+          $(".grid_compare").addClass("two column");
+          $(".col_compare_dst").show();
+          $(".divider_compare").show();
+          $(".hidden.message").show();
+        });
+        //comapre action
+        $(".act_compare_close").click(function () {
+          $(".col_compare_dst").hide();
+          $(".divider_compare").hide();
+          $(".grid_compare").removeClass("two column");
+          $(".grid_compare").addClass("one column");
+          $(".hidden.message").hide();
+          compare_close_click();
+        });
+      });
+      // for archive to test ==========================
+      var url = '[[@{/login/admin/series/}]]';
+      var urlAPI = '[[@{/login/admin/api/series/}]]';
+      $(function () {
+        $("#button_archive").click(function () {
+          var id = $("#compare_id").val();
+          $(".mod_archive").modal({
+            centered: false,
+            onDeny: function () {
+              //window.alert('Wait not yet!');
+              //return false;
+            },
+            onApprove: function () {
+              //window.alert('Approved!' + id);
+              location.href= url + "state?state=TEST&id="  + id ;
+            }
+          }).modal("show");
+          return false;
+        })
+      });
+      function compare(lang, id) {
+          $.ajax({
+          	  type: 'GET',
+          	  url: urlAPI + id+'/'+lang,
+          	  dataType: 'json'
+          })
+          .then(function(json) {
+			$('#compare_disp').text(json.lang);
+			$('#compare_name').val(json.name);
+			$('#compare_number').val(json.number);
+			$('#compare_modelNumber').val(json.modelNumber);
+			$('#compare_keyword').val(json.keyword);
+			$('#compare_breadcrumb').val(json.breadcrumb);
+	    	$('#compare_detail').val(json.detail);
+	    	$('#compare_other').val(json.other);
+	    	$('#compare_advantage').val(json.advantage);
+	    	$('#compare_spec').val(json.spec);
+	    	$('#compare_active').prop('checked',json.active);
+	    	$('#compare_id').val(json.id);
+	    	$('#compare_oldId').val(json.oldId);
+	    	$('#compare_image').val(json.image);
+	    	$('#compare_state').val(json.state);
+	    	$('#compare_lang').val(json.lang);
+	    	$('#compare_stateRefId').val(json.stateRefId);
+	    	$('#compare_langRefId').val(json.langRefId);
+	    	$('#compare_cad3d').prop('checked',json.cad3d);
+	    	$('#compare_orderMade').prop('checked',json.orderMade);
+	    	$('#compare_custom').prop('checked',json.custom);
+			$('#compare_notice').text(json.notice);
+			$('#compare_imageTop').text(json.imageTop);
+			$('#compare_imageBottom').text(json.imageBottom);
+			$('#compare_order').val(json.order);
+	        compare_click();
+	        if (json.state == "ARCHIVE") {
+	        	$('#button_archive').show();
+	        } else {
+	        	$('#button_archive').hide();
+	        }
+          },
+          function() {
+            console.log('読み込みに失敗しました');
+          });
+          $.ajax({
+          	  type: 'GET',
+          	  url: urlAPI + 'category/'+id+'/'+lang,
+          	  dataType: 'json'
+          })
+          .then(function(json) {
+        	  $('#compare_categories').html("");
+    	      for(var k in json){
+		        $('#compare_categories').append( json[k].name + "<input type='checkbox' checked /><br>");
+    	      }
+    	  },
+    	  function() {
+    	    console.log('読み込みに失敗しました');
+    	  });
+          $.ajax({
+          	  type: 'GET',
+          	  url: urlAPI + 'link/'+id+'/'+lang,
+          	  dataType: 'json'
+          })
+          .then(function(json) {
+        	  $('#compare_link').html("");
+    	      for(var k in json){
+		        $('#compare_link').append( json[k].linkMaster.name + "<input type='text' value='" + json[k].url + "' /><br>");
+    	      }
+    	  },
+    	  function() {
+    	    console.log('読み込みに失敗しました');
+    	  });
+      } // end compare()
+
+    </script>
+
+    <!--mordal Archive-->
+    <div class="ui small modal mod_archive">
+      <div class="header">
+        [[#{view.form.alert.confirm.archive}]]
+      </div>
+      <div class="content">
+        [[#{view.form.alert.series.archive.back.message}]]
+      </div>
+      <div class="actions">
+        <div class="ui mini green approve button">
+          [[#{view.form.alert.approve}]]
+        </div>
+        <div class="ui mini cancel button">
+          [[#{view.form.alert.cancel}]]
+        </div>
+      </div>
+    </div>
+
+    <!-- 言語選択 -->
+    <div class="ui secondary pointing menu" th:if="(${seriesForm.id != null})">
+
+      <a th:each="lang : ${application.LANG_VIEW_LIST}" th:if="${SessionUser.isEditableLang(__lang.name__) and langRefList != null}"
+        th:class="(${SessionScreenState.lang == lang.name})? 'active selected item' : 'item'"
+        th:href="${#lists.contains(langRefList, lang.name)} ? '/webcatalog/login/admin/series/edit/'+${langBaseId}+'/lang/'+${lang.name} : '/webcatalog/login/admin/series/new/'+${langBaseId}+'/lang/'+${lang.name}+'/category/'+${categoryId}">
+        <i th:class="${#lists.contains(langRefList, lang.name)} ? 'linkify icon' : 'icon'"></i>[[${lang.name}]]</a>
+      <a class='active selected item' th:if="${langRefList == null}"  >[[${SessionScreenState.lang}]]</a>
+
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon top right pointing dropdown">
+            <i class="columns icon"></i> [[#{view.form.compare}]] <i class="dropdown icon"></i>
+            <div class="menu">
+              <a th:each="lang : ${application.LANG_VIEW_LIST}" th:if="${SessionUser.isEditableLang(__lang.name__) and langRefList != null}"
+               th:attr="onclick='compare(\'' + ${lang.name} + '\',\'' + ${seriesForm.id} + '\');'"
+               th:class="${#lists.contains(langRefList, lang.name)} ? 'item act_compare' : 'item disabled'">[[${lang.name}]]</a>
+              <a th:if="(${diffSeries != null} and ${diffSeries.state} == 'TEST')" class="item act_compare"
+                th:attr="onclick='compare(\'' + ${seriesForm.lang} + '\', \'' + ${diffSeries.id} + '\');'" >
+                <span class="ui green label">[[#{ModelState.TEST}]]</span>[[${#calendars.format(diffSeries.mtime,'yyy/MM/dd HH:mm')}]]</a>
+              <a th:if="(${diffSeries != null} and ${diffSeries.state} != 'TEST')" class="item act_compare"
+                th:attr="onclick='compare(\'' + ${seriesForm.lang} + '\', \'' + ${diffSeries.id} + '\');'" >
+                <span class="ui blue label">[[#{ModelState.PROD}]]</span>[[${#calendars.format(diffSeries.mtime,'yyy/MM/dd HH:mm')}]]</a>
+              <a th:if="${listArchive != null}" th:each="archive : ${listArchive}"
+                class="item act_compare" th:attr="onclick='compare(\''+${seriesForm.lang}+'\', \'' + ${archive.id} + '\');'" >
+                <i class="history icon"></i>[[${#calendars.format(archive.mtime,'yyy/MM/dd HH:mm')}]]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+          <h4 class="ui dividing header">[[${seriesForm.lang}]]</h4>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/series/post}" th:object="${seriesForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui positive message" th:if="${param.success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${param.notTest}">
+                  <div class="header" th:text="#{msg.update.not.test}">not TEST</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="${is_error}">Error!</div>
+                </div>
+
+
+
+
+            <div class="required field">
+              <label for="">Product name</label>
+              <input type="text" name="name" th:value="*{name}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('name')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Part Number</label>
+              <input type="text" name="number" th:value="*{number}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('number')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">SeriesID</label>
+              <input type="text" name="modelNumber" th:value="*{modelNumber}" />
+              <p>※en-jpは-E、zh-cnは-ZH、zh-twは-ZHTWで終わっていること。また、日本のSeriesIDに揃えて下さい。ja-jp:JSY en-jp:JSY-E zh-cn:JSY-ZH zh-tw: JSY-ZHTW</p>
+              <ul class="error"><li th:each="err : ${#fields.errors('modelNumber')}" th:text="${err}" /></ul>
+            </div>
+            <div class="required field">
+              <label for="">Keyword</label>
+              <input type="text" name="searchword" th:value="*{searchword}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('searchword')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">Breadcrumb</label>
+              <input type="text" name="breadcrumb" th:value="*{breadcrumb}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('breadcrumb')}" th:text="${err}" /></ul>
+            </div>
+            <div class="required field">
+              <label for="">Image File Name</label>
+              <input type="text" name="image" th:value="*{image}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('image')}" th:text="${err}" /></ul>
+            </div>
+
+
+            <div class="field">
+              <label for="">Detail</label>
+              <textarea name="detail" placeholder="HTML"  th:field="*{detail}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('detail')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">Other data</label>
+              <textarea name="other" placeholder="HTML"  th:field="*{other}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('other')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Spec</label>
+              <p>※2023/6/26 本番アップ時に[Manual]の新URLへの置き換えプログラムを作りましたが、新URLへの修正をお願いします。/manual/ja/s.do?k=SYJ300/500/700 -> /manuals/ja-jp/search?query=SYJ300/500/700</p>
+              <div id="json_spec"></div>
+              <input type="hidden" id="save_spec" name="spec" th:value="*{spec}" />
+              <input type="button" id="reset" value="RESET" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('spec')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field" >
+              <label for="">Categories</label>
+              <div class="custom-control custom-checkbox" th:if="${listCategory!=null}" th:each="c : ${listCategory}">
+                  [[${c.name}]]&nbsp;<input type="checkbox" class="custom-control-input" th:value="${c.id}" th:field="*{categoryList}" />
+              </div>
+            </div>
+            <div class=" field" >
+              <label for="">Add Category</label>
+              <select class="custom-control-select" name="addCategory" >
+                <option value="">---</option>
+                <option th:each="ca : ${listAllCategory}" th:if="${ca.name != '　root'}" th:value="${ca.id}">[[${ca.name}]]</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="">Link </label>
+              <div th:if="${listLinkMaster!=null}" th:each="m : ${listLinkMaster}">
+                  [[${m.name}]]&nbsp;<input type="text" th:field="*{linkList[__${mStat.index}__]}"/>
+              </div>
+            </div>
+            <div class="field">
+              <label for="">3D CAD</label>
+              <input type="checkbox" name="cad3d" value="on" th:field="*{cad3d}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('cad3d')}" th:text="${err}" /></ul>
+            </div>
+            <div class="field">
+              <label for="">OrderMade</label>
+              <input type="checkbox" name="orderMade" value="on" th:field="*{orderMade}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('orderMade')}" th:text="${err}" /></ul>
+            </div>
+            <div class="field">
+              <label for="">Custom</label>
+              <input type="checkbox" name="custom" value="on" th:field="*{custom}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('custom')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">Preparation</label>
+              <input type="checkbox" name="pre" value="on" th:field="*{pre}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('pre')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="field">
+              <label for="">Advantage</label>
+              <textarea name="advantage" placeholder="URL for advantage"  th:field="*{advantage}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('advantage')}" th:text="${err}" /></ul>
+            </div>
+
+
+            <div>
+              <label for="">Notice</label>
+              <textarea name="notice" placeholder="HTML"  th:field="*{notice}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('notice')}" th:text="${err}" /></ul>
+            </div>
+
+            <div>
+              <label for="">Image Top</label>
+              <textarea name="imageTop" placeholder="HTML"  th:field="*{imageTop}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('imageTop')}" th:text="${err}" /></ul>
+            </div>
+
+            <div>
+              <label for="">Image Bottom</label>
+              <textarea name="imageBottom" placeholder="HTML"  th:field="*{imageBottom}"></textarea>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('imageBottom')}" th:text="${err}" /></ul>
+            </div>
+            <div class="field">
+              <label for="">Order</label>
+              <input name="order" placeholder="123"  th:field="*{order}"></input>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('order')}" th:text="${err}" /></ul>
+            </div>
+            <div>&nbsp;</div>
+
+            <button class="ui tiny positive button" type="submit" id="form_save">
+              <i class="save icon"></i>Save
+            </button>
+            <a th:if="${SessionScreenState.BackToList == true}" class="ui tiny button" th:href="@{|/login/admin/series/?categoryId=${SessionScreenState.keyword}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+            <a th:if="${SessionScreenState.BackToList == false}" class="ui tiny button" th:href="@{|/login/admin/series/search?keyword=${SessionScreenState.keyword}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" th:if="*{id}" th:value="*{id}" />
+              state:<input type="text" name="state" th:value="*{state}" />
+              lang:<input type="text" name="lang" th:value="*{lang}" />
+              stateRefId:<input type="text" name="stateRefId" th:value="*{stateRefId}" />
+              langRefId:<input type="text" name="langRefId" th:value="*{langRefId}" />
+              oldId:<input type="text" name="oldId" th:if="*{oldId}" th:value="*{oldId}" />
+              <span th:if="${SessionScreenState.BackToList == true}">categoryId:<input type="text" name="categoryId" th:value="${SessionScreenState.keyword}" /></span>
+            </div>
+          </form>
+        </div>
+
+        <div class="column col_compare_dst" style="display:none">
+          <h4 class="ui dividing header">
+            <span id="compare_disp">en-jp</span>
+            <a class="ui mini fitted label act_compare_close"><i class="x icon"></i>[[#{msg.close}]]</a>
+          </h4>
+
+          <!--form ja-jp -->
+          <form  id="form_compare" name="form_compare"  class="ui small form">
+            <div class="required field">
+              <label for="">Series name</label>
+              <input type="text" id="compare_name" value="Pilot Operated 4/5 Port Solenoid Valves" />
+            </div>
+            <div class="field">
+              <label for="">Number</label>
+              <input type="text" id="compare_number" value="Number" />
+            </div>
+
+            <div class="field">
+              <label for="">ModelNumber</label>
+              <input type="text" id="compare_modelNumber" value="Model Number" />
+            </div>
+            <div class="field">
+              <label for="">Keyword</label>
+              <input type="text" id="compare_keyword" value="Keyword" />
+            </div>
+            <div class="field">
+              <label for="">Breadcrumb</label>
+              <input type="text" id="compare_breadcrumb" value="Breadcrumb" />
+            </div>
+            <div class="field">
+              <label for="">Image File Name</label>
+              <input type="text" id="compare_image" value="Image" />
+            </div>
+
+            <div class="field">
+              <label for="">Detail</label>
+              <textarea name="detail" placeholder="HTML"  id="compare_detail"></textarea>
+            </div>
+            <div class="required field">
+              <label for="">other data</label>
+              <textarea name="other" placeholder="other"   id="compare_other"></textarea>
+            </div>
+            <div class="required field">
+              <label for="">Spec</label>
+              <div id="json_compare_spec"></div>
+              <input type="hidden" id="compare_spec"  />
+            </div>
+            <div class="required field">
+              <label for="">Active</label>
+              <input type="checkbox" id="compare_active" name="active" value="on"  />
+            </div>
+            <div class=" field" >
+              <label for="">Categories</label>
+              <div class="custom-control custom-checkbox" id="compare_categories">
+
+              </div>
+            </div>
+            <div class=" field" >
+              <label for="">Add Category</label>
+              <select class="custom-control-select" name="addCategory" >
+                <option value="">---</option>
+                <option th:each="ca : ${listAllCategory}" th:if="${ca.name != '　root'}" th:value="${ca.id}">[[${ca.name}]]</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="">Link</label>
+              <div id="compare_link">
+                <div th:if="${listLinkMaster!=null}" th:each="m : ${listLinkMaster}">
+                  [[${m.name}]]&nbsp;<input th:id="'compare_link_'+${mStat.index}" />
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="">3D CAD</label>
+              <input type="checkbox" id="compare_cad3d" name="cad3d" value="on"  />
+            </div>
+            <div class="field">
+              <label for="">OrderMade</label>
+              <input type="checkbox" id="compare_orderMade"  name="orderMade" value="on" />
+            </div>
+            <div class="field">
+              <label for="">Custom</label>
+              <input type="checkbox" id="compare_custom"  name="custom" value="on"/>
+            </div>
+            <div class="field">
+              <label for="">Advantage</label>
+              <textarea name="advantage" placeholder="URL for advantage" id="compare_advantage"></textarea>
+            </div>
+
+            <div>
+              <label for="">Notice</label>
+              <textarea name="notice" placeholder="HTML" id="compare_notice"></textarea>
+            </div>
+
+            <div>
+              <label for="">Image Top</label>
+              <textarea name="imageTop" placeholder="HTML" id="compare_imageTop"></textarea>
+            </div>
+
+            <div>
+              <label for="">Image Bottom</label>
+              <textarea name="imageBottom" placeholder="HTML" id="compare_imageBottom"></textarea>
+            </div>
+            <div class="field">
+              <label for="">Order</label>
+              <input name="order" placeholder="123"  id="compare_order"/>
+            </div>
+            <div>&nbsp;</div>
+            <button class="ui tiny primary button" id="button_archive" >
+              <i class="paste icon"></i>Back To Archive
+            </button>
+            <a th:if="${SessionScreenState.BackToList == true}" class="ui tiny button" th:href="@{|/login/admin/series/${seriesForm.id}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+            <a th:if="${SessionScreenState.BackToList == false}" class="ui tiny button" th:href="@{|/login/admin/series/search?keyword=${SessionScreenState.keyword}|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" id="compare_id" />
+              state:<input type="text" name="state" id="compare_state" />
+              lang:<input type="text" name="lang" id="compare_lang" />
+              stateRefId:<input type="text" name="stateRefId" id="compare_stateRefId"  />
+              langRefId:<input type="text" name="langRefId" id="compare_langRefId"  />
+              oldId:<input type="text" name="oldId" id="compare_oldId" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="ui vertical divider divider_compare" style="display:none">
+        <i class="columns grey icon"></i>
+      </div>
+    </div>
+
+
+
+	<div th:unless="(${seriesForm.id} and ${seriesForm.spec} and ${seriesForm.spec!=''})">
+    <!-- handsontable NEW -->
+    <script>
+	var grid = document.getElementById('json_spec');
+	var saved = document.getElementById('save_spec');
+	var width = 50;
+	var hot = new Handsontable(grid, {
+	    data: [
+	    	 ['ColA', 'ColB', '[2DCAD]','[Manual]','[Manifold]', '[DoC]'],
+	        ['NewA1', 'NewB1', '', '', '', ''],
+	        ['NewA2', 'NewB2', '', '', '', '']
+	    ],
+	    contextMenu: true,
+	    stretchH: 'all',
+//		wordWrap: false,
+		colWidths: width,
+		licenseKey: 'non-commercial-and-evaluation'
+	});
+	$('#form_save').click(function(){
+		saved.value=JSON.stringify( hot.getData());
+	});
+	</script>
+	</div>
+	<div th:if="(${seriesForm.id} and ${seriesForm.spec} and ${seriesForm.spec!=''})">
+    <!-- handsontable EDIT -->
+	<script th:inline="javascript">
+	var grid = document.getElementById('json_spec');
+	var saved = document.getElementById('save_spec');
+//	var edit = JSON.parse(/*[(${seriesForm.spec})]*/ 'test');
+	var edit = [(${seriesForm.spec})];
+	var width = 50;
+	var hot = new Handsontable(grid, {
+	    data: edit,
+	    contextMenu: true,
+	    stretchH: 'all',
+//	    wordWrap: false,
+		colWidths: width,
+	    licenseKey: 'non-commercial-and-evaluation'
+	});
+	$('#form_save').click(function(){
+		saved.value=JSON.stringify( hot.getData());
+	});
+	</script>
+	</div>
+	<div>
+	<script>
+	var hot2 = null;
+	var grid2 = null;
+	var edit2 = null;
+	var width2 = 25;
+	function compare_click() {
+		 hot.updateSettings({
+			stretchH: 'all',
+//			wordWrap: false,
+			colWidths: width2
+		    });
+		 hot.render();
+		// alert(document.getElementById('compare_spec').value);
+		 grid2 =  document.getElementById('json_compare_spec');
+		 var dt = document.getElementById('compare_spec').value;
+		 if (dt != null && dt != "") {
+			 dt = dt.replace(/\t+/g, "");
+			 console.log( typeof dt );
+			 console.log(dt);
+		 	edit2 = JSON.parse(dt);
+			 console.log(edit2);
+			 console.log(JSON.parse(JSON.stringify(edit2)));
+		 }
+		 if (hot2 != null ) {
+			 hot2.destroy();
+			 //alert('destroy');
+		 }
+		 //alert(hot2);
+		 //alert(edit2);
+		 if (edit2 == null || edit2 == "") {
+			 hot2 = new Handsontable(grid2, {
+			    data: [
+			    	 ['ColA', 'ColB', '[2DCAD]','[Manual]','[Manifold]', '[DoC]'],
+			        ['NewA1', 'NewB1', '', '', '', ''],
+			        ['NewA2', 'NewB2', '', '', '', '']
+			    ],
+			    contextMenu: true,
+			    stretchH: 'all',
+//			    wordWrap: false,
+				colWidths: width2,
+				licenseKey: 'non-commercial-and-evaluation'
+			});
+		} else {
+			 hot2 = new Handsontable(grid2, {
+			    data: edit2,
+//			    data: JSON.parse(JSON.stringify(edit2)),
+			    contextMenu: true,
+			    stretchH: 'all',
+//			    wordWrap: false,
+				colWidths: width2,
+
+			    licenseKey: 'non-commercial-and-evaluation'
+			});
+		}
+    }
+	function compare_close_click() {
+    	hot2.destroy();
+    	hot2 = null;
+    	hot.render();
+    }
+	</script>
+	</div>
+	<div>
+	<script>
+	$('#reset').click(function(){
+		var grid = document.getElementById('json_spec');
+		var saved = document.getElementById('save_spec');
+		var width = 50;
+		var hot = new Handsontable(grid, {
+		    data: [
+		    	 ['ColA', 'ColB', '[2DCAD]','[Manual]','[Manifold]', '[DoC]'],
+		        ['NewA1', 'NewB1', '', '', '', ''],
+		        ['NewA2', 'NewB2', '', '', '', '']
+		    ],
+		    contextMenu: true,
+		    stretchH: 'all',
+			colWidths: width,
+			licenseKey: 'non-commercial-and-evaluation'
+		});
+		$('#form_save').click(function(){
+			saved.value=JSON.stringify( hot.getData());
+		});
+	});
+	</script>
+	</div>
+  <!-- DEBUG:  -->
+  <p class="ui top attached block header">
+  <span><i class="bug icon"></i>debug</span>&nbsp;&nbsp;&nbsp;<span class="right floated "><button id="debug_button" class="ui black button">Disp</button> </span>
+  </p>
+
+  <div id="debug_disp" class="ui bottom attached segment" style="display:none">
+	<!-- seriesForm.id があればdebug -->
+    <div th:if="${seriesForm.id}">
+        <a th:href="@{|/login/admin/api/series/${seriesForm.id}|}" id="json_url"></a>
+        <div class="jsoncode ui" id="json-renderer"></div>
+        <script>
+          $(function () {
+            getJSONAndRendar($("#json_url").attr("href"), "json-renderer");
+          });
+        </script>
+    </div>
+
+  </div> <!-- end segment -->
+	<div>
+	<script th:inline="javascript">
+	var grid = document.getElementById('debug_disp');
+	$('#debug_button').click(function(){
+		console.log($('#debug_disp').css('display'));
+		if ($('#debug_disp').css('display') == "none") {
+			$('#debug_disp').css('display', 'block');
+		} else {
+			$('#debug_disp').css('display', 'none');
+		}
+	});
+	</script>
+	</div>
+	<!-- DEBUG:  -->
+
+
+</div><!-- end contents -->
+</body>
+</html>

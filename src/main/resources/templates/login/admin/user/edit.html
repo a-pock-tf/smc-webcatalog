@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.user}">User</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/user/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/user/post}" th:object="${userForm}"
+            class="ui small form">
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+                <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+                </div>
+                <div class="ui negative message" th:if="${is_error}">
+                  <div class="header" th:text="#{msg.error}">Error!</div>
+                </div>
+
+
+
+            <div class="required field">
+              <label for="">User name</label>
+              <input type="text" name="name" th:value="*{name}" />
+              <ul class="error"><li th:each="err : ${#fields.errors('name')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">LoginId</label>
+              <input type="text" name="loginId" th:placeholder="#{msg.unique}" th:value="*{loginId}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('loginId')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Password</label>
+              <input type="text" name="password" th:placeholder="#{msg.empty.not.update}" th:value="*{password}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('password')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Display language</label>
+              <select id="singleSelect" name="lang">
+                   <option value="">---</option>
+                   <option th:each="item : ${application.LANG_LIST}" th:value="${item.name}" th:text="${item.name}" th:selected="${item.name} == *{lang}">singleSelect</option>
+              </select>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('lang')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Editable language</label>
+
+              <div class="custom-control custom-checkbox" th:each="la : ${application.LANG_LIST}">
+                <input type="checkbox" class="custom-control-input" th:value="${la.name}" th:field="*{langList}" />
+                <label class="custom-control-label" th:for="${#ids.prev('langList')}" th:text="${la.name}"></label>
+              </div>
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('langList')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Editable category</label>
+              <input type="text" name="category" th:placeholder="#{msg.editable.category}" th:value="*{category}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('category')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class="required field">
+              <label for="">Email</label>
+              <input type="text" name="email" th:placeholder="#{msg.unique}" th:value="*{email}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('email')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Company</label>
+              <input type="text" name="company" placeholder="Company" th:value="*{company}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('company')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Address</label>
+              <input type="text" name="address" placeholder="Address" th:value="*{address}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('address')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Country</label>
+              <input type="text" name="country" placeholder="Country" th:value="*{country}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('country')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Admin</label>
+              <input type="checkbox" name="admin" value="on" th:field="*{admin}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('admin')}" th:text="${err}" /></ul>
+            </div>
+
+            <div class=" field">
+              <label for="">Active</label>
+              <input type="checkbox" name="active" value="on" th:field="*{active}" />
+              <ul class="error">
+                <li th:each="err : ${#fields.errors('active')}" th:text="${err}" /></ul>
+            </div>
+
+            <button class="ui tiny positive button" type="submit">
+              <i class="save icon"></i>Save
+            </button>
+            <a class="ui tiny button" th:href="@{|/login/admin/user/|}"><i class="list ul icon"></i>[[#{msg.return.list}]]</a>
+
+            <div>
+              <!--debug(新規のときはidをパラメーターに入れない!!)-->
+              id:<input type="text" name="id" th:if="*{id}" th:value="*{id}" />
+            </div>
+          </form>
+        </div>
+
+        <div class="column col_compare_dst" style="display:none">
+          <h4 class="ui dividing header">
+            en-jp
+            <a class="ui mini fitted label act_compare_close"><i class="x icon"></i>[[#{msg.close}]]</a>
+          </h4>
+
+
+        </div>
+      </div>
+
+      <div class="ui vertical divider divider_compare" style="display:none">
+        <i class="columns grey icon"></i>
+      </div>
+    </div>
+
+
+</div><!-- end contents -->
+</body>
+</html>

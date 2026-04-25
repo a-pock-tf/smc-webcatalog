@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout/base_login_top}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--start required-->
+  <style>
+    .ok {
+      color: green;
+    }
+
+    .err {
+      color: red;
+    }
+
+  </style>
+  <!--end required-->
+
+</head>
+
+<body >
+  <div layout:fragment="contents" class="ui middle aligned center aligned grid six wide column">
+    <p>&nbsp;</p>
+    <div class="ui segment ten wide column left aligned" style="margin-top:25px;">
+<!--  <h3>説明</h3>
+  <ul>
+    <li>基本的にWEBサーバーに設置してください(ブラウザのファイル閲覧でも動作するかも)</li>
+    <li>&lt;div id="app"&gt;&lt;&frasl;div&gt;内と、style,scriptをコピペしてください</li>
+    <li>cssなどは適当にあててください</li>
+  </ul> -->
+
+  <h3>Cloudflareキャッシュ削除</h3>
+
+  <!--start required -->
+  <div id="app">
+
+    <ul>
+      <li>URLはhttps://から入力します。</li>
+      <li>smcworld.com と smc.com.cn は混在出来ません。</li>
+      <li>改行区切りで複数入力可能です(最大100個)</li>
+      <li>リクエスト制限もあるので連打しないようにしてください</li>
+    </ul>
+    <form v-on:submit.prevent="deleteCache">
+	  <div style="margin:15px 0 0 0">
+	  <label for="radioFiles"><input id="radioFiles" type="radio" v-model="type" value="files">&nbsp;Files</label>&nbsp;&nbsp;
+	  <span>・・・個別にファイルを指定します。</span>
+	  <div style="margin:5px 0 0 15px">クエリ(?～)、ハッシュ(#～)も入力可能です。</div>
+	  </div>
+	  <div style="margin:5px 0 0 0">
+	   <label for="radioDir"><input id="radioDir" type="radio" v-model="type" value="prefixes">&nbsp;Prefixes</label>&nbsp;&nbsp;
+	   <span>・・・ディレクトリ、ファイル配下をすべて削除します。</span>
+	   <div style="margin:5px 0 0 15px">クエリ(?～)、ハッシュ(#～)は入力出来ません。</div>
+	   <div style="margin:5px 0 0 15px">例) https://www.smcworld.com/abc.html</div>
+	   <div style="margin:5px 0 0 15px"> → https://www.smcworld.com/abc.html &nbsp;&nbsp; https://www.smcworld.com/abc.html?q1=aaa&amp;q2=bbb</div>
+	  </div>
+	  <div style="margin:10px 0 0 0">
+	   <label for="radioHosts"><input id="radioHosts" type="radio" v-model="type" value="hosts">&nbsp;Hosts</label>&nbsp;&nbsp;
+	   <span>・・・下記ホストを指定します。</span>
+	   <div style="margin:5px 0 0 15px">www.smcworld.com &nbsp;&nbsp; ca01.smcworld.com &nbsp;&nbsp; www.smc.com.cn</div>
+	  </div>
+	  <br>
+      <textarea rows="10" cols="100" v-model="urls"></textarea>
+      <br>
+      <input type="submit" value="送信" v-bind:disabled="disabled">&nbsp;&nbsp;&nbsp;
+      <input type="reset" value="リセット" v-on:click="clearForm">
+
+      <p v-if="result" style="margin:15px 0 10px 0;">
+        Success: <span :class="result.success ? 'ok':'err'">{{result.success}}</span> 
+      </p>
+      <p v-if="error" style="margin:15px 0 10px 0; color: red; white-space: pre-line;">
+        {{message}}
+      </p>
+
+      <ul v-for="res in result.messages">
+        <li>Message : Code <span :class="res.code=='200'?'ok':'err'">[{{res.code}}] {{res.message}} </span>
+        </li>
+      </ul>
+      <ul v-for="res in result.errors">
+        <li>ERROR : Code <span :class="res.code=='200'?'ok':'err'">[{{res.code}}] {{res.message}} </span>
+        </li>
+      </ul>
+
+    </form>
+
+    <hr>
+
+    <p>
+      ■"APIに接続できません"と表示されたら<br>
+      apiサーバーが落ちている可能性があります。<br>
+    </p>
+    </p>
+  </div>
+  <!--emd required -->
+
+  <!--start required -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    const app = Vue.createApp({
+      el: "#app",
+      data() {
+        return {
+          result: "",
+          urls: "",
+          /*type: "prefixes",*/
+          type: "files",
+          disabled: true,
+          error: false,
+          message: "",
+        }
+      },
+      watch: {
+        urls(newValue,oldValue) {
+          if (this.urls != null && this.urls.trim().length > 0) {
+            this.disabled = false;
+          }
+        }
+      },
+      mounted() {
+        //comment for production
+        //this.urls = "https://www-tmp.smcworld.com/overseas/sguide/ja-jp/index.html\nhttps://www-tmp.smcworld.com/overseas/sguide/ja-jp/usa.html";
+      },
+      methods: {
+        deleteCache: function () {
+
+          this.result = "";
+          this.disabled = true;
+          this.error = false;
+          this.message = "";
+
+          var urlsArray = this.urls.trim().split(/\n/);
+
+          if (urlsArray == null || urlsArray.length == 0) {
+              return;
+          } else if (this.urls.indexOf("smcworld.com") > -1 && this.urls.indexOf("smc.com.cn") > -1) {
+				this.error = true;
+				this.message += "入力エラー。smcworld.com と smc.com.cnは混在出来ません。\r\n";
+				return;
+		  }
+          var paramObj = {};
+          if (this.type == 'files') {
+			  paramObj = {
+				  files: urlsArray,
+			  }
+		  } else if (this.type == 'hosts') {
+			  let hostWWW = "www.smcworld.com";
+			  let hostCA01 = "ca01.smcworld.com";
+			  let hostCN = "www.smc.com.cn";
+			  for(let i = 0; i < urlsArray.length; i++) {
+				  if (urlsArray[i] != hostWWW && urlsArray[i] != hostCA01 && urlsArray[i] != hostCN) {
+					  this.error = true;
+					  this.message = "入力エラー。hostsは "+hostWWW+" 、 "+hostCA01+" 、 "+hostCN+" しか入力出来ません。";
+				  }
+			  }
+			  if (this.error == false) {
+				  paramObj = {
+				  hosts: urlsArray,
+			  }
+			  }
+		  } else if (this.type == 'prefixes') {
+			  for(let i = 0; i < urlsArray.length; i++) {
+				  // クエリ、ハッシュの確認。
+				  if (urlsArray[i].indexOf("?") > -1 || urlsArray[i].indexOf("&") > -1 || urlsArray[i].indexOf("#") > -1) {
+					  this.error = true;
+					  this.message += "入力エラー。URLにクエリ、ハッシュは入力出来ません。 err="+urlsArray[i]+"\r\n";
+				  }
+			  }
+			  for(let i = 0; i < urlsArray.length; i++) {
+				  urlsArray[i] = urlsArray[i].replace("https://", "");
+			  }
+			  paramObj = {
+				  prefixes: urlsArray,
+			  }
+		  } else {
+			  this.error = true;
+			  this.message = "入力エラー。type="+this.type;
+		  }
+		  
+		  if (this.error == false) {
+
+	          axios.post("/webcatalog/login/admin/postCloudflarePurgeCache", paramObj,
+	          {
+				  headers: {'Content-Type': 'application/json'},
+			  }).then((response) => {
+				this.result = [];
+	            this.result = response.data;
+	            console.log("res = ", this.result)
+	            this.disabled = false;
+	
+	          }).catch((err) => {
+				console.log("deleteCacheCloudflare err=", err);
+	            this.error = "true"
+	            this.message = "APIに接続できません。"+err;
+	          });
+	      }
+
+        },
+
+        clearForm: function () {
+          this.urls = "";
+          this.disabled = true;
+        }
+      }
+    }).mount("#app");
+
+
+  </script>
+    </div>
+  </div><!-- end contents -->
+</body>
+
+</html>

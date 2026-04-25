@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/base_login}">
+
+<head>
+  <title th:text="#{g.category}">Category</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/jsonviewer/jquery.json-viewer.css}">
+  <script th:src="@{/jsonviewer/jquery.json-viewer.js}"></script>
+  <script th:src="@{/js/getJSON.js}"></script>
+
+</head>
+
+<body>
+  <div layout:fragment="contents" class="ui basic segment">
+
+    <!-- パンくず -->
+    <div th:replace="~{login/admin/category/inc/breadcrumb::breadcrumb}"></div>
+
+    <!-- 入力フォーム -->
+    <div class="ui segment">
+
+      <div class="ui one column very relaxed grid grid_compare">
+
+        <div class="column col_compare_src">
+
+		<p>FAQ ID List :  </p>
+
+          <!--form ja-jp -->
+          <form method="post" th:action="@{/login/admin/category/faq/post}" th:object="${faqCategoryForm}"
+            class="ui small form">
+            <input type="hidden" name="categoryId" th:value="${categoryId}" />
+
+            <div class="ui negative message" th:if="${#fields.hasErrors('*')}">
+                    <div class="header">[[#{msg.error}]]</div>
+                    <!-- <ul>
+                      <li th:each="error : ${#fields.detailedErrors()}" th:text="${error.message}" class="err"></li>
+                    </ul> -->
+            </div>
+
+            <div class="ui positive message" th:if="${is_success}">
+                  <div class="header" th:text="#{msg.update.success}">Success</div>
+            </div>
+
+            <table class="ui selectable small striped table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Series ID</th>
+          <th>FAQ ID List or Link URL</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr th:each="seriesFaq, st : *{seriesFaqFormList}">
+          <td colspan="">
+			  <input type="hidden" name="id" th:field="*{seriesFaqFormList[__${st.index}__].id}" />
+			  [[${seriesFaq.name}]]
+          </td>
+          <td>
+			  <input type="hidden" name="seriesId" th:field="*{seriesFaqFormList[__${st.index}__].seriesId}" />
+			  <input type="hidden" name="lang" th:field="*{seriesFaqFormList[__${st.index}__].lang}" />
+			  <input type="hidden" name="modelNumber" th:field="*{seriesFaqFormList[__${st.index}__].modelNumber}" />
+			  [[${seriesFaq.modelNumber}]]
+		  </td>
+          <td >
+            <input type="text" name="faq" th:field="*{seriesFaqFormList[__${st.index}__].faq}" placeholder="1-2-3 (hyphen separated value) or https://www.smcworld.com/ja-jp/"/>
+          </td>
+        </tr>
+      </tbody>
+            </table>
+            <button class="ui tiny positive button" type="submit" th:if="${SessionScreenState.state.equals('TEST')}">
+              <i class="save icon"></i>[[#{act.save}]]
+            </button>
+          </form>
+        </div>
+
+        
+      </div>
+
+    </div>
+
+
+</div><!-- end contents -->
+</body>
+</html>

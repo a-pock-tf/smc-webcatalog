@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/base}">
+
+<head>
+  <title>Error</title>
+</head>
+
+<body>
+
+  <div layout:fragment="contents">
+
+    <h3>Model Not Found</h3>
+    <p th:text="${e}">msg</p>
+
+  </div><!-- end contents -->
+
+</body>
+
+</html>
