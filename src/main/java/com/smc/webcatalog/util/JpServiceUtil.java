@@ -188,7 +188,6 @@ public class JpServiceUtil {
 
 			WebTarget target = null;
 			if (isSharp) {
-				//HttpClient httpClient = new HttpClient();
 				String param = "";
 				for(String k : kwList) {
 					if (k.indexOf('#') == -1) param += "&kw="+ k;
@@ -211,45 +210,7 @@ public class JpServiceUtil {
 				Response okresponse = okclient.newCall(request).execute();
 				String response = okresponse.body().string();
 				
-				// 2024/11/30 上記OkHttpClientが大丈夫なら削除。
-				/*URL u = new URL(url);
-				HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-				conn.setRequestProperty("Authorization","Bearer "+access_token.getAccess_token());
-				conn.setRequestProperty("Content-Type","application/json");
-				conn.setConnectTimeout(5000);
-				conn.setReadTimeout(5000);
-		        conn.setRequestMethod("GET");
-
-
-		       BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		        String output;
-		        log.debug("response=" + conn.getResponseCode());
-		        StringBuffer response = new StringBuffer();
-		        while ((output = in.readLine()) != null) {
-		            response.append(output);
-		        }
-
-		        in.close();*/
-
-	        	/*String host = u.getHost();
-	        	httpClient.getHostConfiguration().setHost(host, 80, "http");
-	        	//timeout
-	        	httpClient.getParams().setParameter("http.socket.timeout", new Integer(105000));
-
-	        	GetMethod get = new GetMethod( url );
-	        	 int status = httpClient.executeMethod(get);
-	 	        List<String> response = IOUtils.readLines(get.getResponseBodyAsStream(), "UTF-8");
-	 	        String html = "";
-	 	       if(status==200&& response!=null)
-		        {
-		        	for(String r : response) html += r + "\r\n";
-		        }*/
 				result = JSON.decode(response, S3SPartialMatchResult.class);
-				/*target = client.target(S3SAPI_SERVER_URL+"/3SApi/search/v1"+strSharp+"&language="+lang3S+param+"#1")
-						//.property("jersey.config.client.connectTimeout", 10000) // 接続タイムアウト10秒
-						.property("jersey.config.client.connectTimeout", 3000) // 接続タイムアウト秒
-						.property("jersey.config.client.readTimeout", 8000); // 読み込みタイムアウト秒
-				*/
 			} else {
 				target = client.target(S3SAPI_SERVER_URL)
 						.path("/3SApi/search/v1")

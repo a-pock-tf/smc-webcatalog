@@ -100,7 +100,7 @@ public class SeriesServiceImpl implements SeriesService {
 		ErrorObject ret = new ErrorObject();
 		try {
 			// 新規の場合
-			if (StringUtils.isEmpty(series.getId())) {
+			if (series.getId() == null || series.getId().isEmpty()) {
 				// 同名チェック
 				if (isModelNumberExists(series.getModelNumber(), series.getState(), null, ret)) throw new ModelExistsException("SeriesID is exists.");
 				else if (ret.isError()) return ret;
@@ -316,7 +316,7 @@ public class SeriesServiceImpl implements SeriesService {
 				ret = c;
 			} else {
 				List<Series> list = null;
-				if (StringUtils.isEmpty(c.getLangRefId())) {
+				if (c.getLangRefId() == null || c.getLangRefId().isEmpty()) {
 					list = repo.findByLangRefId(c.getId(), c.getState());
 				}
 				else {
@@ -547,7 +547,7 @@ public class SeriesServiceImpl implements SeriesService {
 				}
 				if (saveSeries.size() > 0) {
 					saveCs.setSeriesList(saveSeries);
-					CategorySeries res = csRepo.save(saveCs);
+					csRepo.save(saveCs);
 					ret.setCount(saveSeries.size());
 				}
 			}
@@ -968,7 +968,6 @@ public class SeriesServiceImpl implements SeriesService {
 		// カテゴリ配下の該当SeirsIDを削除
 		Series withC = getWithCategory(s.getId(), null, ret);
 		if (!ret.isError()) {
-			html.Init(getLocale(s.getLang()), messagesource);
 			for(CategorySeries cs : withC.getCategorySeries()) {
 				Optional<Category> oC = cRepo.findById(cs.getCategoryId());
 				if (oC.isPresent()) {
@@ -1054,7 +1053,7 @@ public class SeriesServiceImpl implements SeriesService {
 
 				int cnt = 0;
 				for(SeriesLinkMaster m : master) {
-					if (link[cnt] != null && StringUtils.isEmpty(link[cnt]) == false) {
+					if (link[cnt] != null && link[cnt].isEmpty() == false) {
 						SeriesLink s = new SeriesLink(m, m.getLang(), u, link[cnt], state);
 						s.setSeriesId(id);
 						sLinkRepo.save(s);
@@ -1115,8 +1114,6 @@ public class SeriesServiceImpl implements SeriesService {
 						loc = getLocale(prodList.get(0).getLang());
 					}
 
-					html.Init(loc, messagesource);
-					log.debug("html.init()");
 					SeriesHtml sHtml = new SeriesHtml(loc, messagesource, omlistService, faqRepo);
 
 					for(Series s : listSeries) {
@@ -1176,13 +1173,8 @@ public class SeriesServiceImpl implements SeriesService {
 									String str = sHtml.get(s, c, c2, url, c.getLang(), false, false);
 									html.outputHtml( c.getLang()+"/"+c.getSlug()+"/"+c2.getSlug() + "/" + s.getModelNumber() + "/s.html", str);
 									// 特長有り
-									String catpan ="<a href='"+AppConfig.ProdRelativeUrl+c.getLang()+"/"+c.getSlug()+"'>"+c.getName()+"</a>";
-									if (c2 != null) {
-										catpan +="&nbsp;»&nbsp;";
-										catpan +="<a href='"+ url +"'>"+c2.getName()+"</a>";
-									}
 									List<String> category = html.getCategoryMenu(c, c2, prodList);
-									TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+									TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(c.getLang(), c.getState(), c.getId());
 									String temp = tc.getTemplate();
 									String sidebar =  tc.getSidebar();
 									sidebar = StringUtils.replace(sidebar,"$$$category$$$",category.get(0));
@@ -1300,41 +1292,6 @@ public class SeriesServiceImpl implements SeriesService {
 
 
 	// ========= private =========
-	private boolean deleteCategorySeriesInSeries(CategorySeries cs, String sId) {
-		boolean ret = false;
-		List<Series> list = cs.getSeriesList();
-		List<Series> saveList = new ArrayList<Series>();
-		for(Series s : list) {
-			if (s.getId().equals(sId) == false) {
-				saveList.add(s);
-			}
-			else {
-				ret = true;
-			}
-		}
-		if (ret) {
-			cs.setSeriesList(saveList);
-			csRepo.save(cs);
-		}
-		return ret;
-	}
-
-	private boolean setCategorySeriesInSeries(CategorySeries cs, String sId) {
-		boolean ret = false;
-		List<Series> list = cs.getSeriesList();
-		List<Series> saveList = new ArrayList<Series>();
-		for(Series s : list) {
-			if (s.getId().equals(sId)) {
-				ret = true;
-			}
-			saveList.add(s);
-		}
-		if (ret) {
-			cs.setSeriesList(saveList);
-			csRepo.save(cs);
-		}
-		return ret;
-	}
 	private Locale getLocale(String lang) {
 		Locale loc = Locale.JAPANESE;
 		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;

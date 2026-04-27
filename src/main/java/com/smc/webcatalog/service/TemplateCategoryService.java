@@ -36,7 +36,7 @@ public interface TemplateCategoryService {
 	 * @param err OUT
 	 * @return エラーの場合はnullが戻るので、ErrorObjectを確認
 	 */
-	TemplateCategory getCategory(String categoryId, ErrorObject err);
+	TemplateCategory getCategoryId(String categoryId, ErrorObject err);
 	/**
 	 *  get
 	 * @param categoryId
@@ -54,6 +54,12 @@ public interface TemplateCategoryService {
 	 * @return
 	 */
 	TemplateCategory getHeartCoreID(String id, ErrorObject err);
+	
+	/**
+	 * 言語Top
+	 * @param temp
+	 */
+	TemplateCategory getLangAndStateFromBean(String lang, ModelState m);
 
 	void setHeartCore(TemplateCategory temp);
 	
@@ -64,5 +70,5 @@ public interface TemplateCategoryService {
 	
 	void removeTemplateCategory(TemplateCategory temp);
 	
-	TemplateCategory findByCategoryIdFromTemplateCategories(String lang, ModelState s, String id);
+	TemplateCategory findByCategoryIdFromBean(String lang, ModelState s, String id);
 }

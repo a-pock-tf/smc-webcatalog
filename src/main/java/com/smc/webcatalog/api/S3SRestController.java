@@ -114,9 +114,6 @@ public class S3SRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 
-		//コンテキストの取得
-		ServletContext context = request.getServletContext();
-		
 		boolean isNoHit = false; // 検索結果0件
 		
 		int intLimit = PAGE_MAX; // デフォルト
@@ -133,7 +130,7 @@ public class S3SRestController {
 			try {
 				intPage = Integer.parseInt(page);
 				if (intPage < 1) intPage = 1;
-			}catch (Exception e) {
+			} catch (Exception e) {
 				log.error("getSearch3S() page.parse exception. e="+e.getMessage() );
 			}
 		}
@@ -145,12 +142,14 @@ public class S3SRestController {
 		Locale baseLocale = getLocale(baseLang);
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
 		// 3S
 		JpServiceUtil util = new JpServiceUtil();
@@ -206,7 +205,7 @@ public class S3SRestController {
 					isNoHit = true;
 				}
 			}
-			Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
+			Template t = templateService.getTemplateFromBean(baseLang, m);
 			header = t.getHeader();
 			footer = t.getFooter();
 
@@ -490,7 +489,7 @@ public class S3SRestController {
 		ret +=footer;
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		
@@ -584,19 +583,19 @@ public class S3SRestController {
 			//ca_lang = "chinese_traditional"; // 2024/6/11 繁体語は未対応。日本語のまま表示
 		}
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
 		if (isTestSite) isActive = null; 
 		
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
+		Template t = templateService.getTemplateFromBean(baseLang, m);
 		String header = t.getHeader();
 		String footer = t.getFooter();
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			header = toT.getHeader();
 			footer = toT.getFooter();
 		}
@@ -1979,19 +1978,19 @@ public class S3SRestController {
 		Locale baseLocale = getLocale(baseLang);
 		
 		String reqUrl = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(reqUrl);
+		boolean isTestSite = LibHtml.isTestSite(reqUrl);
 		
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
 		if (isTestSite) isActive = null; 
 
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
+		Template t = templateService.getTemplateFromBean(baseLang, m);
 		String header = t.getHeader();
 		String footer = t.getFooter();
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			header = toT.getHeader();
 			footer = toT.getFooter();
 		}
@@ -2228,19 +2227,19 @@ public class S3SRestController {
 		}
 		
 		String reqUrl = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(reqUrl);
+		boolean isTestSite = LibHtml.isTestSite(reqUrl);
 		
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
 		if (isTestSite) isActive = null; 
 
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err); // テンプレート
+		Template t = templateService.getTemplateFromBean(baseLang, m);
 		String header = t.getHeader();
 		String footer = t.getFooter();
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			header = toT.getHeader();
 			footer = toT.getFooter();
 		}

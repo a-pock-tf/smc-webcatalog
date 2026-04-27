@@ -62,5 +62,5 @@ public interface TemplateService {
 	
 	void removeTemplates(Template temp);
 	
-	Template getTemplateByTemplates(String lang, ModelState s);
+	Template getTemplateFromBean(String lang, ModelState s);
 }

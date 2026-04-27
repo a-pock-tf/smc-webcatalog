@@ -47,12 +47,12 @@ logging:
         max-history: 10
 
   level:
-#        org.springframework: off
-#        com.smc: info
-#        org.thymeleaf: off
-        org.springframework: info
-        com.smc: debug
+        org.springframework: off
+        com.smc: info
         org.thymeleaf: off
+#        org.springframework: info
+#        com.smc: debug
+#        org.thymeleaf: off
 #        org.springframework: debug
 #        com.smc: debug
 #        org.thymeleaf: off

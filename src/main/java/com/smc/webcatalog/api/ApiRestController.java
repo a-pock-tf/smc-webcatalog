@@ -1,7 +1,6 @@
 package com.smc.webcatalog.api;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -11,12 +10,9 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -49,6 +45,7 @@ import com.smc.webcatalog.util.AESUtils;
 import com.smc.webcatalog.util.JpServiceResult;
 import com.smc.webcatalog.util.JpServiceUtil;
 import com.smc.webcatalog.util.LibHtml;
+import com.smc.webcatalog.util.LibOkHttpClient;
 import com.smc.webcatalog.util.S3SPartialMatchResult;
 import com.smc.webcatalog.util.S3SPartialMatchResultData;
 
@@ -122,10 +119,9 @@ public class ApiRestController {
 		String html = "";
 		StringBuilder sbHtml = new StringBuilder();
 		String baseLang = "";
-		ErrorObject err = new ErrorObject();
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = libHtml.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 
 		try {
 			if (lang != null && lang.isEmpty() == false) {
@@ -147,7 +143,7 @@ public class ApiRestController {
 					cd = "2";
 				}
 			}
-			Template t = templateService.getLangAndModelState(baseLang, ModelState.PROD, null, err);
+			Template t = templateService.getTemplateFromBean(baseLang, ModelState.PROD);
 			boolean is2026 = t.is2026();
 
 			// 以下、ProdRestControllerにも同様の処理があるが、そちらは絞り込みがあるので、同じ処理には出来ない。
@@ -272,7 +268,6 @@ public class ApiRestController {
 		SearchResult ret = new SearchResult();
 		String html = "";
 		ErrorObject err = new ErrorObject();
-		boolean isNoHit = false; // 検索結果0件
 
 		Lang langObj = langService.getLang(lang, err);
 		if (langObj == null) {
@@ -289,7 +284,6 @@ public class ApiRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
 		
 		int max = 5; // 10件まで
 		if (limit > 0) max = limit;
@@ -315,8 +309,6 @@ public class ApiRestController {
 					searchType = "fore";
 				}
 				res = util.search(request.getServletContext(), kwList, baseLang, null, max, searchType);
-			} else {
-				isNoHit = true;
 			}
 			if (res != null && res.getHitCount().isEmpty() == false && res.getHitCount().equals("0") == false) {
 				
@@ -337,8 +329,8 @@ public class ApiRestController {
 					strDetail = "詳情";
 				}
 				String u = request.getRequestURL().toString();
-				boolean isTestSite = libHtml.isTestSite(u);
-				Template t = templateService.getLangAndModelState(baseLang, ModelState.PROD, null, err);
+				boolean isTestSite = LibHtml.isTestSite(u);
+				Template t = templateService.getTemplateFromBean(baseLang, ModelState.PROD);
 				boolean is2026 = t.is2026();
 				if (isTestSite || is2026) {
 					if (lang.equals("ja-jp")) strDetail += "へ";
@@ -415,7 +407,6 @@ public class ApiRestController {
 
 		String ret = null;
 		ErrorObject err = new ErrorObject();
-		boolean isNoHit = false; // 検索結果0件
 
 		Lang langObj = langService.getLang(lang, err);
 		if (langObj == null) {
@@ -432,7 +423,6 @@ public class ApiRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
 		// 3S
 		JpServiceUtil util = new JpServiceUtil();
 
@@ -493,15 +483,13 @@ public class ApiRestController {
 				}
 			}
 			String u = request.getRequestURL().toString();
-			boolean isTestSite = libHtml.isTestSite(u);
-			ModelState m = ModelState.PROD;
+			boolean isTestSite = LibHtml.isTestSite(u);
 			if (isTestSite) {
 				isProd = false;
-				m = ModelState.TEST;
 			}
 
 			SeriesHtml sHtml = null;
-			if (isTestSite) sHtml = new SeriesHtml(libHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
+			if (isTestSite) sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 
 			// 以下、ProdRestControllerにも同様の処理があるが、そちらは絞り込みがあるので、同じ処理には出来ない。
 			int cnt = 0;
@@ -513,8 +501,6 @@ public class ApiRestController {
 			if (list != null && list.size() < 10) max = list.size();
 			// output HTML
 			if (list != null && list.size() > 0) {
-				Locale loc = getLocale(baseLang);
-				libHtml.Init(loc, messagesource);
 				html.append("<div class=\"p_block\">");
 				for(Series s : list) {
 					if (isTestSite) {
@@ -623,42 +609,24 @@ public class ApiRestController {
 			ret.setUpdate( servletUrl + "&topic=update" + "&data=" + encCreate);
 			ret.setLogin("https://" + portalName + ".partcommunity.com/3d-cad-models/?rlogintoken=" + encLoginToken);
 			
-			HttpClient client = new HttpClient();
-	        GetMethod get = null;
-
 	        try{
-	        	URL u = new URL(createUrl);
+		        String response = LibOkHttpClient.getHtml(createUrl);
 
-	        	String host = u.getHost();
-		        client.getHostConfiguration().setHost(host, 443, "https");
-
-		        //timeout
-		        Integer intTimeout = 105000;
-		        client.getParams().setParameter("http.socket.timeout", intTimeout);
-
-		        get = new GetMethod( createUrl );
-
-		        int status = client.executeMethod(get);
-
-		        String response = get.getResponseBodyAsString();
-
-		        if(status == 200 && response!=null)
+		        if(response != null && response.isEmpty() == false)
 		        {
 		        	ret.setEmail(email);
 		        	ret.setError("");
 		        	ret.setResult( response );
 		        } else {
 		        	ret.setResult( response );
-			    	log.error("Error! login error. status="+status + " response="+response);
-		        	ret.setError("Error! login error. status="+status + " response="+response);
+			    	log.error("Error! login error. response="+response);
+		        	ret.setError("Error! login error. response="+response);
 		        }
 
 		    }catch(Exception ex){
 		    	log.error(ex.toString());
 	        	ret.setError("Error! login exception."+ex.toString());
 		    }finally{
-
-		        if (get != null) get.releaseConnection();
 		    }
 			// createAndLogin
 //			ret = "https://" + portalName + ".partcommunity.com/3d-cad-models?rlogintoken=" + encLoginToken + "&data=" + encCreate;
@@ -672,12 +640,6 @@ public class ApiRestController {
 		String text = URLDecoder.decode(encodedText, "UTF-8");
 		byte[] result = AESUtils.decrypt(Base64.getUrlDecoder().decode(text), key);
 		return new String(result, StandardCharsets.UTF_8);
-	}
-	private Locale getLocale(String lang) {
-		Locale loc = Locale.JAPANESE;
-		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;
-		else if (lang.indexOf("zh") > -1)  loc = Locale.CHINESE;
-		return loc;
 	}
 
 }

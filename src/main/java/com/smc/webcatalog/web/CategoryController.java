@@ -14,7 +14,6 @@ import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +26,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MimeTypeUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -127,7 +125,6 @@ public class CategoryController extends BaseController {
 
 		ErrorObject err = new ErrorObject();
 		User s_user = (User)session.getAttribute("SessionUser");
-		String success = "";
 
 		Category root = service.getRoot(s_state.getLang(), ModelState.TEST, s_state.getCategoryType(), err);
 		List<Category> list = service.listAll(root.getId(), true, err);
@@ -162,15 +159,15 @@ public class CategoryController extends BaseController {
 
 		ErrorObject err = new ErrorObject();
 		User s_user = (User)session.getAttribute("SessionUser");
-		String success = "";
 
 		Category root = service.getRoot(s_state.getLang(), ModelState.TEST, s_state.getCategoryType(), err);
 		List<Category> list = service.listAll(root.getId(), true, err);
 		if (list != null && list.size() > 0) {
 			for(Category c : list) {
-				TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+				TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(c.getLang(), c.getState(), c.getId());
 				if (tc != null && tc.getHeartCoreID() != null && tc.getHeartCoreID().isEmpty() == false) {
 					templateCategoryService.setHeartCore(tc);
+					tc.setUser(s_user);
 					templateCategoryService.save(tc);
 				}
 			}
@@ -198,7 +195,6 @@ public class CategoryController extends BaseController {
 
 		ErrorObject err = new ErrorObject();
 		User s_user = (User)session.getAttribute("SessionUser");
-		String success = "";
 		int p = 0;
 		if (page.equals("0") == false) {
 			p = Integer.parseInt(page);
@@ -207,7 +203,7 @@ public class CategoryController extends BaseController {
 		Category root = service.getRoot(s_state.getLang(), ModelState.TEST, s_state.getCategoryType(), err);
 		List<Category> list = service.listAll(root.getId(), true, err);
 		if (list != null && list.size() > 0) {
-			html.Init(getLocale(s_state.getLang()), messagesource);
+			//html.Init(getLocale(s_state.getLang()), messagesource);
 			int cnt = 0;
 			for(Category c : list) {
 				if (c.getParentId().equals(root.getId())) { // 大カテゴリのみ処理対象
@@ -237,7 +233,6 @@ public class CategoryController extends BaseController {
 								prod = c;
 							}
 							err = outputHtml(html, prod); // HTML出力
-							success+= "success. name="+prod.getName()+" count=";
 						}
 					} catch (Exception e) {
 						log.error("Error! message=" + e.getMessage());
@@ -275,7 +270,7 @@ public class CategoryController extends BaseController {
 			if(err.isError()) {
 				mav.addObject("error", err.getMessage() );
 			} else {
-				html.Init(getLocale(c.getLang()), messagesource);
+				//html.Init(getLocale(c.getLang()), messagesource);
 
 				Category prod = null;
 				if (c.getState().equals(ModelState.TEST)) {
@@ -331,10 +326,10 @@ public class CategoryController extends BaseController {
 
 		ErrorObject err = new ErrorObject();
 		for(String tmp : arr) {
-			if (!StringUtils.isEmpty(tmp)) {
+			if (tmp != null && tmp.isEmpty() == false) {
 				if (tmp.indexOf("[parent]") > -1) {
 					parentId = tmp.replace("[parent]", "");
-					if (StringUtils.isEmpty(parentId)) {
+					if (parentId == null || parentId.isEmpty()) {
 						// root の時はここにくる
 						Category c = service.get(arr[1], err);
 						if (c != null) parentId = c.getParentId();
@@ -438,19 +433,19 @@ public class CategoryController extends BaseController {
 		mav.setViewName("/login/admin/category/list");
 
 		//change ModelState( in Session)
-		if (!StringUtils.isEmpty(state)) {
+		if (state != null && state.isEmpty() == false) {
 			s_state.setProd(state.equals(ModelState.PROD.toString()));
 		}
 		ModelState _state = ModelState.PROD;
 		if (s_state.isProd() == false) _state = ModelState.TEST;
 
-		if (!StringUtils.isEmpty(type)) {
+		if (type != null && type.isEmpty() == false) {
 			s_state.setType(type);
 		}
 		CategoryType _type = CategoryType.CATALOG;
 		if (!s_state.getType().equals(CategoryType.CATALOG.toString())) _type = CategoryType.OTHER;
 
-		if (!StringUtils.isEmpty(lang)) {
+		if (lang != null && lang.isEmpty() == false) {
 			s_state.setLang(lang);
 		}
 		String _lang =s_state.getLang();
@@ -512,7 +507,7 @@ public class CategoryController extends BaseController {
 			} else {
 				// PRODなら公開HTMLも削除
 				if (c.getState().equals(ModelState.PROD)) {
-					html.Init(getLocale(c.getLang()), messagesource);
+					//html.Init(getLocale(c.getLang()), messagesource);
 					deleteHtml(html, c);
 				}
 				deleteNarrowdown(c); // 絞り込み削除
@@ -608,14 +603,14 @@ public class CategoryController extends BaseController {
 		myform.setParentId(parentId);
 
 		ErrorObject obj = new ErrorObject();
-		if (StringUtils.isEmpty(parentId) == false) {
+		if (parentId != null && parentId.isEmpty() == false) {
 			Category ca = service.get(parentId, obj);
 			myform.setLang(ca.getLang());
 			myform.setState(ca.getState());
 			myform.setActive(true);
 			myform.setType(ca.getType());
 		}
-		if (StringUtils.isEmpty(langRefId) == false) {
+		if (langRefId != null && langRefId.isEmpty() == false) {
 			setEditRefParam(mav, service.get(langRefId, obj));
 		}
 
@@ -737,7 +732,7 @@ public class CategoryController extends BaseController {
 		Category category = new Category();
 
 		// 1) idがあれば(=編集) dbから取得
-		if (!StringUtils.isEmpty(form.getId())) {
+		if (form.getId() != null && form.getId().isEmpty() == false) {
 			category = service.get(form.getId(), obj);
 			// 3) フォームvalidate
 			validator.validateUpate(result, form);
@@ -753,7 +748,7 @@ public class CategoryController extends BaseController {
 		if (!result.hasErrors()) {
 
 			// UpdateならSlugを確認して、SeriesのBreadcrumbにあるSlugを更新
-			if (!StringUtils.isEmpty(form.getId())) {
+			if (form.getId() != null && form.getId().isEmpty() == false) {
 				String slug = form.getSlug();
 				Category before = service.get(form.getId(), obj);
 				if (slug.equals(before.getSlug()) == false)
@@ -771,7 +766,7 @@ public class CategoryController extends BaseController {
 		    }
 			boolean isUpdate = false;
 			// 本番修正時
-			if (form.getState().equals(ModelState.PROD) && form.getId() != null && !StringUtils.isEmpty(form.getId())) {
+			if (form.getState().equals(ModelState.PROD) && form.getId() != null && form.getId().isEmpty() == false) {
 				String afterSlug = form.getSlug();
 				String preSlug = category.getSlug();
 				if (preSlug != null && preSlug.equals(afterSlug) == false) {
@@ -863,7 +858,7 @@ public class CategoryController extends BaseController {
 			if (obj.isError() == false) {
 				if (isUpdate && category.getState().equals(ModelState.PROD)) {
 					// 本番を編集した場合はHTMLも書き出し
-					html.Init(getLocale(form.getLang()), messagesource);
+					//html.Init(getLocale(form.getLang()), messagesource);
 					outputHtml(html, category);
 				}
 				mav.addObject("is_success", "success");
@@ -1055,8 +1050,7 @@ public class CategoryController extends BaseController {
 		Category c1 = category;
 		Category c2 = null;
 		ErrorObject err = new ErrorObject();
-		Template t = templateService.getLangAndModelState(category.getLang(), category.getState(), true, err); // 
-		List<String> listUrl = new ArrayList<String>(); // CDNのキャッシュ削除
+		Template t = templateService.getTemplateFromBean(category.getLang(), category.getState()); 
 
 		boolean isFirstCategory = false; // 大カテゴリ
 		Category root = service.getRoot(category.getLang(), category.getState(), category.getType(), err);
@@ -1066,9 +1060,9 @@ public class CategoryController extends BaseController {
 		TemplateCategory tc = null;
 		if (category.getState().equals(ModelState.PROD)) {
 			if (isFirstCategory) {
-				tc = templateCategoryService.getCategory(category.getId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(category.getLang(), category.getState(), category.getId());
 			} else {
-				tc = templateCategoryService.getCategory(category.getParentId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(category.getLang(), category.getState(), category.getParentId());
 				c1 = service.get(category.getParentId(), err);
 				c2 = category;
 				err = new ErrorObject();
@@ -1082,9 +1076,9 @@ public class CategoryController extends BaseController {
 			// PRODのカテゴリを探す
 			Category prodC = service.getStateRefId(c2, ModelState.PROD, err);
 			if (isFirstCategory) {
-				tc = templateCategoryService.getCategory(prodC.getId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(prodC.getLang(), prodC.getState(), prodC.getId());
 			} else {
-				tc = templateCategoryService.getCategory(prodC.getParentId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(prodC.getLang(), prodC.getState(), prodC.getParentId());
 				c1 = service.get(prodC.getParentId(), err);
 				c2 = prodC;
 				err = new ErrorObject();
@@ -1231,7 +1225,7 @@ public class CategoryController extends BaseController {
 		// Get by langRefId
 		// langRefIdがnullなら元になるID
 		String langBaseId = null;
-		if (StringUtils.isEmpty(category.getLangRefId())) {
+		if (category.getLangRefId() == null || category.getLangRefId().isEmpty()) {
 			langBaseId = category.getId();
 		}
 		else {
@@ -1266,7 +1260,7 @@ public class CategoryController extends BaseController {
 		ErrorObject err = new ErrorObject();
 
 		if (c != null) {
-			if (!StringUtils.isEmpty(c.getParentId())) {
+			if (c.getParentId() != null && c.getParentId().isEmpty() == false) {
 				breadcrumb = service.getParents(c.getId(), active, err);
 			}
 			//Add to View
@@ -1285,13 +1279,6 @@ public class CategoryController extends BaseController {
 				}
 			}
 		}
-	}
-	private Locale getLocale(String lang) {
-		Locale loc = Locale.JAPANESE;
-		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;
-		else if (lang.indexOf("zh-tw") > -1) loc = Locale.TAIWAN;
-		else if (lang.indexOf("zh") > -1)  loc = Locale.CHINESE;
-		return loc;
 	}
 
 }

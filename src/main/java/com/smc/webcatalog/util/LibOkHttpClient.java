@@ -1,9 +1,11 @@
 package com.smc.webcatalog.util;
 
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
@@ -13,9 +15,12 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.io.IOUtils;
 
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 @Slf4j
-public final class LibHttpClient {
+public final class LibOkHttpClient {
 
 	public static String getHttpsHtml(String url, String basicAuthID, String basicAuthPW) {
 		return getHtml(url, 443, "https", basicAuthID, basicAuthPW);
@@ -38,47 +43,47 @@ public final class LibHttpClient {
 
 		if (url.isEmpty()) return null;
 
-        HttpClient client = new HttpClient();
+		OkHttpClient client = new OkHttpClient.Builder()
+	            .connectTimeout(10, TimeUnit.SECONDS) // Connection timeout
+	            .readTimeout(30, TimeUnit.SECONDS)    // Read timeout
+	            .writeTimeout(30, TimeUnit.SECONDS)   // Write timeout
+	            .build();
         GetMethod get = null;
 
         try{
         	URL u = new URL(url);
 
         	String host = u.getHost();
-	        client.getHostConfiguration().setHost(host, port, protcol);
-
+        	Request request = null;
 	        //auth
 	        boolean isAuth = false;
 	        if (basicAuthID != null && basicAuthID.isEmpty() == false && basicAuthPW != null && basicAuthPW.isEmpty() == false) {
-	        	client.getState().setCredentials(
-	                new AuthScope(host, port, null),
-	                new UsernamePasswordCredentials(basicAuthID, basicAuthPW));
+	        	request = new Request.Builder()
+	                    .url(url)
+	                    .header("Authorization", basicAuth(basicAuthID, basicAuthPW))
+	                    .get()
+	                    .build();
 	        	isAuth = true;
-	        }
-	        Cookie[] arr = client.getState().getCookies();
-    		boolean res = client.getState().purgeExpiredCookies();
-    		log.error("purgeExpiredCookies() arr=", arr);
-    		log.error("purgeExpiredCookies() res="+res);
-
-	        //timeout
-	        client.getParams().setParameter("http.socket.timeout", new Integer(105000));
-
-	        get = new GetMethod( url );
-            if (isAuth) get.setDoAuthentication(true);
-
-	        int status = client.executeMethod(get);
-
-	        List<String> response = IOUtils.readLines(get.getResponseBodyAsStream(), "UTF-8");
-// 下記エラーのため変更
-// Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
-//	        body = get.getResponseBodyAsString();
-
-	        if(status == 200 && response!=null)
-	        {
-	        	for(String r : response) ret += r + "\r\n";
 	        } else {
-	        	log.error("getHtml() status="+status+" url="+url+" response"+response);
+	        	request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        
 	        }
+
+	        Response response = client.newCall(request).execute();
+	        if (!response.isSuccessful()) {
+	        	log.error("getHtml() status="+response.code()+" url="+url+" response="+response);
+                return ret;
+            } else {
+            	if(response.code() == 200 && response.body()!=null)
+    	        {
+    	        	ret = response.body().string();
+    	        } else {
+    	        	log.error("getHtml() status="+response.code()+" url="+url+" response="+response.body().string());
+    	        }
+            }
 
 	    }catch(Exception ex){
 	    	log.debug(ex.toString());
@@ -145,5 +150,10 @@ public final class LibHttpClient {
 	    }
 		return ret;
 	}
-
+	private static String basicAuth(String username, String password) {
+        String credentials = username + ":" + password;
+        String encoded = Base64.getEncoder()
+                               .encodeToString(credentials.getBytes(StandardCharsets.UTF_8));
+        return "Basic " + encoded;
+    }
 }

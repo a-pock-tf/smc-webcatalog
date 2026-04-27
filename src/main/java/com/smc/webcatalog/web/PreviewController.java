@@ -149,7 +149,7 @@ public class PreviewController extends BaseController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			html.Init(getLocale(baseLang), messagesource);
+			//html.Init(getLocale(baseLang), messagesource);
 			Template toT = templateService.getLangAndModelState(lang, ModelState.TEST, null, err); // previewなのでTEST固定
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 
@@ -184,8 +184,8 @@ public class PreviewController extends BaseController {
 		if (c == null) {
 			c = categoryService.getFromSlug(slug, baseLang, ModelState.TEST, CategoryType.OTHER, 1, active, err);
 		}
-		Template t = templateService.getLangAndModelState(baseLang, ModelState.TEST, null, err); // previewはTEST固定
-		TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+		Template t = templateService.getTemplateFromBean(baseLang, ModelState.TEST); // previewはTEST固定
+		TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(baseLang, c.getState(), c.getId());
 
 		if (t == null) {
 			log.error("Template is Empty! lang=" + baseLang);
@@ -288,7 +288,7 @@ public class PreviewController extends BaseController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			html.Init(getLocale(baseLang), messagesource);
+			//html.Init(getLocale(baseLang), messagesource);
 			Template toT = templateService.getLangAndModelState(lang, ModelState.TEST, null, err); // previewなのでTEST固定
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 
@@ -342,8 +342,8 @@ public class PreviewController extends BaseController {
 			c2 = categoryService.getFromSlugSecond(slug2, c.getId(), baseLang, ModelState.TEST, CategoryType.OTHER, active, err);
 		}
 
-		Template t = templateService.getLangAndModelState(baseLang, ModelState.TEST, null, err);
-		TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+		Template t = templateService.getTemplateFromBean(baseLang, ModelState.TEST);
+		TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(c.getLang(), c.getState(), c.getId());
 		
 		// リスト取得
 		List<Series> list = null;
@@ -524,7 +524,7 @@ public class PreviewController extends BaseController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			html.Init(getLocale(baseLang), messagesource);
+			//html.Init(getLocale(baseLang), messagesource);
 			Template toT = templateService.getLangAndModelState(lang, ModelState.TEST, null, err); // previewなのでTEST固定
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 
@@ -620,8 +620,8 @@ public class PreviewController extends BaseController {
 				c = categoryService.getFromSlug(slug, baseLang, ModelState.TEST, CategoryType.CATALOG, 1, true, err);
 			}
 		}
-		Template t = templateService.getLangAndModelState(baseLang, ModelState.TEST, null, err);
-		TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+		Template t = templateService.getTemplateFromBean(baseLang, ModelState.TEST);
+		TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(baseLang, c.getState(), c.getId());
 
 		// Html生成
 		if (t == null) {
@@ -741,7 +741,7 @@ public class PreviewController extends BaseController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			html.Init(getLocale(baseLang), messagesource);
+			//html.Init(getLocale(baseLang), messagesource);
 			Template toT = templateService.getLangAndModelState(lang, ModelState.TEST, null, err); // previewなのでTEST固定
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}

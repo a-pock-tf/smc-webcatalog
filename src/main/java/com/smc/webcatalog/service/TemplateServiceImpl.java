@@ -214,7 +214,7 @@ public class TemplateServiceImpl implements TemplateService {
 	}
 
 	@Override
-	public Template getTemplateByTemplates(String lang, ModelState s) {
+	public Template getTemplateFromBean(String lang, ModelState s) {
 		Template ret = null;
 		if (templates != null) {
 			for (Template t : templates) {

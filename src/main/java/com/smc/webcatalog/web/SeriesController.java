@@ -177,7 +177,7 @@ public class SeriesController extends BaseController {
 		}
 
 
-		if (StringUtils.isEmpty(c.getParentId())) {
+		if (c.getParentId() == null || c.getParentId().isEmpty()) {
 			// rootの場合、最新シリーズ取得
 			c = categoryService.getWithSeries(c.getId(), null, err);
 			err = new ErrorObject();
@@ -223,7 +223,7 @@ public class SeriesController extends BaseController {
 
 		ErrorObject err = new ErrorObject();
 		for(String tmp : arr) {
-			if (!StringUtils.isEmpty(tmp)) {
+			if (tmp != null && tmp.isEmpty() == false) {
 				if (tmp.indexOf("[category]") > -1) {
 					categoryId = tmp.replace("[category]", "");
 
@@ -303,19 +303,19 @@ public class SeriesController extends BaseController {
 		s_state.setKeyword(categoryId);
 
 		//change ModelState( in Session)
-		if (!StringUtils.isEmpty(state)) {
+		if (state != null && state.isEmpty() == false) {
 			s_state.setProd(state.equals(ModelState.PROD.toString()));
 		}
  		ModelState _state = ModelState.PROD;
 		if (s_state.isProd() == false) _state = ModelState.TEST;
 
-		if (!StringUtils.isEmpty(type)) {
+		if (type != null && type.isEmpty() == false) {
 			s_state.setType(type);
 		}
 		CategoryType _type = CategoryType.CATALOG;
 		if (!s_state.getType().equals(CategoryType.CATALOG.toString())) _type = CategoryType.OTHER;
 
-		if (!StringUtils.isEmpty(lang)) {
+		if (lang != null && lang.isEmpty() == false) {
 			s_state.setLang(lang);
 		}
 		String _lang = s_state.getLang();
@@ -1168,17 +1168,17 @@ public class SeriesController extends BaseController {
 			
 			if (c.getType().equals(CategoryType.OTHER)) continue; // その他は静的Html無し。対象外
 
-			Template t = templateService.getLangAndModelState(c.getLang(), c.getState(), true, err); // これは言語のTemplate。PROD active取得 2026/3/30
-			TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+			Template t = templateService.getTemplateFromBean(c.getLang(), ModelState.PROD); // これは言語のTemplate。PROD active取得 2026/3/30
+			TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(c.getLang(), ModelState.PROD, c.getId());
 			if (tc == null) {
 				c1 = categoryService.get(c.getParentId(), err);
-				tc = templateCategoryService.getCategory(c1.getId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(c1.getLang(), ModelState.PROD, c1.getId());
 				c2 = c;
 			} else {
 				c1 = c;
 			}
 			Category withSeries = categoryService.getWithSeries(c.getId(), true, err);
-			html.Init(getLocale(c1.getLang()), messagesource);
+			//html.Init(getLocale(c1.getLang()), messagesource);
 			if (tc.is2026()) {
 				html.outputTemplateCategoryToHtml2026(t, tc, c1, c2, withSeries.getSeriesList(), categoryService, service); // 大カテゴリ静的Html吐き出し
 			} else {

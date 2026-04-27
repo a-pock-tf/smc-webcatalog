@@ -114,7 +114,7 @@ public class LangController extends BaseController {
 			if (temp != null && temp.getHeartCoreId() != null && temp.getHeartCoreId().isEmpty() == false) {
 				templateService.setHeartCore(temp);
 				templateService.save(temp);
-				html.Init(getLocale(temp.getLang()), messagesource);
+				//html.Init(getLocale(temp.getLang()), messagesource);
 				html.outputHtml( la.getLang() + "/index.html", temp.getHeader() + temp.getContents() + temp.getFooter() ); // 静的Html吐き出し
 			}
 		}
@@ -155,12 +155,11 @@ public class LangController extends BaseController {
 		}
 
 		// 新規、またはReplaceのチェックがあれば取得
-		LibHtml _html = new LibHtml();
-		_html.InitOffLine(env, lang, messagesource, faqRepo); // resources/static/offline_jp/ または /offline_en/ に出力
+		html.InitOffLine(env, lang, messagesource, faqRepo); // resources/static/offline_jp/ または /offline_en/ に出力
 		Template temp = templateService.getLangAndModelState(lang, ModelState.PROD, true, err);
 		// Topページ
-		String strOffline = _html.offlineTemplate(temp, 2); // /webcatalog/en-jp/index.html
-		_html.outputHtml( "/webcatalog/"+lang+"/index.html", strOffline ); // 静的Html吐き出し
+		String strOffline = html.offlineTemplate(temp, 2); // /webcatalog/en-jp/index.html
+		html.outputHtml( "/webcatalog/"+lang+"/index.html", strOffline ); // 静的Html吐き出し
 
 		// 検索結果表示用
 		List<Series> sList = new ArrayList<Series>();
@@ -179,9 +178,9 @@ public class LangController extends BaseController {
 //				  if (c.getSlug().equals("temperature-control-equipment")) {
 				if (searchCate == null) searchCate = c; // 最初の大カテゴリ
 				Category withSeries = categoryService.getWithSeries(c.getId(), true, err);
-				TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+				TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(c.getLang(), c.getState(), c.getId());
 				if (searchTempCate == null) searchTempCate = tc;
-				_html.offlineTemplateCategory(temp, tc, c, null, withSeries.getSeriesList(),
+				html.offlineTemplateCategory(temp, tc, c, null, withSeries.getSeriesList(),
 						categoryService, seriesService, 3);
 
 				Category cate2 = categoryService.getWithChildren(c.getId(), true, err);
@@ -192,7 +191,7 @@ public class LangController extends BaseController {
 //							  if (c2.getSlug().equals("reduced-wiring-fieldbus-system")) {
 							if (searchCate2 == null) searchCate2 = c2; // 最初の小カテゴリ
 							Category withSeries2 = categoryService.getWithSeries(c2.getId(), true, err);
-							_html.offlineTemplateCategory(temp, tc, c, c2, withSeries2.getSeriesList(),
+							html.offlineTemplateCategory(temp, tc, c, c2, withSeries2.getSeriesList(),
 									categoryService, seriesService, 4);
 //							  } // if (slug)
 						}
@@ -217,7 +216,7 @@ public class LangController extends BaseController {
 				}
 			}
 			// 検索ページ作成
-			_html.offlineTemplateCategoryToResult(temp, searchTempCate, searchCate, searchCate2, sList);
+			html.offlineTemplateCategoryToResult(temp, searchTempCate, searchCate, searchCate2, sList);
 		}
 
 

@@ -88,8 +88,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		List<DiscontinuedCategory> list = categoryService.listAllActive(baseLang, DiscontinuedModelState.PROD, err);
@@ -99,7 +97,7 @@ public class DiscontinuedProductRestController {
 
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -107,7 +105,7 @@ public class DiscontinuedProductRestController {
 			if (isTestSite) isActive = null; 
 			
 			// 変換処理
-			Template toT = tService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = tService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), true);
 		}
 
@@ -137,8 +135,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		if (slug != null && slug.isEmpty() == false) {
@@ -157,7 +153,7 @@ public class DiscontinuedProductRestController {
 
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -165,8 +161,9 @@ public class DiscontinuedProductRestController {
 			if (isTestSite) isActive = null; 
 			
 			// 変換処理
-			Template toT = tService.getLangAndModelState(lang, m, isActive, err);
-			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), true);
+//			Template toT = tService.getTemplateByTemplates(lang, m);
+			Template toT = tService.getTemplateFromBean("ja-jp", m);
+			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), isActive);
 
 		}
 
@@ -198,8 +195,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		if (slug != null && slug.isEmpty() == false) {
@@ -224,7 +219,7 @@ public class DiscontinuedProductRestController {
 
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -232,8 +227,8 @@ public class DiscontinuedProductRestController {
 			if (isTestSite) isActive = null; 
 			
 			// 変換処理
-			Template toT = tService.getLangAndModelState(lang, m, isActive, err);
-			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), true);
+			Template toT = tService.getTemplateFromBean(lang, m);
+			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), isActive);
 		}
 
 		return ret;
@@ -270,8 +265,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		DiscontinuedSeries s = seriesService.getSeriesId(seriesId, DiscontinuedModelState.PROD, err);
@@ -299,7 +292,7 @@ public class DiscontinuedProductRestController {
 
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -307,7 +300,7 @@ public class DiscontinuedProductRestController {
 			if (isTestSite) isActive = null; 
 			
 			// 変換処理
-			Template toT = tService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = tService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), true);
 		}
 		return ret;
@@ -338,8 +331,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		DiscontinuedSeries s = seriesService.get(seriesId, err);
@@ -370,7 +361,7 @@ public class DiscontinuedProductRestController {
 
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -407,8 +398,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		List<DiscontinuedSeries> list = null;
@@ -425,7 +414,7 @@ public class DiscontinuedProductRestController {
 		}
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;
@@ -463,8 +452,6 @@ public class DiscontinuedProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		DiscontinuedTemplate temp = templateService.getLang(baseLang, err);
 		List<DiscontinuedSeries> list = null;
@@ -482,7 +469,7 @@ public class DiscontinuedProductRestController {
 		}
 		if (langObj.isVersion()) {
 			String reqUrl = request.getRequestURL().toString();
-			boolean isTestSite = html.isTestSite(reqUrl);
+			boolean isTestSite = LibHtml.isTestSite(reqUrl);
 			
 			ModelState m = ModelState.PROD;
 			if (isTestSite) m = ModelState.TEST;

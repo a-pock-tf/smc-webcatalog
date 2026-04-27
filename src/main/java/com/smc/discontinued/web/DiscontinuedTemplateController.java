@@ -29,7 +29,7 @@ import com.smc.webcatalog.model.Lang;
 import com.smc.webcatalog.model.User;
 import com.smc.webcatalog.model.ViewState;
 import com.smc.webcatalog.service.LangService;
-import com.smc.webcatalog.util.LibHttpClient;
+import com.smc.webcatalog.util.LibOkHttpClient;
 import com.smc.webcatalog.web.ScreenStatusHolder;
 
 import lombok.extern.slf4j.Slf4j;
@@ -166,7 +166,7 @@ public class DiscontinuedTemplateController extends DiscontinuedBaseController {
 
 			// 新規、またはReplaceのチェックがあれば取得
 			if ( (StringUtils.isEmpty(form.getId()) && StringUtils.isEmpty(form.getHeartCoreId())) || (replace != null && replace.equals("1") )) {
-				String src = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + form.getHeartCoreId());
+				String src = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + form.getHeartCoreId());
 				if (src != null) {
 					List<String> list = html.divHtml(src, AppConfig.TemplateDiv);
 					String templateHead = list.get(0);

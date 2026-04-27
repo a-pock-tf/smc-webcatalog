@@ -169,7 +169,7 @@ public class TemplateController extends BaseController {
 			log.debug("Lang(FORM)=" + temp.toString());
 
 			// 新規、またはReplaceのチェックがあれば取得
-			html.Init(getLocale(temp.getLang()), messagesource);
+			//html.Init(getLocale(temp.getLang()), messagesource);
 			if ( (StringUtils.isEmpty(form.getId()) && StringUtils.isEmpty(form.getHeartCoreId())) || (replace != null && replace.equals("1") )) {
 				service.setHeartCore(temp);
 			}

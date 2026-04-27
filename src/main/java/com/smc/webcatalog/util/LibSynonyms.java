@@ -1,14 +1,11 @@
 package com.smc.webcatalog.util;
 
-import java.net.URL;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -26,8 +23,6 @@ public class LibSynonyms {
 		
 		if (kwArr != null && kwArr.length > 0) 
 		{
-			HttpClient client = new HttpClient();
-			GetMethod get = null;
 			String synonymsLang = "ja_JP";
 			String url = UrlSynonyms;
 			try{
@@ -52,18 +47,9 @@ public class LibSynonyms {
 				q = q.substring(0, q.length()-1);
 				url+=URLEncoder.encode(q, "UTF-8");
 
-				URL u = new URL(url);
-				String host = u.getHost();
-		        client.getHostConfiguration().setHost(host, 443, "https");
-
-				//timeout
-		        client.getParams().setParameter("http.socket.timeout", new Integer(2000));
-		        get = new GetMethod( url );
-		        
 		        // 実行
-		        int status = client.executeMethod(get);
-		        String response = IOUtils.toString(get.getResponseBodyAsStream(), "UTF-8");
-		        if(status == 200 && response != null)
+		        String response = LibOkHttpClient.getHtml(url);
+		        if(response != null && response.isEmpty() == false)
 		        {
 		        	ret = new ArrayList<>();
 		        	JSONArray json = new JSONArray("["+response+"]");
@@ -98,13 +84,12 @@ public class LibSynonyms {
 		        		}
 		        	}
 		        } else {
-		        	log.error("ERROR! LibSynonyms.getSynonyms() status="+status+" response="+response);
+		        	log.error("ERROR! LibSynonyms.getSynonyms() response="+response);
 		        }
 			} catch(Exception ex){
 		    	log.error(ex.toString());
 		    } finally {
 
-		        if (get != null) get.releaseConnection();
 		    }
 		}
 		return ret;

@@ -22,7 +22,7 @@ import com.smc.webcatalog.model.ErrorObject;
 import com.smc.webcatalog.model.ModelState;
 import com.smc.webcatalog.model.TemplateCategory;
 import com.smc.webcatalog.model.User;
-import com.smc.webcatalog.util.LibHttpClient;
+import com.smc.webcatalog.util.LibOkHttpClient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -138,7 +138,7 @@ public class TemplateCategoryServiceImpl implements TemplateCategoryService {
 		return ret;
 	}
 	@Override
-	public TemplateCategory getCategory(String categoryId, ErrorObject err) {
+	public TemplateCategory getCategoryId(String categoryId, ErrorObject err) {
 		TemplateCategory ret = null;
 		try {
 /*			Category c = null;
@@ -246,9 +246,25 @@ public class TemplateCategoryServiceImpl implements TemplateCategoryService {
 		return ret;
 	}
 
+	@Override
+	public TemplateCategory getLangAndStateFromBean(String lang, ModelState m) {
+		TemplateCategory tc = null;
+		if (templateCategories != null) {
+			for(TemplateCategory t : templateCategories) {
+				if (t.getLang().equals(lang) && t.getState().equals(m) && t.isActive()) {
+					tc = t;
+					break;
+				}
+			}
+		} else {
+			log.error("TemplateCategoryService.templateCategories is null.");
+		}
+		return tc;
+	}
+
 	public void setHeartCore(TemplateCategory temp) {
 
-		String src = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + temp.getHeartCoreID());
+		String src = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + temp.getHeartCoreID());
 		if (src != null) {
 			if (src.indexOf("<main") > -1) {
 				setHeartCore2026(src, temp); // 2026リニューアル
@@ -435,7 +451,7 @@ public class TemplateCategoryServiceImpl implements TemplateCategoryService {
 	}
 
 	@Override
-	public TemplateCategory findByCategoryIdFromTemplateCategories(String lang, ModelState s, String id) {
+	public TemplateCategory findByCategoryIdFromBean(String lang, ModelState s, String id) {
 		TemplateCategory ret = null;
 		if (templateCategories != null) {
 			for (TemplateCategory t : templateCategories) {

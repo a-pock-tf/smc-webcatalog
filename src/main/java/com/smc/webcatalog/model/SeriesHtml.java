@@ -22,7 +22,7 @@ import com.smc.omlist.model.Omlist;
 import com.smc.omlist.service.OmlistServiceImpl;
 import com.smc.webcatalog.config.AppConfig;
 import com.smc.webcatalog.dao.SeriesFaqRepository;
-import com.smc.webcatalog.util.LibHttpClient;
+import com.smc.webcatalog.util.LibOkHttpClient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -1222,121 +1222,7 @@ public class SeriesHtml {
 					}
 				}
 				tab += "</tr>\r\n";
-/*
-				// HeartCoreから取説のSIDページを取得。specListの該当シリーズがあるかをチェック
-				boolean isSeries = true;
-				// TODO zhに取説が出来たら対応必須
-				String urlManual = null; String urlManual2 = null;
-				if (lang.equals("ja-jp")) {
-					urlManual = AppConfig.PageProdManualUrl + series.getNumber().trim();
-					urlManual2 = AppConfig.PageProdManualUrl + series.getModelNumber().trim();
-				} else {
-					urlManual = AppConfig.PageProdManualUrlE + series.getNumber().trim();
-					urlManual2 = AppConfig.PageProdManualUrlE + series.getModelNumber().trim();
-				}
-				String sNumber = series.getNumber().trim();
-				String sModelNumber = series.getModelNumber().trim();
-				String tmp = LibHttpClient.getHtml(urlManual); // JSY (not JSY-P)
-				if (tmp.indexOf(messagesource.getMessage("web.manual.empty", null,  locale)) > -1) {
-					tmp = LibHttpClient.getHtml(urlManual2);
-					if (tmp.indexOf(messagesource.getMessage("web.manual.empty", null,  locale)) > -1) {
-						if (sNumber.contains("/") || sNumber.contains("・") || sNumber.contains(",")){
-							// 先頭のみで検索
-							String[] arr = sNumber.split("[/・,]");
-							urlManual = AppConfig.PageProdManualUrl + arr[0].trim();
-							tmp = LibHttpClient.getHttpsHtml(urlManual);
-							if (tmp.indexOf(">" + arr[0].trim() + "<") > 0) {
-								sNumber = arr[0].trim();
-							} else if (tmp.indexOf(">" + sNumber.replace("/", "・") + "<") > 0) {
-								sNumber = sNumber.replace("/", "・"); // VP3145/3165/3185用。取説はVP3145・3165・3185 2021/6/22
-							} else {
-								isSeries = false;
-							}
-						} else {
-							isSeries = false;
-						}
-					}
-				}
-				if (isSeries) {
-					boolean isFind = false;
-					String model = null;
-					// 繋げたものがそのままある場合、全てOKにする。
-					if (sNumber.contains("/") || sNumber.contains("・") || sNumber.contains(",")){
-						if (tmp.indexOf(">" + sNumber + "<") > 0) {
-							isFind = true;
-							model = sModelNumber;
-						} else {
-							// 区切り文字が違う場合がある。
-							String reg = sNumber.replace("/", "・");
-							if (tmp.indexOf(">" + reg + "<") > 0) {
-								isFind = true;
-								model = reg;
-							}
-						}
-					} else if (sModelNumber.contains("/") || sModelNumber.contains("・") || sModelNumber.contains(",")) {
-						if (tmp.indexOf(">" + sModelNumber + "<") > 0) {
-							isFind = true;
-							model = sNumber;
-						}
-					}
-					if (isFind) {
-						if (specList.size() > 1) {
-							for(String sp : specList) {
-								tab+="<tr>\r\n<td>" + sp + "</td><td>";
-								// 取説はキーワード検索なので、リンクのキーワードはspのまま
-								tab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+sp+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-								tab+="</td></tr>\r\n";
-							}
-						} else {
-							tab+="<tr>\r\n<td>" + model + "</td><td>";
-							tab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+model+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-							tab+="</td></tr>\r\n";
-						}
-					} else {
-						if (specList.size() > 1) {
-							int cnt = 0;
-							String manualTab = "";
-							for(String sp : specList) {
-								manualTab+="<tr>\r\n<td>" + sp + "</td><td>";
-								if (tmp.indexOf(">" + sp + "<") > 0) {
-									manualTab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+sp+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-								} else if (tmp.indexOf(">" + sp + "-") > 0 || tmp.indexOf(">" + sp + "D-") > 0 || tmp.indexOf(">" + sp + "U-") > 0 || tmp.indexOf("/" + sp + "-") > 0 ) { // 枝番がある場合。(EX123D- EX126D-)
-									manualTab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+sp+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-								} else {
-									cnt++;
-								}
-								manualTab+="</td></tr>\r\n";
-							}
-							if (cnt == specList.size()) {
-								// 何も引っ掛からなかった場合は入力されたURLを表示
-								SeriesLink sl = manualList.get(0);
-								manualTab = manualTab.replace("<td></td>", "<td><a class=\""+buttonClass+"\" target=\"_blank\" href=\""+sl.url+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a></td>");
-							}
-							tab += manualTab;
-						} else {
-							tab+="<tr>\r\n<td>" + sNumber + "</td><td>";
-							tab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+sNumber+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-							tab+="</td></tr>\r\n";
-						}
-					}
-				} else {
-					for(String sp : specList) {
-						char[] ch = sp.toCharArray();
-						tmp = getManualHtmlList(ch[0], lang);
-						if (tmp.indexOf(">" + sp + "<") > 0 || tmp.indexOf(">" + sp + "-") > 0) {
-							tab+="<tr>\r\n<td>" + sp + "</td><td>";
-							tab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\"/manual/"+lang+"/?k="+sp+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-							tab+="</td></tr>\r\n";
-						} else {
-							// 何も引っ掛からなかった場合は入力されたURLを表示
-							SeriesLink sl = manualList.get(0);
-							tab+="<tr>\r\n<td>" + sp + "</td><td>";
-							tab+="<a class=\""+buttonClass+"\" target=\"_blank\" href=\""+sl.url+"\">"+messagesource.getMessage("tab.button.search.result", null,  locale)+"</a>";
-							tab+="</td></tr>\r\n";
-						}
-					}
-				}
-*/
+
 				tab += "</tbody></table>";
 				tab = getTabString(series.getModelNumber(),tabCount, tab);
 				tabBodyList.add(tab);
@@ -1519,29 +1405,6 @@ public class SeriesHtml {
 				tabBodyList.add(tab);
 				tabCount++;
 
-				// OmlistService作成。以下、旧処理コメントアウト。2023/3/25
-				/*String urlEasy = null;
-				if (lang.equals("ja-jp")) {
-					urlEasy = AppConfig.PageProdCustomUrl+ series.getModelNumber().trim();
-				} else {
-					urlEasy = AppConfig.PageProdCustomUrl+ series.getModelNumber().trim();
-					urlEasy = urlEasy.replace("/ja/", "/en/");
-				}
-				String tab = LibHttpClient.getHtml(urlEasy);
-				if (tab != null && tab.isEmpty() == false) {
-					int start = tab.lastIndexOf( "<div");
-					if (start > -1) {
-						tab = tab.substring(start);
-					}
-					start = tab.lastIndexOf( "</div");
-					if (start > -1) {
-						tab = tab.substring(0, start);
-					}
-					tab = "<h5>" + series.getName()+ "&nbsp;"+ series.getNumber() +  "</h5>" + tab ;
-					tab = getTabString(series.getModelNumber(),tabCount, tab);
-					tabBodyList.add(tab);
-					tabCount++;
-				}*/
 			}
 			// === オーダーメイド ===
 			if (series.isOrderMade()) { // オーダーメイド
@@ -1565,28 +1428,6 @@ public class SeriesHtml {
 				tab = getTabString(series.getModelNumber(),tabCount, tab);
 				tabBodyList.add(tab);
 				tabCount++;
-
-
-				// OmlistService作成。以下、旧処理コメントアウト。2023/3/25
-				/*String urlorder  = AppConfig.PageProdOrderMadeUrl+ series.getModelNumber().trim();
-				if (lang.equals("ja-jp") == false) {
-					urlorder = urlorder.replace("/ja/", "/en/");
-				}
-				String tab = LibHttpClient.getHtml(urlorder);
-				if (tab != null && tab.isEmpty() == false) {
-					int start = tab.lastIndexOf( "<div");
-					if (start > -1) {
-						tab = tab.substring(start);
-					}
-					start = tab.lastIndexOf( "</div");
-					if (start > -1) {
-						tab = tab.substring(0, start);
-					}
-					tab = "<h5>" + series.getName()+ "&nbsp;"+ series.getNumber() +  "</h5>" + tab ;
-					tab = getTabString(series.getModelNumber(),tabCount, tab);
-					tabBodyList.add(tab);
-					tabCount++;
-				}*/
 			}
 			if (tabCount > 1) {
 				String title = "";
@@ -1719,26 +1560,26 @@ public class SeriesHtml {
 					if (arr2.length >= 2) {
 						try {
 							int page = Integer.parseInt(arr2[1]);
-							adv = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + page, AppConfig.BasicAuthCDNID, AppConfig.BasicAuthCDNPW);
+							adv = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + page, AppConfig.BasicAuthCDNID, AppConfig.BasicAuthCDNPW);
 							String[] arr3 = StringUtils.splitByWholeSeparator(adv, "<body>");
 							if (arr3.length >= 2) {
 								String[] arr4 = StringUtils.splitByWholeSeparator(arr3[1], "</body>");
 								adv = arr4[0];
 							}
-						}catch (Exception e) {
+						} catch (Exception e) {
 							log.error("@@@xxx@@@ parse error. advantage = " + adv.toString());
 							adv = "";
 						}
 					}
 				} else if (adv.trim().indexOf("/") == 0) {
-					String h = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + adv.trim());
+					String h = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + adv.trim());
 					if (h == null || h.isEmpty()) {
-						adv = LibHttpClient.getHtml(AppConfig.PageProdUrl + adv.trim());
+						adv = LibOkHttpClient.getHtml(AppConfig.PageProdUrl + adv.trim());
 					} else {
 						adv = h;
 					}
 				} else {
-					adv = LibHttpClient.getHtml( adv.trim());
+					adv = LibOkHttpClient.getHtml( adv.trim());
 				}
 				ret = StringUtils.replace(ret, "$$$advantageBody$$$", adv);
 			} else {
@@ -2644,7 +2485,7 @@ public class SeriesHtml {
 					if (arr2.length >= 2) {
 						try {
 							int page = Integer.parseInt(arr2[1]);
-							adv = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + page, AppConfig.BasicAuthCDNID, AppConfig.BasicAuthCDNPW);
+							adv = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + page, AppConfig.BasicAuthCDNID, AppConfig.BasicAuthCDNPW);
 							String[] arr3 = StringUtils.splitByWholeSeparator(adv, "<body>");
 							if (arr3.length >= 2) {
 								String[] arr4 = StringUtils.splitByWholeSeparator(arr3[1], "</body>");
@@ -2656,14 +2497,14 @@ public class SeriesHtml {
 						}
 					}
 				} else if (adv.trim().indexOf("/") == 0) {
-					String h = LibHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + adv.trim());
+					String h = LibOkHttpClient.getHttpsHtml(AppConfig.PageCDNIdUrl + adv.trim());
 					if (h == null || h.isEmpty()) {
-						adv = LibHttpClient.getHtml(AppConfig.PageProdUrl + adv.trim());
+						adv = LibOkHttpClient.getHtml(AppConfig.PageProdUrl + adv.trim());
 					} else {
 						adv = h;
 					}
 				} else {
-					adv = LibHttpClient.getHtml( adv.trim());
+					adv = LibOkHttpClient.getHtml( adv.trim());
 				}
 				ret = StringUtils.replace(ret, "$$$advantageBody$$$", adv);
 			} else {
@@ -3246,15 +3087,15 @@ public class SeriesHtml {
 	private void getCeMap(String lang) {
 		String tmp = "";
 		if (lang.equals("ja-jp")) {
-			tmp = LibHttpClient.getHtml(AppConfig.PageProdCeUrl);
+			tmp = LibOkHttpClient.getHtml(AppConfig.PageProdCeUrl);
 			_ceSeriesMap = getMap(tmp);
 			_ceSeriesFileMap = getFileMap(tmp);
 		} else if (lang.indexOf("en-") > -1) {
-			tmp = LibHttpClient.getHtml(AppConfig.PageProdCeUrl.replace("ja-", "en-"));
+			tmp = LibOkHttpClient.getHtml(AppConfig.PageProdCeUrl.replace("ja-", "en-"));
 			_ceSeriesMapE = getMap(tmp);
 			_ceSeriesFileMapE = getFileMap(tmp);
 		} else {
-			tmp = LibHttpClient.getHtml(AppConfig.PageProdCeUrl.replace("ja-jp", "zh-cn"));
+			tmp = LibOkHttpClient.getHtml(AppConfig.PageProdCeUrl.replace("ja-jp", "zh-cn"));
 			_ceSeriesMapZH = getMap(tmp);
 			_ceSeriesFileMapZH = getFileMap(tmp);
 		}
@@ -3335,14 +3176,14 @@ public class SeriesHtml {
 			if (_manualHtmlMap == null) _manualHtmlMap = new HashMap<String, String>();
 			ret = _manualHtmlMap.get(String.valueOf(c));
 			if (ret == null) {
-				ret = LibHttpClient.getHtml(AppConfig.PageProdManualUrlIndex + c);
+				ret = LibOkHttpClient.getHtml(AppConfig.PageProdManualUrlIndex + c);
 				_manualHtmlMap.put(String.valueOf(c), ret);
 			}
 		} else {
 			if (_manualHtmlMapE == null) _manualHtmlMapE = new HashMap<String, String>();
 			ret = _manualHtmlMapE.get(String.valueOf(c));
 			if (ret == null) {
-				ret = LibHttpClient.getHtml(AppConfig.PageProdManualUrlIndexE + c);
+				ret = LibOkHttpClient.getHtml(AppConfig.PageProdManualUrlIndexE + c);
 				_manualHtmlMapE.put(String.valueOf(c), ret);
 			}
 		}

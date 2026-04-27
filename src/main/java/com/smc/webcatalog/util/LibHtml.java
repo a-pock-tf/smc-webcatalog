@@ -28,7 +28,6 @@ import java.util.stream.Stream;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,9 +64,6 @@ import lombok.extern.slf4j.Slf4j;
 public class LibHtml {
 
     @Autowired
-	Environment env;
-    
-    @Autowired
 	LangService langService;
 
     @Autowired
@@ -82,30 +78,18 @@ public class LibHtml {
     @Autowired
     SeriesFaqRepository faqRepo;
 
+    @Autowired
     MessageSource messagesource;
+    
+    private final Environment env;
 
     boolean isLocal = false;
 
-	private Locale _locale = Locale.JAPANESE;
-	private HttpClient client = null;
 	private String htmlPath = "";
 
-	public LibHtml() {
-	}
-	public LibHtml(Locale loc, MessageSource msg) {
-		_locale = loc;
-		messagesource = msg;
-		Init();
-	}
-
-	public void Init(Locale loc, MessageSource msg) {
-		_locale = loc;
-		messagesource = msg;
-		Init();
-	}
-
-	private void Init() {
-		client = new HttpClient();
+	@Autowired
+	public LibHtml( Environment envi) {
+		this.env = envi;
 		try {
 			htmlPath = env.getProperty("smc.webcatalog.static.page.path");
 		} catch (Exception e) {
@@ -114,10 +98,8 @@ public class LibHtml {
 	}
 
 	public void InitOffLine(Environment ev, String lang, MessageSource msg, SeriesFaqRepository repo) {
-		client = new HttpClient();
 		isLocal = true;
 		messagesource = msg;
-		env = ev;
 		if (faqRepo == null) faqRepo = repo;
 		try {
 			htmlPath = env.getProperty("smc.webcatalog.offline.page.path");
@@ -143,30 +125,30 @@ public class LibHtml {
 	// テストか本番かのチェック
 	// 2026のリニューアルでテンプレートのチェックが必要になった。
 	// テスト用。旧デザイン表示のため。
-	public boolean isTestSite(String url) {
-		return false;
-	}
-	// 本番用。
 //	public boolean isTestSite(String url) {
-//		boolean ret = false;
-//		if (url != null && url.isEmpty() == false) {
-//			ret = (url.indexOf("test.smcworld.com") > -1
-//				|| url.indexOf("ap1admin.smcworld.com") > -1
-//				|| url.indexOf("dev1admin.smcworld.com") > -1
-//				|| url.indexOf("local.smcworld.com") > -1
-//				|| url.indexOf("127.0.0.1") > -1
-//				|| url.indexOf("localhost") > -1
-//			);
-//		}
-//		if (ret) log.info("LibHtml.isTestSite() true. url="+url);
-//		return ret;
+//		return false;
 //	}
+	// 本番用。
+	public static boolean isTestSite(String url) {
+		boolean ret = false;
+		if (url != null && url.isEmpty() == false) {
+			ret = (url.indexOf("ap1admin.smcworld.com") > -1
+				|| url.indexOf("dev1admin.smcworld.com") > -1
+				|| url.indexOf("local.smcworld.com") > -1
+				|| url.indexOf("127.0.0.1") > -1
+				|| url.indexOf("localhost") > -1
+			);
+			// test.smcworld.comを除外。2026/4/25 20:30 ap1admin.smcworld.comで対応可能。
+			if (ret) log.info("LibHtml.isTestSite() true. url="+url);
+		}
+		return ret;
+	}
 
 	// 言語のテンプレート分割
 	// 2026のリニューアルでは<main>タグで判定
 	public List<String> getDivHtml(String url, String[] div) {
 		List<String> ret = null;
-		String html = LibHttpClient.getHttpsHtml(url);
+		String html = LibOkHttpClient.getHttpsHtml(url);
 		if (html != null) {
 			if (html.indexOf("<main") > -1) {
 				ret = divHtml2026(html);
@@ -2389,7 +2371,7 @@ public class LibHtml {
 	private Pattern aPattern = Pattern.compile( "<a.*href=\"(.*)\"");
 	private Pattern disconPattern = Pattern.compile( "submitDisconKw\\(\'(.*)\'\\);");
 
-	public String changeLang(String html, String from, String to, String toHeader, String toFooter, boolean isDiscon) {
+	public String changeLang(String html, String from, String to, String toHeader, String toFooter, Boolean isDiscon) {
 		String ret = "";
 
 		log.debug("changeLang()  from="+from + " to="+to + " isDiscon="+isDiscon);
@@ -2408,7 +2390,7 @@ public class LibHtml {
 		}
 
 		ret = changeLang(s, from, to);
-		if (isDiscon) ret = changeDisconLang(ret, from, to);
+		if (isDiscon != null && isDiscon) ret = changeDisconLang(ret, from, to);
 		return ret;
 	}
 	public String changeLang(String html, String from, String to ) {
@@ -3231,10 +3213,17 @@ public class LibHtml {
 	}
 	public String getH1box2026(String h1box, String title) {
 		String ret = h1box;
-		String head = title.substring(0, 1);
-		String aft = title.substring(1);
-		ret = ret.replace("$$$title21$$$", head);
-		ret = ret.replace("$$$title22$$$", aft);
+		if (title != null) {
+			if (title.length() == 1) {
+				ret = ret.replace("$$$title21$$$", title);
+				ret = ret.replace("$$$title22$$$", "");
+			} else {
+				String head = title.substring(0, 1);
+				String aft = title.substring(1);
+				ret = ret.replace("$$$title21$$$", head);
+				ret = ret.replace("$$$title22$$$", aft);
+			}
+		}
 		return ret;
 	}
 	/**
@@ -3313,7 +3302,7 @@ public class LibHtml {
 		}
 		return title;
 	}
-	public Locale getLocale(String lang) {
+	public static Locale getLocale(String lang) {
 		Locale loc = Locale.JAPANESE;
 		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;
 		if (lang.equals("zh-tw")) loc = Locale.TRADITIONAL_CHINESE;

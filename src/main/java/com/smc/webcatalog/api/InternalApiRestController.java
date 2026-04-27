@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -107,9 +106,9 @@ public class InternalApiRestController {
 					lang="zh-tw";
 				}
 			}
-			html.Init(getLocale(lang), messagesource);
+			
 			Category c = service.getLang(lang, ModelState.PROD, CategoryType.CATALOG, true, err);
-			TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+			TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(lang, ModelState.PROD, c.getId());
 			if (tc.is2026()) {
 				ret = tc.getSidebar();
 				List<Category> cList = service.listAll(lang, ModelState.PROD, CategoryType.CATALOG, err);
@@ -163,7 +162,7 @@ public class InternalApiRestController {
 			isActive = null;
 		}
 		
-		Template t = templateService.getLangAndModelState(lang, state, isActive, err);
+		Template t = templateService.getTemplateFromBean(lang, state);
 
 		try {
 			if (lang != null && lang.isEmpty() == false) {
@@ -177,7 +176,6 @@ public class InternalApiRestController {
 					lang="zh-tw";
 				}
 			}
-			html.Init(getLocale(lang), messagesource);
 
 			Category root = service.getRoot(lang, state, CategoryType.OTHER, err);
 
@@ -226,10 +224,8 @@ public class InternalApiRestController {
 				lang="zh-tw";
 			}
 		}
-		Template t = templateService.getLangAndModelState(lang, state, isActive, err);
+		Template t = templateService.getTemplateFromBean(lang, state);
 		
-		html.Init(getLocale(lang), messagesource);
-
 		String[] arr = slug.split("/");
 		int cnt = 0;
 		for(String tmp : arr) {
@@ -260,7 +256,6 @@ public class InternalApiRestController {
 			if (s == null ) continue;
 			if (s.getLang().equals(lang) == false) {
 				lang = s.getLang();
-				html.Init(getLocale(lang), messagesource);
 			}
 			String tmp = html.getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html");
 			if (t.is2026()) {
@@ -298,8 +293,6 @@ public class InternalApiRestController {
 				lang="zh-tw";
 			}
 		}
-		
-		html.Init(getLocale(lang), messagesource);
 
 		for(String id: ids) {
 			if (id == null || id.isEmpty()) continue;
@@ -318,7 +311,6 @@ public class InternalApiRestController {
 					if (s == null) continue;
 					if (s.getLang().equals(lang) == false) {
 						lang = s.getLang();
-						html.Init(getLocale(lang), messagesource);
 					}
 					String tmp = html.getFileFromHtml(lang + "/series/" + sid + "/s.html");
 					if (tmp.indexOf("product-card-999") > -1) { // 2026新デザインのガイド
@@ -372,14 +364,9 @@ public class InternalApiRestController {
 		}
 		if (s.isActive() && s.getLang().equals(baseLang)) {
 			//SeriesHtml html = new SeriesHtml(getLocale(lang), messagesource);
-			Series se = seriesService.getWithCategory(s.getId(), true, err);
-			String cid = se.getCategorySeries().get(0).getCategoryId();
-			Category c = service.get(cid, err);
-			String url = req.getRequestURL().toString();
 			boolean isAdvantage = false;
 			if (show_page != null) isAdvantage = show_page.equals("1");
 
-			html.Init(getLocale(baseLang), messagesource);
 			ret = html.getFileFromHtml(baseLang + "/series/" + id + "/guide.html");
 			if (ret == null || ret.isEmpty()) {
 				log.error("getFileFromHtml() return Empty! uri=" + baseLang + "/series/" + id + "/guide.html");
@@ -430,13 +417,6 @@ public class InternalApiRestController {
 				lang = s.getLang();
 			}
 			if (s != null && s.isActive() && s.getLang().equals(baseLang)) {
-				html.Init(getLocale(baseLang), messagesource);
-				//SeriesHtml html = new SeriesHtml(getLocale(lang), messagesource);
-				Series se = seriesService.getWithCategory(s.getId(), true, err);
-				String cid = se.getCategorySeries().get(0).getCategoryId();
-				Category c = service.get(cid, err);
-				String url = req.getRequestURL().toString();
-
 				if (cnt == 0) {
 					ret = html.getFileFromHtml(baseLang + "/series/" + id + "/guide.html");
 					if (ret == null || ret.isEmpty()) {
@@ -595,7 +575,7 @@ public class InternalApiRestController {
 
 			List<Omlist> list = omlistService.searchKeyword(null, null, div, null, lang);
 			if (list != null && list.size() > 0) {
-				Template t = templateService.getLangAndModelState(lang, ModelState.PROD, true, err);
+				Template t = templateService.getTemplateFromBean(lang, ModelState.PROD);
 				if (t.is2026()) {
 					ret = omlistService.getTableHtml2026(list, lang);
 				} else {
@@ -617,54 +597,6 @@ public class InternalApiRestController {
 		}
 		log.debug("=== end omlist. ===");
 		return ret;
-	}
-
-	String[] _condition = {"END"};
-	private String async(Template t, String lang, List<String> id )  {
-		String ret = "RUNNING";
-
-		log.info("async() start. _condition[0]="+_condition[0]);
-		if (_condition[0].equals("END")) {
-			_condition[0] = "RUNNING";
-			ret = "OK";
-			try {
-		    	ErrorObject err = new ErrorObject();
-				List<Category> prod = service.listAll(lang, ModelState.PROD, CategoryType.CATALOG,  err);
-				if (prod == null || prod.size() == 0) throw new Exception("ERROR! prod is null or size=0");
-
-				log.debug("async() call start cad3DUpdate(). ");
-				List<Category> setCategoryList = new LinkedList<>();
-				for(Category cate :  prod) {
-					Category setC = service.getWithSeries(cate.getId(), null, err);
-					if (setC != null) setCategoryList.add( setC );
-				}
-				seriesService.cad3DUpdate(t, id, lang, setCategoryList);
-				log.debug("async() call end cad3DUpdate(). ");
-
-			} catch(Exception e) {
-				ret = "NG";
-				log.error(e.toString());
-				log.error("ERROR!! async() e="+e.getMessage());
-				StringWriter sw = new StringWriter();
-			    PrintWriter pw = new PrintWriter(sw);
-
-			    pw.append("+++Start printing trace:\n");
-			    e.printStackTrace(pw);
-			    pw.append("---Finish printing trace");
-			    System.out.println(sw.toString());
-			} finally {
-				_condition[0] = "END";
-			}
-		}
-		log.info("async() end.  _condition[0]="+_condition[0]);
-		return ret;
-	}
-
-	private Locale getLocale(String lang) {
-		Locale loc = Locale.JAPANESE;
-		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;
-		else if (lang.indexOf("zh") > -1)  loc = Locale.CHINESE;
-		return loc;
 	}
 
 }

@@ -147,7 +147,6 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
 		// 3S
 		JpServiceUtil util = new JpServiceUtil();
 
@@ -167,32 +166,24 @@ public class ProductRestController {
 		} else {
 			kw = kwOriginal; // すべて英数で無ければ戻す 2023/10/26 5ポートが5ポ-ト
 		}
-//InetAddress addr;
-//try {
-//	addr = InetAddress.getByName("3sapi.smcworld.com");
-//	log.error(addr.getHostAddress());
-//} catch (UnknownHostException e) {
-//	e.printStackTrace();
-//}
+
 		if (res != null && res.getCode().isEmpty() == false && (res.getCode().equals("21") || res.getCode().equals("22")) ){
 			if (kw.indexOf('#') > -1) kw = kw.replace("#", "%23");
 			// 3Sの結果を表示
-			ret = "<html><head><meta http-equiv=\"refresh\" content=\"0;URL=";
+			StringBuilder r = new StringBuilder("<html><head><meta http-equiv=\"refresh\" content=\"0;URL=");
 			//  /webcatalog/s3s/ja-jp/detail/CRB-CDRB/?partNumber=CRBJ10-90
 			if (lang.indexOf("zh") > -1) {
-				ret += "/webcatalog/s3s/"+lang+"/detail/?partNumber="+kw;
+				r.append("/webcatalog/s3s/").append(lang).append("/detail/?partNumber=").append(kw);
 			} else if (lang.indexOf("en") > -1) {
-				ret += "/webcatalog/s3s/"+lang+"/detail/?partNumber="+kw;
+				r.append("/webcatalog/s3s/").append(lang).append("/detail/?partNumber=").append(kw);
 			} else {
-				ret += "/webcatalog/s3s/"+lang+"/detail/?partNumber="+kw;
+				r.append("/webcatalog/s3s/").append(lang).append("/detail/?partNumber=").append(kw);
 			}
-			ret+="\"></head></html>";
-			return ret;
+			r.append("\"></head></html>");
+			return r.toString();
 		}
 		// 3Sに一致しなければNormalizer対応を戻す。
 //		kw = kwOriginal; // 2023/10/16 元に戻さない
-
-		html.Init(baseLocale, messagesource);
 
 		// デフォルト英語は前方一致、他国は部分一致に変更。2024/12/10
 		if (cd == null || cd.isEmpty()) {
@@ -218,20 +209,20 @@ public class ProductRestController {
 		List<PsItem> list = items;
 
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
 		if (isTestSite) isActive = null; 
 		
-		Template t = templateService.getTemplateByTemplates(baseLang, m); // メモリ上のTemplateから読み込み
+		Template t = templateService.getTemplateFromBean(baseLang, m); // メモリ上のTemplateから読み込み
 		if (err.isError()) {
 			log.error("ErrorObject:msg="+err.getMessage());
 			throw new ResponseStatusException(
 					  HttpStatus.NOT_FOUND, "ErrorObject!");
 		}
 		if (lang.equals(baseLang) == false) { 
-			Template tL = templateService.getTemplateByTemplates(lang, m);
+			Template tL = templateService.getTemplateFromBean(lang, m);
 			if (err.isError()) {
 				log.error("ErrorObject:msg="+err.getMessage());
 				throw new ResponseStatusException(
@@ -254,7 +245,7 @@ public class ProductRestController {
 			if (topC == null || topC.isActive() == false) {
 				topC = root.getChildren().get(1);
 			}
-			tc = templateCategoryService.getCategory(topC.getId(), err);
+			tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, topC.getId());
 		}
 
 		Category c = service.getLang(baseLang, m, CategoryType.CATALOG, true, err);
@@ -396,36 +387,36 @@ public class ProductRestController {
 			}
 			for(PsItem s : list) {
 				StringBuilder c1c2 = new StringBuilder( s.getC1()).append("/").append(s.getC2());
-				if (catList.contains(c1c2) == false) catList.add(c1c2.toString());
+				if (catList.contains(c1c2.toString()) == false) catList.add(c1c2.toString());
 				if (serList.contains(s.getSeries()) == false) serList.add(s.getSeries());
 
 				if (is2026) {
-					content.append("<td class=\"td text-sm\" colspan=\"1\">" + c1c2 +"</td>");
-					content.append("<td class=\"td text-sm\" colspan=\"1\">" + s.getName() +"</td>");
-					content.append("<td class=\"td text-sm\" colspan=\"1\">" + s.getSeries() +"</td>");
-					content.append("<td class=\"td text-sm\" colspan=\"1\">" + s.getItem() +"</td>");
+					content.append("<td class=\"td text-sm\" colspan=\"1\">" ).append( c1c2 ).append("</td>");
+					content.append("<td class=\"td text-sm\" colspan=\"1\">" ).append( s.getName() ).append("</td>");
+					content.append("<td class=\"td text-sm\" colspan=\"1\">" ).append( s.getSeries() ).append("</td>");
+					content.append("<td class=\"td text-sm\" colspan=\"1\">" ).append( s.getItem() ).append("</td>");
 					// queryが複数あれば複数対応
 					String seriesUrl = s.getQuery();
 					String[] arr2 = null;
 					if (seriesUrl != null) arr2 = seriesUrl.split("id=");
 					if (arr2 != null) {
 						content.append("<td class=\"td text-center\" colspan=\"1\">");
-						content.append("<a class=\"button secondary solid medium\" href=\""+AppConfig.ProdRelativeUrl+ baseLang + "/seriesList/?"+seriesUrl+"\">" +detail +"</a>");
-								content.append("</td>");
+						content.append("  <a class=\"button secondary solid medium\" href=\"").append(AppConfig.ProdRelativeUrl).append( baseLang ).append( "/seriesList/?").append(seriesUrl).append("\">" ).append(detail).append("</a>");
+						content.append("</td>");
 					} else {
 						content.append("<td>&nbsp;</td>");
 					}
 				} else {
-					content.append("<td>" + c1c2 +"</td>");
-					content.append("<td>" + s.getName() +"</td>");
-					content.append("<td>" + s.getSeries() +"</td>");
-					content.append("<td>" + s.getItem() +"</td>");
+					content.append("<td>" ).append( c1c2 ).append("</td>");
+					content.append("<td>" ).append( s.getName() ).append("</td>");
+					content.append("<td>" ).append( s.getSeries() ).append("</td>");
+					content.append("<td>" ).append( s.getItem() ).append("</td>");
 					// queryが複数あれば複数対応
 					String seriesUrl = s.getQuery();
 					String[] arr2 = null;
 					if (seriesUrl != null) arr2 = seriesUrl.split("id=");
 					if (arr2 != null) {
-						content.append("<td><a href=\""+AppConfig.ProdRelativeUrl+ baseLang + "/seriesList/?"+seriesUrl+"\">" +detail +"</a></td>");
+						content.append("<td><a href=\"").append(AppConfig.ProdRelativeUrl).append( baseLang ).append( "/seriesList/?").append(seriesUrl).append("\">" ).append(detail ).append("</a></td>");
 					} else {
 						content.append("<td>&nbsp;</td>");
 					}
@@ -438,25 +429,26 @@ public class ProductRestController {
 		}
 
 		if (is2026) {
-			String str = "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n"
-					+ "                            <div class=\"f fm gap-16\">\r\n"
-					+ "                              <div class=\"text-2xl fw6 leading-tight\">"+title+"</div>\r\n"
-					+ "                              <div class=\"badge large filled\">"+strResult.replace("{0}", String.valueOf(listCount))+"</div>\r\n"
-					+ "                            </div>\r\n"
-					+ "              </div>";
+			StringBuilder str = new StringBuilder();
+			str.append( "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
+				.append("  <div class=\"f fm gap-16\">\r\n")
+				.append("    <div class=\"text-2xl fw6 leading-tight\">").append(title).append("</div>\r\n")
+				.append("    <div class=\"badge large filled\">").append(strResult.replace("{0}", String.valueOf(listCount))).append("</div>\r\n")
+				.append("  </div>\r\n")
+				.append("</div>\r\n");
 			// 絞り込み
 			if (list != null && list.size() > 0) {
-				str += "<div class=\"mb24\">\r\n"
-					+ "    <div class=\"mb16 s-mb8 m-mb8\">";
+				str.append("<div class=\"mb24\">\r\n")
+					.append( "    <div class=\"mb16 s-mb8 m-mb8\">");
 				
 				if (lang.indexOf("en-") > -1) {
-					str += "There were no hits with the full part number, but there were {0} hits in the keyword search.".replace("{0}", String.valueOf(listCount));
+					str.append( "There were no hits with the full part number, but there were {0} hits in the keyword search.".replace("{0}", String.valueOf(listCount)));
 				} else if (lang.indexOf("zh-") > -1) {
-					str += "全型号搜索内未找到结果，但在关键词搜索内找到{0}项结果。\r\n".replace("{0}", String.valueOf(listCount));
+					str.append( "全型号搜索内未找到结果，但在关键词搜索内找到{0}项结果。\r\n".replace("{0}", String.valueOf(listCount)));
 				} else {
-					str += "フル品番ではヒットしませんでしたが、<u>キーワード検索に{0}件</u>のヒットがありました。".replace("{0}", String.valueOf(listCount));
+					str.append( "フル品番ではヒットしませんでしたが、<u>キーワード検索に{0}件</u>のヒットがありました。".replace("{0}", String.valueOf(listCount)));
 				}
-				str += "    </div>";
+				str.append( "    </div>");
 				if (html.isDisconHit(baseLang, kw)) {
 					String strDiscon = "";
 					if (lang.indexOf("en-") > -1) {
@@ -466,24 +458,27 @@ public class ProductRestController {
 					} else {
 						strDiscon = "生産終了製品のご案内にもヒットしています。詳細はこちらをクリックしてください。";
 					}
-					str += "  <a class=\"text-sm leading-tight text-primary\" href=\""+AppConfig.PageProdDisconUrl + lang + "/?kw=" + kw +"\"><span class=\"fw5 hover-link-underline\">"+strDiscon+"</span><img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\"></a>\r\n";
+					str.append( "  <a class=\"text-sm leading-tight text-primary\" href=\"").append(AppConfig.PageProdDisconUrl ).append( lang ).append( "/?kw=" ).append( kw ).append("\">")
+						.append("    <span class=\"fw5 hover-link-underline\">").append(strDiscon).append("</span>")
+						.append("    <img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\">")
+						.append("  </a>\r\n");
 				}
-				str += "</div>";
+				str.append( "</div>");
 				String search = getNarrowingHtml2026(kw, baseLang, category, catList, series, serList, true);
 				content.insert(0, search);
 				content.insert(0, str);
 			} else {
-				str += "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">"
-						+ "<span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">";
+				str.append( "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">")
+					.append( "  <span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">");
 				if (lang.indexOf("en-") > -1) {
-					str += "Products meeting the search conditions could not be found.";
+					str.append( "Products meeting the search conditions could not be found.");
 				} else if (lang.indexOf("zh-") > -1) {
-					str += "找不到要命中搜索条件的产品。";
+					str.append( "找不到要命中搜索条件的产品。");
 				} else {
-					str += "検索条件にヒットする製品が見つかりませんでした。";
+					str.append( "検索条件にヒットする製品が見つかりませんでした。");
 				}
-				str += "</span>"
-					+ "</div>";
+				str.append( "  </span>\r\n")
+					.append( "</div>\r\n");
 				content.insert(0, str);
 				content.append(tc.getProductsSupport());
 				isNoHit = true;
@@ -491,12 +486,15 @@ public class ProductRestController {
 		} else {
 			// 絞り込み
 			if (list != null && list.size() > 0) {
-				String str = "フル品番ではヒットしませんでしたが、<u>キーワード検索に{0}件</u>のヒットがありました。".replace("{0}", String.valueOf(listCount));
+				StringBuilder str = new StringBuilder("<p>");
 				if (lang.indexOf("en-") > -1) {
-					str = "There were no hits with the full part number, but there were {0} hits in the keyword search.".replace("{0}", String.valueOf(listCount));
+					str.append( "There were no hits with the full part number, but there were {0} hits in the keyword search.".replace("{0}", String.valueOf(listCount)));
 				} else if (lang.indexOf("zh-") > -1) {
-					str = "全型号搜索内未找到结果，但在关键词搜索内找到{0}项结果。\r\n".replace("{0}", String.valueOf(listCount));
+					str.append( "全型号搜索内未找到结果，但在关键词搜索内找到{0}项结果。\r\n".replace("{0}", String.valueOf(listCount)));
+				} else {
+					str.append("フル品番ではヒットしませんでしたが、<u>キーワード検索に{0}件</u>のヒットがありました。".replace("{0}", String.valueOf(listCount)));
 				}
+				str.append("</p><br>");
 				String strDiscon = "生産終了製品のご案内にもヒットしています。詳細は<u>こちら</u>をクリックしてください。";
 				if (lang.indexOf("en-") > -1) {
 					strDiscon = "Your search matched discontinued products. Please click <u>here</u> for details.";
@@ -504,12 +502,12 @@ public class ProductRestController {
 					strDiscon = "结果中包含了停产产品，点击<u>此处</u>了解更多信息。";
 				}
 				if (html.isDisconHit(baseLang, kw)) {
-					str +="<br><br><p class=\"search_result_discon\"><a href=\""+AppConfig.PageProdDisconUrl + lang + "/?kw=" + kw +"\">"+ strDiscon + "</a></p><br>";
+					str.append("<br><br><p class=\"search_result_discon\"><a href=\"").append(AppConfig.PageProdDisconUrl).append(lang).append("/?kw=").append( kw ).append("\">").append( strDiscon ).append("</a></p><br>");
 				}
 	
 				String search = getNarrowingHtml(kw, baseLang, category, catList, series, serList, true);
 				content.insert(0, search);
-				content.insert(0, "<p>"+ str + "</p><br>");
+				content.insert(0, str);
 			} else {
 				String str = "検索条件にヒットする製品が見つかりませんでした。";
 				if (lang.indexOf("en-") > -1) {
@@ -543,7 +541,7 @@ public class ProductRestController {
 
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 
@@ -560,12 +558,14 @@ public class ProductRestController {
 		ErrorObject err = new ErrorObject();
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
 		Lang langObj = langService.getLang(lang, err);
 		if (langObj == null) {
@@ -606,9 +606,6 @@ public class ProductRestController {
 			synonymsList = Arrays.asList(arr);
 		}
 
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
-
 		int p = 1;
 		if (page != null) {
 			try {
@@ -626,17 +623,21 @@ public class ProductRestController {
 		}
 
 		Category c = service.getLang(baseLang, m, CategoryType.CATALOG, isActive, err); 
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
-		Template tL = templateService.getLangAndModelState(lang, m, isActive, err);
+		Template t = templateService.getTemplateFromBean(baseLang, m);
+		Template tL = templateService.getTemplateFromBean(lang, m);
 		if (tL != null && tL.getHeader() != null) {
 			t = tL;
 		}
 		
-		SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
+		SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 
 		if (list != null && list.size() > 0) {
 			// listの先頭のカテゴリテンプレートを取得
 			TemplateCategory tc = getTemplateCategoryFromSeries(list, langObj, m, err);
+			if (tc == null) {
+				log.info("ProductRestController.getSearchGuide() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
+				tc = templateCategoryService.getCategory(c, err);
+			}
 			int i = 0;
 			for( i = 0; i < list.size(); i++) {
 				list.set(i,  seriesService.getWithLink(list.get(i).getId(), isActive, err));
@@ -644,13 +645,13 @@ public class ProductRestController {
 			ret = html.getSearchResultFromSeriesFile(kwOriginal, baseLang, t, tc, service, sHtml, list, AppConfig.ContextPath + "/" + lang+"/searchSite/?kw="+kw, p, cnt, isTestSite); // isTest=trueなら毎回生成
 			
 		} else if (c != null){
-			TemplateCategory tc = templateCategoryService.getCategory(c.getId(), err);
+			TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, c.getId());
 			ret = html.getSearchResultFromSeriesFile(kwOriginal, baseLang, t, tc, service, sHtml, list, AppConfig.ContextPath + "/" + lang+"/searchSite/?kw="+kw, p, cnt, isTestSite); // isTest=trueなら毎回生成
 		}
 
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		
@@ -686,8 +687,8 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
+		Locale baseLocale = LibHtml.getLocale(baseLang);
+
 		if (h != null && h.isEmpty() == false) {
 			h = h.trim();
 		}
@@ -709,7 +710,7 @@ public class ProductRestController {
 		}
 */
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
@@ -717,8 +718,8 @@ public class ProductRestController {
 		if (isTestSite) isActive = null; 
 
 		Category c = service.getLang(baseLang, m, CategoryType.CATALOG, true, err);
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
-		Template tL = templateService.getLangAndModelState(lang, m, isActive, err);
+		Template t = templateService.getTemplateFromBean(baseLang, m);
+		Template tL = templateService.getTemplateFromBean(lang, m);
 		if (tL != null && tL.getHeader() != null) {
 			t = tL;
 		}
@@ -732,13 +733,13 @@ public class ProductRestController {
 		if (tc == null) {
 			Category prodC = prodRoot.getChildren().get(0);
 			if (prodC != null && prodC.isActive()) {
-				tc = templateCategoryService.getCategory(prodC.getId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, prodC.getId());
 				if (tc == null) {
 					if (prodRoot.getChildren().size() > 1) {
 						prodC = prodRoot.getChildren().get(1);
 						if (prodC == null || prodC.isActive() == false) {
 							prodC = prodRoot.getChildren().get(1);
-							tc = templateCategoryService.getCategory(prodC.getId(), err);
+							tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, prodC.getId());
 						}
 					}
 				}
@@ -837,7 +838,6 @@ public class ProductRestController {
 				if (catList.contains(c1c2) == false) catList.add(c1c2);
 				if (serList.contains(s.getSeries()) == false) serList.add(s.getSeries());
 				
-				String strSe = "";
 				if (is2026) {
 					content.append("<td class=\"td text-sm\" colspan=\"1\">").append( c1c2 ).append("</td>");
 					content.append("<td class=\"td text-sm\" colspan=\"1\">").append( s.getName() ).append("</td>");
@@ -929,7 +929,7 @@ public class ProductRestController {
 
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 
 		}
@@ -941,10 +941,10 @@ public class ProductRestController {
 		String func = "submitProductsIndexSearch";
 		if (isKeyword) func = "submitProductsKeywordSearch";
 		StringBuilder search = new StringBuilder("<div class=\"additional\">\r\n")
-				.append("        <p class=\"bold\">").append( messagesource.getMessage("msg.head.search.title", null,  getLocale(lang)) ).append("</p>\r\n")
+				.append("        <p class=\"bold\">").append( messagesource.getMessage("msg.head.search.title", null,  LibHtml.getLocale(lang)) ).append("</p>\r\n")
 				.append("        <div class=\"searchform ps\">\r\n")
-				.append("        <label>").append( messagesource.getMessage("msg.head.search.category", null,  getLocale(lang)) ).append(":</label>\r\n")
-				.append("        <select name=\"c1c2\" onchange=\"").append(func).append("('").append(h).append("','category','").append(lang).append("');\" id=\"indexCategory\"><option value=\"\">").append( messagesource.getMessage("msg.head.search.none", null,  getLocale(lang))).append( "</option>");
+				.append("        <label>").append( messagesource.getMessage("msg.head.search.category", null,  LibHtml.getLocale(lang)) ).append(":</label>\r\n")
+				.append("        <select name=\"c1c2\" onchange=\"").append(func).append("('").append(h).append("','category','").append(lang).append("');\" id=\"indexCategory\"><option value=\"\">").append( messagesource.getMessage("msg.head.search.none", null,  LibHtml.getLocale(lang))).append( "</option>");
 		for(String cat : catList) {
 			if (category.isEmpty() == false && cat.equals(category)) {
 				search.append("<option value=\"").append(cat).append("\" selected>").append(cat).append("</option>\r\n");
@@ -954,10 +954,10 @@ public class ProductRestController {
 		}
 		search.append( "          </select>\r\n")
 				.append("        </div>\r\n")
-				.append("        <p class=\"idt\">").append( messagesource.getMessage("msg.head.search.or", null,  getLocale(lang)) ).append( "</p>\r\n")
+				.append("        <p class=\"idt\">").append( messagesource.getMessage("msg.head.search.or", null,  LibHtml.getLocale(lang)) ).append( "</p>\r\n")
 				.append("        <div class=\"searchform ps\">\r\n")
-				.append("        <label>").append( messagesource.getMessage("msg.head.search.series", null,  getLocale(lang)) ).append( ":</label>\r\n" )
-				.append("        <select name=\"series\" onchange=\"").append(func).append("('").append(h).append("','series','").append(lang).append("');\" id=\"indexSeries\"><option value=\"\">").append( messagesource.getMessage("msg.head.search.none", null,  getLocale(lang))).append( "</option>");
+				.append("        <label>").append( messagesource.getMessage("msg.head.search.series", null,  LibHtml.getLocale(lang)) ).append( ":</label>\r\n" )
+				.append("        <select name=\"series\" onchange=\"").append(func).append("('").append(h).append("','series','").append(lang).append("');\" id=\"indexSeries\"><option value=\"\">").append( messagesource.getMessage("msg.head.search.none", null,  LibHtml.getLocale(lang))).append( "</option>");
 		for(String ser : serList) {
 			if (series.isEmpty() == false && ser.equals(series)) {
 				search.append("<option value=\"").append(ser).append("\" selected>").append(ser).append("</option>\r\n") ;
@@ -968,7 +968,7 @@ public class ProductRestController {
 		search.append( "         </select>\r\n")
 			.append("        </div>\r\n")
 			.append("        <input type=\"hidden\" name=\"h\" value=\"N\">\r\n")
-			.append("        <input class=\"bt\" type=\"button\" value=\"").append(messagesource.getMessage("msg.head.search.reset", null,  getLocale(lang))).append("\" onclick=\"").append(func).append("('").append(h).append("','','").append(lang).append("');\">\r\n" )
+			.append("        <input class=\"bt\" type=\"button\" value=\"").append(messagesource.getMessage("msg.head.search.reset", null,  LibHtml.getLocale(lang))).append("\" onclick=\"").append(func).append("('").append(h).append("','','").append(lang).append("');\">\r\n" )
 			.append("        </div>");
 		return search.toString();
 	}
@@ -980,19 +980,19 @@ public class ProductRestController {
 		StringBuilder search = new StringBuilder("<div class=\"w-full p16 bg-base-container-accent border border-base-stroke-default mb24\">\r\n")
 				.append("        <div class=\"f fbw mb16\">\r\n")
 				.append("          <div class=\"f fm flex-fixed gap-4\"><img class=\"s20 object-fit-contain\" src=\"/assets/smcimage/common/arrow-bottom.svg\" alt=\"\" title=\"\">\r\n")
-				.append("            <div class=\"leading-none fw5\">"+ messagesource.getMessage("msg.head.search.title", null,  getLocale(lang)) +"</div>\r\n")
+				.append("            <div class=\"leading-none fw5\">"+ messagesource.getMessage("msg.head.search.title", null,  LibHtml.getLocale(lang)) +"</div>\r\n")
 				.append("          </div>\r\n");
 		String disabled = "disabled";
 		if (isClearEnabled) disabled = "";
 		search.append("          <!-- 絞り込み時：enabled、絞り込み未実施：disabled(デフォルトでdisabled)-->\r\n")
-			.append("          <button class=\"button medium solid secondary text-primary\" type=\"button\" "+disabled+" onclick=\""+func+"('"+h+"','','"+lang+"');\">"+messagesource.getMessage("msg.head.search.reset", null,  getLocale(lang))+"</button>\r\n");
+			.append("          <button class=\"button medium solid secondary text-primary\" type=\"button\" "+disabled+" onclick=\""+func+"('"+h+"','','"+lang+"');\">"+messagesource.getMessage("msg.head.search.reset", null,  LibHtml.getLocale(lang))+"</button>\r\n");
 
 		search.append("        </div>\r\n")
 				.append( "        <div class=\"f p24 bg-base-foreground-on-fill border border-base-stroke-subtle s-fclm s-py24 s-px16 m-fclm m-py24 m-px16\">\r\n")
 				.append( "          <div class=\"f fclm w-full\">\r\n")
-				.append( "            <div class=\"text-sm fw5 mb8\">"+ messagesource.getMessage("msg.head.search.category", null,  getLocale(lang)) +"</div>\r\n")
+				.append( "            <div class=\"text-sm fw5 mb8\">"+ messagesource.getMessage("msg.head.search.category", null,  LibHtml.getLocale(lang)) +"</div>\r\n")
 				.append( "                        <div class=\"select\">\r\n")
-				.append( "                          <select name=\"c1c2\" onchange=\""+func+"('"+h+"','category','"+lang+"');\" id=\"indexCategory\"><option value=\"\">" + messagesource.getMessage("msg.head.search.none", null,  getLocale(lang)) + "</option>");
+				.append( "                          <select name=\"c1c2\" onchange=\""+func+"('"+h+"','category','"+lang+"');\" id=\"indexCategory\"><option value=\"\">" + messagesource.getMessage("msg.head.search.none", null,  LibHtml.getLocale(lang)) + "</option>");
 		for(String cat : catList) {
 			if (category.isEmpty() == false && cat.equals(category)) {
 				search.append("<option value=\""+cat+"\" selected>"+cat+"</option>\r\n");
@@ -1003,11 +1003,11 @@ public class ProductRestController {
 		search.append("                          </select>\r\n")
 			.append( "                        </div>\r\n")
 			.append( "          </div>\r\n")
-			.append( "          <div class=\"flex-fixed f fb pb8 px16 s-py16 s-pb0 m-py16 m-pb0 s-fh m-fh\">"+ messagesource.getMessage("msg.head.search.or", null,  getLocale(lang)) +"</div>\r\n")
+			.append( "          <div class=\"flex-fixed f fb pb8 px16 s-py16 s-pb0 m-py16 m-pb0 s-fh m-fh\">"+ messagesource.getMessage("msg.head.search.or", null,  LibHtml.getLocale(lang)) +"</div>\r\n")
 			.append( "          <div class=\"f fclm w-full\">\r\n")
-			.append( "            <div class=\"text-sm fw5 mb8\">"+ messagesource.getMessage("msg.head.search.series", null,  getLocale(lang)) +"</div>\r\n")
+			.append( "            <div class=\"text-sm fw5 mb8\">"+ messagesource.getMessage("msg.head.search.series", null,  LibHtml.getLocale(lang)) +"</div>\r\n")
 			.append( "                        <div class=\"select\">\r\n")
-			.append( "                          <select name=\"series\" onchange=\""+func+"('"+h+"','series','"+lang+"');\" id=\"indexSeries\"><option value=\"\">" + messagesource.getMessage("msg.head.search.none", null,  getLocale(lang)) + "</option>");
+			.append( "                          <select name=\"series\" onchange=\""+func+"('"+h+"','series','"+lang+"');\" id=\"indexSeries\"><option value=\"\">" + messagesource.getMessage("msg.head.search.none", null,  LibHtml.getLocale(lang)) + "</option>");
 				for(String ser : serList) {
 					if (series.isEmpty() == false && ser.equals(series)) {
 						search.append( "<option value=\""+ser+"\" selected>"+ser+"</option>\r\n") ;
@@ -1042,8 +1042,6 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
 
 		int old = 0;
 		if (oldId != null && oldId.isEmpty() == false) {
@@ -1086,7 +1084,7 @@ public class ProductRestController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, ModelState.PROD, true, err);
+			Template toT = templateService.getTemplateFromBean(lang, ModelState.PROD);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		return ret;
@@ -1111,16 +1109,16 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
+		Locale baseLocale = LibHtml.getLocale(baseLang);
 
-		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(request.getRequestURL().toString());
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
 		if (page == null || page.equals("index.html")) {
 			List<Series> list = new LinkedList<Series>();
@@ -1141,16 +1139,19 @@ public class ProductRestController {
 						  HttpStatus.NOT_FOUND, "ids not found"
 						);
 			}
-			Template t = templateService.getLangAndModelState(baseLang, m, isActive, err);
-			Template tL = templateService.getLangAndModelState(baseLang, m, isActive, err);
+			Template t = templateService.getTemplateFromBean(baseLang, m);
+			Template tL = templateService.getTemplateFromBean(lang, m);
 			if (tL != null && tL.getHeader() != null) {
 				t = tL;
 			}
 			// listの先頭のカテゴリテンプレートを取得
 			TemplateCategory tc = getTemplateCategoryFromSeries(list, langObj, m, err);
-
+			if (tc == null) {
+				log.info("ProductRestController.getSeries() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
+				tc = templateCategoryService.getLangAndStateFromBean(baseLang, m);
+			}
 			if (tc.is2026()) {
-				SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
+				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 				ret = html.getSearchResult2026("", baseLang,  t, tc, service, seriesService, sHtml, list, 0, -1, null, isTestSite);
 			} else {
 				ret = html.getSearchResult("", baseLang,  t, tc, service,  list, 0, -1, null);
@@ -1176,7 +1177,7 @@ public class ProductRestController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 
@@ -1261,15 +1262,16 @@ public class ProductRestController {
 		}
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
+		Locale baseLocale = LibHtml.getLocale(baseLang);
 		
 		if (page == null || page.equals("index.html")) {
 			ret = html.getFileFromHtml(baseLang + "/series/" + seid + "/index.html" ); // テンプレート組み込み済み
@@ -1301,7 +1303,7 @@ public class ProductRestController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		return ret;
@@ -1410,12 +1412,14 @@ public class ProductRestController {
 		}
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
 		log.debug("get === lang=== lang="+lang);
 		Lang langObj = langService.getLang(lang, err);
@@ -1428,8 +1432,7 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		html.Init(baseLocale, messagesource);
+		Locale baseLocale = LibHtml.getLocale(baseLang);
 
 		if (se_id != null && se_id.isEmpty() == false && seriesService.isModelNumberExists(se_id, m, isActive, err) == false) {
 			if (se_id2 != null && se_id.isEmpty() == false) {
@@ -1454,16 +1457,15 @@ public class ProductRestController {
 				throw new ResponseStatusException(
 						  HttpStatus.NOT_FOUND, "ModelNumber not found"
 						);
+			} else if (tmpS == null) {
+				throw new ResponseStatusException(
+						  HttpStatus.NOT_FOUND, "ModelNumber not found."
+						);
 			} else if (tmpS.isActive() == false) {
 				throw new ResponseStatusException(
 						  HttpStatus.NOT_FOUND, "ModelNumber not found"
 						);
 			} else {
-				if (tmpS == null) {
-					throw new ResponseStatusException(
-							  HttpStatus.NOT_FOUND, "ModelNumber not found."
-							);
-				}
 				if (baseLang.equals(tmpS.getLang()) == false) {
 					throw new ResponseStatusException(
 							  HttpStatus.NOT_FOUND, "ModelNumber not found. Different Lang."
@@ -1498,14 +1500,14 @@ public class ProductRestController {
 			Category c = service.getFromSlug(slug, baseLang, m, CategoryType.CATALOG, 1, isActive, err);
 			if (action != null && action.isEmpty() == false) {
 				// narrowdown 検索結果
-				Template t = templateService.getLangAndModelState(baseLang, m, isActive, err); 
+				Template t = templateService.getTemplateFromBean(baseLang, m); 
 				if (err.isError()) {
 					log.error("ErrorObject:msg="+err.getMessage());
 					throw new ResponseStatusException(
 							  HttpStatus.NOT_FOUND, "ErrorObject!");
 				}
 				TemplateCategory tc = null;
-				tc = templateCategoryService.getCategory(c.getId(), err);
+				tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, c.getId());
 				if (tc == null) {
 					throw new ResponseStatusException(
 							  HttpStatus.NOT_FOUND, "Category not found. slug = "+slug
@@ -1619,17 +1621,17 @@ public class ProductRestController {
 					}
 				}
 
-				String content = "";
-				SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
+				StringBuilder content = new StringBuilder("<div class=\"p_block\">");
+				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 				if (list != null && list.size() > 0) {
 					if (view.equals("list")) {
 						for(Series s: list) {
 							s.setLink(seriesService.getLink(s.getId(), err));
 							if (is2026) {
-								content += sHtml.getGuide2026(s, c, c2, request.getRequestURI(), c.getLang(), false, false);
-								content += "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>";
+								content.append( sHtml.getGuide2026(s, c, c2, request.getRequestURI(), c.getLang(), false, false));
+								content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>");
 							} else {
-								content += sHtml.get(s, c, c2, request.getRequestURI(), c.getLang(), false, false);
+								content.append( sHtml.get(s, c, c2, request.getRequestURI(), c.getLang(), false, false));
 							}
 						}
 					} else if (view.equals("compare")) {
@@ -1642,30 +1644,30 @@ public class ProductRestController {
 						}
 						List<NarrowDownColumn> colList = narrowDownService.getCategoryColumn(c2.getId(), true, err);
 						if (is2026) {
-							content += sHtml.getCompareHtml2026(lang, baseLang, c, c2, colList, list, map, request);
+							content.append( sHtml.getCompareHtml2026(lang, baseLang, c, c2, colList, list, map, request));
 						} else {
-							content += sHtml.getCompareHtml(lang, baseLang, c, c2, colList, list, map, request);
+							content.append( sHtml.getCompareHtml(lang, baseLang, c, c2, colList, list, map, request));
 						}
 					} else {
 						if (is2026) {
-							content += sHtml.getPictureList2026(c, c2, list);
+							content.append( sHtml.getPictureList2026(c, c2, list));
 						} else {
-							content += sHtml.getPictureList(c, c2, list);
+							content.append( sHtml.getPictureList(c, c2, list));
 						}
 					}
 				} else {
 					if (baseLang.indexOf("en-") > -1) {
-						content = "There were no series that matched the criteria.";
+						content.append("There were no series that matched the criteria.");
 					} else if(baseLang.equals("zh-tw")){
-						content = "<h4>沒有符合標準的系列。</h4>";
+						content.append("<h4>沒有符合標準的系列。</h4>");
 					} else if (baseLang.indexOf("zh-") > -1) {
-						content = "<h4>没有符合标准的系列。</h4>";
+						content.append( "<h4>没有符合标准的系列。</h4>");
 					} else {
-						content = "<h4>条件に一致したシリーズがありませんでした。</h4>";
+						content.append( "<h4>条件に一致したシリーズがありませんでした。</h4>");
 					}
 				}
-				content = "<div class=\"p_block\">" + content + "</div>";
-				temp = StringUtils.replace(temp, "$$$content$$$", content);
+				content.append( "</div>");
+				temp = StringUtils.replace(temp, "$$$content$$$", content.toString());
 				ret+=temp;
 				ret+= SeriesHtml._seriesCadModal;
 				ret+=t.getFooter();
@@ -1709,7 +1711,7 @@ public class ProductRestController {
 		}
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		log.debug("end ===== uri="+request.getRequestURI());
@@ -1745,23 +1747,18 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
-		String shortLang = "ja";
-		if (lang.indexOf("en-") > -1) {
-			shortLang = "en";
-		}
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
-		if (isTestSite) m = ModelState.TEST;
 		Boolean isActive = true;
-		if (isTestSite) isActive = null; 
+		if (isTestSite) {
+			m = ModelState.TEST;
+			isActive = null;
+		}
 
-		html.Init(baseLocale, messagesource);
-
-		Template t = templateService.getLangAndModelState(baseLang, m, isActive, err); // これは言語のTemplate。TEST.PRODは関係なし。
+		Template t = templateService.getTemplateFromBean(baseLang, m);
 		if (err.isError()) {
 			log.error("ErrorObject:msg="+err.getMessage());
 			throw new ResponseStatusException(
@@ -1806,7 +1803,7 @@ public class ProductRestController {
 			TemplateCategory tc = getTemplateCategoryFromSeries(newList, langObj, ModelState.PROD, err);
 
 			if (tc.is2026()) {
-				SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
+				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 				ret = html.getSearchResult2026(kw, baseLang,  t, tc, service, seriesService, sHtml, newList, 0, -1, message, isTestSite);
 			} else {
 				ret = html.getSearchResult(kw, baseLang,  t, tc, service, newList, 0, -1, message);
@@ -1818,12 +1815,12 @@ public class ProductRestController {
 			if (sList == null || sList.size() == 0) {
 				Category cate = service.getLang(baseLang, ModelState.PROD, CategoryType.CATALOG, true, err);
 				if (cate != null) {
-					tc = templateCategoryService.getCategory(cate.getId(), err);
+					tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, cate.getId());
 				}
 				if (tc == null) {
 					Category root = service.getWithChildren(cate.getParentId(), true, err);
 					for(Category c : root.getChildren()) {
-						tc = templateCategoryService.getCategory(c.getId(), err);
+						tc = templateCategoryService.findByCategoryIdFromBean(baseLang, m, c.getId());
 						if (tc != null) {
 							break;
 						}
@@ -1834,20 +1831,16 @@ public class ProductRestController {
 				tc = getTemplateCategoryFromSeries(sList, langObj, ModelState.PROD, err);
 			}
 			if (tc.is2026()) {
-				SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
+				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 				ret = html.getSearchResult2026(kw, baseLang,  t, tc, service, seriesService, sHtml, sList, 0, -1, message, isTestSite);
 			} else {
 				ret = html.getSearchResult(kw, baseLang,  t, tc, service, sList, 0, -1, message);
 			}
-//			for(String seid : sList) {
-//				ret = html.getFileFromHtml(baseLang + "/series/" + seid + "/s.html");
-//			}
-
 		}
 
 		if (langObj.isVersion()) {
 			// 変換処理
-			Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
+			Template toT = templateService.getTemplateFromBean(lang, m);
 			ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
 		}
 		return ret;
@@ -1862,7 +1855,7 @@ public class ProductRestController {
 			@RequestParam(name = "mode", required = false) String mode,
 			@RequestParam(name = "version", required = false) String version,
 			HttpServletRequest request) {
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 		ErrorObject err = new ErrorObject();
 		Lang langObj = langService.getLang(lang, err);
 		if (langObj == null) {
@@ -1870,11 +1863,6 @@ public class ProductRestController {
 			throw new ResponseStatusException(
 					  HttpStatus.NOT_FOUND, "Lang is Empty!");
 		}
-		String baseLang = lang;
-		if (langObj.isVersion()) {
-			baseLang = langObj.getBaseLang();
-		}
-		Locale baseLocale = getLocale(baseLang);
 		String shortLang = "ja";
 		if (lang.indexOf("en-") > -1) {
 			shortLang = "en";
@@ -1882,7 +1870,7 @@ public class ProductRestController {
 			shortLang = "zh";
 		}
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		if (isTestSite && version == null) version = "2026";
 
 		List<Cad3d> list = null;
@@ -1892,14 +1880,14 @@ public class ProductRestController {
 			Series series =seriesService.getFromModelNumber(id, ModelState.PROD, err);
 			if (series == null) {
 				if (version == null || version.equals("2026") == false) {
-					ret += SeriesHtml._3dCadFrameHtml;
-					ret += "<span class=\"error\">"+messagesource.getMessage("web.manual.empty", null, getLocale(lang))+"</span>";
-					ret += SeriesHtml._3dCadFrameHtmlEND;
+					ret.append(SeriesHtml._3dCadFrameHtml);
+					ret.append( "<span class=\"error\">").append(messagesource.getMessage("web.manual.empty", null, LibHtml.getLocale(lang))).append("</span>");
+					ret.append( SeriesHtml._3dCadFrameHtmlEND);
 				} else {
 					// 2026デザイン
-					ret += SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD");
-					ret += "<span class=\"text-red\">"+messagesource.getMessage("web.manual.empty", null, getLocale(lang))+"</span>";
-					ret += SeriesHtml._3dCadFrameHtmlEND_2026;
+					ret.append( SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD"));
+					ret.append( "<span class=\"text-red\">").append(messagesource.getMessage("web.manual.empty", null, LibHtml.getLocale(lang))).append("</span>");
+					ret.append( SeriesHtml._3dCadFrameHtmlEND_2026);
 				}
 			} else {
 				String escape = id;
@@ -1920,14 +1908,14 @@ public class ProductRestController {
 	            }
 				if (list == null || list.size() == 0) {
 					if (version == null || version.equals("2026") == false) {
-						ret += SeriesHtml._3dCadFrameHtml;
-						ret += "<span class=\"error\">"+messagesource.getMessage("web.manual.empty", null, getLocale(lang))+"</span>";
-						ret += SeriesHtml._3dCadFrameHtmlEND;
+						ret.append( SeriesHtml._3dCadFrameHtml);
+						ret.append( "<span class=\"error\">").append(messagesource.getMessage("web.manual.empty", null, LibHtml.getLocale(lang))).append("</span>");
+						ret.append( SeriesHtml._3dCadFrameHtmlEND);
 					} else {
 						// 2026デザイン
-						ret += SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD");
-						ret += "<span class=\"text-red\">"+messagesource.getMessage("web.manual.empty", null, getLocale(lang))+"</span>";
-						ret += SeriesHtml._3dCadFrameHtmlEND_2026;
+						ret.append( SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD"));
+						ret.append( "<span class=\"text-red\">").append(messagesource.getMessage("web.manual.empty", null, LibHtml.getLocale(lang))).append("</span>");
+						ret.append( SeriesHtml._3dCadFrameHtmlEND_2026);
 					}
 				} else {
 
@@ -1948,130 +1936,131 @@ public class ProductRestController {
 		            cad3d.list.detail=CADライブラリへ
 					cad2d.list.detail=検索結果を表示
 					cad3d.back.link=↑分類一覧に戻る */
-		            String detail = messagesource.getMessage("cad3d.list.detail", null, getLocale(lang));
+		            String detail = messagesource.getMessage("cad3d.list.detail", null, LibHtml.getLocale(lang));
 
 		            if (version == null || version.equals("2026") == false) {
-			            ret += SeriesHtml._3dCadFrameHtml;
-		            	ret += "<table cellpadding=\"0\" cellspacing=\"0\" class=\"resulttbl resulttbl2\">\r\n" +
-								"  <tbody>\r\n";
+			            ret.append( SeriesHtml._3dCadFrameHtml);
+		            	ret.append( "<table cellpadding=\"0\" cellspacing=\"0\" class=\"resulttbl resulttbl2\">\r\n" +
+								"  <tbody>\r\n");
 		            } else {
 		            	// 2026デザイン
-			            ret += SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD");
-		            	ret += "<div class=\"w-full overflow-x-auto\">\r\n"
-		            			+ "             <table class=\"table-hover s-full border-bottom border-right border-base-stroke-default border-collapse-collapse\">\r\n"
-		            			+ "               <thead>";
+			            ret.append( SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D/3D CAD"));
+		            	ret.append( "<div class=\"w-full overflow-x-auto\">\r\n")
+		            		.append( "             <table class=\"table-hover s-full border-bottom border-right border-base-stroke-default border-collapse-collapse\">\r\n")
+		            		.append( "               <thead>");
 		            }
 
 					if (result_type.equals("CATMAP")) {
 
-			            String strSeries = messagesource.getMessage("cad3d.title.series", null, getLocale(lang));
-			            String strCategory = messagesource.getMessage("cad3d.title.category", null, getLocale(lang));
+			            String strSeries = messagesource.getMessage("cad3d.title.series", null, LibHtml.getLocale(lang));
+			            String strCategory = messagesource.getMessage("cad3d.title.category", null, LibHtml.getLocale(lang));
 			            
 			            if (version == null || version.equals("2026") == false) {
-			            	ret += "<tr>\r\n" +
-									"    <th>"+strSeries+"</th>\r\n" +
-									"    <th>"+strCategory+"</th>\r\n" +
-									"    <th>&nbsp;</th>\r\n" +
-									"  </tr>";
+			            	ret.append( "<tr>\r\n")
+			            		.append("    <th>").append(strSeries).append("</th>\r\n")
+			            		.append("    <th>").append(strCategory).append("</th>\r\n")
+			            		.append("    <th>&nbsp;</th>\r\n")
+			            		.append("</tr>");
 			            } else {
 			            	// 2026デザイン
-			            	ret += "<tr>\r\n" +
-								"     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strSeries+"</th>\r\n" +
-								"     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strCategory+"</th>\r\n" +
-								"     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">&nbsp;</th>\r\n" +
-								"   </tr></thead><tbody>\r\n";
+			            	ret.append( "<tr>\r\n")
+				            	.append("     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">").append(strSeries).append("</th>\r\n")
+				            	.append("     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">").append(strCategory).append("</th>\r\n")
+				            	.append("     <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">&nbsp;</th>\r\n")
+				            	.append("</tr></thead><tbody>\r\n");
 			            }
 						Set<String> keys = catmap.keySet();
 						for(String k : keys) {
-							Cad3d cad = catmap.get(k);
 							String[] arr = k.split("\t");
 							if (arr.length >= 2) {
 								if (version == null || version.equals("2026") == false) {
-									ret+="<tr>\r\n";
-									ret+="<td>"+arr[0]+"</td>";
-									ret+="<td>"+arr[1]+"</td>";
-									ret+="<td class=\"tdc\"><a href=\"./?mode=bycat&id="+id+"&series="+arr[0]+"&cat="+arr[1]+"\">"+detail+"</a></td>";
-									ret+="</tr>\r\n";
+									ret.append("<tr>\r\n");
+									ret.append("<td>"+arr[0]+"</td>");
+									ret.append("<td>"+arr[1]+"</td>");
+									ret.append("<td class=\"tdc\"><a href=\"./?mode=bycat&id=").append(id).append("&series=").append(arr[0]).append("&cat=").append(arr[1]).append("\">").append(detail).append("</a></td>");
+									ret.append("</tr>\r\n");
 								} else {
 					            	// 2026デザイン
-									ret+="<tr>\r\n";
-									ret+="<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+arr[0]+"</td>";
-									ret+="<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+arr[1]+"</td>";
-									ret+="<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">"
-											+ "<div class=\"f fc\">"
-												+ "<a class=\"f fm gap-4\" target=\"_blank\" href=\"./?mode=bycat&id="+id+"&series="+arr[0]+"&cat="+arr[1]+"\">"
-													+ "<span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">"+detail+"</span>"
-												+ "</a>"
-											+ "</div>"
-										+ "</td>";
-									ret+="</tr>\r\n";
+									ret.append("<tr>\r\n");
+									ret.append("<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">").append(arr[0]).append("</td>");
+									ret.append("<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">").append(arr[1]).append("</td>");
+									ret.append("<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">")
+										.append( "<div class=\"f fc\">")
+										.append( "  <a class=\"f fm gap-4\" target=\"_blank\" href=\"./?mode=bycat&id="+id+"&series=").append(arr[0]).append("&cat=").append(arr[1]).append("\">")
+										.append( "    <span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">").append(detail).append("</span>")
+										.append( "  </a>\r\n")
+										.append( "</div>\r\n")
+										.append( "</td>\r\n");
+									ret.append("</tr>\r\n");
 								}
 							}
 						}
 					} else {
-						String strSeries = messagesource.getMessage("cad3d.title.series", null, getLocale(lang));
-			            String strModel = messagesource.getMessage("cad3d.title.model", null, getLocale(lang));
-			            String strName = messagesource.getMessage("cad3d.title.name", null, getLocale(lang));
-			            String strDownload = messagesource.getMessage("cad3d.title.download", null, getLocale(lang));
-			            String strBack = messagesource.getMessage("cad3d.back.link", null, getLocale(lang));
+						String strSeries = messagesource.getMessage("cad3d.title.series", null, LibHtml.getLocale(lang));
+			            String strModel = messagesource.getMessage("cad3d.title.model", null, LibHtml.getLocale(lang));
+			            String strName = messagesource.getMessage("cad3d.title.name", null, LibHtml.getLocale(lang));
+			            String strDownload = messagesource.getMessage("cad3d.title.download", null, LibHtml.getLocale(lang));
+			            String strBack = messagesource.getMessage("cad3d.back.link", null, LibHtml.getLocale(lang));
 
 			            if(mode != null && mode.equals("bycat")){
-			            	ret += "<p align=\"right\"><a href=\"./?id="+id+"\">"+strBack+"</a></p>\r\n" ;
+			            	ret.append("<p align=\"right\"><a href=\"./?id=").append(id).append("\">").append(strBack).append("</a></p>\r\n" );
 			            }
 			            if (version == null || version.equals("2026") == false) {
-			            	ret += "<tr>\r\n" +
-								"    <th>"+strSeries+"</th>\r\n" +
-								"    <th>"+strModel+"</th>\r\n" +
-								"    <th>"+strName+"</th>\r\n" +
-								"    <th>"+strDownload+"</th>\r\n"+
-								"  </tr>";
+			            	ret.append( "<tr>\r\n" )
+				            	.append("    <th>").append(strSeries).append("</th>\r\n" )
+				            	.append("    <th>").append(strModel).append("</th>\r\n" )
+				            	.append("    <th>").append(strName).append("</th>\r\n" )
+				            	.append("    <th>").append(strDownload).append("</th>\r\n")
+				            	.append("</tr>\r\n");
 			            } else {
 			            	// 2026デザイン
-			            	ret += "<tr>\r\n" +
-								"    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strSeries+"</th>\r\n" +
-								"    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strModel+"</th>\r\n" +
-								"    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strName+"</th>\r\n" +
-								"    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strDownload+"</th>\r\n"+
-								"  </tr></thead><tbody>\r\n";
+			            	ret.append( "<tr>\r\n")
+				            	.append("    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strSeries+"</th>\r\n" )
+				            	.append("    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strModel+"</th>\r\n" )
+				            	.append("    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strName+"</th>\r\n" )
+				            	.append("    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+strDownload+"</th>\r\n")
+				            	.append("</tr></thead><tbody>\r\n");
 			            }
 			            for(Cad3d cad : list) {
 			            	if (version == null || version.equals("2026") == false) {
-				            	ret+="<tr>\r\n";
-								ret+="<td>"+cad.getSeries()+"</td>";
-								ret+="<td>"+cad.getItem()+"</td>";
-								ret+="<td>"+cad.getName()+"</td>";
-								ret+="<td class=\"tdc\"><a href=\""+cad.getUrl1()+"\" target=\"_blank\"><img src=\""+AppConfig.ProdRelativeUrl+"images/"+shortLang+"/bt_to_3dcad.jpg\"></a></td>";
-								ret+="</tr>\r\n";
+				            	ret.append("<tr>\r\n");
+								ret.append("<td>").append(cad.getSeries()).append("</td>");
+								ret.append("<td>").append(cad.getItem()).append("</td>");
+								ret.append("<td>").append(cad.getName()).append("</td>");
+								ret.append("<td class=\"tdc\"><a href=\"").append(cad.getUrl1()).append("\" target=\"_blank\"><img src=\"").append(AppConfig.ProdRelativeUrl).append("images/").append(shortLang).append("/bt_to_3dcad.jpg\"></a></td>");
+								ret.append("</tr>\r\n");
 			            	} else {
 				            	// 2026デザイン
-			            		ret+="<tr>\r\n";
-								ret+="<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getSeries()+"</td>";
-								ret+="<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getItem()+"</td>";
-								ret+="<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getName()+"</td>";
-								ret+="<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">"
-										+ "<div class=\"f fc\"><a class=\"f fm gap-4\" target=\"_blank\" href=\""+cad.getUrl1()+"\" >"
-												+ "<span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">"+detail+"</span><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\"\">"
-										+ "</a></div>"
-									+ "</td>";
-								ret+="</tr>\r\n";
+			            		ret.append("<tr>\r\n");
+								ret.append("<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getSeries()+"</td>");
+								ret.append("<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getItem()+"</td>");
+								ret.append("<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+cad.getName()+"</td>");
+								ret.append("<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">")
+									.append( "  <div class=\"f fc\">")
+									.append( "    <a class=\"f fm gap-4\" target=\"_blank\" href=\"").append(cad.getUrl1()).append("\" >")
+									.append( "      <span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">").append(detail).append("</span><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\"\">")
+									.append( "    </a>")
+									.append("  </div>")
+									.append( "</td>");
+								ret.append("</tr>\r\n");
 			            	}
 			            }
 					}
 					if (version == null || version.equals("2026") == false) {
-						ret+="</tbody></table>";
-						ret += SeriesHtml._3dCadFrameHtmlEND;
+						ret.append("</tbody></table>");
+						ret.append( SeriesHtml._3dCadFrameHtmlEND);
 					} else {
 						// 2026デザイン
-						ret+="</tbody></table>";
-						ret += SeriesHtml._3dCadFrameHtmlEND_2026;
+						ret.append("</tbody></table>");
+						ret.append( SeriesHtml._3dCadFrameHtmlEND_2026);
 					}
 	            }
 			}
 		} catch (Exception e) {
-			throw new DataAccessException(messagesource.getMessage("web.page.empty", null, getLocale(lang)));
+			throw new DataAccessException(messagesource.getMessage("web.page.empty", null, LibHtml.getLocale(lang)));
 		}
 
-		return ret;
+		return ret.toString();
 	}
 
 	// 2DCADのポップアップ表示
@@ -2083,8 +2072,8 @@ public class ProductRestController {
 			@RequestParam(name = "version", required = false) String version,
 			HttpServletRequest request) {
 
-		String ret = "";
-		String detail = messagesource.getMessage("cad2d.list.detail", null, getLocale(lang)); // ボタン
+		StringBuilder ret = new StringBuilder();
+		String detail = messagesource.getMessage("cad2d.list.detail", null, LibHtml.getLocale(lang)); // ボタン
 
 		ErrorObject err = new ErrorObject();
 		Lang langObj = langService.getLang(lang, err);
@@ -2097,10 +2086,10 @@ public class ProductRestController {
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
 		}
-		Locale baseLocale = getLocale(baseLang);
+		Locale baseLocale = LibHtml.getLocale(baseLang);
 		
 		String url = request.getRequestURL().toString();
-		boolean isTestSite = html.isTestSite(url);
+		boolean isTestSite = LibHtml.isTestSite(url);
 		
 		ModelState m = ModelState.PROD;
 		if (isTestSite) m = ModelState.TEST;
@@ -2121,98 +2110,99 @@ public class ProductRestController {
 
 			if (links != null && links.size() > 1) {
 				if (version == null || version.equals("2026") == false) {
-					ret += SeriesHtml._2dCadFrameHtml;
+					ret.append( SeriesHtml._2dCadFrameHtml);
 				} else {
-					ret += SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D CAD");
-					ret += "<table cellpadding=\"0\" cellspacing=\"0\" class=\"resulttbl\">\r\n"
-							+ "<thead>\r\n";
+					ret.append( SeriesHtml._3dCadFrameHtml_2026.replace("$$$TITLE$$$", "2D CAD"));
+					ret.append( "<table cellpadding=\"0\" cellspacing=\"0\" class=\"resulttbl\">\r\n")
+						.append( "<thead>\r\n");
 				}
-				ret += "<tr>\r\n" ;
+				ret.append( "<tr>\r\n" );
 				String[] titles = links.get(0);
 				int cnt = 0;
 				for (String title : titles) {
 					if (version == null || version.equals("2026") == false) {
 						if (cnt == titles.length-1) {
-							ret +=  "<th class=\"last\">"+ title + "</th>\r\n" ;
+							ret.append(  "<th class=\"last\">").append( title ).append("</th>\r\n" );
 						} else {
-							ret +=  "<th scope=\"col\">"+ title + "</th>\r\n" ;
+							ret.append(  "<th scope=\"col\">").append( title ).append( "</th>\r\n" );
 						}
 					} else {
-						ret += "    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+title+"</th>\r\n";
+						ret.append( "    <th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">").append(title).append("</th>\r\n");
 					}
 					cnt++;
 				}
 				
 				if (version == null || version.equals("2026") == false) {
-					ret += "</tr>\r\n";
+					ret.append( "</tr>\r\n");
 				} else  {
-					ret += "</tr></thead><tbody>\r\n";
+					ret.append( "</tr></thead><tbody>\r\n");
 				}
 				for (int i = 1; i < links.size(); i++) {
-					ret += "<tr>\r\n";
+					ret.append( "<tr>\r\n");
 					String[] arr = links.get(i);
 					cnt = 0;
 					for (String val : arr) {
 						if (cnt == arr.length-1) {
 							if (val == null || StringUtils.isEmpty(val)) {
 								if (version == null || version.equals("2026") == false) {
-									ret += "<td class=\"last\">"+"</td>\r\n";
+									ret.append( "<td class=\"last\">&nbsp;</td>\r\n");
 								} else  {
-									ret += "<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">&nbsp;</td>";
+									ret.append( "<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">&nbsp;</td>");
 								}
 							} else {
 								if (version == null || version.equals("2026") == false) {
-									ret +=  "<td class=\"last\">"+
+									ret.append(  "<td class=\"last\">"+
 											"<div class=\"win_dlbt_area\">\r\n" +
-											"<a href=\"" + val + "\" target=\"_blank\" class=\"plink link_2dcad p_2dcad\">";
+											"<a href=\"" ).append( val ).append( "\" target=\"_blank\" class=\"plink link_2dcad p_2dcad\">");
 									String tmp = "<img src=\""+AppConfig.ProdRelativeUrl+"images/ja/bt_to_2dcad.jpg\" alt=\"2DCAD\"/></a>\r\n" ;
 									if (lang.indexOf("en-") > -1) {
-										ret += tmp.replace("/ja/", "/en/");
+										ret.append( tmp.replace("/ja/", "/en/"));
 									} else if (lang.equals("zh-cn")) {
-										ret += tmp.replace("/ja/", "/zh/");
+										ret.append( tmp.replace("/ja/", "/zh/"));
 									} else if (lang.equals("zh-tw")) {
-										ret += tmp.replace("/ja/", "/en/");
+										ret.append( tmp.replace("/ja/", "/en/"));
 									} else {
-										ret += tmp;
+										ret.append( tmp);
 									}
-									ret += "</div>\r\n" +
-											"</td>\r\n" ;
+									ret.append( "</div>\r\n")
+									.append("</td>\r\n");
 								} else {
-									ret +="<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">"
-											+ "<div class=\"f fc\"><a class=\"f fm gap-4\" target=\"_blank\" href=\""+ val + "\" >"
-													+ "<span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">"+detail+"</span><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\"\">"
-											+ "</a></div>"
-										+ "</td>";
+									ret.append("<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">")
+										.append( "  <div class=\"f fc\"><a class=\"f fm gap-4\" target=\"_blank\" href=\"").append( val ).append( "\" >")
+										.append( "    <span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">").append(detail).append("</span><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\"\">")
+										.append( "  </a></div>")
+										.append( "</td>");
 								}
 							}
 						} else {
 							if (version == null || version.equals("2026") == false) {
-								ret +=  "<td>"+ val + "</td>\r\n" ;
+								ret.append(  "<td>").append( val ).append("</td>\r\n");
 							} else {
-								ret += "<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">"+val+"</td>\r\n";
+								ret.append( "<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">").append(val).append("</td>\r\n");
 							}
 						}
 						cnt++;
 					}
-					ret += "</tr>\r\n";
+					ret.append( "</tr>\r\n");
 				}
 				if (version == null || version.equals("2026") == false) {
-					ret += SeriesHtml._2dCadFrameHtmlEND;
+					ret.append( SeriesHtml._2dCadFrameHtmlEND);
 				} else {
-					ret += "</tbody></table>\r\n";
-					ret += SeriesHtml._3dCadFrameHtmlEND_2026;
+					ret.append( "</tbody></table>\r\n");
+					ret.append( SeriesHtml._3dCadFrameHtmlEND_2026);
 				}
 			}
 			if (langObj.isVersion()) {
 				// 変換処理
-				Template toT = templateService.getLangAndModelState(lang, m, isActive, err);
-				ret = html.changeLang(ret, baseLang, lang, toT.getHeader(), toT.getFooter(), false);
+				Template toT = templateService.getTemplateFromBean(lang, m);
+				String tmp = html.changeLang(ret.toString(), baseLang, lang, toT.getHeader(), toT.getFooter(), false);
+				ret = new StringBuilder(tmp);
 			}
 		} catch (Exception e) {
-			throw new DataAccessException(messagesource.getMessage("web.page.empty", null, getLocale(lang)));
+			throw new DataAccessException(messagesource.getMessage("web.page.empty", null, LibHtml.getLocale(lang)));
 		}
 
-		return ret;
+		return ret.toString();
 	}
     @GetMapping("/ja-jp/test/headers")
     public ModelAndView getHeaders(
@@ -2247,24 +2237,22 @@ public class ProductRestController {
 	private TemplateCategory getTemplateCategoryFromSeries(List<Series> list, Lang langObj, ModelState m, ErrorObject err) {
 		TemplateCategory ret = null;
 		TemplateCategory tc = null;
-		ErrorObject obj = new ErrorObject();
 		try {
 			for(Series se : list) {
-				Series series = seriesService.getWithCategory(se.getId(), true, err);
+				Series series = seriesService.getWithCategory(se.getId(), true, err); // TODO
 				if (series != null) {
 					List<CategorySeries> cList = series.getCategorySeries();
 					for(CategorySeries cs : cList) {
-						Category sCate = service.get(cs.getCategoryId(), obj);
-						if (sCate != null) {
-							tc = templateCategoryService.findByCategoryIdFromTemplateCategories(sCate.getLang(), sCate.getState(), sCate.getId());
-							if (tc == null) tc = templateCategoryService.getCategory(sCate.getParentId(), obj);
-							if (tc == null) {
-								Category test = service.getLang(langObj.getBaseLang(), m, CategoryType.CATALOG, true, obj);
-								if (test != null) {
-									tc = templateCategoryService.getCategory(test.getId(), obj);
+						tc = templateCategoryService.findByCategoryIdFromBean(series.getLang(), series.getState(), cs.getCategoryId());
+						if (tc == null) {
+							List<Category> cateList = service.listAll(langObj.getLang(), m, CategoryType.CATALOG, err);
+							for(Category c : cateList) {
+								if (c.getId().equals(cs.getCategoryId()) && c.getParentId() != null) {
+									tc = templateCategoryService.findByCategoryIdFromBean(langObj.getLang(), m, c.getParentId());
+									if (tc != null) break;
 								}
 							}
-						};
+						}
 						if (tc != null) break;
 					}
 					if (tc != null) break;
@@ -2276,13 +2264,7 @@ public class ProductRestController {
 		if (tc != null) ret = tc;
 		return ret;
 	}
-	private Locale getLocale(String lang) {
-		Locale loc = Locale.JAPANESE;
-		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;
-		else if (lang.equals("zh-tw"))  loc = Locale.TRADITIONAL_CHINESE;
-		else if (lang.indexOf("zh") > -1)  loc = Locale.CHINESE;
-		return loc;
-	}
+
 
 
 }

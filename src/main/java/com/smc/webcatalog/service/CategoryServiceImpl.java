@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import com.mongodb.MongoException;
 import com.smc.exception.ModelConditionDifferentException;
@@ -102,7 +101,7 @@ public class CategoryServiceImpl implements CategoryService {
 			Optional<Category> oP = repo.findById(category.getParentId());
 			if(oP.isPresent()) parent =  oP.get();
 			// 新規の場合
-			if (StringUtils.isEmpty(category.getId())) {
+			if (category.getId() == null || category.getId().isEmpty()) {
 				// 同名 slugチェック
 				if (isNameExists(category, ret)) throw new ModelExistsException("Category name is exists.");
 				else if (ret.isError()) return ret;
@@ -192,7 +191,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public boolean isNameExists(Category category, ErrorObject err) {
 		boolean ret = false;
-		boolean isUpdate = !StringUtils.isEmpty( category.getId());
+		boolean isUpdate = !( category.getId() == null || category.getId().isEmpty());
 		try {
 			Category p = getWithChildren(category.getParentId(), null, err );
 			List<Category> child = p.getChildren();
@@ -315,7 +314,7 @@ public class CategoryServiceImpl implements CategoryService {
 				ret =repo.findById(c.getId()).orElseThrow(() -> new ModelNotFoundException("Category.id=" + c.getStateRefId()));
 			} else {
 				List<Category> list = null;
-				if (StringUtils.isEmpty(c.getLangRefId()) == false) {
+				if (c.getLangRefId() != null && c.getLangRefId().isEmpty() == false) {
 					list =repo.findByLangRefId(c.getLangRefId());
 					Optional<Category> tmp = repo.findById(c.getLangRefId());
 					if (tmp != null) list.add(tmp.get());
@@ -472,7 +471,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category getWithChildren(String id, Boolean active, ErrorObject err) {
 		Category ret = null;
 		try {
-			if (StringUtils.isEmpty(id)) {
+			if (id == null || id.isEmpty()) {
 				err.setCode(ErrorCode.E10005);
 			} else {
 				ret = get(id, err);
@@ -787,10 +786,11 @@ public class CategoryServiceImpl implements CategoryService {
 				throw new ModelConditionDifferentException("Category is Prod. TEST only.");
 			}
 
-			TemplateCategory testTc = tcService.getCategory(id, ret);
+			TemplateCategory testTc = tcService.findByCategoryIdFromBean(inputCategory.getLang(), inputCategory.getState(), id);
 			if (_type.equals(CategoryType.CATALOG)) {
 				if (testTc == null) {
-					testTc = tcService.getCategory(inputCategory.getParentId(), ret);
+					// parentIdを確認
+					testTc = tcService.findByCategoryIdFromBean(inputCategory.getLang(), inputCategory.getState(), inputCategory.getParentId());
 					if (testTc == null) {
 						throw new ModelConditionDifferentException("Category's Template is Empty.");
 					} else {
@@ -1384,7 +1384,6 @@ public class CategoryServiceImpl implements CategoryService {
 			if (categoryid == null || categoryid.isEmpty() || ids == null || ids.isEmpty()) {
 				 throw new ModelNotFoundException("sort() id or ids is empty." );
 			}
-			Category ca = get(categoryid, ret);
 			if (ret.isError()) return ret;
 
 			Optional<CategorySeries> oCs = csRepo.findByCategoryId(categoryid);
