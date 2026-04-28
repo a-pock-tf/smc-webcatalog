@@ -102,6 +102,9 @@ public class S3SRestController {
 
 	static int PAGE_MAX = 100; // 1ページあたりの最大数
 	
+	private static final ThreadLocal<NumberFormat> NUMBER_FORMAT =
+		    ThreadLocal.withInitial(NumberFormat::getNumberInstance);
+
 	// 部分一致検索
 	// gsearchからの一覧へのリンク
 	@GetMapping(value={"/{lang}/search/", "/{lang}/search"})
@@ -134,7 +137,7 @@ public class S3SRestController {
 				log.error("getSearch3S() page.parse exception. e="+e.getMessage() );
 			}
 		}
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		String baseLang = lang;
 		if (langObj.isVersion()) {
 			baseLang = langObj.getBaseLang();
@@ -318,7 +321,7 @@ public class S3SRestController {
 			}
 			
 			if (isNoHit == false && res != null && res.getHitCount().isEmpty() == false && res.getHitCount().equals("0") == false) {
-				NumberFormat comFormat = NumberFormat.getNumberInstance();
+				NumberFormat comFormat = NUMBER_FORMAT.get();
 				int start = (intPage-1) * intLimit + 1;
 				int end = intPage * intLimit;
 				int hit = Integer.parseInt(res.getHitCount());
@@ -555,7 +558,7 @@ public class S3SRestController {
 		//コンテキストの取得
 		ServletContext context = request.getServletContext();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -601,67 +604,66 @@ public class S3SRestController {
 		}
 		boolean is2026 = t.is2026();
 
-		String catpan = "<div class=\"catpan\" style=\"width:1120px;margin:auto;\">\r\n" +
-				"製品情報&nbsp;»&nbsp;\r\n" +
-				"<a href=\"/webcatalog/"+lang+"/\">WEBカタログ</a>\r\n" +
-				"</div>";
-		if (is2026) {
-			header += "<main class=\"relative bg-motif s-bg-image-none m-bg-image-none\">\r\n";
-			catpan = " <div class=\"container-1600\">\r\n"
-					+ "\r\n"
-					+ "        <div class=\"px72 py8 s-px16 s-py8 m-px16 m-py8\">\r\n"
-					+ "          <nav class=\"breadcrumb leading-normal text-sm\">\r\n"
-					+ "            <ol class=\"f fm gap-8 s-text-xs m-text-xs\">\r\n"
-					+ "              <li>製品情報\r\n"
-					+ "              </li>\r\n"
-					+ "              <li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"/></li>\r\n"
-					+ "              <li><a class=\"breadcrumb-item\" href=\"/webcatalog/"+lang+"/\">WEBカタログ</a>\r\n"
-					+ "              </li>\r\n"
-					+ "              <li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"/></li>\r\n"
-					+ "              <li><a class=\"breadcrumb-item\" href=\"/\">品番確認</a>\r\n"
-					+ "              </li>\r\n"
-					+ "            </ol>\r\n"
-					+ "          </nav>\r\n"
-					+ "        </div>\r\n"
-					+ "";
-		}
 		String lang3S = "ja-JP";
 		String button = "詳細表示";
 		String sButton = "詳細";
+		String strWebcatalog = "WEBカタログ";
+		String productInfo = "製品情報";
 		String numberCheck = "品番確認";
 		String returnLink = "型式表示へ戻る";
 		String returnToItem = "製品情報へ戻る";
 		if (baseLang.indexOf("ja-") > -1) {
 		} else if (baseLang.indexOf("en-") > -1) {
-			catpan = catpan.replace("製品情報", "Product Information");
+			productInfo = "Product Information";
 			returnLink = "Return to option configuration";
 			returnToItem = "Return to Product Information";
 			numberCheck = "Product Number Check";
-			catpan = catpan.replace("WEBカタログ", "WEB Catalog");
-			catpan = catpan.replace("品番確認", numberCheck);
+			strWebcatalog = "WEB Catalog";
 			lang3S = "en-US";
 			button = "Details";
 			sButton = "Details";
 		} else if (baseLang.equals("zh-cn") || baseLang.equals("zh-hk")) {
-			catpan = catpan.replace("製品情報", "产品信息");
+			productInfo = "产品信息";
 			returnLink = "返回至选项配置";
 			returnToItem = "返回至产品信息";
 			numberCheck = "型号确认";
-			catpan = catpan.replace("WEBカタログ", "产品目录");
-			catpan = catpan.replace("品番確認", numberCheck);
+			strWebcatalog = "产品目录";
 			lang3S = "zh-CHS";
 			button = "显示详情";
 			sButton = "详情";
 		} else if (baseLang.equals("zh-tw")) {
-			catpan = catpan.replace("製品情報", "產品信息");
+			productInfo = "產品信息";
 			returnLink = "返回至選項配置";
 			returnToItem = "返回產品情報";
 			numberCheck = "型號確認";
-			catpan = catpan.replace("WEBカタログ",  "產品目錄");
-			catpan = catpan.replace("品番確認", numberCheck);
+			strWebcatalog = "產品目錄";
 			lang3S = "zh-CHS";
 			button = "顯示詳情";
 			sButton = "詳情";
+		}
+		StringBuilder catpan = new StringBuilder();
+		if (is2026) {
+			header += "<main class=\"relative bg-motif s-bg-image-none m-bg-image-none\">\r\n";
+			catpan.append(" <div class=\"container-1600\">\r\n")
+			.append( "        <div class=\"px72 py8 s-px16 s-py8 m-px16 m-py8\">\r\n")
+			.append( "          <nav class=\"breadcrumb leading-normal text-sm\">\r\n")
+			.append( "            <ol class=\"f fm gap-8 s-text-xs m-text-xs\">\r\n")
+			.append( "              <li>").append(productInfo).append("\r\n")
+			.append( "              </li>\r\n")
+			.append( "              <li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"/></li>\r\n")
+			.append( "              <li><a class=\"breadcrumb-item\" href=\"/webcatalog/"+lang+"/\">").append(strWebcatalog).append("</a>\r\n")
+			.append( "              </li>\r\n")
+			.append( "              <li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"/></li>\r\n")
+			.append( "              <li><a class=\"breadcrumb-item\" href=\"/\">").append(numberCheck).append("</a>\r\n")
+			.append( "              </li>\r\n")
+			.append( "            </ol>\r\n")
+			.append( "          </nav>\r\n")
+			.append( "        </div>\r\n");
+		} else {
+			catpan.append("<div class=\"catpan\" style=\"width:1120px;margin:auto;\">\r\n")
+				.append("製品情報&nbsp;»&nbsp;\r\n")
+				.append("<a href=\"/webcatalog/"+lang+"/\">WEBカタログ</a>\r\n")
+				.append("</div>");
 		}
 
 		if (typeid != null && typeid.isEmpty() == false) {
@@ -669,47 +671,40 @@ public class S3SRestController {
 				if (sid2 != null && sid2.isEmpty() == false) sid = sid + "/" + sid2;
 				if (sid3 != null && sid3.isEmpty() == false) sid = sid + "/" + sid3;
 				if (is2026) {
-					String tmp = "<div class=\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8 text-sm\">\r\n"
-							+ "<a class=\"breadcrumb-item\" href=\"/webcatalog/s3s/{lang}/frame/{typeid}/{sid}/\">\r\n"
-							+ "    <img class=\"s16 pt6 object-fit-contain\" src=\"/assets/smcimage/common/arrow-left.svg\" alt=\"\" title=\"\">\r\n"
-							+ "    <span>"+returnLink+"</span>\r\n"
-							+ "</a></div>";
-					catpan += tmp;
+					StringBuilder tmp = new StringBuilder();
+					tmp.append("<div class=\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8 text-sm\">\r\n")
+						.append( "<a class=\"breadcrumb-item\" href=\"/webcatalog/s3s/").append(lang).append("/frame/").append(typeid).append("/").append(sid).append("/\">\r\n")
+						.append( "    <img class=\"s16 pt6 object-fit-contain\" src=\"/assets/smcimage/common/arrow-left.svg\" alt=\"\" title=\"\">\r\n")
+						.append( "    <span>"+returnLink+"</span>\r\n")
+						.append( "</a></div>");
+					catpan.append( tmp);
 				} else {
-					catpan+= "<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/s3s/{lang}/frame/{typeid}/{sid}/\" >"+returnLink+"</a></div>\r\n" +
-						"        <div class=\"clear\"></div>";
+					catpan.append( "<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/s3s/").append(lang).append("/frame/").append(typeid).append("/").append(sid).append("/\" >").append(returnLink).append("</a></div>\r\n")
+						.append("        <div class=\"clear\"></div>");
 				}
-				catpan = catpan.replace("{sid}", sid);
-				catpan = catpan.replace("{typeid}", typeid);
-				catpan = catpan.replace("{lang}", lang);
 			} else {
 				if (is2026) {
-					String tmp = "<div class=\"catpan catpan_back\"><a href=\"/webcatalog/s3s/{lang}/frame/{typeid}\" >"+returnLink+"</a></div>\r\n" 
-							/*+"        <div class=\"clear\"></div>\r\n"*/;
-					tmp = StringUtils.replace(tmp, "\"catpan", "\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8");
-					tmp = StringUtils.replace(tmp, "<a href=\"", "<a class=\"breadcrumb-item\" href=\"");
-					catpan += tmp;
+					StringBuilder tmp = new StringBuilder();
+					tmp.append("<div class=\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8 catpan_back\"><a class=\"breadcrumb-item\" href=\"/webcatalog/s3s/").append(lang).append("/frame/").append(typeid).append("\" >").append(returnLink).append("</a></div>\r\n") ;
+					catpan.append( tmp);
 				} else {
-					catpan+= "<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/s3s/{lang}/frame/{typeid}\" >"+returnLink+"</a></div>\r\n" +
-						"        <div class=\"clear\"></div>\r\n";
+					catpan.append( "<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/s3s/").append(lang).append("/frame/").append(typeid).append("\" >").append(returnLink).append("</a></div>\r\n") 
+						.append("        <div class=\"clear\"></div>\r\n");
 				}
-				catpan = catpan.replace("{typeid}", typeid);
-				catpan = catpan.replace("{lang}", lang);
 			}
 		}
 		// 戻る
 		if (sid != null && sid.isEmpty() == false) {
 			if (is2026) {
-				String tmp = "<div class=\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8 text-sm\">\r\n"
-						+ "<a class=\"breadcrumb-item\" href=\"/webcatalog/{lang}/series/{sid}\">\r\n"
-						+ "    <img class=\"s16 pt6 object-fit-contain\" src=\"/assets/smcimage/common/arrow-left.svg\" alt=\"\" title=\"\">\r\n"
-						+ "    <span>"+returnToItem+"</span>\r\n"
-						+ "</a></div>";
-				catpan += tmp;
-				catpan = catpan.replace("{sid}", sid);
-				catpan = catpan.replace("{lang}", lang);
+				StringBuilder tmp = new StringBuilder();
+				tmp.append( "<div class=\"catpan px72 py8 s-px16 s-py8 m-px16 m-py8 text-sm\">\r\n")
+					.append( "<a class=\"breadcrumb-item\" href=\"/webcatalog/").append(lang).append("/series/").append(sid).append("\">\r\n")
+					.append( "    <img class=\"s16 pt6 object-fit-contain\" src=\"/assets/smcimage/common/arrow-left.svg\" alt=\"\" title=\"\">\r\n")
+					.append( "    <span>").append(returnToItem).append("</span>\r\n")
+					.append( "</a></div>");
+				catpan.append( tmp);
 			} else {
-				catpan += "<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/"+lang+"/series/"+sid+"\" >"+returnToItem+"</a></div>\r\n<div class=\"clear\"></div>";
+				catpan.append("<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/"+lang+"/series/"+sid+"\" >"+returnToItem+"</a></div>\r\n<div class=\"clear\"></div>");
 			}
 		}
 		header+=catpan;
@@ -726,6 +721,7 @@ public class S3SRestController {
 			headers.putSingle("Authorization", "Bearer " + access_token.getAccess_token());
 
 			if (partNumber == null || partNumber.isEmpty()) partNumber = typeid;
+			
 			WebTarget target = client.target(JpServiceUtil.S3SAPI_SERVER_URL)
 					.path("/3SApi/check/v1")
 					.property(ClientProperties.CONNECT_TIMEOUT, 2000)// 接続タイムアウト
@@ -854,9 +850,7 @@ public class S3SRestController {
 						}
 					}
 					// for guide link
-					// TODO modal
 					if (seriesList != null && seriesList.size() > 0) {
-// original						ret+="<a class=\"bt_3s digi_cat\" data-micromodal-trigger=\"modal-a\"><span>"+webcatalog+"</span></a>";
 						String btn = "<button class=\"bt_3s_webcatalog button secondary solid large gap-8 w-full medium\"  data-micromodal-trigger=\"modal-a\">"
 								+ "  <span class=\"flex-fixed text-sm leading-tight\">"+webcatalog+"</span>"
 								+ "</button>";
@@ -1948,7 +1942,7 @@ public class S3SRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -2196,7 +2190,7 @@ public class S3SRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(

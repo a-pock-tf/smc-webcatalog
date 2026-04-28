@@ -57,5 +57,12 @@ public interface LangService {
 	 * @return エラーの場合はnullが戻るので、ErrorObjectを確認
 	 */
 	Lang getLang(String lang, ErrorObject err);
-
+	
+	/**
+	 * コンテキストから取得（メモリ上から読むので表示はこちらを使用すること）
+	 * @param lang
+	 * @return
+	 */
+	Lang getFromContext(String lang);
+	
 }

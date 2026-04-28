@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.smc.omlist.model.Omlist;
 import com.smc.omlist.service.OmlistServiceImpl;
@@ -26,7 +26,7 @@ import com.smc.webcatalog.util.LibOkHttpClient;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Service
+@Component
 @Slf4j
 public class SeriesHtml {
 
@@ -2758,10 +2758,8 @@ public class SeriesHtml {
 			List<NarrowDownColumn> colList, List<Series> list, HashMap<String, List<NarrowDownValue>> map,
 			HttpServletRequest request) {
 		
-		String ret = "<div class=\"w-full min-w-0 overflow-auto mb48\">\r\n";
-//			   ret += "                <div class=\"min-w-1024\">";
-			   ret += "                <div style=\"overflow-y: hidden;overflow-x: scroll;transform: rotateX(180deg);\" class=\"w90per s-w100per m-w100per\">";
-		
+		StringBuilder ret = new StringBuilder();
+				
 		final String separateStr = ", "; // Valueが複数の場合の区切り文字
 		String seriesStr = "シリーズ";
 		if (baseLang.indexOf("en-") > -1) seriesStr="Series";
@@ -2769,50 +2767,54 @@ public class SeriesHtml {
 		
 		String width = "100%";
 		if (list != null && list.size() > 0) {
+			ret.append("<div class=\"w-full min-w-0 overflow-auto mb48\">\r\n");
+			ret.append("                <div style=\"overflow-y: hidden;overflow-x: scroll;transform: rotateX(180deg);\" class=\"w70per s-w100per m-w100per\">");
+			
 			width = (list.size() + 1) * 170 + "px";
-//			ret+= "<table class=\"table\" width=\""+width+"\"><tr>";
-			ret+= "<table class=\"table\" width=\""+width+"\" style=\"table-layout: fixed;transform: rotateX(180deg);\"><tr>";
-			ret+="<th class=\"th th-sticky w170\" colspan=\"1\"></th>";
+			ret.append("<table class=\"table\" width=\""+width+"\" style=\"table-layout: fixed;transform: rotateX(180deg);\"><tr>");
+			ret.append("<th class=\"th th-sticky w170\" colspan=\"1\"></th>");
 			for (Series s : list) {
-				ret += "<td class=\"td w170 text-center\" colspan=\"1\">";
+				ret.append("<td class=\"td w170 text-center\" colspan=\"1\">");
 				if (s.getImage() != null && s.getImage().isEmpty() == false ) {
-					ret += "<a href=\""+AppConfig.ContextPath+"/"+s.getLang()+"/"+c.getSlug()+"/"+c2.getSlug()+"/"+s.getModelNumber()+"\">";
-					if (s.getLang() != null && s.getLang().equals("zh-cn")) ret += "<img class=\"s120 object-fit-contain\" src=\""+AppConfig.ImageProdPath+s.getLang()+"/"+s.getImage()+"\">";
-					else ret += "<img class=\"s120 object-fit-contain\" src=\""+AppConfig.ImageProdUrl+s.getLang()+"/"+s.getImage()+"\">";
-					ret += "</a>\r\n";
+					ret.append("<a href=\"").append(AppConfig.ContextPath).append("/").append(s.getLang()).append("/").append(c.getSlug()).append("/").append(c2.getSlug()).append("/").append(s.getModelNumber()).append("\">");
+					if (s.getLang() != null && s.getLang().equals("zh-cn")) ret.append("<img class=\"s120 object-fit-contain\" src=\"").append(AppConfig.ImageProdPath).append(s.getLang()).append("/").append(s.getImage()).append("\">");
+					else ret.append( "<img class=\"s120 object-fit-contain\" src=\"").append(AppConfig.ImageProdUrl).append(s.getLang()).append("/").append(s.getImage()).append("\">");
+					ret.append( "</a>\r\n");
 				} else {
-					ret += "<a href=\""+AppConfig.ContextPath+"/"+s.getLang()+"/"+c.getSlug()+"/"+c2.getSlug()+"/"+s.getModelNumber()+"\">";
-					ret += "None image";
-					ret += "</a>\r\n";
+					ret.append( "<a href=\"").append(AppConfig.ContextPath).append("/").append(s.getLang()).append("/").append(c.getSlug()).append("/").append(c2.getSlug()).append("/").append(s.getModelNumber()).append("\">");
+					ret.append( "None image");
+					ret.append( "</a>\r\n");
 				}
-				ret += "</td>";
+				ret.append( "</td>");
 			}
-			ret += "</tr>";
+			ret.append( "</tr>");
 			
 			// タイトル行
-			ret+= "<tr>";
-			ret+="<th class=\"th th-sticky w170\" colspan=\"1\">";
-			ret+= seriesStr;
-			ret+="</th>";
+			ret.append( "<tr>");
+			ret.append("<th class=\"th th-sticky w170\" colspan=\"1\">");
+			ret.append( seriesStr);
+			ret.append("</th>");
 			for (Series s : list) {
 				String tmp = s.getNumber();
-				if (tmp == null || tmp.equals("")) tmp = "<td style=\"text-align:center;\"> - ";
-				ret += "<td class=\"td text-sm leading-tight fw4\" colspan=\"1\">";
-				ret += "<a href=\""+AppConfig.ContextPath+"/"+lang+"/"+c.getSlug()+"/"+c2.getSlug()+"/"+s.getModelNumber()+"\">";
-				ret += tmp;
-				ret += "</a>\r\n";
-				ret += "</td>";
+				if (tmp == null || tmp.equals("")) {
+					ret.append( "<td class=\"text-center\"> - ");
+				} else {
+					ret.append( "<td class=\"td text-sm leading-tight fw4 overflow-wrap-break-word\" colspan=\"1\">");
+					ret.append( "<a href=\"").append(AppConfig.ContextPath).append("/").append(lang).append("/").append(c.getSlug()).append("/").append(c2.getSlug()).append("/").append(s.getModelNumber()).append("\">");
+					ret.append( tmp);
+					ret.append( "</a>\r\n");
+				}
+				ret.append("</td>");
 			}
-			ret += "</tr>";
+			ret.append("</tr>");
 			
 			// 項目
 			for(NarrowDownColumn col : colList) 
 			{
-				String title = col.getTitle();
-				ret+= "<tr>";
-				ret+="<th class=\"th th-sticky w170\" colspan=\"1\">";
-				ret+= title;
-				ret+="</th>";
+				ret.append("<tr>");
+				ret.append("<th class=\"th th-sticky w170\" colspan=\"1\">");
+				ret.append( col.getTitle());
+				ret.append("</th>");
 				for (Series s : list) {
 					List<NarrowDownValue> vList = map.get(s.getId());
 					boolean isFind = false;
@@ -2823,43 +2825,46 @@ public class SeriesHtml {
 								String tmp = String.join(separateStr, arr);
 								if (tmp != null && tmp.isEmpty()) 
 								{
-									ret += "<td class=\"td text-center\"> - ";
+									ret.append( "<td class=\"td text-center\"> - ");
 								} else {
-									ret += "<td class=\"td text-sm leading-tight fw4\" colspan=\"1\">";
-									ret += tmp;
+									ret.append( "<td class=\"td text-sm leading-tight fw4\" colspan=\"1\">");
+									ret.append( tmp);
 								}
 							} else if (val.getRangeParam() != null){
-								ret += "<td class=\"td text-sm leading-tight fw4\" colspan=\"1\">";
-								ret +=val.getRangeParam();
+								ret.append( "<td class=\"td text-sm leading-tight fw4\" colspan=\"1\">");
+								ret.append(val.getRangeParam());
 							} else {
-								ret += "<td class=\"td text-center\"> - ";
+								ret.append( "<td class=\"td text-center\"> - ");
 							}
-							ret += "</td>";
+							ret.append( "</td>");
 							isFind = true;
 							break;
 						}
 					}
 					if (isFind == false) {
-						ret += "<td class=\"td text-center\"> - </td>";
+						ret.append( "<td class=\"td text-center\"> - </td>");
 					}
 				}
-				ret += "</tr>";
+				ret.append( "</tr>");
 			}
-			ret += "</table>\r\n";
+			ret.append( "</table>\r\n");
+			ret.append( "  </div>\r\n")
+				.append( "</div>\r\n");
 		} else  {
+			ret.append("<div class=\"f fh border boder-base-stroke-subtle h160 w-full bg-base-container-accent\">\r\n")
+				.append("  <span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">");
 			if (baseLang.indexOf("en-") > -1) {
-				ret = "<h4>There were no series that matched the criteria.</h4>";
+				ret.append( "There were no series that matched the criteria.");
 			} else if(baseLang.equals("zh-tw")){
-				ret = "<h4>沒有符合標準的系列。</h4>";
+				ret.append( "沒有符合標準的系列。");
 			} else if (baseLang.indexOf("zh-") > -1) {
-				ret = "<h4>没有符合标准的系列。</h4>";
+				ret.append( "没有符合标准的系列。");
 			} else {
-				ret = "<h4>条件に一致したシリーズがありませんでした。</h4>";
+				ret.append( "条件に一致したシリーズがありませんでした。");
 			}
+			ret.append("</span></div>");
 		}
-		ret += "</div>\r\n"
-				+ "</div>\r\n";
-		return ret;
+		return ret.toString();
 	}
 	// 旧tab内のHTML
 	private String getTabString(String modelNumber, int tabCnt, String tab) {
@@ -3027,12 +3032,12 @@ public class SeriesHtml {
 		}
 		return ret;
 	}
+	private static final Pattern ALPHA_PATTERN = Pattern.compile("[a-zA-Z]+");
 	private List<String> getConnectedStringToList(String number) {
 		List<String> ret = null;
 		String[] arr = number.split("[,，・/／]");
 		String first = arr[0];
-		Pattern pattern = Pattern.compile("[a-zA-Z]+");
-		Matcher matcher = pattern.matcher(first);
+		Matcher matcher = ALPHA_PATTERN.matcher(first);
 		if (matcher.lookingAt()) {
 			String index = matcher.group();
 			ret = new LinkedList<String>();
@@ -3169,26 +3174,7 @@ public class SeriesHtml {
 		
 		return catpan;
 	}
-	private String getManualHtmlList(char c, String lang) {
-		String ret = null;
-		// TODO 中国のマニュアルページが出来たら対応必須
-		if (lang.equals("ja-jp")) {
-			if (_manualHtmlMap == null) _manualHtmlMap = new HashMap<String, String>();
-			ret = _manualHtmlMap.get(String.valueOf(c));
-			if (ret == null) {
-				ret = LibOkHttpClient.getHtml(AppConfig.PageProdManualUrlIndex + c);
-				_manualHtmlMap.put(String.valueOf(c), ret);
-			}
-		} else {
-			if (_manualHtmlMapE == null) _manualHtmlMapE = new HashMap<String, String>();
-			ret = _manualHtmlMapE.get(String.valueOf(c));
-			if (ret == null) {
-				ret = LibOkHttpClient.getHtml(AppConfig.PageProdManualUrlIndexE + c);
-				_manualHtmlMapE.put(String.valueOf(c), ret);
-			}
-		}
-		return ret;
-	}
+
 	private Locale getLocale(String lang) {
 		Locale loc = Locale.JAPANESE;
 		if (lang.indexOf("en") > -1) loc = Locale.ENGLISH;

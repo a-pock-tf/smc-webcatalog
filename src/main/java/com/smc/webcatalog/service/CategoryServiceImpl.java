@@ -1201,6 +1201,30 @@ public class CategoryServiceImpl implements CategoryService {
 		}
 		return ret;
 	}
+	
+	@Override
+	public  List<Category> listAllWithSeries(String lang, ModelState state, CategoryType type, Boolean active, ErrorObject err) {
+		List<Category> ret = null;
+		ret = listAll(lang, state, type, err);
+		if (ret != null) {
+			for(Category c : ret) {
+				// seriesListを取得
+				Optional<CategorySeries> oCs = csRepo.findByCategoryId(c.getId());
+				if(oCs.isPresent()) {
+					List<Series> dispList = new ArrayList<Series>();
+					List<Series> csList = oCs.get().getSeriesList();
+					for(Series s : csList) {
+						if (s != null) {
+							if (active == null) dispList.add(s);
+							else if (s.isActive() == active) dispList.add(s);
+						}
+					}
+					c.setSeriesList(dispList);
+				}
+			}
+		}
+		return ret;
+	}
 
 	@Override
 	public List<Category> listAll(String id, Boolean active, ErrorObject err) {

@@ -74,7 +74,7 @@ public class DiscontinuedProductRestController {
 		String ret = "";
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -121,7 +121,7 @@ public class DiscontinuedProductRestController {
 		String ret = "";
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -181,7 +181,7 @@ public class DiscontinuedProductRestController {
 		String ret = "";
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -246,7 +246,7 @@ public class DiscontinuedProductRestController {
 		String ret = "";
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -317,7 +317,7 @@ public class DiscontinuedProductRestController {
 		String ret = "";
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -384,7 +384,7 @@ public class DiscontinuedProductRestController {
 		String ret = null;
 		String context = request.getContextPath();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -442,7 +442,7 @@ public class DiscontinuedProductRestController {
 			changeUrl = "discon_closed8811";
 		}
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(

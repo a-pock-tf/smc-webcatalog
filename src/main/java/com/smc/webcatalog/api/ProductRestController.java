@@ -131,7 +131,7 @@ public class ProductRestController {
 		ErrorObject err = new ErrorObject();
 		boolean isNoHit = false; // 検索結果0件
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -567,7 +567,7 @@ public class ProductRestController {
 			isActive = null;
 		}
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -677,7 +677,7 @@ public class ProductRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 		
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -1032,7 +1032,7 @@ public class ProductRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -1099,7 +1099,7 @@ public class ProductRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 		
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -1245,7 +1245,7 @@ public class ProductRestController {
 		if (lang == null || lang.isEmpty()) {
 			lang = s.getLang();
 		} 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.debug("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -1422,7 +1422,7 @@ public class ProductRestController {
 		}
 
 		log.debug("get === lang=== lang="+lang);
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -1516,19 +1516,40 @@ public class ProductRestController {
 				boolean is2026 = tc.is2026();
 				ret = t.getHeader();
 				String temp = tc.getTemplate();
-				if (is2026) {
-					String title = "検索結果";
-					if (lang.indexOf("en-") > -1) {
-						title = "Search result";
-					} else if (lang.indexOf("zh-") > -1) {
-						title = "搜索结果";
+				
+				String title = AppConfig.SearchResultTitleList[0]; // 検索結果タイトル文字
+				if (lang.indexOf("en-") > -1) {
+					title = AppConfig.SearchResultTitleList[1];
+				} else if (lang.indexOf("zh-") > -1) {
+					title = AppConfig.SearchResultTitleList[2];
+				}
+				String strHitTitle = AppConfig.SearchResultHitCountTitleList[0]; // 123件
+				if (lang.indexOf("en-") > -1) {
+					strHitTitle = AppConfig.SearchResultHitCountTitleList[1];
+				} else if (lang.indexOf("zh-") > -1) {
+					strHitTitle = AppConfig.SearchResultHitCountTitleList[2];
+				}
+				
+				// 検索結果取得
+				List<Series> list = null;
+				if (action == null || action.isEmpty()) {
+					list = seriesService.listSlug(c2, true, err); // カテゴリ一覧では「非公開」は抜く。シリーズ単体なら表示可能
+				} else {
+					// 絞り込み検索結果
+					list = narrowDownService.getNarrowDown(c2.getId(), request, err);
+					if (list == null && err.getCode().equals(ErrorCode.E10005)) {// 絞り込み条件がカラの場合
+						list = seriesService.listSlug(c2, true, err); // 全表示
 					}
+				}
+
+				if (is2026) {
 					StringBuilder catpan = new StringBuilder();
-					catpan.append("<a href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/").append(slug).append("'>").append(c.getName()).append("</a>")
-					.append("&nbsp;»&nbsp;")
-					.append("<a href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/").append(slug).append("/").append(slug2).append("'>").append(c2.getName()).append("</a>")
-					.append("&nbsp;»&nbsp;")
-					.append(title);
+					catpan.append("<li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\" title=\"\"></li>");
+					catpan.append("<a class=\"breadcrumb-item\" href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/").append(slug).append("'>").append(c.getName()).append("</a>");
+					catpan.append("<li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\" title=\"\"></li>");
+					catpan.append("<a class=\"breadcrumb-item\" href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/").append(slug).append("/").append(slug2).append("'>").append(c2.getName()).append("</a>");
+					catpan.append("<li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\" title=\"\"></li>");
+					catpan.append(title);
 
 					temp = temp.replace("$$$catpan$$$", tc.getCatpan().replace("$$$catpan_title$$$", catpan));
 				} else {
@@ -1545,7 +1566,7 @@ public class ProductRestController {
 					Category setC = service.getWithSeries(cate.getId(), null, err);
 					if (setC != null) setCategoryList.add( setC );
 				}
-				// 2024/10/24 絞り込み検索
+				// 2024/10/24 絞り込み検索の検索部分
 				// 2025/11/25 GETパラメータを減らすためnarrowKeyからnarrowCntへ
 				if (is2026) {
 					String narrowDown = html.getNarrowDown2026(c.getLang(), c, c2, request);
@@ -1569,7 +1590,11 @@ public class ProductRestController {
 					if (key != null && key.length > 0) ndCnt = key.length; 
 					else if (narrowDownCount != null) ndCnt = Integer.parseInt(narrowDownCount);
 					else if (nCnt != null && ndCnt == 0) ndCnt = Integer.parseInt(nCnt);
-					String viewStr = html.getListDisplaySelection2026(lang, c2, view, action, ndCnt, request); // 検索窓下のリスト表示種別選択
+
+					String viewStr = "";
+					if (list != null && list.size() > 0) {
+						viewStr = html.getListDisplaySelection2026(lang, c2, view, action, ndCnt, request); // 検索窓下のリスト表示種別選択（一覧、画像、仕様比較）
+					}
 					
 					String t1 = c2.getName().substring(0, 1);
 					String t2 = c2.getName().substring(1);
@@ -1609,21 +1634,10 @@ public class ProductRestController {
 					temp = StringUtils.replace(temp,"$$$h1box$$$", tc.getFormbox() + viewStr); // ↑小カテゴリは逆
 				}
 				
-				// リスト取得
-				List<Series> list = null;
-				if (action == null || action.isEmpty()) {
-					list = seriesService.listSlug(c2, true, err); // カテゴリ一覧では「非公開」は抜く。シリーズ単体なら表示可能
-				} else {
-					// 絞り込み検索
-					list = narrowDownService.getNarrowDown(c2.getId(), request, err);
-					if (list == null && err.getCode().equals(ErrorCode.E10005)) {// 絞り込み条件がカラの場合
-						list = seriesService.listSlug(c2, true, err); // 全表示
-					}
-				}
-
-				StringBuilder content = new StringBuilder("<div class=\"p_block\">");
+				StringBuilder content = new StringBuilder();
 				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
 				if (list != null && list.size() > 0) {
+					content.append("<div class=\"p_block\">");
 					if (view.equals("list")) {
 						for(Series s: list) {
 							s.setLink(seriesService.getLink(s.getId(), err));
@@ -1655,18 +1669,27 @@ public class ProductRestController {
 							content.append( sHtml.getPictureList(c, c2, list));
 						}
 					}
+					content.append( "</div>");
 				} else {
+					
+					content.append("<div class=\"f fclm gap-24 mb48\">\r\n")
+							.append( "                            <div class=\"f fm gap-16\">\r\n")
+							.append( "                              <div class=\"text-2xl fw6 leading-tight\">").append(title).append("</div>\r\n")
+							.append( "                              <div class=\"badge large filled\">0").append(strHitTitle).append("</div>\r\n")
+							.append( "                            </div>\r\n")
+							.append( "                            <div class=\"f fh border boder-base-stroke-subtle h160 w-full bg-base-container-accent\"><span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">");
 					if (baseLang.indexOf("en-") > -1) {
 						content.append("There were no series that matched the criteria.");
 					} else if(baseLang.equals("zh-tw")){
-						content.append("<h4>沒有符合標準的系列。</h4>");
+						content.append("沒有符合標準的系列。");
 					} else if (baseLang.indexOf("zh-") > -1) {
-						content.append( "<h4>没有符合标准的系列。</h4>");
+						content.append( "没有符合标准的系列。");
 					} else {
-						content.append( "<h4>条件に一致したシリーズがありませんでした。</h4>");
+						content.append( "条件に一致したシリーズがありませんでした。");
 					}
+					content.append("  </span></div>\r\n");
+					content.append( "</div>\r\n");
 				}
-				content.append( "</div>");
 				temp = StringUtils.replace(temp, "$$$content$$$", content.toString());
 				ret+=temp;
 				ret+= SeriesHtml._seriesCadModal;
@@ -1729,7 +1752,7 @@ public class ProductRestController {
 			HttpServletRequest request) {
 		String ret = "";
 		ErrorObject err = new ErrorObject();
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
@@ -1857,7 +1880,7 @@ public class ProductRestController {
 			HttpServletRequest request) {
 		StringBuilder ret = new StringBuilder();
 		ErrorObject err = new ErrorObject();
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -2076,7 +2099,7 @@ public class ProductRestController {
 		String detail = messagesource.getMessage("cad2d.list.detail", null, LibHtml.getLocale(lang)); // ボタン
 
 		ErrorObject err = new ErrorObject();
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -2239,7 +2262,7 @@ public class ProductRestController {
 		TemplateCategory tc = null;
 		try {
 			for(Series se : list) {
-				Series series = seriesService.getWithCategory(se.getId(), true, err); // TODO
+				Series series = seriesService.getWithCategory(se.getId(), true, err); // TODO 全部取る必要はない
 				if (series != null) {
 					List<CategorySeries> cList = series.getCategorySeries();
 					for(CategorySeries cs : cList) {

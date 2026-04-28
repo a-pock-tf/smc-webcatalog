@@ -108,7 +108,7 @@ public class PreviewController extends BaseController {
 		String ret = "";
 
 		ErrorObject err = new ErrorObject();
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		String baseLang = lang;
 		if (langObj == null) {
 			log.error("Bad lang! lang=" + lang);
@@ -168,7 +168,7 @@ public class PreviewController extends BaseController {
 		String ret = "";
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -315,7 +315,7 @@ public class PreviewController extends BaseController {
 		String ret = "";
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -556,7 +556,7 @@ public class PreviewController extends BaseController {
 			}
 		}
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(

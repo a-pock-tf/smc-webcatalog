@@ -99,6 +99,9 @@ public class ApiRestController {
 
 	@Autowired
 	LibHtml libHtml;
+	
+	@Autowired
+	JpServiceUtil util;
 
 	@Autowired
     HttpServletRequest req;
@@ -269,7 +272,7 @@ public class ApiRestController {
 		String html = "";
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -290,8 +293,6 @@ public class ApiRestController {
 		if (max > 100) max = 100;
 		
 		// 3S
-		JpServiceUtil util = new JpServiceUtil();
-
 		S3SPartialMatchResult res = null;
 		
 		// スペースがあれば区切って、関連語を取得
@@ -408,7 +409,7 @@ public class ApiRestController {
 		String ret = null;
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -424,8 +425,6 @@ public class ApiRestController {
 			baseLang = langObj.getBaseLang();
 		}
 		// 3S
-		JpServiceUtil util = new JpServiceUtil();
-
 		JpServiceResult res = null;
 		if (kwArr == null || kwArr.length == 0) {
 			// 何もしない。

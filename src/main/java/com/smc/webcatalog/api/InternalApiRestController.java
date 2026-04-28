@@ -109,15 +109,11 @@ public class InternalApiRestController {
 			
 			Category c = service.getLang(lang, ModelState.PROD, CategoryType.CATALOG, true, err);
 			TemplateCategory tc = templateCategoryService.findByCategoryIdFromBean(lang, ModelState.PROD, c.getId());
+			// 元々シリーズは無し。絞込みも無し。
 			if (tc.is2026()) {
 				ret = tc.getSidebar();
 				List<Category> cList = service.listAll(lang, ModelState.PROD, CategoryType.CATALOG, err);
-				List<Category> setCategoryList = new LinkedList<>();
-				for(Category cate :  cList) {
-					Category setC = service.getWithSeries(cate.getId(), null, err);
-					if (setC != null) setCategoryList.add( setC );
-				}
-				List<String> category = html.getCategoryMenu2026(lang, null, null, setCategoryList);
+				List<String> category = html.getCategoryMenu2026(lang, null, null, cList);
 				ret = StringUtils.replace(ret,"$$$category$$$",category.get(0));
 				if (category.size() > 1) ret = StringUtils.replace(ret,"$$$category2$$$",category.get(1));
 				else ret = StringUtils.replace(ret,"$$$category2$$$","");
@@ -347,7 +343,7 @@ public class InternalApiRestController {
 		String ret = "";
 		ErrorObject err = new ErrorObject();
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -399,7 +395,7 @@ public class InternalApiRestController {
 		if (lang.equals("heartcore")) {
 			return getHeartCoreGuide(ids, lang);
 		}
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -474,7 +470,7 @@ public class InternalApiRestController {
 			}
 		}
 
-		Lang langObj = langService.getLang(lang, err);
+		Lang langObj = langService.getFromContext(lang);
 		if (langObj == null) {
 			log.error("Lang is Bad or Empty! lang=" + lang);
 			throw new ResponseStatusException(
@@ -486,7 +482,7 @@ public class InternalApiRestController {
 		}
 
 		Series s = seriesService.getFromModelNumber(id, ModelState.PROD, err);
-		if (s.isActive() && s.getLang().equals(baseLang)) {
+		if (s != null && s.isActive() && s.getLang().equals(baseLang)) {
 
 			List<SeriesLink> list = seriesService.getLink(s.getId(), err);
 			boolean isFound = false;
@@ -514,19 +510,19 @@ public class InternalApiRestController {
 						}
 					}
 					String pdf = url;
+					StringBuilder output = new StringBuilder();
 					if (pdf.indexOf("/index.pdf") > -1 || pdf.indexOf("/index.html") > -1) {
 						pdf = pdf.replace("/index.pdf", "");
 						pdf = pdf.replace("/index.html", "");
 						pdf = pdf.replace("/pdf/catalog/", "/catalog/");
 						String[] arr = pdf.split("/");
 						String tmp = arr[arr.length-1];
-						pdf = "";
 						for(String tmp2 : arr) {
-							if (tmp2.isEmpty() == false) pdf += "/" + tmp2;
+							if (tmp2.isEmpty() == false) output.append("/").append( tmp2);
 						}
-						pdf += "/data/" + tmp+".pdf";
+						output.append( "/data/").append( tmp).append(".pdf");
 					}
-					str = pdf;
+					str = output.toString();
 					break;
 				}
 			}
@@ -593,7 +589,7 @@ public class InternalApiRestController {
 		    pw.append("+++Start printing trace:\n");
 		    e.printStackTrace(pw);
 		    pw.append("---Finish printing trace");
-		    System.out.println(sw.toString());
+		    log.error(sw.toString());
 		}
 		log.debug("=== end omlist. ===");
 		return ret;

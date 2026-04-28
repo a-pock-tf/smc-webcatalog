@@ -23,12 +23,15 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
 import net.arnx.jsonic.JSON;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+@Component
 @Slf4j
 public class JpServiceUtil {
 

@@ -33,7 +33,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.smc.discontinued.model.DiscontinuedModelState;
 import com.smc.discontinued.service.DiscontinuedSeriesServiceImpl;
@@ -59,7 +59,7 @@ import com.smc.webcatalog.service.SeriesService;
 import lombok.extern.slf4j.Slf4j;
 
 
-@Service
+@Component
 @Slf4j
 public class LibHtml {
 
@@ -1927,7 +1927,7 @@ public class LibHtml {
 			String lang,  Template t, TemplateCategory tc, CategoryService categoryService,
 			List<Series> list, int page, int hitCnt, String message)
 	{
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 
 		String temp = tc.getTemplate();
 
@@ -1945,44 +1945,44 @@ public class LibHtml {
 		temp = StringUtils.replace(temp,"$$$category$$$",category.get(0));
 		temp = StringUtils.replace(temp,"$$$category2$$$",category.get(1));
 		
-		String content = "";
+		StringBuilder content = new StringBuilder();
 		if (message != null && message.isEmpty() == false) {
-			content+= "<p>"+message+ "</p><br>";
+			content.append( "<p>").append(message).append( "</p><br>");
 		} else {
-			if (hitCnt > 0) content+= "<p>"+ messagesource.getMessage("msg.search.hit", new Object[] {kw, hitCnt}, locale) + "</p><br>";
-			if (isDisconHit(lang, kw)) content +="<p class=\"search_result_discon\"><a href=\""+AppConfig.PageProdDisconUrl+lang+"/?kw=" + kw +"\">"+messagesource.getMessage("msg.search.discon.hit", null, locale) + "</a></p><br>\r\n";
+			if (hitCnt > 0) content.append( "<p>").append( messagesource.getMessage("msg.search.hit", new Object[] {kw, hitCnt}, locale) ).append( "</p><br>");
+			if (isDisconHit(lang, kw)) content.append("<p class=\"search_result_discon\"><a href=\"").append(AppConfig.PageProdDisconUrl).append(lang).append("/?kw=" ).append( kw ).append("\">").append(messagesource.getMessage("msg.search.discon.hit", null, locale) ).append( "</a></p><br>\r\n");
 		}
 		// 絞り込み
 
 		if (list != null && list.size() > 0) {
 			for(Series s : list) {
 				if (s.isPre()) {
-					content+= "<br><p>" + messagesource.getMessage("msg.search.pre", null, locale) + "</p>";
-					content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+					content.append( "<br><p>" ).append( messagesource.getMessage("msg.search.pre", null, locale) ).append( "</p>");
+					content.append( "<br><br><p><a href=\"/webcatalog/").append(lang).append("/\" style=\"color:#0072c1\">" ).append( messagesource.getMessage("msg.search.pre.return", null, locale) ).append( "</a></p>\r\n");
 				} else {
-					content += getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html");
+					content.append( getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html"));
 				}
 			}
-			if (content == null || content.isEmpty()) { // en-jpなのにxxx-ZHなど
-				content+= "<br><p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>";
-				if (kw == null || kw.isEmpty()) content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+			if (content == null || content.length() == 0) { // en-jpなのにxxx-ZHなど
+				content.append( "<br><p>" ).append( messagesource.getMessage("msg.search.empty", null, locale) ).append( "</p>");
+				if (kw == null || kw.isEmpty()) content.append( "<br><br><p><a href=\"/webcatalog/").append(lang).append("/\" style=\"color:#0072c1\">" ).append( messagesource.getMessage("msg.search.pre.return", null, locale) ).append( "</a></p>\r\n");
 			}
 		} else {
-			content+= "<br><p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>";
-			if (kw == null || kw.isEmpty()) content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+			content.append( "<br><p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>");
+			if (kw == null || kw.isEmpty()) content.append( "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n");
 		}
-		temp = StringUtils.replace(temp, "$$$content$$$", content);
+		temp = StringUtils.replace(temp, "$$$content$$$", content.toString());
 		temp = "<div class=\"p_block\">" + temp + "</div>"; // <h2>の色付けに必要
 		//PageProdDisconUrl
-		ret = t.getHeader() + temp + SeriesHtml._seriesCadModal + t.getFooter();
-		return ret;
+		ret.append(t.getHeader()).append(temp).append( SeriesHtml._seriesCadModal ).append( t.getFooter());
+		return ret.toString();
 
 	}
 	public String getSearchResult2026(String kw,
 			String lang,  Template t, TemplateCategory tc, CategoryService categoryService, SeriesService seriesService, SeriesHtml sHtml,
 			List<Series> list, int page, int hitCnt, String message, Boolean isTestSite)
 	{
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 
 		String temp = tc.getTemplate();
 
@@ -1993,10 +1993,10 @@ public class LibHtml {
 		slugList.add("#");
 		temp = StringUtils.replace(temp,"$$$catpan$$$", getCatpan2026(lang, tc.getCatpan(), titleList, slugList));
 		
-		String catpan = "<li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"></li>"
-				+ "<li><a class=\"breadcrumb-item\" href=\"/webcatalog/"+lang+"/\">CATPAN</a>\r\n"
-				+ "              </li>";
-		temp = StringUtils.replace(temp,"$$$catpan_title$$$", catpan.replace("CATPAN", getSearchResultTitle(lang)));
+		StringBuilder catpan = new StringBuilder();
+		catpan.append("<li class=\"breadcrumb-separator\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/slash.svg\" alt=\"\"></li>\r\n");
+		catpan.append( "<li><a class=\"breadcrumb-item\" href=\"/webcatalog/").append(lang).append("/\">").append(getSearchResultTitle(lang)).append("</a></li>\r\n");
+		temp = StringUtils.replace(temp,"$$$catpan_title$$$", catpan.toString());
 		
 		temp = StringUtils.replace(temp,"$$$sidebar$$$", tc.getSidebar().replaceFirst("is-current\"", "\"")); // メニューを閉じる
 		if (kw != null && kw.isEmpty() == false) temp = StringUtils.replace(temp,"$$$formbox$$$", tc.getFormbox().replaceFirst("value=\"\"", "value=\""+kw+"\""));
@@ -2010,12 +2010,12 @@ public class LibHtml {
 		temp = StringUtils.replace(temp,"$$$category$$$",category.get(0));
 		temp = StringUtils.replace(temp,"$$$category2$$$",category.get(1));
 		
-		String content = "";
+		StringBuilder content = new StringBuilder();
 		if (message != null && message.isEmpty() == false) {
-			content+= "<p>"+message+ "</p><br>";
+			content.append( "<p>").append(message).append( "</p><br>");
 		} else {
-			if (hitCnt > 0) content+= "<p>"+ messagesource.getMessage("msg.search.hit", new Object[] {kw, hitCnt}, locale) + "</p><br>";
-			if (isDisconHit(lang, kw)) content +="<p class=\"search_result_discon\"><a href=\""+AppConfig.PageProdDisconUrl+lang+"/?kw=" + kw +"\">"+messagesource.getMessage("msg.search.discon.hit", null, locale) + "</a></p><br>\r\n";
+			if (hitCnt > 0) content.append( "<p>").append( messagesource.getMessage("msg.search.hit", new Object[] {kw, hitCnt}, locale) ).append( "</p><br>");
+			if (isDisconHit(lang, kw)) content.append("<p class=\"search_result_discon\"><a href=\"").append(AppConfig.PageProdDisconUrl).append(lang).append("/?kw=" ).append( kw ).append("\">").append(messagesource.getMessage("msg.search.discon.hit", null, locale) ).append( "</a></p><br>\r\n");
 		}
 		// 絞り込み
 
@@ -2024,30 +2024,30 @@ public class LibHtml {
 			int max = list.size();
 			for(Series s : list) {
 				if (s.isPre()) {
-					content+= "<br><p>" + messagesource.getMessage("msg.search.pre", null, locale) + "</p>";
-					content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+					content.append( "<br><p>" ).append( messagesource.getMessage("msg.search.pre", null, locale) ).append( "</p>");
+					content.append( "<br><br><p><a href=\"/webcatalog/").append(lang).append("/\" style=\"color:#0072c1\">" ).append( messagesource.getMessage("msg.search.pre.return", null, locale) ).append( "</a></p>\r\n");
 				} else if (tc.is2026() && isTestSite) { // 新デザイン && TEST
 					s.setLink(seriesService.getLink(s.getId(), obj));
-					content += sHtml.getGuide2026(s, null, null, "", lang, false, true);
-					if (cnt < max-1) content += "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>";
+					content.append( sHtml.getGuide2026(s, null, null, "", lang, false, true));
+					if (cnt < max-1) content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>");
 				} else {
-					content += getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html");
+					content.append( getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html"));
 				}
 				cnt++;
 			}
-			if (content == null || content.isEmpty()) { // en-jpなのにxxx-ZHなど
-				content+= "<br><p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>";
-				if (kw == null || kw.isEmpty()) content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+			if (content == null || content.length() == 0) { // en-jpなのにxxx-ZHなど
+				content.append( "<br><p>" ).append( messagesource.getMessage("msg.search.empty", null, locale) ).append( "</p>");
+				if (kw == null || kw.isEmpty()) content.append("<br><br><p><a href=\"/webcatalog/").append(lang).append("/\" style=\"color:#0072c1\">" ).append( messagesource.getMessage("msg.search.pre.return", null, locale) ).append( "</a></p>\r\n");
 			}
 		} else {
-			content+= "<br><p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>";
-			if (kw == null || kw.isEmpty()) content+= "<br><br><p><a href=\"/webcatalog/"+lang+"/\" style=\"color:#0072c1\">" + messagesource.getMessage("msg.search.pre.return", null, locale) + "</a></p>\r\n";
+			content.append( "<br><p>" ).append( messagesource.getMessage("msg.search.empty", null, locale) ).append( "</p>");
+			if (kw == null || kw.isEmpty()) content.append( "<br><br><p><a href=\"/webcatalog/").append(lang).append("/\" style=\"color:#0072c1\">" ).append( messagesource.getMessage("msg.search.pre.return", null, locale) ).append( "</a></p>\r\n");
 		}
-		temp = StringUtils.replace(temp, "$$$content$$$", content);
+		temp = StringUtils.replace(temp, "$$$content$$$", content.toString());
 		temp = "<div class=\"p_block\">" + temp + "</div>"; // <h2>の色付けに必要
 		//PageProdDisconUrl
-		ret = t.getHeader() + temp + SeriesHtml._seriesCadModal + t.getFooter();
-		return ret;
+		ret.append(t.getHeader()).append(temp).append( SeriesHtml._seriesCadModal ).append( t.getFooter());
+		return ret.toString();
 
 	}
 
@@ -2104,16 +2104,16 @@ public class LibHtml {
 		temp = StringUtils.replace(temp,"$$$category$$$",category.get(0));
 		temp = StringUtils.replace(temp,"$$$category2$$$",category.get(1));
 
-		String content = "";
+		StringBuilder content = new StringBuilder();
 		if (list != null && list.size() > 0) {
 			if (tc.is2026()) {
 				 // 検索結果 7件
-				content+= "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n"
-						+ "          <div class=\"f fm mb24 gap-16\">\r\n"
-						+ "                    <div class=\"text-2xl fw6 leading-tight\">"+messagesource.getMessage("g.search.result", null, locale)+"</div>\r\n"
-						+ "                    <div class=\"badge large filled\">"+hitCnt+"件</div>\r\n"
-						+ "          </div>\r\n"
-						+ "<p class=\"text-base\">キーワード検索に"+hitCnt+"件のヒットがありました。</p>\r\n";
+				content.append( "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
+					.append( "          <div class=\"f fm mb24 gap-16\">\r\n")
+					.append( "                    <div class=\"text-2xl fw6 leading-tight\">"+messagesource.getMessage("g.search.result", null, locale)+"</div>\r\n")
+					.append( "                    <div class=\"badge large filled\">"+hitCnt+"件</div>\r\n")
+					.append( "          </div>\r\n")
+					.append( "<p class=\"text-base\">キーワード検索に"+hitCnt+"件のヒットがありました。</p>\r\n");
 				if (isDisconHit(lang, kw)) {
 					String strDiscon = "";
 					if (lang.indexOf("en-") > -1) {
@@ -2123,44 +2123,44 @@ public class LibHtml {
 					} else {
 						strDiscon = "生産終了製品のご案内にもヒットしています。詳細はこちらをクリックしてください。";
 					}
-					content += "  <a class=\"text-sm leading-tight text-primary\" href=\""+AppConfig.PageProdDisconHeadUrl + lang + "/" + kw +"\"><span class=\"fw5 hover-link-underline\">"+strDiscon+"</span><img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\"></a>\r\n";
+					content.append( "  <a class=\"text-sm leading-tight text-primary\" href=\"").append(AppConfig.PageProdDisconHeadUrl ).append( lang ).append( "/" ).append( kw ).append("\"><span class=\"fw5 hover-link-underline\">").append(strDiscon).append("</span><img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\"></a>\r\n");
 				}
-				content+= "</div>";
+				content.append( "</div>");
 			} else {
-				content+= "<p>"+ messagesource.getMessage("msg.search.keyword.hit", new Object[] { hitCnt}, locale) + "</p>\r\n<br>";
+				content.append( "<p>").append( messagesource.getMessage("msg.search.keyword.hit", new Object[] { hitCnt}, locale)).append( "</p>\r\n<br>");
 				if (isDisconHit(lang, kw)) {
-					content +="<p class=\"search_result_discon\">\r\n"
-							+ "<a href=\""+AppConfig.PageProdDisconUrl + lang +"/?kw=" + kw +"\">\r\n"+
-							messagesource.getMessage("msg.search.discon.hit", null, locale) + "</a>\r\n"
-									+ "</p><br>\r\n";
+					content.append("<p class=\"search_result_discon\">\r\n")
+						.append( "  <a href=\""+AppConfig.PageProdDisconUrl + lang +"/?kw=" + kw +"\">\r\n")
+						.append(messagesource.getMessage("msg.search.discon.hit", null, locale) + "</a>\r\n")
+						.append( "</p><br>\r\n");
 				}
 			}
 		}
 		// ページ送り
 		if (hitCnt > 10) {
-			content += "<div class=\"navi\">\r\n";
 			double db =  Math.ceil((double)hitCnt/10);
 			int s = page - 5;
 			int e = page + 5;
 			if (s <= 0) {e -= s; s=1;}
 			if (e > db) e = (int)db;
 			if (tc.is2026()) {
-				content = StringUtils.replace(content, "<div class=\"navi\">", "<div class=\"navi mb24\">");
-				if (s < page) content += "<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='"+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+(page-1)+"'\">&lt;</button>\r\n";
+				content.append( "<div class=\"navi mb24\">\r\n");
+				if (s < page) content.append("<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append((page-1)).append("'\">&lt;</button>\r\n");
 				for(; s <= e; s++) {
-					if (page != s) content += "<button class=\"button solid w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='"+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+s+"'\">"+s+"</button>\r\n";
-					else content += "<button class=\"button solid w30 h35 mx4 primary\" type=\"button\" >"+ page+"</button>\r\n";
+					if (page != s) content.append("<button class=\"button solid w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append(s).append("'\">").append(s).append("</button>\r\n");
+					else content.append( "<button class=\"button solid w30 h35 mx4 primary\" type=\"button\" >").append( page).append("</button>\r\n");
 				}
-				if (e > page) content += "<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='"+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+(page+1)+"'\">&gt;</button>";
+				if (e > page) content.append( "<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append((page+1)).append("'\">&gt;</button>");
 			} else {
-				if (s < page) content += "<a href=\""+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+(page-1)+"\" class=\"back\">&lt;</a>\r\n";
+				content.append( "<div class=\"navi\">\r\n");
+				if (s < page) content.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append((page-1)).append("\" class=\"back\">&lt;</a>\r\n");
 				for(; s <= e; s++) {
-					if (page != s) content += "<a href=\""+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+s+"\" class=\"pn\">"+s+"</a>\r\n";
-					else content += "<span class=\"pn current\">" + page+"</span>\r\n";
+					if (page != s) content.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append(s).append("\" class=\"pn\">").append(s).append("</a>\r\n");
+					else content.append( "<span class=\"pn current\">" ).append( page).append("</span>\r\n");
 				}
-				if (e > page) content += "<a href=\""+AppConfig.ProdRelativeUrl+lang+"/searchSite/?kw="+kw+"&page="+(page+1)+"\" class=\"fw\">&gt;</a>\r\n";
+				if (e > page) content.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append((page+1)).append("\" class=\"fw\">&gt;</a>\r\n");
 			}
-			content += "</div>\r\n";
+			content.append( "</div>\r\n");
 		}
 
 		if (list != null && list.size() > 0) {
@@ -2168,43 +2168,46 @@ public class LibHtml {
 			for (Series s : list) {
 				if (isTest) {
 					if (tc.is2026()) {
-						content += sHtml.getGuide2026(s, null, null, pagePath, lang, false, true);
-						if (cnt < list.size() -1) content += "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>";
+						content.append( sHtml.getGuide2026(s, null, null, pagePath, lang, false, true));
+						if (cnt < list.size() -1) content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>");
 					} else {
-						content += sHtml.get(s, null, null, pagePath, lang, false, true);
+						content.append( sHtml.get(s, null, null, pagePath, lang, false, true));
 					}
 				} else {
-					content += getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html");
+					content.append( getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html"));
 				}
 				cnt++;
 			}
 		} else {
 			if (tc.is2026()) {
-				String str = "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n"
-						+ "          <div class=\"f fm mb24 gap-16\">\r\n"
-						+ "                    <div class=\"text-2xl fw6 leading-tight\">"+messagesource.getMessage("g.search.result", null, locale)+"</div>\r\n"
-						+ "                    <div class=\"badge large filled\">"+messagesource.getMessage("msg.search.hit.count", new Object[] {0}, locale)+"</div>\r\n"
-						+ "          </div>\r\n"
-						+ "</div>\r\n";
-				str += "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">"
-						+ "<span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">";
+				StringBuilder str = new StringBuilder();
+				str.append("<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
+					.append( "          <div class=\"f fm mb24 gap-16\">\r\n")
+					.append( "                    <div class=\"text-2xl fw6 leading-tight\">").append(messagesource.getMessage("g.search.result", null, locale)).append("</div>\r\n")
+					.append( "                    <div class=\"badge large filled\">").append(messagesource.getMessage("msg.search.hit.count", new Object[] {0}, locale)).append("</div>\r\n")
+					.append( "          </div>\r\n")
+					.append( "</div>\r\n");
+				str.append( "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">")
+						.append( "<span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">");
 				if (lang.indexOf("en-") > -1) {
-					str += "Products meeting the search conditions could not be found.";
+					str.append( "Products meeting the search conditions could not be found.");
 				} else if (lang.indexOf("zh-") > -1) {
-					str += "找不到要命中搜索条件的产品。";
+					str.append( "找不到要命中搜索条件的产品。");
 				} else {
-					str += "検索条件にヒットする製品が見つかりませんでした。";
+					str.append( "検索条件にヒットする製品が見つかりませんでした。");
 				}
-				str += "</span>"
-					+ "</div>";
-				content = str  + content + tc.getProductsSupport();
+				str.append( "</span>")
+					.append( "</div>");
+				content.insert(0, str);
+				content.append(tc.getProductsSupport());
 			} else {
-				content+= "<br>\r\n<p>" + messagesource.getMessage("msg.search.empty", null, locale) + "</p>\r\n";
+				content.append( "<br>\r\n<p>" ).append( messagesource.getMessage("msg.search.empty", null, locale) ).append( "</p>\r\n");
 			}
 			isNoHit = true;
 		}
-		content = "<div class=\"p_block\">" + content + "</div>\r\n"; // <h2>の色付けに必要
-		temp = StringUtils.replace(temp, "$$$content$$$", content);
+		content.insert(0, "<div class=\"p_block\">"); // <h2>の色付けに必要
+		content.append("</div>\r\n");
+		temp = StringUtils.replace(temp, "$$$content$$$", content.toString());
 		//PageProdDisconUrl
 		// hilightKeyword()
 		temp += "<script>kw = $(\"#kw\").text();"
@@ -2328,7 +2331,7 @@ public class LibHtml {
 	 */
 	public String getFileFromHtml(String path)
 	{
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 		BufferedWriter bw = null;
 		try{
 			if (path.indexOf("/") == 0) path = htmlPath + path.substring(1);
@@ -2339,7 +2342,7 @@ public class LibHtml {
 			BufferedReader br = new BufferedReader(fr);
 			String text;
 			while ((text = br.readLine()) != null) {
-				ret += text+"\r\n";
+				ret.append(text).append(AppConfig.LineSeparetor);
 			}
 			br.close();
         } catch(IOException e) {
@@ -2356,7 +2359,7 @@ public class LibHtml {
                 log.error("ERROR! "+e.getMessage());
             }
         }
-		return ret;
+		return ret.toString();
 	}
 
 	/**
@@ -2795,97 +2798,108 @@ public class LibHtml {
 		// c2がカラならカラのまま。大カテゴリ時に$$$narrowdown$$$を消す。
 		return ret;
 	}
+	// [0] ja-jp [1] en-jp [2] zh-cn [3] zh-tw
+	private static final String[][] narrowDownTitleList = 
+		{	{"絞り込み条件", "絞り込む", "絞り込み条件をクリア", "お選びください"},
+			{"Narrow Down", "Narrow search", "Clear", "Please select"},
+			{"过滤条件", "过滤",  "清除","请选择"},
+			{"過濾條件", "過濾", "清除", "請選擇"}};
 	public String getNarrowDown2026(String lang, Category category, Category c2, HttpServletRequest request) {
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 		if (c2 != null && c2.isNarrowdown()) {
 			ErrorObject err = new ErrorObject();
 			List<NarrowDownColumn> list = narrowDownService.getCategoryColumn(c2.getId(), true, err);
 			if (list != null && list.size() > 0) { // 対象かどうか判定
-				String title = "絞り込み条件";
-				String button = "絞り込む";
-				String cancel = "絞り込み条件をクリア";
-				String selectEmpty = "お選びください";
+				String title = "";
+				String button = "";
+				String cancel = "";
+				String selectEmpty = "";
 				if (lang.equals("zh-tw")) {
-					title = "過濾條件";
-					button = "過濾";
-					cancel = "清除";
-					selectEmpty = "請選擇";
+					title = narrowDownTitleList[3][0];
+					button = narrowDownTitleList[3][1];
+					cancel = narrowDownTitleList[3][2];
+					selectEmpty = narrowDownTitleList[3][3];
 				} else if (lang.indexOf("zh-") > -1) {
-					title = "过滤条件";
-					button = "过滤";
-					cancel = "清除";
-					selectEmpty = "请选择";
+					title = narrowDownTitleList[2][0];
+					button = narrowDownTitleList[2][1];
+					cancel = narrowDownTitleList[2][2];
+					selectEmpty = narrowDownTitleList[2][3];
 				} else if (lang.indexOf("en-") > -1) {
-					title = "Narrow Down";
-					button = "Narrow search";
-					cancel = "Clear";
-					selectEmpty = "Please select";
+					title = narrowDownTitleList[1][0];
+					button = narrowDownTitleList[1][1];
+					cancel = narrowDownTitleList[1][2];
+					selectEmpty = narrowDownTitleList[1][3];
+				} else {
+					title = narrowDownTitleList[0][0];
+					button = narrowDownTitleList[0][1];
+					cancel = narrowDownTitleList[0][2];
+					selectEmpty = narrowDownTitleList[0][3];
 				}
-				ret += "<form id=\"ndForm\" method=\"get\" class=\"side_menu form\" action=\""+"/webcatalog/"+category.getLang()+"/"+category.getSlug()+"/"+c2.getSlug()+"/\">\r\n";
-				ret += "<input type=\"hidden\" name=\"action\" value=\"narrowdown\">\r\n";
-				ret += "<input type=\"hidden\" name=\"nCnt\" value=\""+list.size()+"\">\r\n";
-				ret += "<div>\r\n"
-						+ "     <div>\r\n"
-						+ "        <div class=\"p16 text-primary text-lg leading-tight fw6 border-bottom bw2\"><span>"+title+"</span></div>\r\n"
-						+ "      </div>\r\n";
-				ret += "<ul>";
+				ret.append("<form id=\"ndForm\" method=\"get\" class=\"side_menu form\" action=\"").append("/webcatalog/").append(category.getLang()).append("/").append(category.getSlug()).append("/").append(c2.getSlug()).append("/\">\r\n");
+				ret.append("  <input type=\"hidden\" name=\"action\" value=\"narrowdown\">\r\n");
+				ret.append("  <input type=\"hidden\" name=\"nCnt\" value=\"").append(list.size()).append("\">\r\n");
+				ret.append("   <div>\r\n")
+					.append( "     <div>\r\n")
+					.append( "        <div class=\"p16 text-primary text-lg leading-tight fw6 border-bottom bw2\"><span>").append(title).append("</span></div>\r\n")
+					.append( "      </div>\r\n");
+				ret.append("        <ul>\r\n");
 				int cnt = 0;
 				for(NarrowDownColumn col : list) {
 					String[] idxs = {};
 					if (request != null) idxs = request.getParameterValues("nVal"+cnt);
 					if (col.getValues() != null && col.getValues().length > 0) { // カラなら対象としない。
-						ret +="<li class=\"border-bottom bw2\">\r\n"
-								+ "        <div class=\"p16\">\r\n"
-								+ "            <div class=\"text-sm leading-tight fw5 s-text-base m-text-base\">" + col.getTitle() + "</div>\r\n";
+						ret.append("<li class=\"border-bottom bw2\">\r\n")
+							.append( "        <div class=\"p16\">\r\n")
+							.append( "            <div class=\"text-sm leading-tight fw5 s-text-base m-text-base\">").append( col.getTitle()).append("</div>\r\n");
 						if (col.getSelect().equals("select")) {
-							ret += "            <div class=\"mt8\">";
+							ret.append("            <div class=\"mt8\">");
 							// 2026/3/10 ここではソートしない。DBの順番通りに。
 							//String[] arr = col.getSortedValues(); // すべて数値ならソートして返してくれる。
 							String[] arr = col.getValues();
 							String selected = "";
 							if (idxs != null && idxs.length > 0) selected = idxs[0];
-							ret+="<select name=\"nVal"+cnt+"\" class=\"select\">\r\n";
-							ret+="<option value='' >---- "+selectEmpty+" ----</option>";
+							ret.append("<select name=\"nVal").append(cnt).append("\" class=\"select\">\r\n");
+							ret.append("<option value='' >---- ").append(selectEmpty).append(" ----</option>");
 							int idx = 1;
 							for(String opt : arr) {
 								if (selected.isEmpty() == false && Arrays.asList(idxs).contains(String.valueOf(idx))) {
-									ret += "<option value=\""+idx+"\" selected>";
+									ret.append("<option value=\"").append(idx).append("\" selected>");
 								} else {
-									ret += "<option value=\""+idx+"\">";
+									ret.append("<option value=\"").append(idx).append("\">");
 								}
-								ret += opt + "</option>\r\n";
+								ret.append( opt + "</option>\r\n");
 								idx++;
 							}
-							ret += "</select>\r\n";
-							ret += "</div>\r\n";
+							ret.append( "</select>\r\n");
+							ret.append( "</div>\r\n");
 						} else if (col.getSelect().equals("checkbox")) {
-							ret += "            <div class=\"f fclm fc gap-4 mt8\">";
+							ret.append( "            <div class=\"f fclm fc gap-4 mt8\">");
 							String[] arr = col.getValues(); 
 							int idx = 1;
 							for(String opt : arr) {
 								if (opt == null || opt.isEmpty()) continue;
 								String strChk = "";
 								if (idxs != null && opt.isEmpty() == false && Arrays.asList(idxs).contains(String.valueOf(idx))) strChk = "checked";
-								ret += "<label class=\"checkbox-container\">\r\n"
-										+ "    <input class=\"checkbox-input\" type=\"checkbox\" name=\"nVal"+cnt+"\" value=\""+idx+"\" "+strChk+">\r\n"
-										+ "    <div class=\"checkbox-border\">\r\n"
-										+ "      <div class=\"checkbox-circle\"></div>\r\n"
-										+ "    </div><span class=\"text-sm leading-tight fw5 text-base-foreground-muted\"><span class=\"text-base-foreground-default s-text-base m-text-base\">"+ opt +"</span></span>\r\n"
-										+ "</label>";
+								ret.append( "<label class=\"checkbox-container\">\r\n")
+									.append( "    <input class=\"checkbox-input\" type=\"checkbox\" name=\"nVal").append(cnt).append("\" value=\"").append(idx).append("\" ").append(strChk).append(">\r\n")
+									.append( "    <div class=\"checkbox-border\">\r\n")
+									.append( "      <div class=\"checkbox-circle\"></div>\r\n")
+									.append( "    </div><span class=\"text-sm leading-tight fw5 text-base-foreground-muted\"><span class=\"text-base-foreground-default s-text-base m-text-base\">").append( opt ).append("</span></span>\r\n")
+									.append( "</label>");
 								idx++;
 							}
-							ret += "</div>\r\n";
+							ret.append("</div>\r\n");
 						} else if (col.getSelect().equals("range")) {
-							ret += "            <div class=\"f fclm fc gap-4 mt8\">";
+							ret.append( "            <div class=\"f fclm fc gap-4 mt8\">");
 							String[] arr = col.getValues();
 							if (arr.length >= 2) {
 								int defaultValue = (int) Math.ceil((Integer.parseInt(arr[1]) + Integer.parseInt(arr[0])) / 2); // 中央値なので＋して2で割った数
 								if (idxs != null && idxs.length > 0 ) defaultValue = Integer.parseInt(idxs[0]);
-								ret += "<label>"+arr[0] + "&nbsp;<input type=\"range\" id=\""+col.getTitle()+"\" name=\"nVal"+cnt+"\" min=\""+arr[0]+"\" max=\""+arr[1]+"\" onchange=\"output_"+col.getTitle()+".value=this.value\"/>&nbsp;"+arr[1]+"&nbsp;<output name=\"output_"+col.getTitle()+"\" for=\""+col.getTitle()+"\">"+defaultValue+"</output></label>\r\n";
+								ret.append( "<label>").append(arr[0] ).append( "&nbsp;<input type=\"range\" id=\"").append(col.getTitle()).append("\" name=\"nVal").append(cnt).append("\" min=\"").append(arr[0]).append("\" max=\"").append(arr[1]).append("\" onchange=\"output_").append(col.getTitle()).append(".value=this.value\"/>&nbsp;").append(arr[1]).append("&nbsp;<output name=\"output_").append(col.getTitle()).append("\" for=\"").append(col.getTitle()).append("\">").append(defaultValue).append("</output></label>\r\n");
 							}
-							ret += "</div>\r\n";
+							ret.append( "</div>\r\n");
 						} else { // その他はradio
-							ret += "            <div class=\"f fclm fc gap-4 mt8\">";
+							ret.append( "            <div class=\"f fclm fc gap-4 mt8\">");
 							String checkVal = "";
 							if (idxs != null && idxs.length > 0) checkVal = idxs[0];
 							String[] arr = col.getValues(); 
@@ -2896,48 +2910,48 @@ public class LibHtml {
 								} else {
 									String strChk = "";
 									if (checkVal.isEmpty() == false && checkVal.equals(String.valueOf(idx))) strChk = "checked";
-									ret += "<label class=\"radio-container\">\r\n"
-											+ "    <input class=\"radio-input sr-only\" type=\"radio\" name=\"nVal"+cnt+"\" value=\""+idx+"\" "+strChk+">\r\n"
-											+ "    <div class=\"radio-border\">\r\n"
-											+ "      <div class=\"radio-circle\"></div>\r\n"
-											+ "    </div><span class=\"text-sm leading-tight s-text-base m-text-base\">" + opt + "</span>\r\n"
-											+ "</label>";
+									ret.append( "<label class=\"radio-container\">\r\n")
+										.append( "    <input class=\"radio-input sr-only\" type=\"radio\" name=\"nVal").append(cnt).append("\" value=\"").append(idx).append("\" ").append(strChk).append(">\r\n")
+										.append( "    <div class=\"radio-border\">\r\n")
+										.append( "      <div class=\"radio-circle\"></div>\r\n")
+										.append( "    </div><span class=\"text-sm leading-tight s-text-base m-text-base\">" ).append( opt ).append( "</span>\r\n")
+										.append( "</label>");
 								}
 								idx++;
 							}
-							ret += "</div>\r\n";
+							ret.append( "</div>\r\n");
 						}
-						ret += "</div>\r\n";
-						ret += "</li>\r\n";
+						ret.append( "</div>\r\n");
+						ret.append( "</li>\r\n");
 					}
 					cnt++;
 				} // for(NarrowDownColumn col : list)
 				// input type=resetだと初回のクリアは出来るが、検索後のクリアが出来ない。なので、butttonでform_clear()を読んでいる。
-				ret += "<div>\r\n"
-						+ "    <button class=\"button large primary solid w-full mb8\" type=\"button\" onclick=\"this.form.submit();\">\r\n"
-						+ "      <div class=\"f fm gap-8\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/narrow-down.svg\" alt=\"\">\r\n"
-						+ "        <p class=\"text-sm text-base-foreground-on-fill leading-tight\">"+button+"</p>\r\n"
-						+ "      </div>\r\n"
-						+ "    </button>\r\n"
-						+ "    <button class=\"button large secondary solid w-full\" type=\"button\" onclick=\"location.href=document.getElementById('ndForm').getAttribute('action');\">\r\n"
-						+ "      <p class=\"text-sm text-primary leading-tight\">"+cancel+"</p>\r\n"
-						+ "    </button>\r\n"
-						+ "</div>";
-				ret += "</ul>\r\n";
-				ret += "</div>\r\n";
-				ret += "</form>\r\n";
+				ret.append( "<div>\r\n")
+					.append( "    <button class=\"button large primary solid w-full mb8\" type=\"button\" onclick=\"this.form.submit();\">\r\n")
+					.append( "      <div class=\"f fm gap-8\"><img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/narrow-down.svg\" alt=\"\">\r\n")
+					.append( "        <p class=\"text-sm text-base-foreground-on-fill leading-tight\">").append(button).append("</p>\r\n")
+					.append( "      </div>\r\n")
+					.append( "    </button>\r\n")
+					.append( "    <button class=\"button large secondary solid w-full\" type=\"button\" onclick=\"location.href=document.getElementById('ndForm').getAttribute('action');\">\r\n")
+					.append( "      <p class=\"text-sm text-primary leading-tight\">").append(cancel).append("</p>\r\n")
+					.append( "    </button>\r\n")
+					.append( "</div>");
+				ret.append( "</ul>\r\n");
+				ret.append( "</div>\r\n");
+				ret.append( "</form>\r\n");
 			}
 			
 		}
 		// c2がカラならカラのまま。大カテゴリ時に$$$narrowdown$$$を消す。
-		return ret;
+		return ret.toString();
 	}
 
 	// 検索窓下のリスト表示種別選択
-	private String[] viewListJA = {"一覧", "写真", "仕様比較"};
-	private final String[] viewListE = {"List", "Picture", "Specification comparison"};
-	private final String[] viewListCN = {"列表", "照片", "规格对比"};
-	private final String[] viewListTW = {"清單", "照片", "規格對比"};
+	private static final String[] viewListJA = {"一覧", "写真", "仕様比較"};
+	private static final String[] viewListE = {"List", "Picture", "Specification comparison"};
+	private static final String[] viewListCN = {"列表", "照片", "规格对比"};
+	private static final String[] viewListTW = {"清單", "照片", "規格對比"};
 	public String getListDisplaySelection(String lang, Category c2, String view, String action, int ndCnt, HttpServletRequest request) {
 		String ret = "";
 		String viewParam = "";
@@ -3006,7 +3020,7 @@ public class LibHtml {
 	// 表示切り替えのHTML
 	public String getListDisplaySelection2026(String lang, Category c2, String view, String action, int ndCnt, HttpServletRequest request) {
 		String ret = "<div class=\"f fr gap-8 p8 mb24 s-mb36 m-mb36\">";
-		String viewParam = "";
+		StringBuilder viewParam = new StringBuilder();
 		{
 			String[] viewList = AppConfig.ViewTitleList_ja;;
 			if (lang.indexOf("en-") > -1) {
@@ -3017,15 +3031,15 @@ public class LibHtml {
 				viewList = AppConfig.ViewTitleList_zh;
 			}
 			if (action != null ) {
-				viewParam += "&action="+action;
+				viewParam .append("&action=").append(action);
 			}
 			if (ndCnt > 0) {
-				viewParam+="&nCnt="+ndCnt;
+				viewParam.append("&nCnt=").append(ndCnt);
 				for(int cnt = 0; cnt < ndCnt; cnt++) {
 					String[] arr = request.getParameterValues("nVal"+cnt);
 					if (arr != null && arr.length > 0) {
 						for(String tmp : arr) {
-							if (tmp != null && tmp.isEmpty() == false) viewParam+="&nVal"+cnt+"="+tmp;
+							if (tmp != null && tmp.isEmpty() == false) viewParam.append("&nVal").append(cnt).append("=").append(tmp);
 						}
 					}
 				}
@@ -3056,7 +3070,7 @@ public class LibHtml {
 			if (c2.isCompare()) {
 				ret += comp;
 				if (view != null && view.equals("compare")) {
-					ret = ret.replace("f fr ", "f fr w90per s-w100per m-w100per text-right ");
+					ret = ret.replace("f fr ", "f fr w70per s-w100per m-w100per text-right ");
 				}
 			}
 		}

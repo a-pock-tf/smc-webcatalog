@@ -65,12 +65,17 @@ public class AppConfig  {
 	public static String H1boxArea2026 = "<!-- h1box -->";
 	public static String ContentArea2026 = "<!-- content -->";
 	
-	public static String[] ViewTitleList_ja = {"一覧", "画像", "仕様比較"};
-	public static String[] ViewTitleList_en = {"List", "Picture", "Specification comparison"};
-	public static String[] ViewTitleList_zh = {"列表", "照片", "规格对比"};
-	public static String[] ViewTitleList_tw = {"清單", "照片", "規格對比"};
+	public static final String[] ViewTitleList_ja = {"一覧", "画像", "仕様比較"};
+	public static final String[] ViewTitleList_en = {"List", "Picture", "Specification comparison"};
+	public static final String[] ViewTitleList_zh = {"列表", "照片", "规格对比"};
+	public static final String[] ViewTitleList_tw = {"清單", "照片", "規格對比"};
+	
+	public static final String[] SearchResultTitleList = {"検索結果", "Search result", "搜索结果", "搜索结果"};
+	public static final String[] SearchResultHitCountTitleList = {"件", "hits", "项结果", "项结果"};
 	
 	// テンプレート取得用
+	public static String LineSeparetor = "\r\n"; 
+
 	public static String[] TemplateDiv = new String[] {"<div id=\"content\">", "<p id=\"pageTop\" style=\"display:block;\">"};
 	public static String[] CatpanArea = new String[] {"<div class=\"catpan\">", "</div>"};
 	public static String[] SidebarArea = new String[] {"<div id=\"side_bar\" class=\"side_nav\">", "</div><!--side_bar-->"};

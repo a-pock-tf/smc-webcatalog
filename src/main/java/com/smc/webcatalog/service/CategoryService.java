@@ -212,6 +212,17 @@ public interface CategoryService {
 	List<Category> listAll(String id, @Nullable Boolean active, ErrorObject err);
 
 	/**
+	 *  全カテゴリを階層構造で取得(Contextからカテゴリ取得。まとめてSeriesをセット)
+	 * @param state
+	 * @param type
+	 * @param lang
+	 * @param err OUT
+	 * @memo active = trueのみ
+	 * @return エラーの場合はnullが戻るので、ErrorObjectを確認
+	 */
+	List<Category> listAllWithSeries(String lang, ModelState state, CategoryType type, Boolean active, ErrorObject err);
+
+	/**
 	 *  該当indexのすべての階層を取得
 	 *  typeはOtherのみ
 	 * @param index
