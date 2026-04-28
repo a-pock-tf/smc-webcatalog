@@ -15,6 +15,7 @@ public class TemplateCategoryForm {
 	private String id;
 
 	private String categoryId;
+	private String lang;
 
 	private String heartCoreId;
 	private String template;

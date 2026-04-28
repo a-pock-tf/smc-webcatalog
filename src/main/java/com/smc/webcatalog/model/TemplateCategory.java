@@ -57,6 +57,7 @@ public class TemplateCategory extends BaseModel {
 		formbox = tc.getFormbox();
 		h1box = tc.getH1box();
 		content = tc.getContent();
+		setLang(tc.getLang());
 		setActive(tc.isActive());
 
 		setUser(u);

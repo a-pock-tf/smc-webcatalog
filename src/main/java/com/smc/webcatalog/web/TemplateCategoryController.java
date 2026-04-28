@@ -79,6 +79,7 @@ public class TemplateCategoryController extends BaseController {
 		if (temp == null) {
 			temp = new TemplateCategory();
 			temp.setActive(true);
+			temp.setLang(c.getLang());
 			temp.setCategoryId(id);
 		}
 		// Map(Copy) Template -> Form
@@ -122,7 +123,6 @@ public class TemplateCategoryController extends BaseController {
 			temp = service.get(form.getId(), obj);
 			// 3) フォームvalidate
 			validator.validateUpate(result, form);
-
 		} else {
 			temp = new TemplateCategory();
 			validator.validateNew(result, form);
@@ -147,6 +147,15 @@ public class TemplateCategoryController extends BaseController {
 					errorMessage = "contentの入力形式が不正です。";
 				}
 			}
+			
+			// TODO しばらくしたら削除OK
+			{
+				Category c = categoryService.get(form.getCategoryId(), obj);
+				if (temp.getLang() != null && c.getLang() != null && temp.getLang().equals(c.getLang()) == false) {
+					temp.setLang(c.getLang()); // TemplateCategoryのLangがja-jpのみだった。
+				}
+			}
+
 
 			// 6) 保存
 			if (!result.hasErrors() && errorMessage.isEmpty()) {

@@ -463,5 +463,18 @@ public class TemplateCategoryServiceImpl implements TemplateCategoryService {
 		}
 		return ret;
 	}
-
+	
+	@Override
+	public TemplateCategory findByLangFromBean(String lang, ModelState s) {
+		TemplateCategory ret = null;
+		if (templateCategories != null) {
+			for (TemplateCategory t : templateCategories) {
+				if (t.getLang().equals(lang) && t.getState().equals(s)) {
+					ret = t;
+					break;
+				}
+			}
+		}
+		return ret;
+	}
 }

@@ -200,6 +200,10 @@ public class LangServiceImpl implements LangService {
 	public Lang getFromContext(String lang) {
 		Lang ret = null;
 		Object obj = req.getServletContext().getAttribute(Lang.APPLICATION_CONTEXT_PREFIX);
+		if (obj == null)  {
+			listAll(true, null);
+			 obj = req.getServletContext().getAttribute(Lang.APPLICATION_CONTEXT_PREFIX);
+		}
 		for(Lang la : (List<Lang>)obj) {
 			if (la.getName().equals(lang)) {
 				ret = la;

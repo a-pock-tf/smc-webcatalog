@@ -2285,6 +2285,10 @@ public class ProductRestController {
 			log.error("getTemplateCategoryFromSeries() Exception!",e);
 		}
 		if (tc != null) ret = tc;
+		else {
+			// 最初のtemplateCategoryを取得
+			ret = templateCategoryService.findByLangFromBean(langObj.getLang(), m);
+		}
 		return ret;
 	}
 

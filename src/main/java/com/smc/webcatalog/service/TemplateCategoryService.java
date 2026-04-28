@@ -71,4 +71,6 @@ public interface TemplateCategoryService {
 	void removeTemplateCategory(TemplateCategory temp);
 	
 	TemplateCategory findByCategoryIdFromBean(String lang, ModelState s, String id);
+	
+	TemplateCategory findByLangFromBean(String lang, ModelState s);
 }
