@@ -19,8 +19,10 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.util.UrlPathHelper;
 
 import com.smc.util.ModelMapperFactory;
+import com.smc.webcatalog.dao.NarrowDownColumnRepository;
 import com.smc.webcatalog.dao.TemplateCategoryRepository;
 import com.smc.webcatalog.dao.TemplateRepository;
+import com.smc.webcatalog.model.NarrowDownColumn;
 import com.smc.webcatalog.model.Template;
 import com.smc.webcatalog.model.TemplateCategory;
 
@@ -32,6 +34,9 @@ public class WebConfig implements WebMvcConfigurer {
 	
 	@Autowired
 	TemplateCategoryRepository templateCategoryRepo;
+
+	@Autowired
+	NarrowDownColumnRepository narrowDownColumnRepo;
 
 	/**
 	 * ModelMapperの登録 Autowiredで使う
@@ -142,5 +147,11 @@ public class WebConfig implements WebMvcConfigurer {
     	List<TemplateCategory> templateCategories = templateCategoryRepo.findAll();
 		return templateCategories;
 	}
+    
+    @Bean(name = "narrowDownColumns")
+	List<NarrowDownColumn> createNarrowDownColumns() {
+    	List<NarrowDownColumn> narrowDownColumns = narrowDownColumnRepo.findAll();
+		return narrowDownColumns;
+    }
 
 }

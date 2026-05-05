@@ -87,7 +87,7 @@ public class LibSynonyms {
 		        	log.error("ERROR! LibSynonyms.getSynonyms() response="+response);
 		        }
 			} catch(Exception ex){
-		    	log.error(ex.toString());
+		    	log.error("getSynonyms()"+ex.toString());
 		    } finally {
 
 		    }

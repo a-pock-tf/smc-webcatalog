@@ -34,6 +34,7 @@ import com.smc.webcatalog.model.SeriesLinkType;
 import com.smc.webcatalog.model.Template;
 import com.smc.webcatalog.model.TemplateCategory;
 import com.smc.webcatalog.model.User;
+import com.smc.webcatalog.service.NarrowDownServiceImpl;
 import com.smc.webcatalog.service.TemplateCategoryServiceImpl;
 import com.smc.webcatalog.service.TemplateServiceImpl;
 
@@ -88,10 +89,14 @@ public class Init {
 	@Autowired
 	TemplateCategoryServiceImpl templateCategoryService;
 	
+	@Autowired
+	NarrowDownServiceImpl narrowDownService;
+	
 	// Template, TemplateCategoryの初期化
 	public void initService() {
 		templateService.refreshTemplates();
 		templateCategoryService.refreshTemplateCategories();
+		narrowDownService.refreshNarrowDownColumns();
 	}
 
 	//Application 全体で使えるBean Thymeleafから ${@beanName} で呼び出す

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.smc.webcatalog.model.ErrorObject;
 import com.smc.webcatalog.model.NarrowDownColumn;
-import com.smc.webcatalog.model.NarrowDownCompare;
 import com.smc.webcatalog.model.NarrowDownValue;
 import com.smc.webcatalog.model.Series;
 
@@ -56,16 +55,10 @@ public interface NarrowDownService {
 	
 	List<Series> getNarrowDown(String categoryId, HttpServletRequest request, ErrorObject err);
 	
-	// Compare
-	List<NarrowDownCompare> getCategoryCompare(String categoryId, Boolean active, ErrorObject err);
-
-	ErrorObject saveCompare(NarrowDownCompare comp);
-
-	ErrorObject changeStateCompare(String testId, String prodId);
-
-	ErrorObject deleteCategoryCompare(String categoryId);
 	
-	ErrorObject deleteCompare(String compareId);
-
-	ErrorObject deleteProdCompare(String childCompareId);
+	// Bean
+	void refreshNarrowDownColumns();
+	void addNarrowDownColumn(NarrowDownColumn col);
+	void removeNarrowDownColumn(NarrowDownColumn col);
+	List<NarrowDownColumn> findByCategoryIdFromBean(String lang, String id);
 }

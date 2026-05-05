@@ -2063,8 +2063,9 @@ public class LibHtml {
 		Locale locale = getLocale(lang);
 
 		String temp = tc.getTemplate();
+		boolean is2026 = tc.is2026();
 
-		if (tc.is2026()) {
+		if (is2026) {
 			// catpan
 			List<String> titleList = new LinkedList<>();
 			titleList.add(messagesource.getMessage("msg.search.title", null, locale));
@@ -2096,7 +2097,7 @@ public class LibHtml {
 		} else {
 			cList = categoryService.listAll(lang, ModelState.PROD, CategoryType.CATALOG, obj);
 		}
-		if (tc.is2026()) {
+		if (is2026) {
 			category = getCategoryMenu2026(lang, null, null, cList);
 		} else {
 			category = getCategoryMenu(lang, null, null, cList);
@@ -2106,7 +2107,7 @@ public class LibHtml {
 
 		StringBuilder content = new StringBuilder();
 		if (list != null && list.size() > 0) {
-			if (tc.is2026()) {
+			if (is2026) {
 				 // 検索結果 7件
 				content.append( "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
 					.append( "          <div class=\"f fm mb24 gap-16\">\r\n")
@@ -2143,7 +2144,7 @@ public class LibHtml {
 			int e = page + 5;
 			if (s <= 0) {e -= s; s=1;}
 			if (e > db) e = (int)db;
-			if (tc.is2026()) {
+			if (is2026) {
 				content.append( "<div class=\"navi mb24\">\r\n");
 				if (s < page) content.append("<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/searchSite/?kw=").append(kw).append("&page=").append((page-1)).append("'\">&lt;</button>\r\n");
 				for(; s <= e; s++) {
@@ -2167,19 +2168,22 @@ public class LibHtml {
 			int cnt = 0;
 			for (Series s : list) {
 				if (isTest) {
-					if (tc.is2026()) {
+					if (is2026) {
 						content.append( sHtml.getGuide2026(s, null, null, pagePath, lang, false, true));
-						if (cnt < list.size() -1) content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>");
+						if (cnt < list.size() -1) content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>\r\n");
 					} else {
 						content.append( sHtml.get(s, null, null, pagePath, lang, false, true));
 					}
 				} else {
 					content.append( getFileFromHtml(lang + "/series/" + s.getModelNumber() + "/s.html"));
+					if (is2026) {
+						if (cnt < list.size() -1) content.append( "<div class=\"w-full h1 bg-base-stroke-default my36\"></div>\r\n");
+					}
 				}
 				cnt++;
 			}
 		} else {
-			if (tc.is2026()) {
+			if (is2026) {
 				StringBuilder str = new StringBuilder();
 				str.append("<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
 					.append( "          <div class=\"f fm mb24 gap-16\">\r\n")
@@ -2809,6 +2813,7 @@ public class LibHtml {
 		if (c2 != null && c2.isNarrowdown()) {
 			ErrorObject err = new ErrorObject();
 			List<NarrowDownColumn> list = narrowDownService.getCategoryColumn(c2.getId(), true, err);
+			//List<NarrowDownColumn> list = narrowDownService.findByCategoryIdFromBean(lang, c2.getId());
 			if (list != null && list.size() > 0) { // 対象かどうか判定
 				String title = "";
 				String button = "";

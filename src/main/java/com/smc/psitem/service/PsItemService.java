@@ -23,6 +23,18 @@ public interface PsItemService {
 	 * @return active=trueのみ
 	 */
 	List<PsItem> searchKeyword(List<String> kw, String condition, String c1c2, String series, String lang);
+	List<PsItem> searchKeyword(List<String> kw, String condition, String c1c2, String series, String lang, int start, int limit);
+
+	/**
+	 * 上記searchKeyword()のhitCount取得
+	 * @param kw
+	 * @param condition
+	 * @param c1c2
+	 * @param series
+	 * @param lang
+	 * @return
+	 */
+	long searchKeywordCount(List<String> kw, String condition, String c1c2, String series, String lang);
 
 	List<PsItem> searchIndex(String idx, String c1c2, String series, String lang);
 

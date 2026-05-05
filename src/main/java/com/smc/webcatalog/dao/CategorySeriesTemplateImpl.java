@@ -24,6 +24,14 @@ public class CategorySeriesTemplateImpl implements CategorySeriesTemplate {
 
 		return db.find(query, CategorySeries.class);
 	}
+	
+	@Override
+	public CategorySeries findOneBySeriesId(String id) {
+		Query query = new Query(where("seriesList.id").is(id));
+		query.limit(1);
+
+		return db.findOne(query, CategorySeries.class);
+	}
 
 	@Override
 	public List<CategorySeries> findAllByCategoryId(String id) {

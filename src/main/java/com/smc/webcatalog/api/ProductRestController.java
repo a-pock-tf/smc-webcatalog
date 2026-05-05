@@ -40,7 +40,6 @@ import com.smc.webcatalog.config.AppConfig;
 import com.smc.webcatalog.config.ErrorCode;
 import com.smc.webcatalog.dao.SeriesFaqRepository;
 import com.smc.webcatalog.model.Category;
-import com.smc.webcatalog.model.CategorySeries;
 import com.smc.webcatalog.model.CategoryType;
 import com.smc.webcatalog.model.ErrorObject;
 import com.smc.webcatalog.model.Lang;
@@ -122,7 +121,7 @@ public class ProductRestController {
 	public String getSearch3SandPsItem(@PathVariable(name = "lang", required = true) String lang,
 			@RequestParam(name = "kw", required = false) String kw,
 			@RequestParam(name = "cd", required = false) String cd,
-			@RequestParam(name = "page", required = false) String page,
+			@RequestParam(name = "page", required = false) String strPage,
 			@RequestParam(name = "category", required = false, defaultValue = "") String category,
 			@RequestParam(name = "series", required = false, defaultValue = "") String series,
 			HttpServletRequest request) {
@@ -185,6 +184,13 @@ public class ProductRestController {
 		// 3Sに一致しなければNormalizer対応を戻す。
 //		kw = kwOriginal; // 2023/10/16 元に戻さない
 
+		int page = 0;
+		try {
+			if (strPage != null && strPage.isEmpty() == false) page = Integer.parseInt(strPage);
+		}catch (NumberFormatException  e) {
+			log.error("ProductRestController.getSearch3SandPsItem() page in not Integer. page="+strPage);
+		}
+		
 		// デフォルト英語は前方一致、他国は部分一致に変更。2024/12/10
 		if (cd == null || cd.isEmpty()) {
 			if (baseLang.equals("en-jp")) cd = "1"; // カラの場合、英語なら前方一致
@@ -193,19 +199,31 @@ public class ProductRestController {
 			if (baseLang.equals("en-jp")) cd = "1"; // 1,2以外の場合、英語なら前方一致
 			else cd = "2"; // 他国なら部分一致
 		}
-		LibSynonyms synonyms = new LibSynonyms();
-		String[] arr = kw.split("[ 　]");
-		// 末尾が - の場合は削除 2024/5/15
-		if (arr != null) {
-			for(int i = 0; i < arr.length; i++) {
-				if (arr[i].lastIndexOf("-") == arr[i].length()-1) {
-					arr[i] = arr[i].substring(0, arr[i].length()-1); 
+		
+		// 英数字１文字なら除外
+		List<String> synonymsList = null;
+		if (kw != null && kw.getBytes().length > 1) {
+			LibSynonyms synonyms = new LibSynonyms();
+			String[] arr = kw.split("[ 　]");
+			// 末尾が - の場合は削除 2024/5/15
+			if (arr != null) {
+				for(int i = 0; i < arr.length; i++) {
+					if (arr[i].lastIndexOf("-") == arr[i].length()-1) {
+						arr[i] = arr[i].substring(0, arr[i].length()-1); 
+					}
 				}
 			}
+			synonymsList = synonyms.getSynonyms(arr, lang);
+			if (synonymsList == null) synonymsList = Arrays.asList(arr);
+		} else {
+			synonymsList =  Arrays.asList(kw);
 		}
-		List<String> synonymsList = synonyms.getSynonyms(arr, lang);
-		if (synonymsList == null) synonymsList = Arrays.asList(arr);
-		List<PsItem> items = psItemService.searchKeyword(synonymsList, cd, category, series, baseLang);
+		// 100件以上ならページ送り。先に件数取得 2026/4/30
+		long resultCount = psItemService.searchKeywordCount(synonymsList, cd, category, series, baseLang);
+		int searchLimit = 100;
+		int start = 0;
+		if (page > 1) start = (page - 1) * searchLimit;
+		List<PsItem> items = psItemService.searchKeyword(synonymsList, cd, category, series, baseLang, start, searchLimit);
 		List<PsItem> list = items;
 
 		String url = request.getRequestURL().toString();
@@ -342,8 +360,8 @@ public class ProductRestController {
 		}
 
 		StringBuilder content = new StringBuilder();
-		int listCount = 0;
-		if (list != null && list.size() > 0) listCount =list.size(); // 型式のCount
+		long listCount = 0;
+		if (resultCount > 0) listCount = resultCount;
 		List<String> catList = new ArrayList<String>(); // 絞り込み
 		List<String> serList = new ArrayList<String>();
 
@@ -464,8 +482,29 @@ public class ProductRestController {
 						.append("  </a>\r\n");
 				}
 				str.append( "</div>");
-				String search = getNarrowingHtml2026(kw, baseLang, category, catList, series, serList, true);
-				content.insert(0, search);
+//				String search = getNarrowingHtml2026(kw, baseLang, category, catList, series, serList, true);
+				if (resultCount > 100) {
+					// ページ送り
+					StringBuilder turnPage = new StringBuilder();
+					{
+						double db =  Math.ceil((double)resultCount/100);
+						if (page <= 0) page = 1;
+						int s = page - 5;
+						int e = page + 5;
+						if (s <= 0) {e -= s; s=1;}
+						if (e > db) e = (int)db;
+						turnPage.append( "<div class=\"navi mb24\">\r\n");
+						if (s < page) turnPage.append("<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append((page-1)).append("'\">&lt;</button>\r\n");
+						for(; s <= e; s++) {
+							if (page != s) turnPage.append("<button class=\"button solid w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append(s).append("'\">").append(s).append("</button>\r\n");
+							else turnPage.append( "<button class=\"button solid w30 h35 mx4 primary\" type=\"button\" >").append( page).append("</button>\r\n");
+						}
+						if (e > page) turnPage.append( "<button class=\"button w30 h35 mx4 secondary \" type=\"button\" onclick=\"location.href='").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append((page+1)).append("'\">&gt;</button>");
+						turnPage.append( "</div>\r\n");
+					}
+					content.insert(0, turnPage);
+				}
+//				content.insert(0, search);
 				content.insert(0, str);
 			} else {
 				str.append( "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">")
@@ -504,9 +543,31 @@ public class ProductRestController {
 				if (html.isDisconHit(baseLang, kw)) {
 					str.append("<br><br><p class=\"search_result_discon\"><a href=\"").append(AppConfig.PageProdDisconUrl).append(lang).append("/?kw=").append( kw ).append("\">").append( strDiscon ).append("</a></p><br>");
 				}
-	
-				String search = getNarrowingHtml(kw, baseLang, category, catList, series, serList, true);
-				content.insert(0, search);
+// 2026/05/01 カテゴリ、シリーズでの絞込みは削除
+//				String search = getNarrowingHtml(kw, baseLang, category, catList, series, serList, true);
+				if (resultCount > 100) {
+					// ページ送り
+					StringBuilder turnPage = new StringBuilder();
+					{
+						double db =  Math.ceil((double)resultCount/100);
+						if (page <= 0) page = 1;
+						int s = page - 5;
+						int e = page + 5;
+						if (s <= 0) {e -= s; s=1;}
+						if (e > db) e = (int)db;
+					
+						turnPage.append( "<div class=\"navi\">\r\n");
+						if (s < page) turnPage.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append((page-1)).append("\" class=\"back\">&lt;</a>\r\n");
+						for(; s <= e; s++) {
+							if (page != s) turnPage.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append(s).append("\" class=\"pn\">").append(s).append("</a>\r\n");
+							else turnPage.append( "<span class=\"pn current\">" ).append( page).append("</span>\r\n");
+						}
+						if (e > page) turnPage.append( "<a href=\"").append(AppConfig.ProdRelativeUrl).append(lang).append("/search3S/?kw=").append(kw).append("&cd=").append((cd)).append("&page=").append((page+1)).append("\" class=\"fw\">&gt;</a>\r\n");
+						turnPage.append( "</div>\r\n");
+					}
+					content.insert(0, turnPage);
+				}
+//				content.insert(0, search);
 				content.insert(0, str);
 			} else {
 				String str = "検索条件にヒットする製品が見つかりませんでした。";
@@ -635,8 +696,10 @@ public class ProductRestController {
 			// listの先頭のカテゴリテンプレートを取得
 			TemplateCategory tc = getTemplateCategoryFromSeries(list, langObj, m, err);
 			if (tc == null) {
-				log.info("ProductRestController.getSearchGuide() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
 				tc = templateCategoryService.getCategory(c, err);
+				if (tc == null) {
+					log.info("ProductRestController.getSearchGuide() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
+				}
 			}
 			int i = 0;
 			for( i = 0; i < list.size(); i++) {
@@ -872,15 +935,16 @@ public class ProductRestController {
 			if (is2026 == false) content.append("<br>\r\n<p>" + messagesource.getMessage("msg.search.empty", null,  baseLocale) + "</p>\r\n");
 		}
 		if (is2026) {
-			String str = "<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n"
-					+ "                            <div class=\"f fm gap-16\">\r\n"
-					+ "                              <div class=\"text-2xl fw6 leading-tight\">"+title+"</div>\r\n"
-					+ "                              <div class=\"badge large filled\">"+strResult.replace("{0}", String.valueOf(listCount))+"</div>\r\n"
-					+ "                            </div>\r\n"
-					+ "              </div>";
+			StringBuilder str = new StringBuilder();
+			str.append("<div class=\"mt48 mb24 s-mt36 s-mb8 s-mt36 m-mb8\">\r\n")
+				.append( "                            <div class=\"f fm gap-16\">\r\n")
+				.append( "                              <div class=\"text-2xl fw6 leading-tight\">"+title+"</div>\r\n")
+				.append( "                              <div class=\"badge large filled\">"+strResult.replace("{0}", String.valueOf(listCount))+"</div>\r\n")
+				.append( "                            </div>\r\n")
+				.append( "</div>");
 			// 絞り込み
 			if (list != null && list.size() > 0) {
-				str += "<div class=\"mb24\">\r\n";
+				str.append( "<div class=\"mb24\">\r\n");
 				
 				if (html.isDisconHit(baseLang, h)) {
 					String strDiscon = "";
@@ -891,24 +955,24 @@ public class ProductRestController {
 					} else {
 						strDiscon = "生産終了製品のご案内にもヒットしています。詳細はこちらをクリックしてください。";
 					}
-					str += "  <a class=\"text-sm leading-tight text-primary\" href=\""+AppConfig.PageProdDisconHeadUrl + lang + "/" + h +"\"><span class=\"fw5 hover-link-underline\">"+strDiscon+"</span><img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\"></a>\r\n";
+					str.append( "  <a class=\"text-sm leading-tight text-primary\" href=\"").append(AppConfig.PageProdDisconHeadUrl ).append( lang ).append( "/" ).append( h ).append("\"><span class=\"fw5 hover-link-underline\">").append(strDiscon).append("</span><img class=\"inline-block vertical-align-text-bottom s16 ml4 object-fit-contain\" src=\"/assets/smcimage/common/blank-primary.svg\" alt=\"\" title=\"\"></a>\r\n");
 				}
-				str += "</div>";
+				str.append( "</div>");
 				String search = getNarrowingHtml2026(h, baseLang, category, catList, series, serList, true);
 				content.insert(0,  search);
 				content.insert(0,  str);
 			} else {
-				str += "<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">"
-						+ "<span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">";
+				str.append("<div class=\"f fh border boder-base-stroke-subtle mb24 h160 w-full bg-base-container-accent\">")
+					.append( "<span class=\"fw5 s-px16 s-text-center m-px16 m-text-center\">");
 				if (lang.indexOf("en-") > -1) {
-					str += "Products meeting the search conditions could not be found.";
+					str.append( "Products meeting the search conditions could not be found.");
 				} else if (lang.indexOf("zh-") > -1) {
-					str += "找不到要命中搜索条件的产品。";
+					str.append( "找不到要命中搜索条件的产品。");
 				} else {
-					str += "検索条件にヒットする製品が見つかりませんでした。";
+					str.append( "検索条件にヒットする製品が見つかりませんでした。");
 				}
-				str += "</span>"
-					+ "</div>";
+				str.append( "</span>")
+						.append( "</div>");
 				content.insert(0,  str);
 				content.append(tc.getProductsSupport());
 			}
@@ -980,7 +1044,7 @@ public class ProductRestController {
 		StringBuilder search = new StringBuilder("<div class=\"w-full p16 bg-base-container-accent border border-base-stroke-default mb24\">\r\n")
 				.append("        <div class=\"f fbw mb16\">\r\n")
 				.append("          <div class=\"f fm flex-fixed gap-4\"><img class=\"s20 object-fit-contain\" src=\"/assets/smcimage/common/arrow-bottom.svg\" alt=\"\" title=\"\">\r\n")
-				.append("            <div class=\"leading-none fw5\">"+ messagesource.getMessage("msg.head.search.title", null,  LibHtml.getLocale(lang)) +"</div>\r\n")
+				.append("            <div class=\"leading-none fw5\">"+ messagesource.getMessage("msg.head.search.title", null,  LibHtml.getLocale(lang)).replace("▼", "") +"</div>\r\n")
 				.append("          </div>\r\n");
 		String disabled = "disabled";
 		if (isClearEnabled) disabled = "";
@@ -1147,8 +1211,10 @@ public class ProductRestController {
 			// listの先頭のカテゴリテンプレートを取得
 			TemplateCategory tc = getTemplateCategoryFromSeries(list, langObj, m, err);
 			if (tc == null) {
-				log.info("ProductRestController.getSeries() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
 				tc = templateCategoryService.getLangAndStateFromBean(baseLang, m);
+				if (tc == null) {
+					log.info("ProductRestController.getSeries() tc == null. list[0].seriesId="+list.get(0).getId() + " list[0].modelNumber="+list.get(0).getModelNumber());
+				}
 			}
 			if (tc.is2026()) {
 				SeriesHtml sHtml = new SeriesHtml(LibHtml.getLocale(baseLang), messagesource, omlistService, faqRepo);
@@ -2262,21 +2328,17 @@ public class ProductRestController {
 		TemplateCategory tc = null;
 		try {
 			for(Series se : list) {
-				Series series = seriesService.getWithCategory(se.getId(), true, err); // TODO 全部取る必要はない
-				if (series != null) {
-					List<CategorySeries> cList = series.getCategorySeries();
-					for(CategorySeries cs : cList) {
-						tc = templateCategoryService.findByCategoryIdFromBean(series.getLang(), series.getState(), cs.getCategoryId());
-						if (tc == null) {
-							List<Category> cateList = service.listAll(langObj.getLang(), m, CategoryType.CATALOG, err);
-							for(Category c : cateList) {
-								if (c.getId().equals(cs.getCategoryId()) && c.getParentId() != null) {
-									tc = templateCategoryService.findByCategoryIdFromBean(langObj.getLang(), m, c.getParentId());
-									if (tc != null) break;
-								}
+				String cid = seriesService.getCategoryId(se.getId(), err); // 全部取る必要はないので、getWithCategoryは使わない
+				if (cid != null) {
+					tc = templateCategoryService.findByCategoryIdFromBean(se.getLang(), se.getState(), cid);
+					if (tc == null) {
+						Category cate = service.get(cid, err);
+						if (cate != null) {
+							if (cate.getParentId() != null) {
+								tc = templateCategoryService.findByCategoryIdFromBean(langObj.getLang(), m, cate.getParentId());
+								if (tc != null) break;
 							}
 						}
-						if (tc != null) break;
 					}
 					if (tc != null) break;
 				}

@@ -188,7 +188,7 @@ public class PsItemController extends BaseController {
 	        is.close();
 	        out.close();
 	    }catch(Exception ex){
-	    	log.error(ex.getMessage());
+	    	log.error("createFile()"+ex.getMessage());
 	    }
 
 	    return s;

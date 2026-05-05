@@ -188,7 +188,7 @@ public class Cad3dController extends BaseController {
 	        is.close();
 	        out.close();
 	    }catch(Exception ex){
-	    	log.error(ex.getMessage());
+	    	log.error("Cad3dController.createFile()="+ex.getMessage());
 	    }
 
 	    return s;

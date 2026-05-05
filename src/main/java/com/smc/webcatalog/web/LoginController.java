@@ -156,7 +156,7 @@ public class LoginController  extends BaseController  {
  			// Set view
  			mav.setViewName("redirect:/login/admin/category"); // forwardだとpostのまま
  			String err = "url=" + req.getRequestURI() + " IP=" + req.getRemoteAddr() + " Error=" + result.getFieldErrors();
- 			log.error(err);
+ 			log.error("LoginController.post()="+err);
  		} else {
 
  			// Set view

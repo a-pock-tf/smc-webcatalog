@@ -63,7 +63,7 @@ public class AccessTokenResult {
 			}
 
 		} catch (Exception ex) {
-			log.error(ex.getMessage());
+			log.error("isExpired"+ex.getMessage());
 			return true;
 		}
 		return expired;

@@ -1613,6 +1613,12 @@ public class SeriesHtml {
 		return ret;
 	}
 
+	private static final String _advBtn = "<div class=\"f fc mt16\">\r\n"
+			+ "      <a class=\"button large primary solid w264 gap-8 s-w-full m-w-full\" href=\"###\">\r\n"
+			+ "        <span>$$$advText$$$</span>\r\n"
+			+ "        <img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/arrow-right-white.svg\" alt=\"\" title=\"\">\r\n"
+			+ "      </a>\r\n"
+			+ "    </div>";
 	/**
 	 *
 	 * @param series
@@ -1648,20 +1654,17 @@ public class SeriesHtml {
 			else if (lang.equals("zh-tw")) advText = "產品特點";
 			else if (lang.indexOf("zh-") > -1) advText = "产品特点";
 
-			String advBtn = "<div class=\"f fc mt16\">\r\n"
-					+ "      <a class=\"button large primary solid w264 gap-8 s-w-full m-w-full\" href=\"###\">\r\n"
-					+ "        <span>"+advText+"</span>\r\n"
-					+ "        <img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/arrow-right-white.svg\" alt=\"\" title=\"\">\r\n"
-					+ "      </a>\r\n"
-					+ "    </div>";
+			String advBtn = _advBtn;
 			if (isAdvantage == false) {
 				String advLink = "";
 				if (c2 != null) {
 					advLink = AppConfig.ProdRelativeUrl+ series.getLang()+"/"+ c.getSlug() + "/" + c2.getSlug() + "/"+ series.getModelNumber();
 					advBtn = advBtn.replace("###",  advLink + "/#detail\"");
+					advBtn = advBtn.replace("$$$advText$$$",  advText);
 				} else if (c != null) {
 					advLink = AppConfig.ProdRelativeUrl+ series.getLang()+"/"+ c.getSlug() + "/series/" + series.getModelNumber();
 					advBtn = advBtn.replace("###", advLink + "/#detail\"");
+					advBtn = advBtn.replace("$$$advText$$$",  advText);
 				} else {
 					// 両方Nullは検索結果等。catpanから取得
 					
@@ -1902,24 +1905,26 @@ public class SeriesHtml {
 			// ===== tabs =====
 			int tabCount = 1;
 			// === Spec ===
-			String spec = "";
+			StringBuilder spec = new StringBuilder();
 			List<String> specList = new LinkedList<String>(); // manifold調査用
-			if (series.getSpec().isEmpty() == false) {
+			if (series.getSpec().isEmpty() == false && series.getSpec().equals("[]") == false) {
 				tabTypes.add("spec");
 				String title = "仕様";
 				if  (lang.indexOf("en-") > -1) title = "Spec";
 				else if  (lang.indexOf("zh-") > -1) title = "規格";
 				tabTitles.add(title);
 				
-				tabHeadList.add( "<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"spec\">\r\n"
-						+ "    <div class=\"text-sm leading-tight fw5 white-space-nowrap text-primary\">"+title+"</div>\r\n"
-						+ "    <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: block;\"></div>\r\n"
-						+ "</button>"); // Specがデフォルト display: block;
-				spec += "<div class=\"js-tab-panel\" data-id=\"spec\" style=\"display: block;\">\r\n"
-						+ "  <div class=\"min-w-900\">\r\n"
-						+ "    <table class=\"table\">\r\n"
-						+ "      <thead>\r\n"
-						+ "        <tr>\r\n";
+				StringBuilder sb = new StringBuilder();
+				sb.append("<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"spec\">\r\n")
+					.append( "    <div class=\"text-sm leading-tight fw5 white-space-nowrap text-primary\">").append(title).append("</div>\r\n")
+					.append( "    <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: block;\"></div>\r\n")
+					.append( "</button>");
+				tabHeadList.add(sb.toString() ); // Specがデフォルト display: block;
+				spec.append("<div class=\"js-tab-panel\" data-id=\"spec\" style=\"display: block;\">\r\n")
+					.append( "  <div class=\"min-w-900\">\r\n")
+					.append( "    <table class=\"table\">\r\n")
+					.append( "      <thead>\r\n")
+					.append( "        <tr>\r\n");
 
 				int cnt = 0;
 				int seriesIndex = 0;
@@ -1943,10 +1948,11 @@ public class SeriesHtml {
 								break;
 							}
 							if (colCnt == cadIndex) break;
-							spec += celS+str+ celE;
+							spec.append( celS).append(str).append(celE);
 							if (str.equals("シリーズ") || str.equals("Model") || str.equals("系列")) {
 								seriesIndex = colCnt;
-								spec = spec.replace("<th>", "<th nowrap>");
+								String temp = spec.toString().replace("<th>", "<th nowrap>"); 
+								spec = new StringBuilder(temp);
 							}
 							if (cnt != 0 && colCnt == seriesIndex) specList.add(str.toString()); // cnt==0は「シリーズ」の文字
 							colCnt++;
@@ -1954,12 +1960,12 @@ public class SeriesHtml {
 						cnt++;
 						if (cnt < result.length()) {
 							if (cnt == 1) {
-								spec+="    </tr>\r\n"
-										+ "</thead>"
-										+ "</tbody>"
-										+ "<tr>\r\n" ;
+								spec.append( "    </tr>\r\n")
+									.append( "</thead>")
+									.append( "<tbody>")
+									.append( "    <tr>\r\n" );
 							} else {
-								spec+="        </tr>\r\n<tr>" ;
+								spec.append( "    </tr>\r\n<tr>" );
 							}
 						}
 					}
@@ -1967,13 +1973,13 @@ public class SeriesHtml {
 					log.error("exception!! series="+series.getModelNumber() + " e.message="+e.getMessage());
 				}
 
-				spec+="        </tr>\r\n" ;
-				spec+="    </tbody>\r\n" ;
-				spec+="</table>\r\n";
-				spec+="</div>\r\n";
-				spec+="</div>\r\n";
+				spec.append("        </tr>\r\n" );
+				spec.append("    </tbody>\r\n" );
+				spec.append("</table>\r\n");
+				spec.append("</div>\r\n");
+				spec.append("</div>\r\n");
 				
-				tabBodyList.add(spec);
+				tabBodyList.add(spec.toString());
 				tabCount++;
 			}
 
@@ -1982,10 +1988,14 @@ public class SeriesHtml {
 			if (links != null && links.size() > 0 || series.isCad3d()) {
 				tabTypes.add("cad");
 				tabTitles.add("CAD");
-				tabHeadList.add( "<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"cad\">\r\n"
-						+ "                                                <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">CAD</div>\r\n"
-						+ "                                                <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n"
-						+ "                                              </button>");
+				
+				StringBuilder sb = new StringBuilder();
+				sb.append("<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"cad\">\r\n")
+				.append( "    <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">CAD</div>\r\n")
+				.append( "    <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n")
+				.append( "</button>");
+				tabHeadList.add(sb.toString());
+				
 				String tab = "<div class=\"js-tab-panel\" data-id=\"cad\" style=\"display: none;\">\r\n"
 						+ "      <div class=\"min-w-525\">\r\n"
 						+ "        <section class=\"bg-base-container-accent p32 border border-base-stroke-subtle s-px16 s-py24 m-px16 m-py24\">\r\n"
@@ -2042,23 +2052,6 @@ public class SeriesHtml {
 					}
 
 				}
-				// TODO dialog 3/29
-				// 2DCADはJSONで保持
-				// ページは/webcatalog/2dcad/ja-jp/{se_id}で描画。ProductsRestController
-/*				if (links != null && links.size() > 0) {
-					if (lang.equals("ja-jp")) {
-						tab += _seriesCad2d.replace("$$$cad2dLink$$$",AppConfig.Page2DCADUrl+series.getModelNumber());
-					} else if (lang.indexOf("en-") > -1) {
-						tab += _seriesCad2d_E.replace("$$$cad2dLink$$$",AppConfig.Page2DCADUrl.replace("/ja-jp/", "/"+lang+"/")+series.getModelNumber());
-					} else if (lang.equals("zh-tw")) {
-						String sid = series.getModelNumber();
-						if (sid != null && sid.isEmpty() == false) sid = sid.replace("-ZHTW", "-E");
-						tab += _seriesCad2d_ZHTW.replace("$$$cad2dLink$$$",AppConfig.Page2DCADUrl.replace("/ja-jp/", "/"+lang+"/")+sid);
-					} else if (lang.indexOf("zh-") > -1) {
-						tab += _seriesCad2d_ZH.replace("$$$cad2dLink$$$",AppConfig.Page2DCADUrlZH.replace("/zh-cn/", "/"+lang+"/")+series.getModelNumber());
-					}
-				}
-				tab = getTabString(series.getModelNumber(), tabCount, tab);*/
 				
 				tab += "</selection>\r\n";
 				tab += "</div>\r\n";
@@ -2082,37 +2075,39 @@ public class SeriesHtml {
 				else if (lang.indexOf("zh-tw") > -1) searchresult = "查看搜尋結果";
 				else if (lang.indexOf("zh-") > -1) searchresult = "查看搜索结果";
 				
-				tabHeadList.add( "<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"manual\">\r\n"
-						+ "                                                <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">"+manual+"</div>\r\n"
-						+ "                                                <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n"
-						+ "                                              </button>");
+				StringBuilder sb = new StringBuilder();
+				sb.append("<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"manual\">\r\n")
+				.append(  "    <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">").append(manual).append("</div>\r\n")
+				.append(  "    <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n")
+				.append(  "</button>");
+				tabHeadList.add(sb.toString() );
 
-				String tab = "<div class=\"js-tab-panel\" data-id=\"manual\" style=\"display: none;\">\r\n"
-						+ "      <div class=\"min-w-525\">\r\n"
-						+ "        <section class=\"bg-base-container-accent p32 border border-base-stroke-subtle s-px16 s-py24 m-px16 m-py24\">\r\n"
-						+ "          <h2 class=\"text-base-foreground-default text-medium leading-normal fw5\">"+manual+"</h2>\r\n"
-						+ "          <div class=\"info-separator h1 w-full bg-base-stroke-default\"></div>\r\n"
-						+ "          <div class=\"w-full overflow-x-auto\">\r\n"
-						+ "             <table class=\"table-hover s-full border-bottom border-right border-base-stroke-default border-collapse-collapse\">\r\n"
-						+ "               <thead>\r\n";
-
+				StringBuilder manualTab = new StringBuilder();
+				manualTab.append("<div class=\"js-tab-panel\" data-id=\"manual\" style=\"display: none;\">\r\n")
+						.append( "      <div class=\"min-w-525\">\r\n")
+						.append( "        <section class=\"bg-base-container-accent p32 border border-base-stroke-subtle s-px16 s-py24 m-px16 m-py24\">\r\n")
+						.append( "          <h2 class=\"text-base-foreground-default text-medium leading-normal fw5\">").append(manual).append("</h2>\r\n")
+						.append( "          <div class=\"info-separator h1 w-full bg-base-stroke-default\"></div>\r\n")
+						.append( "          <div class=\"w-full overflow-x-auto\">\r\n")
+						.append( "             <table class=\"table-hover s-full border-bottom border-right border-base-stroke-default border-collapse-collapse\">\r\n")
+						.append( "               <thead>\r\n");
 				// 取説はJSONで保持
-				tab += "<tr>\r\n" ;
+				manualTab.append( "<tr>\r\n" );
 				String[] titles = links.get(0);
 				int cnt = 0;
 				for (String title : titles) {
-					tab +=  "<th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">"+title+"</th>\r\n" ;
+					manualTab.append("<th class=\"py10 px12 bg-base-container-muted border-top border-left border-base-stroke-default text-sm leading-tight fw5\" scope=\"col\">").append(title).append("</th>\r\n" );
 				}
-				tab += "</tr>\r\n";
-				tab += "</thead>\r\n";
-				tab += "<tbody>\r\n";
+				manualTab.append( "</tr>\r\n");
+				manualTab.append("</thead>\r\n");
+				manualTab.append("<tbody>\r\n");
 				for (int i = 1; i < links.size(); i++) {
-					tab += "<tr>\r\n";
+					manualTab.append("<tr>\r\n");
 					String[] arr = links.get(i);
 					cnt = 0;
 					for (String val : arr) {
 						if (cnt == arr.length-1) {
-							tab += "<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">";
+							manualTab.append( "<td class=\"bg-base-container-default border-top border-left border-base-stroke-default word-break-word py10 px12\">");
 							if (val != null && val.isEmpty() == false) {
 								if (val.indexOf("/manual/") > -1) { // 2023/6/22manuals本番アップで要置き換え
 									val = val.replace("/manual/", "/manuals/");
@@ -2127,28 +2122,28 @@ public class SeriesHtml {
 									val = val.replace("/s.do?k=", "/search?query=");
 									val = val.replace("/?k=", "/search?query=");
 								}
-								tab += "<div class=\"f fc\">"
-										+ "<a class=\"f fm gap-4\" target=\"_blank\" href=\""+val+"\">"
-												+ "<span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">"+searchresult+"</span>"
-												+ "<img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\""+searchresult+"\">"
-										+ "</a>"
-										+ "</div>";
+								manualTab.append( "<div class=\"f fc\">")
+										.append( "  <a class=\"f fm gap-4\" target=\"_blank\" href=\"").append(val).append("\">")
+										.append( "    <span class=\"text-primary text-sm leading-tight fw5 hover-link-underline\">").append(searchresult).append("</span>")
+										.append( "    <img class=\"s16 object-fit-contain\" src=\"/assets/smcimage/common/external-link.svg\" alt=\"\" title=\"").append(searchresult).append("\">")
+										.append( "  </a>")
+										.append( "</div>");
 							}
-							tab +="</td>";
+							manualTab.append("</td>");
 						} else {
-							tab += "<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">" + val + "</td>";
+							manualTab.append( "<td class=\"py10 px12 bg-base-container-default border-top border-left border-base-stroke-default text-xs leading-normal fw5\">").append( val ).append("</td>");
 						}
 						cnt++;
 					}
 				}
-				tab += "</tr>\r\n";
+				manualTab.append( "</tr>\r\n");
 
-				tab += "</tbody></table>\r\n";
-				tab += "</div>\r\n";
-				tab += "</selection>\r\n";
-				tab += "</div>\r\n";
-				tab += "</div>\r\n";
-				tabBodyList.add(tab);
+				manualTab.append( "</tbody></table>\r\n");
+				manualTab.append( "</div>\r\n");
+				manualTab.append( "</selection>\r\n");
+				manualTab.append( "</div>\r\n");
+				manualTab.append( "</div>\r\n");
+				tabBodyList.add(manualTab.toString());
 				tabCount++;
 			}
 
@@ -2162,10 +2157,12 @@ public class SeriesHtml {
 				else if (lang.indexOf("zh-") > -1) doc = "自我宣告书";
 				tabTitles.add(doc);
 				
-				tabHeadList.add( "<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"doc\">\r\n"
-						+ "                                                <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">"+doc+"</div>\r\n"
-						+ "                                                <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n"
-						+ "                                              </button>");
+				StringBuilder sb = new StringBuilder();
+				sb.append( "<button class=\"relative f fh flex-fixed p12 js-tab-btn hover-accent-inverse-90 min-w-136 s-w-auto s-min-w-100 m-w-auto m-min-w-100\" type=\"button\" data-target=\"doc\">\r\n")
+					.append( "   <div class=\"text-sm leading-tight fw5 white-space-nowrap text-base-foreground-muted\">").append(doc).append("</div>\r\n")
+					.append( "   <div class=\"absolute b0 l0 h2 w-full bg-primary js-tab-line\" style=\"display: none;\"></div>\r\n")
+					.append( "</button>");
+				tabHeadList.add(sb.toString());
 				String searchresult = "検索結果を表示";
 				if (lang.indexOf("en-") > -1) searchresult = "View search result";
 				else if (lang.indexOf("zh-tw") > -1) searchresult = "查看搜尋結果";
@@ -2360,22 +2357,15 @@ public class SeriesHtml {
 			}
 			if (tabCount > 1) {
 				String title = "";
-/*				String mn = series.getModelNumber();
-				if (mn != null && mn.indexOf("/") > -1) mn = mn.replace("/", "_");
-				if (mn != null && mn.indexOf("(") > -1) mn = mn.replace("(", "_").replace(")", "_");
-				for(int i = 1; i < tabCount; i++) {
-					String tabTitle = tabTitles.get(i-1);
-					if (tabTitle.equals("2DCAD")) tabTitle = "CAD";
-					if (i == 1) title += "    <li id=\"tab"+i+"\" class=\"w_tab active\"><a href=\"#cont"+mn+"_"+String.format("%02d", i)+"\" class=\"tab\">"+tabTitle+"</a></li>\r\n";
-					else title += "    <li id=\"tab"+i+"\" class=\"w_tab\"><a href=\"#cont"+mn+"_"+String.format("%02d", i)+"\" class=\"tab\">"+tabTitle+"</a></li>\r\n";
-				}
-*/
 				if (tabHeadList.size() > 0) {
 					for(String head : tabHeadList) {
 						title += head;
 					}
+					ret = StringUtils.replace(ret, "$$$tabs_title$$$", title);
+				} else {
+					ret = StringUtils.replace(ret, "$$$tabs_title$$$", title);
+					ret = StringUtils.replace(ret, "border-bottom", "");
 				}
-				ret = StringUtils.replace(ret, "$$$tabs_title$$$", title);
 
 				String body = "";
 				for(String str : tabBodyList) {
@@ -2384,6 +2374,7 @@ public class SeriesHtml {
 				ret = StringUtils.replace(ret, "$$$tabs$$$", body);
 			} else {
 				ret = StringUtils.replace(ret, "$$$tabs_title$$$","");
+				ret = StringUtils.replace(ret, "border-bottom", "");
 				ret = StringUtils.replace(ret, "$$$tabs$$$","");
 			}
 			if (button != null && button.isEmpty() == false) {
@@ -2401,6 +2392,7 @@ public class SeriesHtml {
 		} else {
 			ret = StringUtils.replace(ret, "$$$tabs$$$","");
 			ret = StringUtils.replace(ret, "$$$tabs_title$$$","");
+			ret = StringUtils.replace(ret, "border-bottom", "");
 			ret = StringUtils.replace(ret, "$$$button$$$", "");
 			ret = ret.replace("$$$buttonTitle$$$", "");
 			ret = ret.replace("$$$isLoginButton$$$", "");
@@ -2408,19 +2400,20 @@ public class SeriesHtml {
 
 		ret = StringUtils.replace(ret, "$$$rohs$$$","");
 		
-		String strMylist = "<button class=\"isLoginFalse   relative group flex-fixed js-mylist-btn l-mr16 s-s32 m-s32 s24\" type=\"button\" onclick=\"location.href='/customer/ja/tologin.do?dst=$$$url$$$'\">"
-				+ "<img class=\"s-full object-fit-contain js-icon-plus\" src=\"/assets/smcimage/common/folderPlus.svg\" alt=\"マイリストに追加\" title=\"マイリストに追加\">"
-				+ "<span class=\"tooltip-text\" role=\"tooltip\">マイリストに追加</span>"
-				+ "</button>"
-				+ "<div class=\"isLoginTrue\" style=\"display: none;\">"
-				+ "<button class=\"myList bt_hide_mylistwin to_mylist_$$$sid$$$   relative group flex-fixed l-mr16 s-s32 m-s32 s24\" type=\"button\" onclick=\"add_mylist_sid('$$$sid$$$', 'ja');return false;\">"
-				+ "<img class=\"s-full object-fit-contain js-icon-plus\" src=\"/assets/smcimage/common/folderPlus.svg\" alt=\"マイリストに追加\" title=\"マイリストに追加\">"
-				+ "<span class=\"tooltip-text\" role=\"tooltip\">マイリストに追加</span>"
-				+ "</button>"
-				+ "<button class=\"end_mylist   relative group flex-fixed  l-mr16 s-s32 m-s32 s24 \" type=\"button\" id=\"end_mylist_$$$sid$$$\" onclick=\"return false;\"  style=\"display: none;\">"
-				+ "<img class=\"s-full object-fit-contain js-icon-check\" src=\"/assets/smcimage/common/folder-check.svg\" alt=\"マイリストに追加済\" title=\"マイリストに追加済\">"
-				+ "</button>"
-				+ "</div>";
+		StringBuilder strMylist = new StringBuilder();
+		strMylist.append("<button class=\"isLoginFalse   relative group flex-fixed js-mylist-btn l-mr16 s-s32 m-s32 s24\" type=\"button\" onclick=\"location.href='/customer/ja/tologin.do?dst=$$$url$$$'\">")
+				.append( "<img class=\"s-full object-fit-contain js-icon-plus\" src=\"/assets/smcimage/common/folderPlus.svg\" alt=\"マイリストに追加\" title=\"マイリストに追加\">")
+				.append( "<span class=\"tooltip-text\" role=\"tooltip\">マイリストに追加</span>")
+				.append( "</button>")
+				.append( "<div class=\"isLoginTrue\" style=\"display: none;\">")
+				.append( "<button class=\"myList bt_hide_mylistwin to_mylist_$$$sid$$$   relative group flex-fixed l-mr16 s-s32 m-s32 s24\" type=\"button\" onclick=\"add_mylist_sid('$$$sid$$$', 'ja');return false;\">")
+				.append( "<img class=\"s-full object-fit-contain js-icon-plus\" src=\"/assets/smcimage/common/folderPlus.svg\" alt=\"マイリストに追加\" title=\"マイリストに追加\">")
+				.append( "<span class=\"tooltip-text\" role=\"tooltip\">マイリストに追加</span>")
+				.append( "</button>")
+				.append( "<button class=\"end_mylist   relative group flex-fixed  l-mr16 s-s32 m-s32 s24 \" type=\"button\" id=\"end_mylist_$$$sid$$$\" onclick=\"return false;\"  style=\"display: none;\">")
+				.append( "<img class=\"s-full object-fit-contain js-icon-check\" src=\"/assets/smcimage/common/folder-check.svg\" alt=\"マイリストに追加済\" title=\"マイリストに追加済\">")
+				.append( "</button>")
+				.append( "</div>");
 
 		// /assets/js/global.jsのgetLoginData()でログイン描画させる。
 		// 中国語はマイリスト無し。ja-jp en-jpのみ (en-sg等も要らない。)
@@ -2428,11 +2421,11 @@ public class SeriesHtml {
 			ret = StringUtils.replace(ret, "$$$mylist$$$", "");
 		}
 		else if (lang.equals("ja-jp") ) {
-			String mylist = strMylist.replace("$$$sid$$$", series.getModelNumber());
+			String mylist = strMylist.toString().replace("$$$sid$$$", series.getModelNumber());
 			mylist = mylist.replace("$$$url$$$", url);
 			ret = StringUtils.replace(ret, "$$$mylist$$$", mylist);
 		} else if (lang.equals("en-jp")) {
-			String mylist = strMylist.replace("$$$sid$$$", series.getModelNumber());
+			String mylist = strMylist.toString().replace("$$$sid$$$", series.getModelNumber());
 			mylist = mylist.replace("$$$url$$$", url);
 			mylist = mylist.replace("マイリストに追加済", "Added to My List");
 			mylist = mylist.replace("マイリストに追加", "Add to My List");
@@ -2586,10 +2579,10 @@ public class SeriesHtml {
 				cnt++;
 			}
 		} catch(org.json.JSONException e) {
-			log.error(e.getMessage());
+			log.error("getGuideIDLinks() JSONException="+e.getMessage());
 			log.error("spec = "+spec);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("getGuideIDLinks()"+e.getMessage());
 		}
 		if (isExists == false) ret = null;
 		return ret;
@@ -3166,7 +3159,10 @@ public class SeriesHtml {
 			link += slugList.get(cnt) + "/";
 			if (cnt % 2 == 1) catpan += " &gt; ";
 			catpan += "  <a class=\"breadcrumb-item\" href=\""+link+"\">"+title+"</a>\r\n";
-			if (cnt % 2 == 1) catpan +="</li>\r\n";
+			if (cnt % 2 == 1) {
+				catpan +="</li>\r\n";
+				link = "/webcatalog/"+lang+"/";
+			}
 
 			cnt++;
 		}

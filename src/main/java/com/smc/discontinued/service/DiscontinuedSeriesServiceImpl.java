@@ -55,7 +55,7 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.listAll()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -70,7 +70,7 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.listAllSortByEndDate()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -84,7 +84,7 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.listCategory()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -98,7 +98,7 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.listLang()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -134,11 +134,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.save()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.save()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -154,11 +154,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.get()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.get()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -173,11 +173,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getSeriesId()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getSeriesId()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -198,11 +198,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getStateRefId()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getStateRefId()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -240,11 +240,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getLangRefId()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.getLangRefId()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -283,11 +283,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.search()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.search()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -312,11 +312,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.hitSearch()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.hitSearch()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -333,11 +333,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.indexSearch()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.indexSearch()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -354,11 +354,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			err.setCode(ErrorCode.E50001);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.hitIndexSearch()="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.hitIndexSearch()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -428,11 +428,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.sort()MongoException="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.sort()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -500,11 +500,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.changeStateToProd()MongoException="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.changeStateToProd()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -580,11 +580,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.changeStateToTest()MongoException="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.changeStateToTest()="+e.getMessage() + e.toString());
 		}
 		return ret;
 
@@ -622,11 +622,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.checkDelete()MongoException="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.checkDelete()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -668,11 +668,11 @@ public class DiscontinuedSeriesServiceImpl implements DiscontinuedSeriesService 
 		} catch (MongoException e) {
 			ret.setCode(ErrorCode.E50001);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.delete()MongoException="+e.getMessage() + e.toString());
 		} catch (Exception e) {
 			ret.setCode(ErrorCode.E99999);
 			ret.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedSeriesServiceImpl.delete()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}

@@ -11,6 +11,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -19,8 +20,6 @@ import com.smc.exception.ModelExistsException;
 import com.smc.webcatalog.config.ErrorCode;
 import com.smc.webcatalog.dao.NarrowDownColumnRepository;
 import com.smc.webcatalog.dao.NarrowDownColumnTemplateImpl;
-import com.smc.webcatalog.dao.NarrowDownCompareRepository;
-import com.smc.webcatalog.dao.NarrowDownCompareTemplateImpl;
 import com.smc.webcatalog.dao.NarrowDownValueRepository;
 import com.smc.webcatalog.dao.NarrowDownValueTemplateImpl;
 import com.smc.webcatalog.dao.SeriesRepository;
@@ -28,7 +27,6 @@ import com.smc.webcatalog.dao.SeriesTemplateImpl;
 import com.smc.webcatalog.model.ErrorObject;
 import com.smc.webcatalog.model.ModelState;
 import com.smc.webcatalog.model.NarrowDownColumn;
-import com.smc.webcatalog.model.NarrowDownCompare;
 import com.smc.webcatalog.model.NarrowDownValue;
 import com.smc.webcatalog.model.Series;
 
@@ -51,16 +49,14 @@ public class NarrowDownServiceImpl implements NarrowDownService {
 	NarrowDownValueTemplateImpl vTemp;
 
 	@Autowired
-	NarrowDownCompareRepository cRepo;
-	
-	@Autowired
-	NarrowDownCompareTemplateImpl templateCompare;
-
-	@Autowired
 	SeriesRepository seriesRepo;
 
 	@Autowired
 	SeriesTemplateImpl seriesTemp;
+	
+	@Autowired
+	@Qualifier("narrowDownColumns")
+	List<NarrowDownColumn> narrowDownColumns;
 	
 	@Override
 	public ErrorObject saveColumn(NarrowDownColumn col) {
@@ -74,6 +70,8 @@ public class NarrowDownServiceImpl implements NarrowDownService {
 
 			col = repo.save(col);
 			ret.setCount(1);
+			
+			refreshNarrowDownColumns(); // Bean更新
 
 		} catch (ModelExistsException e) {
 			ret.setCode(ErrorCode.E10001);
@@ -375,115 +373,7 @@ public class NarrowDownServiceImpl implements NarrowDownService {
 		}
 		return ret;
 	}
-	// === Compare ===
-	// 2025/11/25 仕様比較はnarrow_down_valueを表示することになったので、以下不要
-	@Override
-	public List<NarrowDownCompare> getCategoryCompare(String categoryId, Boolean active, ErrorObject err) {
-		List<NarrowDownCompare> ret = new ArrayList<>();
-		try {
-			ret = templateCompare.findByCategoryId(categoryId, active);
-		} catch (ModelExistsException e) {
-			err.setCode(ErrorCode.E10001);
-			err.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			err.setCode(ErrorCode.E50001);
-			err.setMessage(e.getMessage());
-		} catch (Exception e) {
-			err.setCode(ErrorCode.E99999);
-			err.setMessage(e.getMessage());
-		}
-		return ret;
-	}
-
-	@Override
-	public ErrorObject saveCompare(NarrowDownCompare comp) {
-		ErrorObject ret = new ErrorObject();
-		try {
-			// 新規の場合
-			if (StringUtils.isEmpty(comp.getId())) {
-				comp.setId(null);
-			} 
-			comp.setMtime(new Date()); // Always update mtime
-
-			comp = cRepo.save(comp);
-			ret.setCount(1);
-
-		} catch (ModelExistsException e) {
-			ret.setCode(ErrorCode.E10001);
-			ret.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			ret.setCode(ErrorCode.E50001);
-			ret.setMessage(e.getMessage());
-		} catch (Exception e) {
-			ret.setCode(ErrorCode.E99999);
-			ret.setMessage(e.getMessage());
-		}
-		return ret;
-	}
-
-	@Override
-	public ErrorObject deleteCategoryCompare(String categoryId) {
-		ErrorObject ret = new ErrorObject();
-		try {
-			cRepo.deleteByCategoryId(categoryId);
-			ret.setCount(1);
-
-		} catch (ModelExistsException e) {
-			ret.setCode(ErrorCode.E10001);
-			ret.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			ret.setCode(ErrorCode.E50001);
-			ret.setMessage(e.getMessage());
-		} catch (Exception e) {
-			ret.setCode(ErrorCode.E99999);
-			ret.setMessage(e.getMessage());
-		}
-		return ret;
-	}
-
-	@Override
-	public ErrorObject deleteCompare(String compareId) {
-		ErrorObject ret = new ErrorObject();
-		try {
-			cRepo.deleteById(compareId);
-			ret.setCount(1);
-
-		} catch (ModelExistsException e) {
-			ret.setCode(ErrorCode.E10001);
-			ret.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			ret.setCode(ErrorCode.E50001);
-			ret.setMessage(e.getMessage());
-		} catch (Exception e) {
-			ret.setCode(ErrorCode.E99999);
-			ret.setMessage(e.getMessage());
-		}
-		return ret;
-	}
-
-	@Override
-	public ErrorObject deleteProdCompare(String childCompareId) {
-		ErrorObject ret = new ErrorObject();
-		try {
-			Optional<NarrowDownCompare> oC = cRepo.findByStateRefId(childCompareId);
-			if (oC.isPresent()) {
-				cRepo.deleteByStateRefId(childCompareId);
-			}
-			ret.setCount(1);
-
-		} catch (ModelExistsException e) {
-			ret.setCode(ErrorCode.E10001);
-			ret.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			ret.setCode(ErrorCode.E50001);
-			ret.setMessage(e.getMessage());
-		} catch (Exception e) {
-			ret.setCode(ErrorCode.E99999);
-			ret.setMessage(e.getMessage());
-		}
-		return ret;
-	}
-
+	
 	@Override
 	public ErrorObject changeStateColumnValue(String testId, String prodId) {
 		ErrorObject ret = new ErrorObject();
@@ -538,6 +428,7 @@ public class NarrowDownServiceImpl implements NarrowDownService {
 					}
 					
 				}
+				refreshNarrowDownColumns(); // Bean更新
 			}
 		} catch (ModelExistsException e) {
 			ret.setCode(ErrorCode.E10001);
@@ -552,39 +443,44 @@ public class NarrowDownServiceImpl implements NarrowDownService {
 		return ret;
 	}
 
+
+	// ===== 以下、List<NarrowDownColumn>の処理 =====
+
 	@Override
-	public ErrorObject changeStateCompare(String testId, String prodId) {
-		ErrorObject ret = new ErrorObject();
-		try {
-			List<NarrowDownCompare> list = cRepo.findAllByCategoryId(testId);
-			if (list != null) {
-				for(NarrowDownCompare col : list) {
-					NarrowDownCompare prod = null;
-					Optional<NarrowDownCompare> oC = cRepo.findByStateRefId(col.getId());
-					if (oC.isPresent()) {
-						prod = oC.get();
-						prod.setUpdateParam(col);
-						prod.setState(ModelState.PROD);
-					} else {
-						prod = new NarrowDownCompare();
-						prod.setId(null);
-						prod.setCategoryId(prodId);
-						prod.setUpdateParam(col);
-						prod.setState(ModelState.PROD);
-						prod.setStateRefId(col.getId());
-					}
-					cRepo.save(prod);
+	public void refreshNarrowDownColumns() {
+		narrowDownColumns = repo.findAll();
+		
+	}
+
+	@Override
+	public void addNarrowDownColumn(NarrowDownColumn col) {
+		if (narrowDownColumns != null) {
+			narrowDownColumns.add(col);
+		}
+	}
+
+	@Override
+	public void removeNarrowDownColumn(NarrowDownColumn col) {
+		if (narrowDownColumns != null) {
+			for (NarrowDownColumn c : narrowDownColumns) {
+				if (c.getId().equals(col.getId()) ) {
+					narrowDownColumns.remove(c);
+					break;
 				}
 			}
-		} catch (ModelExistsException e) {
-			ret.setCode(ErrorCode.E10001);
-			ret.setMessage(e.getMessage());
-		} catch (MongoException e) {
-			ret.setCode(ErrorCode.E50001);
-			ret.setMessage(e.getMessage());
-		} catch (Exception e) {
-			ret.setCode(ErrorCode.E99999);
-			ret.setMessage(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<NarrowDownColumn> findByCategoryIdFromBean(String lang, String id) {
+		List<NarrowDownColumn> ret = null;
+		if (narrowDownColumns != null) {
+			for (NarrowDownColumn t : narrowDownColumns) {
+				if (t.getLang().equals(lang) && t.getCategoryId().equals(id)) {
+					if (ret == null) ret = new LinkedList<>();
+					ret.add( t);
+				}
+			}
 		}
 		return ret;
 	}

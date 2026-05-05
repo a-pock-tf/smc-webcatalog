@@ -232,6 +232,24 @@ public class SeriesServiceImpl implements SeriesService {
 		}
 		return ret;
 	}
+	@Override
+	public String getCategoryId(String seriesId, ErrorObject err) {
+		String ret = null;
+		try {
+			CategorySeries cs = csTemp.findOneBySeriesId(seriesId);
+			ret = cs.getCategoryId();
+		} catch (ModelNotFoundException e) {
+			err.setCode(ErrorCode.E10001);
+			err.setMessage(e.getMessage());
+		} catch (MongoException e) {
+			err.setCode(ErrorCode.E50001);
+			err.setMessage(e.getMessage());
+		} catch (Exception e) {
+			err.setCode(ErrorCode.E99999);
+			err.setMessage(e.getMessage());
+		}
+		return ret;
+	}
 
 	@Override
 	public Series getWithLink(String id, @Nullable Boolean active, ErrorObject err) {
@@ -1234,8 +1252,7 @@ public class SeriesServiceImpl implements SeriesService {
 		    System.out.println(sw.toString());
 		}
 		if (ret.isError()) {
-			log.error(ret.getCode().toString());
-			log.error(ret.getMessage());
+			log.error("cad3DUpdate()"+ret.getCode().toString()+":"+ret.getMessage());
 
 		}
 

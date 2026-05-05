@@ -229,7 +229,7 @@ public class OmlistServiceImpl implements OmlistService {
 
 
 		}catch(Exception ex){
-			log.error(ex.getMessage());
+			log.error("OmlistService.importItem()"+ex.getMessage());
 		}finally{
 			log.info("============END "+c+" items imported.");
 		}

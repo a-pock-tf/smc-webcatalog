@@ -39,8 +39,18 @@ public class PsItemServiceImpl implements PsItemService {
 
 	@Override
 	public List<PsItem> searchKeyword(List<String> kw, String condition, String c1c2, String series, String lang) {
-		List<PsItem> list = temp.search(kw, condition, c1c2, series, lang, true);
+		List<PsItem> list = temp.search(kw, condition, c1c2, series, lang, true, 0, -1);
 		return  list;
+	}
+	@Override
+	public List<PsItem> searchKeyword(List<String> kw, String condition, String c1c2, String series, String lang, int start, int limit) {
+		List<PsItem> list = temp.search(kw, condition, c1c2, series, lang, true, start, limit);
+		return  list;
+	}
+	
+	@Override
+	public long searchKeywordCount(List<String> kw, String condition, String c1c2, String series, String lang) {
+		return temp.searchCount(kw, condition, c1c2, series, lang, true);
 	}
 
 	@Override
@@ -181,7 +191,7 @@ public class PsItemServiceImpl implements PsItemService {
 
 
 		}catch(Exception ex){
-			log.error(ex.getMessage());
+			log.error("importItem()"+ex.getMessage());
 		}finally{
 			log.info("============END "+c+" items imported.");
 		}
@@ -195,7 +205,7 @@ public class PsItemServiceImpl implements PsItemService {
 		try{
 			reader =  new CSVReader(new InputStreamReader(new FileInputStream(datafilepath),enc),',','"',start_line);
 		}catch(Exception ex){
-			log.error(ex.getMessage());
+			log.error("createCSVReader()"+ex.getMessage());
 		}
 		return reader;
 	}

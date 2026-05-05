@@ -623,7 +623,7 @@ public class ApiRestController {
 		        }
 
 		    }catch(Exception ex){
-		    	log.error(ex.toString());
+		    	log.error("getCadenasAes()"+ex.toString());
 	        	ret.setError("Error! login exception."+ex.toString());
 		    }finally{
 		    }

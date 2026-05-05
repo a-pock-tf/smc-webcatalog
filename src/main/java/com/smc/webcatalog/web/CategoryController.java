@@ -788,58 +788,6 @@ public class CategoryController extends BaseController {
 			if (form.getId() != null) { // 新規は除く
 				Category p = service.get(form.getParentId(), obj);
 				if (p.isRoot() == false) {
-					// narrow_down_compareは削除。2025/11
-					/*if (form.isCompare()) {
-						
-						Category c = service.getWithSeries(form.getId(), true, obj);
-						
-						if (c != null && c.isCompare() == false && form.isCompare()) { 
-
-							narrowDownService.deleteCategoryCompare(form.getId()); // 一旦全削除
-							
-							List<Series> sList = c.getSeriesList();
-							List<String> saveList = new LinkedList<>();
-							for(Series s : sList) {
-								String spec = s.getSpec();
-								try {
-									JSONArray res = new JSONArray(spec.replace("\r\n", "").replace("\t", ""));
-									JSONArray arr = (JSONArray)(res.get(0));
-									for(Object ob : arr) {
-										String str = (String)ob;
-										if (str != null && str.isEmpty() == false) {
-											if (str.trim().equals("シリーズ") || str.trim().equals("Series") || str.trim().equals("系列")) {
-												if (saveList.contains(str) == false) saveList.add(0, str); // シリーズは必ず先頭！
-											} else if (str.indexOf('[') == 0) {
-												// [ で始まる場合は無視。[2DCAD]など。
-											} else if (saveList.contains(str)) {
-												// すでに入っている場合は何もしない。
-											} else {
-												saveList.add(str);
-											}
-										}
-								    }
-								} catch (Exception e) {
-									log.error("category post() JSONObject parse error. source:"+spec);
-								}
-							}
-							if (saveList.size() > 0) {
-								int order = 0;
-								for(String str : saveList) {
-									NarrowDownCompare comp = new NarrowDownCompare();
-									comp.setActive(true);
-									comp.setTitle(str);
-									comp.setId(null);
-									comp.setCategoryId(form.getId());
-									comp.setOrder(order);
-									narrowDownService.saveCompare(comp);
-									order++;
-								}
-							}
-						}
-					} else {
-						// delete
-						narrowDownService.deleteCategoryCompare(form.getId());
-					}*/
 					if (form.isNarrowdown() == false) {
 						narrowDownService.deleteCategoryColumn(form.getId());
 						narrowDownService.deleteCategoryValue(form.getId());
@@ -869,6 +817,7 @@ public class CategoryController extends BaseController {
 			// 7) フォームを更新(再編集用)
 			modelMapper.map(category, form);
 
+			narrowDownService.refreshNarrowDownColumns(); // Bean更新
 
 		} else {
 

@@ -18,7 +18,10 @@ public interface PsItemTemplate {
 	// 検索
 	// +あいまい検索 DBに登録されている□をワイルドカードとする
 	// keyListはlist毎はAnd、list内はスペースでOR
-	List<PsItem> search(List<String> keyList, String condition, String c1c2, String series, String lang, @Nullable Boolean active);
+	List<PsItem> search(List<String> keyList, String condition, String c1c2, String series, String lang, @Nullable Boolean active, int start, int limit);
+
+	// 上記search()のcount
+	long searchCount(List<String> keyList, String condition, String c1c2, String series, String lang, @Nullable Boolean active);
 
 	// 検索
 	List<PsItem> searchIndex(String index, String c1c2, String series, String lang, @Nullable Boolean active);

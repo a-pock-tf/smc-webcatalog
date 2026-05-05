@@ -661,8 +661,8 @@ public class S3SRestController {
 			.append( "        </div>\r\n");
 		} else {
 			catpan.append("<div class=\"catpan\" style=\"width:1120px;margin:auto;\">\r\n")
-				.append("製品情報&nbsp;»&nbsp;\r\n")
-				.append("<a href=\"/webcatalog/"+lang+"/\">WEBカタログ</a>\r\n")
+				.append(productInfo).append("&nbsp;»&nbsp;\r\n")
+				.append("<a href=\"/webcatalog/").append(lang).append("/\">").append(strWebcatalog).append("</a>\r\n")
 				.append("</div>");
 		}
 
@@ -704,7 +704,7 @@ public class S3SRestController {
 					.append( "</a></div>");
 				catpan.append( tmp);
 			} else {
-				catpan.append("<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/"+lang+"/series/"+sid+"\" >"+returnToItem+"</a></div>\r\n<div class=\"clear\"></div>");
+				catpan.append("<div class=\"catpan catpan_back\" style=\"width:1120px;margin:auto;\"><a href=\"/webcatalog/").append(lang).append("/series/").append(sid).append("\" >").append(returnToItem).append("</a></div>\r\n<div class=\"clear\"></div>");
 			}
 		}
 		header+=catpan;
@@ -782,22 +782,18 @@ public class S3SRestController {
 					String modelNo = "品番";
 					String cadPreview = "CADプレビュー";
 					String pdfDatasheet = "簡易図面　　";
-					String pdfDatasheetLogin = "簡易図面をご利用の際はログインが必要となります。";
 					if (baseLang.indexOf("en-") > -1) {
 						modelNo = "Product Part Number";
 						cadPreview = "CAD Preview";
 						pdfDatasheet = "PDF datasheet";
-						pdfDatasheetLogin = "You will need to login to use the PDF datasheet.";
 					} else if (baseLang.indexOf("zh-tw") > -1) {
 						modelNo = "型號";
 						cadPreview = "CAD预览";
 						pdfDatasheet = "PDF 文件";
-						pdfDatasheetLogin = "您需要登入才能使用 PDF 文件。";
 					} else if (baseLang.indexOf("zh-") > -1) {
 						modelNo = "型号";
 						cadPreview = "CAD預覽";
 						pdfDatasheet = "PDF 文件";
-						pdfDatasheetLogin = "您需要登录才能使用 PDF 文件。";
 					}
 					// 枠
 					ret += "<div class=\"w-full mb24 px72 py8 s-px16 s-py8 m-px16 m-py8\">"

@@ -52,7 +52,7 @@ public class DiscontinuedCategoryServiceImpl implements DiscontinuedCategoryServ
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedCategoryServiceImpl.listAllActive()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}
@@ -66,7 +66,7 @@ public class DiscontinuedCategoryServiceImpl implements DiscontinuedCategoryServ
 		}catch (Exception e) {
 			err.setCode(ErrorCode.E99999);
 			err.setMessage(e.getMessage());
-			log.error(e.getMessage() + e.toString());
+			log.error("DiscontinuedCategoryServiceImpl.listAll()="+e.getMessage() + e.toString());
 		}
 		return ret;
 	}

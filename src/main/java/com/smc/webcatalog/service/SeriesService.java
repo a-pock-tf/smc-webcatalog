@@ -72,7 +72,13 @@ public interface SeriesService {
 	 * @return エラーの場合はnullが戻るので、ErrorObjectを確認
 	 */
 	Series getWithCategory(String id, @Nullable Boolean active, ErrorObject err);
-
+	
+	/**
+	 * CategorySeriesを１つだけ検索して、そのcategoryIdを取得
+	 * @return
+	 */
+	String getCategoryId(String seriesId, ErrorObject err);
+	
 	/**
 	 * SeriesLinkも取得
 	 * @param id

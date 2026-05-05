@@ -915,7 +915,6 @@ public class CategoryServiceImpl implements CategoryService {
 					// NarrowDownの更新
 					if (c.isNarrowdown()) {
 						narrowDownService.changeStateColumnValue(c.getId(), prod.getId());
-						narrowDownService.changeStateCompare(c.getId(), prod.getId());
 					} else {
 						narrowDownService.deleteCategoryValue(prodId);
 						narrowDownService.deleteCategoryColumn(prodId);
@@ -944,7 +943,6 @@ public class CategoryServiceImpl implements CategoryService {
 				for(Category c : r) {
 					if (c.isNarrowdown()) {
 						narrowDownService.changeStateColumnValue(c.getStateRefId(), c.getId());
-						narrowDownService.changeStateCompare(c.getStateRefId(), c.getId());
 					} else {
 						narrowDownService.deleteCategoryValue( c.getId());
 						narrowDownService.deleteCategoryColumn( c.getId());
@@ -1714,13 +1712,23 @@ public class CategoryServiceImpl implements CategoryService {
 	// DBに変更があった場合、Contextも変更
 	private List<Category> setContext(String lang, ModelState state, CategoryType type) {
 		List<Category> ret = null;
-		try{
-			Category root = temp.findRoot(lang, state, type);
-			ret = temp.findChild(root.getId(), state, type, true);
-			ret.add(0, root);
-			req.getServletContext().setAttribute(getContextPrefix(lang, state, type), ret);
-		}catch (Exception e) {
-			log.error(e.getMessage() + e.toString());
+		if (lang != null && lang.equals("") == false) {
+			try{
+				Category root = temp.findRoot(lang, state, type);
+				if (root == null) {
+					log.error("CategoryService.setContext(). root is null. lang="+lang+" state="+state+" type="+type);
+				} else {
+					ret = temp.findChild(root.getId(), state, type, true);
+					if (ret == null) {
+						log.error("CategoryService.setContext(). temp.findChild() is null. lang="+lang+" state="+state+" type="+type);
+					} else {
+						ret.add(0, root);
+						req.getServletContext().setAttribute(getContextPrefix(lang, state, type), ret);
+					}
+				}
+			} catch (Exception e) {
+				log.error("CategoryService.setContext(). lang="+lang+" state="+state+" type="+type+" message="+e.getMessage() +" e.toString()="+ e.toString());
+			}
 		}
 		return ret;
 	}

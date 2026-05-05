@@ -33,8 +33,6 @@ import com.smc.webcatalog.model.Category;
 import com.smc.webcatalog.model.ErrorObject;
 import com.smc.webcatalog.model.NarrowDownColumn;
 import com.smc.webcatalog.model.NarrowDownColumnForm;
-import com.smc.webcatalog.model.NarrowDownCompare;
-import com.smc.webcatalog.model.NarrowDownCompareForm;
 import com.smc.webcatalog.model.NarrowDownSeriesForm;
 import com.smc.webcatalog.model.NarrowDownValue;
 import com.smc.webcatalog.model.NarrowDownValueForm;
@@ -128,38 +126,6 @@ public class NarrowDownController extends BaseController {
 		return mav;
 	}
 	
-	/**
-	 * 管理系 > カテゴリ > 比較
-	 * @param myform
-	 * @param mav
-	 * @return
-	 */
-	@GetMapping({ "/compare/{categoryId}"})
-	public ModelAndView listCompare(
-			ModelAndView mav,
-			@ModelAttribute("narrowDownCompareForm") NarrowDownCompareForm vform,
-			@ModelAttribute("SessionUser") User s_user,
-			@ModelAttribute("SessionScreenState") ScreenStatusHolder s_state,
-			@PathVariable(name = "categoryId", required = true) String  categoryId) {
-
-		// Set view
-		mav.setViewName("/login/admin/category/narrowdown_compare");
-		s_state.setView(ViewState.CATEGORY.toString());
-
-		//リスト取得
-		ErrorObject err = new ErrorObject();
-		Category c = categoryService.get(categoryId, err);
-		if (c != null) {
-			vform = getCompareForm(categoryId);
-		}
-
-		//Add Form to View
-		mav.addObject(vform);
-		mav.addObject("category", c);
-		mav.addObject("categoryId", categoryId);
-		setBreadcrumb(mav, c);
-		return mav;
-	}
 	/**
 	 * 管理系 > カテゴリ > 値 > CSVダウンロード
 	 * @param myform
@@ -305,6 +271,7 @@ public class NarrowDownController extends BaseController {
 				mav.addObject("is_success", !obj.isError());
 				idx++;
 			}
+			service.refreshNarrowDownColumns(); // Bean更新
 		} else {
 			// 戻りのページ この場合はedit.htmlなので何もしない
 		}
@@ -370,7 +337,7 @@ public class NarrowDownController extends BaseController {
 								
 								c.setParamRange(tmp);
 							} catch (Exception e) {
-								log.error(e.toString());
+								log.error("postValue()"+e.toString());
 								err.setCode(ErrorCode.E10001);
 								err.setMessage(e.getMessage());
 								result.rejectValue("seriesList", "my.validation.empty", null, "invalid range.");
@@ -407,7 +374,7 @@ public class NarrowDownController extends BaseController {
 	
 									c.setParamRange(tmp);
 								} catch (Exception e) {
-									log.error(e.toString());
+									log.error("postValue() L377="+e.toString());
 									result.rejectValue("seriesList", "my.validation.empty", null, "invalid range.");
 									break;
 								}
@@ -445,99 +412,7 @@ public class NarrowDownController extends BaseController {
 		setBreadcrumb(mav, c);
 		return mav;
 	}
-	/**
-	 * POSTされたデータからDB更新
-	 * @param mav
-	 * @param form
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value = "/compare/post", method = RequestMethod.POST)
-	public ModelAndView postCompare(
-			ModelAndView mav,
-			@Validated @ModelAttribute("narrowDownCompareForm") NarrowDownCompareForm form,
-			@ModelAttribute("SessionUser") User s_user,
-			@RequestParam(name = "categoryId", required = false) String categoryId,
-			BindingResult result) {
-		// XXX BindingResultは@Validatedの直後の引数にする
 
-		// Set view
-		mav.setViewName("/login/admin/category/narrowdown_compare");
-
-		log.debug(form.toString());
-
-		// エラー判定
-		if (!result.hasErrors()) {
-			JSONArray jsonArray = new JSONArray(form.getJson());
-			List<String[]> list = new ArrayList<>();
-			for(Object obj : jsonArray.toList()) {
-				List<Object> oList = (List<Object>)obj;
-				String[] arr = new String[(oList).size()];
-				int cnt = 0;
-				for(Object o : oList) {
-					if (o == null) {
-						arr[cnt] = null;
-					} else {
-						arr[cnt] = ((String)o).trim();
-					}
-					cnt++;
-				}
-				list.add(arr);
-			}
-			{
-				// 変更前のリスト取得。同一のIDが無ければ削除
-				ErrorObject err = new ErrorObject();
-				List<NarrowDownCompare> clist = service.getCategoryCompare(categoryId, null, err);
-				if (list.size() > 1) {
-					for(NarrowDownCompare c : clist) {
-						boolean isFind = false;
-						// 列を追加削除されると順番が変わるので、全列を比較。
-						for(String tmp : list.get(1)) { // handsontableの隠し行にidがある。
-							if (tmp != null && c.getId().equals(tmp)) isFind = true;
-						}
-						if (isFind == false) {
-							// 項目入れ替え。一旦すべて削除
-							service.deleteCompare(c.getId());
-							// 本番も削除。
-							service.deleteProdCompare(c.getId());
-						}
-					}
-				} else {
-					// 全削除。2行目が無い = すべて新規のhandsontable
-					service.deleteCategoryCompare(categoryId);
-
-				}
-			}
-			int idx = 0;
-			for(String str : list.get(0)) {
-				NarrowDownCompare col = new  NarrowDownCompare();
-				col.setCategoryId(form.getCategoryId());
-				col.setTitle(str);
-				if (list.size() > 1 && list.get(1)[idx] != null && list.get(1)[idx].isEmpty() == false) {
-					col.setId(list.get(1)[idx]);
-				}
-				col.setOrder(idx);
-				// 保存
-				ErrorObject obj = service.saveCompare(col);
-				mav.addObject("is_success", !obj.isError());
-				idx++;
-			}
-		} else {
-			// 戻りのページ この場合はedit.htmlなので何もしない
-		}
-		ErrorObject err = new ErrorObject();
-		Category c = categoryService.getWithSeries(categoryId, false, err);
-		if (c != null) {
-//			form = getColumnForm(categoryId);
-		}
-
-		// フォームを更新(再編集用)
-		mav.addObject(form);
-		mav.addObject("category", c);
-		mav.addObject("categoryId", categoryId);
-		setBreadcrumb(mav, c);
-		return mav;
-	}
 	
 	@PostMapping(value = "/valueCSV/post")
 	public ModelAndView uploadFile(
@@ -803,28 +678,7 @@ public class NarrowDownController extends BaseController {
 		
 		return ret;
 	}
-	private NarrowDownCompareForm getCompareForm(String  categoryId) {
-		NarrowDownCompareForm ret = new NarrowDownCompareForm();
-		ErrorObject err = new ErrorObject();
-		List<NarrowDownCompare> list = service.getCategoryCompare(categoryId, null, err);
-		if (list != null) {
-			ret.setCategoryId(categoryId);
-			List<String> tmp = new ArrayList<>();
-			List<String> tmp2 = new ArrayList<>();
-			for(NarrowDownCompare c : list) {
-				tmp.add(c.getTitle());
-				tmp2.add(c.getId());
-			}
-			if (list.size() > 0) {
-				JSONArray jsonArray = new JSONArray();
-				jsonArray.put(0,tmp);
-				jsonArray.put(1, tmp2);
-				ret.setJson(jsonArray.toString());
-			}
-		}
-		
-		return ret;
-	}
+
 	private void setBreadcrumb(ModelAndView mav, Category c) {
 		List<Category> breadcrumb = null;
 		ErrorObject err = new ErrorObject();

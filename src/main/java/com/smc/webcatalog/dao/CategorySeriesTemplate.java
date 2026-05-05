@@ -9,6 +9,8 @@ public interface CategorySeriesTemplate {
 
 		List<CategorySeries> findBySeriesId(String id);
 
+		CategorySeries findOneBySeriesId(String id);
+
 		List<CategorySeries> findAllByCategoryId(String id);
 
 		List<CategorySeries> findAllByCategoryAndSeriesId(String categoryId, String seriesId);
