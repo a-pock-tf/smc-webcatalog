@@ -395,7 +395,7 @@ public class PreviewController extends BaseController {
 			temp = StringUtils.replace(temp,"$$$formbox$$$", formbox);
 			
 			String viewStr = html.getListDisplaySelection2026(lang, c2, view, action, ndCnt, request);
-			temp = StringUtils.replace(temp,"$$$h1box$$$", html.getH1box2026(h1box, c2.getName()) + viewStr);
+			String h1Str = html.getH1box2026(h1box, c2.getName());
 
 			String content = "<div class=\"mb48\">\r\n";
 			SeriesHtml sHtml = new SeriesHtml(getLocale(baseLang), messagesource, omlistService, faqRepo);
@@ -412,6 +412,7 @@ public class PreviewController extends BaseController {
 						}
 						cnt++;
 					}
+					h1Str += viewStr;
 				} else if (view != null && view.equals("compare")) {
 					HashMap<String, List<NarrowDownValue>> map = new HashMap<>();
 					for (Series s : list) {
@@ -420,8 +421,9 @@ public class PreviewController extends BaseController {
 					}
 					List<NarrowDownColumn> colList = narrowDownService.getCategoryColumn(c2.getId(), true, err);
 					content += sHtml.getCompareHtml2026(lang, baseLang, c, c2, colList, list, map, null);
+					h1Str += viewStr;
 				} else {
-					content += sHtml.getPictureList2026(c, c2, list);
+					content += sHtml.getPictureList2026(c, c2, viewStr, list);
 				}
 			} else {
 				if (baseLang.indexOf("en-") > -1) {
@@ -434,6 +436,8 @@ public class PreviewController extends BaseController {
 					content = "<h4>条件に一致したシリーズがありませんでした。</h4>";
 				}
 			}
+			temp = StringUtils.replace(temp,"$$$h1box$$$",h1Str);
+			
 			if (view != null && view.equals("compare")) {
 				content += "</div>\r\n";
 			} else {

@@ -247,7 +247,6 @@ public class SeriesHtml {
 			+ "                              </div>\r\n"
 			+ "                            </div>\r\n"
 			+ "                          </div>\r\n"
-			+ "                          <div id=\"gnreco-detail\"></div>\r\n"
 			+ "                          <div class=\"mb24\">\r\n"
 			+ "                            $$$other$$$\r\n"
 			+ "                          </div>\r\n"
@@ -272,7 +271,11 @@ public class SeriesHtml {
 //			+ "                                <div><span class=\"text-sm leading-tight fw5 hover-link-underline\">$$$supportTitle$$$</span></div></a>\r\n"
 //			+ "                            </div>\r\n"
 //			+ "                          </div>\r\n"
-			+ "                          <div class=\"mb48\" id=\"features\"><span class=\"text-2xl leading-tight fw5\">$$$advantageTitle$$$</span>\r\n"
+			+ "                          <div id=\"gnreco-detail\"></div>\r\n"
+			+ "                          <a name=\"detail\"></a>\r\n" 
+			+ "                          <div id=\"detail\" class=\"features\">\r\n" 
+			+ "                          <div class=\"mb48\" id=\"features\">"
+			+ "                            <span class=\"text-2xl leading-tight fw5\">$$$advantageTitle$$$</span>\r\n"
 			+ "                            $$$advantageBody$$$\r\n"
 			+ "                          </div>\r\n"
 			+ "                          $$$backUrl$$$\r\n"
@@ -2607,28 +2610,30 @@ public class SeriesHtml {
 		ret += "</div>\r\n";
 		return ret;
 	}
-	public String getPictureList2026(Category c, Category c2, List<Series> list) {
-		String ret = "<div class=\"tile-grid-wrap\">\r\n"
-					+ "  <div class=\"grid border-left tile-grid-fixed grid-autofit-300 s-grid-autofit-160\">\r\n";
+	public String getPictureList2026(Category c, Category c2, String select, List<Series> list) {
+		StringBuilder ret = new StringBuilder();
+		ret.append("<div class=\"tile-grid-wrap\">\r\n")
+			.append( select)
+			.append( "  <div class=\"grid border-left grid-autofit-300 s-grid-autofit-160\">\r\n");
 		for (Series s : list) {
-			ret += "<a class=\"f fclm flex-top gap-16 border-top bg-base-container-default border-bottom border-right p16 s-gap-10\" href=\""+AppConfig.ContextPath+"/"+s.getLang()+"/"+c.getSlug()+"/"+c2.getSlug()+"/"+s.getModelNumber()+"\">";
+			ret.append( "<a class=\"f fclm flex-top gap-16 border-top bg-base-container-default border-bottom border-right p16 s-gap-10\" href=\""+AppConfig.ContextPath+"/"+s.getLang()+"/"+c.getSlug()+"/"+c2.getSlug()+"/"+s.getModelNumber()+"\">");
 			if (s.getImage() != null && s.getImage().isEmpty() == false ) {
 				String imgUrl = "";
 				if (s.getLang() != null && s.getLang().equals("zh-cn")) imgUrl = AppConfig.ImageProdPath+s.getLang()+"/"+s.getImage();
 				else imgUrl = AppConfig.ImageProdUrl+s.getLang()+"/"+s.getImage();
-				ret += "<img class=\"w-full object-fit-contain object-position-top\" src=\""+imgUrl+"\" alt=\""+s.getNumber()+"\">\r\n";
+				ret.append( "<img class=\"w-full object-fit-contain object-position-top\" src=\"").append(imgUrl).append("\" alt=\"").append(s.getNumber()).append("\">\r\n");
 			}
-			ret += "<div class=\"f fclm gap-8\">\r\n"
-					+ "<div class=\"f gap-8 s-gap-4 m-gap-4\">\r\n"
-					+ "<div class=\"f fm flex-fixed h24\"><img class=\"object-fit-contain s16\" src=\"/assets/smcimage/common/arrow-right.svg\" alt=\"\" aria-hidden=\"true\"></div>\r\n"
-					+ "<span class=\"text-base leading-normal fw5 word-break-word\"><span class=\"hover-link-underline\">"+s.getNumber()+"</span></span></div>\r\n"
-					+ "<span class=\"pl24 leading-tight fw5 text-base-foreground-muted text-xs s-text-sm\">"+s.getName()+"</span></div>"
-					+ "</a>";
+			ret.append( "<div class=\"f fclm gap-8\">\r\n")
+				.append( "<div class=\"f gap-8 s-gap-4 m-gap-4\">\r\n")
+				.append( "<div class=\"f fm flex-fixed h24\"><img class=\"object-fit-contain s16\" src=\"/assets/smcimage/common/arrow-right.svg\" alt=\"\" aria-hidden=\"true\"></div>\r\n")
+				.append( "<span class=\"text-base leading-normal fw5 word-break-word\"><span class=\"hover-link-underline\">"+s.getNumber()+"</span></span></div>\r\n")
+				.append( "<span class=\"pl24 leading-tight fw5 text-base-foreground-muted text-xs s-text-sm\">"+s.getName()+"</span></div>")
+				.append( "</a>");
 			
 		}
-		ret += "  </div>\r\n"
-			+ "</div>\r\n";
-		return ret;
+		ret.append( "  </div>\r\n")
+			.append( "</div>\r\n");
+		return ret.toString();
 	}
 
 	/**

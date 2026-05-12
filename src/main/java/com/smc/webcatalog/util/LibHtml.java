@@ -553,6 +553,8 @@ public class LibHtml {
 		Map<String, String> gList = null; // ガイド用。特長なし、マイリスト無し。ページ作成
 		Map<String, String> seriesList = null; // 特長あり。戻るボタンはreferrer
 		try {
+			Locale locale = getLocale(c.getLang());
+			SeriesHtml sHtml = new SeriesHtml(locale, messagesource, omlistService, faqRepo);
 			if (c2 != null ) {
 				sList = new HashMap<String, String>();
 				gList = new HashMap<String, String>();
@@ -571,8 +573,6 @@ public class LibHtml {
 					formbox = tc.getFormbox();
 					h1box = getH1box2026(tc.getH1box(), c2.getName());
 
-					Locale locale = getLocale(c.getLang());
-					SeriesHtml sHtml = new SeriesHtml(locale, messagesource, omlistService, faqRepo);
 					ErrorObject err = new ErrorObject();
 					for(Series s : list) {
 						s.setLink(seriesService.getLink(s.getId(), err));
@@ -584,10 +584,6 @@ public class LibHtml {
 						String strA = sHtml.getGuide2026(s, c, c2, url, c.getLang(), true, false); // 特長有り
 						seriesList.put(s.getModelNumber(), strA);
 					}
-// 旧処理。動作確認OKなら削除 3/31
-//					content = "<div class=\"p_block\">\r\n" + content + "</div><!-- p_block -->\r\n";
-//					contentPicture = "<div class=\"p_block\">\r\n" + sHtml.getPictureList2026(c, c2, list) + "</div><!-- p_block -->\r\n";
-					contentPicture = sHtml.getPictureList2026(c, c2, list);
 
 					String baseLang = c.getLang();
 					Lang langObj = langService.getLang(baseLang, err);
@@ -616,8 +612,6 @@ public class LibHtml {
 					sList = new HashMap<String, String>();
 					gList = new HashMap<String, String>();
 					seriesList = new HashMap<String, String>();
-					Locale locale = getLocale(c.getLang());
-					SeriesHtml sHtml = new SeriesHtml(locale, messagesource, omlistService, faqRepo);
 					ErrorObject err = new ErrorObject();
 					String url = AppConfig.ProdRelativeUrl+c.getLang()+"/"+c.getSlug();
 					for(Series s: list) {
@@ -656,6 +650,7 @@ public class LibHtml {
 				sidebar = StringUtils.replace(sidebar,"$$$narrowdown$$$", narrowDown); // 2024/10/24 絞り込み検索
 				viewStr = getListDisplaySelection2026(c.getLang(), c2, "list", null, 0, null);
 				viewPicture = getListDisplaySelection2026(c.getLang(), c2, "picture", null, 0, null);
+				contentPicture = sHtml.getPictureList2026(c, c2, viewPicture, list);
 				if (c2.isCompare()) {
 					viewCompare = getListDisplaySelection2026(c.getLang(), c2, "compare", null, 0, null);
 				}
@@ -669,7 +664,7 @@ public class LibHtml {
 			preContent = StringUtils.replace(preContent,"$$$h1box$$$", ""); // 特長書き出し用。検索ボックス、h1box無し。
 			preContent = StringUtils.replace(preContent,"$$$formbox$$$", ""); // 特長書き出し用。検索ボックス、h1box無し。
 			temp = StringUtils.replace(temp,"$$$formbox$$$", formbox);
-			String tempPicture = StringUtils.replace(temp,"$$$h1box$$$", h1box + viewPicture);
+			String tempPicture = StringUtils.replace(temp,"$$$h1box$$$", h1box);
 			String tempCompare = StringUtils.replace(temp,"$$$h1box$$$", h1box + viewCompare);
 			temp = StringUtils.replace(temp,"$$$h1box$$$", h1box + viewStr);
 
@@ -739,8 +734,6 @@ public class LibHtml {
 
 			// 特長無し
 			if (sList != null && sList.size() > 0 ) {
-				Locale locale = getLocale(c.getLang());
-				SeriesHtml sHtml = new SeriesHtml(locale, messagesource, omlistService, faqRepo);
 				for(String k : sList.keySet()) {
 					if (k == null) continue;
 

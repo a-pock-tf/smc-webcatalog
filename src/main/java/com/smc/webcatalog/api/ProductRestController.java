@@ -1642,6 +1642,7 @@ public class ProductRestController {
 					sidebar = StringUtils.replace(sidebar,"$$$narrowdown$$$", narrowDown);
 				}
 				
+				String viewStr = "";
 				if (is2026) {
 					List<String> category = html.getCategoryMenu2026(lang, c.getId(), c2.getId(), setCategoryList);
 					sidebar = StringUtils.replace(sidebar,"$$$category$$$",category.get(0));
@@ -1657,14 +1658,13 @@ public class ProductRestController {
 					else if (narrowDownCount != null) ndCnt = Integer.parseInt(narrowDownCount);
 					else if (nCnt != null && ndCnt == 0) ndCnt = Integer.parseInt(nCnt);
 
-					String viewStr = "";
 					if (list != null && list.size() > 0) {
 						viewStr = html.getListDisplaySelection2026(lang, c2, view, action, ndCnt, request); // 検索窓下のリスト表示種別選択（一覧、画像、仕様比較）
 					}
 					
 					String t1 = c2.getName().substring(0, 1);
 					String t2 = c2.getName().substring(1);
-					temp = StringUtils.replace(temp,"$$$h1box$$$", tc.getH1box().replace("$$$title21$$$",t1).replace("$$$title22$$$",t2) + viewStr);
+					temp = StringUtils.replace(temp,"$$$h1box$$$", tc.getH1box().replace("$$$title21$$$",t1).replace("$$$title22$$$",t2));
 				} else {
 					List<String> category = html.getCategoryMenu(lang, c.getId(), c2.getId(), setCategoryList);
 					sidebar = StringUtils.replace(sidebar,"$$$category$$$",category.get(0));
@@ -1696,7 +1696,7 @@ public class ProductRestController {
 					int ndCnt = 0;
 					if (key != null && key.length > 0) ndCnt = key.length; // narrowKeyが無くなれば削除！2025/11/25
 					else if (narrowDownCount != null) ndCnt = Integer.parseInt(narrowDownCount);
-					String viewStr = html.getListDisplaySelection(lang, c2, view, action, ndCnt, request); // 検索窓下のリスト表示種別選択
+					viewStr = html.getListDisplaySelection(lang, c2, view, action, ndCnt, request); // 検索窓下のリスト表示種別選択
 					temp = StringUtils.replace(temp,"$$$h1box$$$", tc.getFormbox() + viewStr); // ↑小カテゴリは逆
 				}
 				
@@ -1714,6 +1714,9 @@ public class ProductRestController {
 								content.append( sHtml.get(s, c, c2, request.getRequestURI(), c.getLang(), false, false));
 							}
 						}
+						if (is2026) {
+							temp += viewStr; // pictureは個別に設定。
+						}
 					} else if (view.equals("compare")) {
 						// narrow_down_compare削除後不要。2025/11/25
 //						List<NarrowDownCompare> compareList = narrowDownService.getCategoryCompare(c2.getId(), true, err);
@@ -1725,12 +1728,13 @@ public class ProductRestController {
 						List<NarrowDownColumn> colList = narrowDownService.getCategoryColumn(c2.getId(), true, err);
 						if (is2026) {
 							content.append( sHtml.getCompareHtml2026(lang, baseLang, c, c2, colList, list, map, request));
+							temp += viewStr; // pictureは個別に設定。
 						} else {
 							content.append( sHtml.getCompareHtml(lang, baseLang, c, c2, colList, list, map, request));
 						}
 					} else {
 						if (is2026) {
-							content.append( sHtml.getPictureList2026(c, c2, list));
+							content.append( sHtml.getPictureList2026(c, c2, viewStr, list));
 						} else {
 							content.append( sHtml.getPictureList(c, c2, list));
 						}
